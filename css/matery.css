@@ -23,7 +23,7 @@
     .post-container {
         width: 90%;
         margin: 0 auto;
-        max-width: 2650px;
+        max-width: 1250px;
     }
 }
 
@@ -212,7 +212,7 @@ header nav .brand-span {
 }
 
 header .brand-logo .logo-img {
-    height: 0px;
+    height: 45px;
     vertical-align: middle;
     padding-bottom: 6px;
 }
@@ -356,11 +356,11 @@ header .go-back i {
 }
 
 .index-cover {
-    height: 10vh;
+    height: 100vh;
 }
 
 .post-cover {
-    height: 25vh !important;
+    height: 40vh !important;
 }
 
 .bg-cover:after {
