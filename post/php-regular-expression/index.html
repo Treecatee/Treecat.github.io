@@ -100,11 +100,11 @@ PHP 正则表达式
     </li>
     
     <li class="hide-on-med-and-down">
-        <a href="/friends" class="waves-effect waves-light">
+        <a href="/book" class="waves-effect waves-light">
             
             <i class="fa fa-address-book"></i>
             
-            <span>Friends</span>
+            <span>Resourse</span>
         </a>
     </li>
     
@@ -186,11 +186,11 @@ PHP 正则表达式
         </li>
         
         <li>
-            <a href="/friends" class="waves-effect waves-light">
+            <a href="/book" class="waves-effect waves-light">
                 
                 <i class="fa fa-fw fa-address-book"></i>
                 
-                Friends
+                Resourse
             </a>
         </li>
         
@@ -213,10 +213,23 @@ PHP 正则表达式
 </header>
 
 
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2019/02/15/5c66518f6861b.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1591,7 +1604,7 @@ var_dump<span class="token punctuation">(</span><span class="token variable">$ma
     <div id="rewardModal" class="modal">
         <div class="modal-content">
             <a class="close modal-close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs row">
@@ -1641,9 +1654,56 @@ var_dump<span class="token punctuation">(</span><span class="token variable">$ma
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f0e6b43ea59ab9e24a70',
+        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
+        repo: 'Directoree.github.io',
+        owner: 'Directoree',
+        admin: "Directoree",
+        id: '2019-02-14T21-40-36',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
 
     
 
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'Treecatee.gitgub.io/post/php-regular-expression/';
+        this.page.identifier = '/post/php-regular-expression/';
+        this.page.title = 'PHP-正则表达式';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
     
 
     
@@ -1662,8 +1722,7 @@ var_dump<span class="token punctuation">(</span><span class="token variable">$ma
                 <a href="/post/php-function/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="PHP-函数">
+                        <img src="https://i.loli.net/2019/02/21/5c6e422e83744.jpg" class="responsive-img" alt="PHP-函数">
                         
                         <span class="card-title">PHP-函数</span>
                     </div>
@@ -1714,8 +1773,7 @@ PHP 函数
                 <a href="/post/php-namespace/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="PHP-命名空间">
+                        <img src="https://i.loli.net/2019/02/15/5c6651eebdaec.jpg" class="responsive-img" alt="PHP-命名空间">
                         
                         <span class="card-title">PHP-命名空间</span>
                     </div>
@@ -1840,15 +1898,19 @@ PHP 函数
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
+    <a href="directoree.top" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
@@ -1899,8 +1961,6 @@ $(function () {
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-
-    <script src="/libs/others/clicklove.js"></script>
 
 
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

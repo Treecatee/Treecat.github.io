@@ -97,11 +97,11 @@
     </li>
     
     <li class="hide-on-med-and-down">
-        <a href="/friends" class="waves-effect waves-light">
+        <a href="/book" class="waves-effect waves-light">
             
             <i class="fa fa-address-book"></i>
             
-            <span>Friends</span>
+            <span>Resourse</span>
         </a>
     </li>
     
@@ -183,11 +183,11 @@
         </li>
         
         <li>
-            <a href="/friends" class="waves-effect waves-light">
+            <a href="/book" class="waves-effect waves-light">
                 
                 <i class="fa fa-fw fa-address-book"></i>
                 
-                Friends
+                Resourse
             </a>
         </li>
         
@@ -210,10 +210,23 @@
 </header>
 
 
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2018/12/24/5c20d0ac2faa2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -500,7 +513,7 @@ public final class System  extends Object<span class="token punctuation">{</span
     <div id="rewardModal" class="modal">
         <div class="modal-content">
             <a class="close modal-close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs row">
@@ -550,9 +563,56 @@ public final class System  extends Object<span class="token punctuation">{</span
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f0e6b43ea59ab9e24a70',
+        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
+        repo: 'Directoree.github.io',
+        owner: 'Directoree',
+        admin: "Directoree",
+        id: '2018-12-14T01-00-39',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
 
     
 
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'Treecatee.gitgub.io/post/java-io-1/';
+        this.page.identifier = '/post/java-io-1/';
+        this.page.title = 'Java的输入输出';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
     
 
     
@@ -571,8 +631,7 @@ public final class System  extends Object<span class="token punctuation">{</span
                 <a href="/post/xampp-dvwa/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="XAMPP环境下配置DVWA">
+                        <img src="https://i.loli.net/2018/12/24/5c20d1ab47ce1.jpg" class="responsive-img" alt="XAMPP环境下配置DVWA">
                         
                         <span class="card-title">XAMPP环境下配置DVWA</span>
                     </div>
@@ -621,8 +680,7 @@ sudo chmod a+x xampp-linux-x64-5.6.12-0-in</div>
                 <a href="/post/sqlmap-shell/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="SQLMAP命令大全">
+                        <img src="https://i.loli.net/2018/12/24/5c20d190199db.jpg" class="responsive-img" alt="SQLMAP命令大全">
                         
                         <span class="card-title">SQLMAP命令大全</span>
                     </div>
@@ -744,15 +802,19 @@ sudo chmod a+x xampp-linux-x64-5.6.12-0-in</div>
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
+    <a href="directoree.top" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
@@ -803,8 +865,6 @@ $(function () {
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-
-    <script src="/libs/others/clicklove.js"></script>
 
 
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

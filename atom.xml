@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Treecatee.gitgub.io/"/>
-  <updated>2019-01-11T12:36:32.077Z</updated>
+  <updated>2019-03-06T16:38:15.957Z</updated>
   <id>Treecatee.gitgub.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="Treecatee.gitgub.io/post/markdownusage/"/>
     <id>Treecatee.gitgub.io/post/markdownusage/</id>
     <published>2019-03-06T02:11:53.341Z</published>
-    <updated>2019-01-11T12:36:32.077Z</updated>
+    <updated>2019-03-06T16:38:15.957Z</updated>
     
     <summary type="html">
     
@@ -44,7 +44,7 @@
     <link href="Treecatee.gitgub.io/post/hello-world/"/>
     <id>Treecatee.gitgub.io/post/hello-world/</id>
     <published>2019-03-06T02:11:53.270Z</published>
-    <updated>2019-03-02T14:27:18.666Z</updated>
+    <updated>2019-03-06T16:23:49.202Z</updated>
     
     <summary type="html">
     
@@ -66,7 +66,7 @@
     <link href="Treecatee.gitgub.io/post/python-modules-packages/"/>
     <id>Treecatee.gitgub.io/post/python-modules-packages/</id>
     <published>2019-03-03T10:28:06.000Z</published>
-    <updated>2019-03-03T11:33:17.056Z</updated>
+    <updated>2019-03-06T16:36:20.361Z</updated>
     
     <summary type="html">
     
@@ -86,7 +86,7 @@
     <link href="Treecatee.gitgub.io/post/python-generator-iterator/"/>
     <id>Treecatee.gitgub.io/post/python-generator-iterator/</id>
     <published>2019-03-03T02:33:30.000Z</published>
-    <updated>2019-03-03T07:32:37.552Z</updated>
+    <updated>2019-03-06T16:36:54.295Z</updated>
     
     <summary type="html">
     
@@ -106,7 +106,7 @@
     <link href="Treecatee.gitgub.io/post/python-function/"/>
     <id>Treecatee.gitgub.io/post/python-function/</id>
     <published>2019-03-02T06:18:58.000Z</published>
-    <updated>2019-03-03T11:33:20.285Z</updated>
+    <updated>2019-03-06T16:36:58.019Z</updated>
     
     <summary type="html">
     
@@ -126,7 +126,7 @@
     <link href="Treecatee.gitgub.io/post/python-operators/"/>
     <id>Treecatee.gitgub.io/post/python-operators/</id>
     <published>2019-03-01T07:06:47.000Z</published>
-    <updated>2019-03-01T07:08:22.714Z</updated>
+    <updated>2019-03-06T16:36:17.059Z</updated>
     
     <summary type="html">
     
@@ -146,7 +146,7 @@
     <link href="Treecatee.gitgub.io/post/python-conditionalstatements-loops/"/>
     <id>Treecatee.gitgub.io/post/python-conditionalstatements-loops/</id>
     <published>2019-03-01T03:29:20.000Z</published>
-    <updated>2019-03-01T07:11:19.281Z</updated>
+    <updated>2019-03-06T16:37:02.457Z</updated>
     
     <summary type="html">
     
@@ -166,7 +166,7 @@
     <link href="Treecatee.gitgub.io/post/python-list-tuple-dict-set/"/>
     <id>Treecatee.gitgub.io/post/python-list-tuple-dict-set/</id>
     <published>2019-02-28T12:28:00.000Z</published>
-    <updated>2019-03-02T09:10:23.177Z</updated>
+    <updated>2019-03-06T16:36:44.771Z</updated>
     
     <summary type="html">
     
@@ -186,7 +186,7 @@
     <link href="Treecatee.gitgub.io/post/python-coding/"/>
     <id>Treecatee.gitgub.io/post/python-coding/</id>
     <published>2019-02-27T17:15:48.000Z</published>
-    <updated>2019-02-28T03:38:54.922Z</updated>
+    <updated>2019-03-06T16:37:05.300Z</updated>
     
     <summary type="html">
     
@@ -206,7 +206,7 @@
     <link href="Treecatee.gitgub.io/post/python-variables-datatypes/"/>
     <id>Treecatee.gitgub.io/post/python-variables-datatypes/</id>
     <published>2019-02-27T12:00:39.000Z</published>
-    <updated>2019-03-01T09:19:34.619Z</updated>
+    <updated>2019-03-06T16:36:09.793Z</updated>
     
     <summary type="html">
     
@@ -226,7 +226,7 @@
     <link href="Treecatee.gitgub.io/post/python-grammar/"/>
     <id>Treecatee.gitgub.io/post/python-grammar/</id>
     <published>2019-02-27T08:06:40.000Z</published>
-    <updated>2019-03-03T07:58:45.938Z</updated>
+    <updated>2019-03-06T16:36:50.762Z</updated>
     
     <summary type="html">
     
@@ -246,7 +246,7 @@
     <link href="Treecatee.gitgub.io/post/python-basics/"/>
     <id>Treecatee.gitgub.io/post/python-basics/</id>
     <published>2019-02-27T02:18:37.000Z</published>
-    <updated>2019-03-03T10:27:53.830Z</updated>
+    <updated>2019-03-06T16:37:08.552Z</updated>
     
     <summary type="html">
     
@@ -266,7 +266,7 @@
     <link href="Treecatee.gitgub.io/post/php-sessionmanagement/"/>
     <id>Treecatee.gitgub.io/post/php-sessionmanagement/</id>
     <published>2019-02-26T09:22:53.000Z</published>
-    <updated>2019-03-02T09:53:38.327Z</updated>
+    <updated>2019-03-06T16:37:18.520Z</updated>
     
     <summary type="html">
     
@@ -286,7 +286,7 @@
     <link href="Treecatee.gitgub.io/post/php-mysql/"/>
     <id>Treecatee.gitgub.io/post/php-mysql/</id>
     <published>2019-02-24T02:32:17.000Z</published>
-    <updated>2019-02-27T17:13:19.685Z</updated>
+    <updated>2019-03-06T16:37:37.536Z</updated>
     
     <summary type="html">
     
@@ -308,7 +308,7 @@
     <link href="Treecatee.gitgub.io/post/mysql-primer/"/>
     <id>Treecatee.gitgub.io/post/mysql-primer/</id>
     <published>2019-02-23T06:23:42.000Z</published>
-    <updated>2019-02-25T10:57:56.282Z</updated>
+    <updated>2019-03-06T16:37:52.320Z</updated>
     
     <summary type="html">
     
@@ -330,7 +330,7 @@
     <link href="Treecatee.gitgub.io/post/php-upload/"/>
     <id>Treecatee.gitgub.io/post/php-upload/</id>
     <published>2019-02-21T06:10:14.000Z</published>
-    <updated>2019-02-26T08:25:35.058Z</updated>
+    <updated>2019-03-06T16:37:15.214Z</updated>
     
     <summary type="html">
     
@@ -350,7 +350,7 @@
     <link href="Treecatee.gitgub.io/post/php-filesystem/"/>
     <id>Treecatee.gitgub.io/post/php-filesystem/</id>
     <published>2019-02-20T05:29:20.000Z</published>
-    <updated>2019-02-26T08:22:31.455Z</updated>
+    <updated>2019-03-06T16:37:44.250Z</updated>
     
     <summary type="html">
     
@@ -370,7 +370,7 @@
     <link href="Treecatee.gitgub.io/post/php-function/"/>
     <id>Treecatee.gitgub.io/post/php-function/</id>
     <published>2019-02-15T12:25:45.000Z</published>
-    <updated>2019-02-26T08:22:37.627Z</updated>
+    <updated>2019-03-06T16:37:41.324Z</updated>
     
     <summary type="html">
     
@@ -390,7 +390,7 @@
     <link href="Treecatee.gitgub.io/post/php-regular-expression/"/>
     <id>Treecatee.gitgub.io/post/php-regular-expression/</id>
     <published>2019-02-14T13:40:36.000Z</published>
-    <updated>2019-02-26T08:22:51.262Z</updated>
+    <updated>2019-03-06T16:37:21.715Z</updated>
     
     <summary type="html">
     
@@ -410,7 +410,7 @@
     <link href="Treecatee.gitgub.io/post/php-namespace/"/>
     <id>Treecatee.gitgub.io/post/php-namespace/</id>
     <published>2019-02-14T02:09:57.000Z</published>
-    <updated>2019-02-26T08:25:51.253Z</updated>
+    <updated>2019-03-06T16:37:24.867Z</updated>
     
     <summary type="html">
     
