@@ -1,0 +1,1291 @@
+<!DOCTYPE HTML>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java简单语句、复合语句、控制语句(3.7-3.8), Treecatee">
+    <meta name="description" content="&amp;ensp;&amp;ensp;
+简单语句和复合语句 &amp;amp; 控制语句
+
+&amp;emsp;&amp;emsp;
+一、 简单语句和复合语句 1.1  变量定义语句 变量定义语句用来定义一个变量，基本格式为：&amp;emsp;&amp;emsp;            类型">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Java简单语句、复合语句、控制语句(3.7-3.8) | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Home</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <span>Links</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Home
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                Links
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Java简单语句、复合语句、控制语句(3.7-3.8)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java学习/" target="_blank">
+                                <span class="chip bg-color">Java学习</span>
+                            </a>
+                        
+                            <a href="/tags/Java语言/" target="_blank">
+                                <span class="chip bg-color">Java语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-01-12
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        3.7k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        16 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>&ensp;<br>&ensp;</p>
+<center><font color="#3CB371" face="Comic sans MS" size="5"><strong>简单语句和复合语句 &amp; 控制语句</strong></font></center>
+
+<p>&emsp;<br>&emsp;</p>
+<h3 id="一、-简单语句和复合语句"><a href="#一、-简单语句和复合语句" class="headerlink" title="一、 简单语句和复合语句 "></a><font color="#FF6347" face="Comic sans MS">一、 简单语句和复合语句 </font></h3><h4 id="1-1-变量定义语句"><a href="#1-1-变量定义语句" class="headerlink" title="1.1  变量定义语句"></a><font color="#3CB371" face="Comic sans MS">1.1  变量定义语句</font></h4><font face="Comic sans MS"> 变量定义语句用来定义一个变量，基本格式为：<br>&emsp;&emsp;<font color="red">            类型 变量名1, 变量名2…；</font><br>       例：char c=‘a’;  int i,j=1;<br></font>
+
+<h4 id="1-2-赋值语句"><a href="#1-2-赋值语句" class="headerlink" title="1.2  赋值语句"></a><font color="#3CB371" face="Comic sans MS">1.2  赋值语句</font></h4><font face="Comic sans MS">  赋值语句是将表达式的值赋给变量，其格式为：<br>&emsp;&emsp;<font color="red">变量=表达式；</font><br>      例： char c;  c=‘a’;<br></font>
+
+<h4 id="1-3-方法调用语句"><a href="#1-3-方法调用语句" class="headerlink" title="1.3  方法调用语句 "></a><font color="#3CB371" face="Comic sans MS">1.3  方法调用语句 </font></h4><font face="Comic sans MS"> 方法调用语句的一般形式为：<br>&emsp;&emsp;<font color="red">对象.方法名( 实参数列表 );</font><br>      例如  System.out.println(“Example!”);<br></font>
+
+<h4 id="1-4-空语句"><a href="#1-4-空语句" class="headerlink" title="1.4  空语句 "></a><font color="#3CB371" face="Comic sans MS">1.4  空语句 </font></h4><font face="Comic sans MS"> 方法调用语句的一般形式为：<br>&emsp;&emsp;<font color="red">；//这是一条空语句</font><br></font>
+
+<h4 id="1-5-标准输入输出（I-O）"><a href="#1-5-标准输入输出（I-O）" class="headerlink" title="1.5  标准输入输出（I/O） "></a><font color="#3CB371" face="Comic sans MS">1.5  标准输入输出（I/O） </font></h4><font face="Comic sans MS">输入和输出是Java程序的重要组成部分,它提供了人机交互的手段，它们属于方法调用语句。<a href="https://directoree.top/post/Java-IO-1" target="_blank" rel="noopener">具体使用方法参考本博客IO使用方法</a>。<br><br><font color="#00B2EE"><strong>1. 输入输出</strong></font><br>       输入是指把需要加工的数据放到程序中,read<br>       输出则把程序处理的结果呈现给用户,write<br><font color="#00B2EE"><strong>2. 标准输入输出</strong></font><br>       一般用键盘作为标准的输入设备<br>       显示器则是标准的输出设备<br><strong>通过System.in和System.out对象分别与键盘和显示器发生联系进行输入和输出。</strong><br></font>
+
+<p>&emsp;</p>
+<font face="Comic sans MS"><font color="red"><strong>📒1. 标准输出System.out对象</strong></font><br><font color="#00B2EE">System.out</font>对象中包含的最常用的方法是：<br><font color="#00B2EE">   print<strong>ln</strong>(参数)</font> 向标准输出设备(显示器)打印一行文本并换行<br><font color="#00B2EE">  print(参数)</font> 向标准输出设备(显示器)打印一行文本但不换行<br>   参数类型：boolean , char char[] ,double ,float ,int ,<br>                  long ,  Object,String<br><br>  例如：System.out.println(“Example”);<br>           System.out.print(“Input Name”);<br>           int x=2; System.out.print(x);<br></font>
+
+<p>&emsp;</p>
+<font face="Comic sans MS"><font color="red"><strong>📒2. 标准输入System.in对象</strong></font><br><font color="#00B2EE"><strong>System.in</strong></font>是字节流,作用是从标准输入读一个字节,常用的方法如下:<br><font color="red">   int read()</font>&emsp;           从流中读取一个字节并将该字节作为整数返回,若没有数据则返回-1<br><font color="red">    int read(byte b[])</font>&emsp; 从流中读取多个字节放到b中, 返回实际读取到的字节数<br><font color="red">   int read(byte b[],int off,int len)</font>&emsp; 从流中读取最多len字节的数据, 放到数组b的下标off开始的单元中，返回读取到的字节数<br></font>
+
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>例3-1<span class="token punctuation">]</span> ReadChar.java 从键盘读一个字符
+<span class="token function">import</span> java.io.*<span class="token punctuation">;</span>
+public class ReadChar<span class="token punctuation">{</span>
+   public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    try<span class="token punctuation">{</span>
+         char ch<span class="token operator">=</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span>System.in.read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> //将int转换为char
+         System.out.println<span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+         <span class="token punctuation">}</span>catch<span class="token punctuation">(</span>IOException e<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+   <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">[</span>例3-2<span class="token punctuation">]</span> ReadString.java 从键盘读一串字符
+<span class="token function">import</span> java.io.*<span class="token punctuation">;</span>    
+public class ReadString
+<span class="token punctuation">{</span> public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+     <span class="token punctuation">{</span>  char c<span class="token punctuation">;</span>
+         try<span class="token punctuation">{</span>
+            <span class="token keyword">do</span>
+           <span class="token punctuation">{</span>  c<span class="token operator">=</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span>System.in.read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  //使用循环来从输入流中读取一转字符
+              System.out.print<span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>while<span class="token punctuation">(</span>c<span class="token operator">!=</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>catch<span class="token punctuation">(</span>IOException e<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token punctuation">}</span>                    
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">[</span>例3-3<span class="token punctuation">]</span> ReadStringOrInt.java 从键盘读一数字串或一个整数
+<span class="token function">import</span> java.io.*<span class="token punctuation">;</span>
+class ReadStringOrInt<span class="token punctuation">{</span>
+    public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          byte buf<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span>new byte<span class="token punctuation">[</span>20<span class="token punctuation">]</span><span class="token punctuation">;</span>  
+          String str<span class="token punctuation">;</span>
+           int anInt<span class="token punctuation">;</span>         
+          try<span class="token punctuation">{</span>    
+               System.in.read<span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+              str<span class="token operator">=</span>new String<span class="token punctuation">(</span>buf<span class="token punctuation">)</span>
+              anInt<span class="token operator">=</span>Integer.parseInt<span class="token punctuation">(</span>str.trim<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">;</span> 
+               <span class="token punctuation">}</span>
+          catch<span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token punctuation">}</span>     
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+//要将数字串转换成实数，则： 
+  float  f<span class="token operator">=</span>Float.parseFloat<span class="token punctuation">(</span>str.trim<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">;</span>        //转成单精度数
+  double d<span class="token operator">=</span>Double.parseDouble<span class="token punctuation">(</span>str.trim<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">;</span>      //转成双精度数  
+</code></pre>
+<blockquote>
+<blockquote>
+<p>思考：如何接收用户向程序输入的参数?<br>通过System.in<br>通过main（String[] args）中的形参<br>class test{<br>public static void main(String[] args){<br>   System.out.println(args[0]);<br>   System.out.println(args[1]);<br>}<br>}<br>java test s1 s2<br>s1<br>s2</p>
+</blockquote>
+</blockquote>
+<hr>
+<hr>
+<p>&emsp;</p>
+<h3 id="二、-控制语句句"><a href="#二、-控制语句句" class="headerlink" title="二、 控制语句句 "></a><font color="#FF6347" face="Comic sans MS">二、 控制语句句 </font></h3><ul>
+<li style="list-style: none"><input type="checkbox"> 2.1选择语句<ul>
+<li>2.1.1 if-else语句  </li>
+<li>2.1.2 switch语句</li>
+</ul>
+</li>
+<li style="list-style: none"><input type="checkbox"> 2.2循环语句 <ul>
+<li>2.2.1 while 语句 </li>
+<li>2.2.2 do-while 语句</li>
+<li>2.2.3 for 语句</li>
+<li>2.2.4 循环的嵌套</li>
+</ul>
+</li>
+<li style="list-style: none"><input type="checkbox"> 2.3跳转语句  <ul>
+<li>2.3.1 break语句</li>
+<li>2.3.2 continue语句</li>
+<li>2.3.3 return 语句 </li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-选择语句"><a href="#2-1-选择语句" class="headerlink" title="2.1  选择语句"></a><font color="#3CB371" face="Comic sans MS">2.1  选择语句</font></h4><h5 id="if-else语句"><a href="#if-else语句" class="headerlink" title="  if-else语句"></a><font color="#00B2EE" face="Comic sans MS">  if-else语句</font></h5><font face="Comic sans MS"><font color="red"><strong>📒if-else语句的语法形式：</strong></font><br>       if  (布尔表达式)<br>         {    语句块1   }<br>       [ else<br>          {   语句块2      }  ]<br>     若语句块1，语句块2也是if-else语句便形成嵌套<br></font>
+
+<pre class=" language-java"><code class="language-java">例［<span class="token number">3</span><span class="token operator">-</span><span class="token number">4</span>］：三个整数a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c，要求按从小到大的次序输出
+解题思路：对a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c进行排序。先找出a、b、c中最小的，然后比较剩下的两个。
+算法：    
+        ①如果a<span class="token operator">></span>b，则将a和b互换（使得a是a、b中小的那个）
+        ②如果a<span class="token operator">></span>c，则将a和c互换（使得a是a、b、c中最小的）
+        ③如果b<span class="token operator">></span>c，则将b和c互换（最后c最大，b次之，a最小）
+代码如下：
+     <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token operator">></span>b<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+          t<span class="token operator">=</span>a<span class="token punctuation">;</span>a<span class="token operator">=</span>b<span class="token punctuation">;</span>b<span class="token operator">=</span>t<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token operator">></span>c<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+          t<span class="token operator">=</span>a<span class="token punctuation">;</span>a<span class="token operator">=</span>c<span class="token punctuation">;</span>c<span class="token operator">=</span>t<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>b<span class="token operator">></span>c<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+          t<span class="token operator">=</span>b<span class="token punctuation">;</span>b<span class="token operator">=</span>c<span class="token punctuation">;</span>c<span class="token operator">=</span>t<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token string">"&lt; "</span> <span class="token operator">+</span>b<span class="token operator">+</span><span class="token string">"&lt; "</span> <span class="token operator">+</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+</code></pre>
+<table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><font color="red"><strong>📒  if–else 语句的嵌套</strong></font><br>if-else语句中内嵌的语句1或语句2又是if-else语句的情况称为if-else语句的嵌套。如：<br>      if（布尔表达式1）<br>           语句1<br>      else if（布尔表达式2）<br>                 语句2<br>                 …<br>             else if (布尔表达式m)<br>                        语句m<br>                    else  语句n<br></font></td></tr></table>
+
+<pre class=" language-java"><code class="language-java"><span class="token punctuation">[</span>例<span class="token number">3</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">]</span> 求一元二次方程<span class="token punctuation">(</span>aX2<span class="token operator">+</span>bX<span class="token operator">+</span>c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>的根：
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">roots</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">;</span>
+        <span class="token keyword">float</span> x1<span class="token punctuation">,</span>x2<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> check<span class="token punctuation">;</span>
+        a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>b<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>c<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        check<span class="token operator">=</span>b<span class="token operator">*</span>b<span class="token operator">-</span><span class="token number">4</span><span class="token operator">*</span>a<span class="token operator">*</span>c<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>check<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            x1<span class="token operator">=</span><span class="token punctuation">(</span><span class="token operator">-</span>b<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            x2<span class="token operator">=</span>x1<span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"x1="</span><span class="token operator">+</span>x1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"x2="</span><span class="token operator">+</span>x2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+     <span class="token keyword">else</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>check<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          x1<span class="token operator">=</span><span class="token punctuation">(</span><span class="token operator">-</span>b<span class="token operator">+</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>check<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          x2<span class="token operator">=</span><span class="token punctuation">(</span><span class="token operator">-</span>b<span class="token operator">-</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>check<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"x1="</span><span class="token operator">+</span>x1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"x2="</span><span class="token operator">+</span>x2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         <span class="token keyword">else</span>
+         <span class="token punctuation">{</span>   <span class="token comment" spellcheck="true">/*请自己填写*/</span>   <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java">课堂练习：求最小数
+<span class="token keyword">import</span>  java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>*<span class="token punctuation">;</span>             
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Min</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException
+ <span class="token punctuation">{</span> 
+   <span class="token keyword">byte</span> buf<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  
+   String str <span class="token punctuation">;</span>  <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> min<span class="token punctuation">;</span>    
+   System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入二个整数："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    
+   System<span class="token punctuation">.</span>in<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//从键盘读一数字串存于buf中</span>
+   str<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//buf 转换成字符串 </span>
+   a<span class="token operator">=</span>Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//数字串转换成整数</span>
+   System<span class="token punctuation">.</span>in<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>    str<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>                   
+   b<span class="token operator">=</span>Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        
+
+   min<span class="token operator">=</span>a<span class="token punctuation">;</span>
+   <span class="token keyword">if</span> <span class="token punctuation">(</span>min<span class="token operator">></span>b<span class="token punctuation">)</span> min<span class="token operator">=</span>b<span class="token punctuation">;</span>
+   System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"最小数是"</span><span class="token operator">+</span>min<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&emsp;</p>
+<h5 id="switch-语句"><a href="#switch-语句" class="headerlink" title="  switch  语句"></a><font color="#00B2EE" face="Comic sans MS">  switch  语句</font></h5><font face="Comic sans MS"><strong>switch语句根据表达式的结果来执行多个可能操作中的一个，它的语法形式如下：</strong><br></font>
+
+<pre class=" language-java"><code class="language-java">  <span class="token keyword">switch</span><span class="token punctuation">(</span>表达式<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+   <span class="token keyword">case</span> 常量<span class="token number">1</span>：语句<span class="token number">1</span>  
+                  <span class="token punctuation">[</span><span class="token keyword">break</span><span class="token punctuation">;</span><span class="token punctuation">]</span>
+   <span class="token keyword">case</span> 常量<span class="token number">2</span>：语句<span class="token number">2</span>
+                  <span class="token punctuation">[</span><span class="token keyword">break</span><span class="token punctuation">;</span><span class="token punctuation">]</span>
+   …
+   <span class="token keyword">case</span> 常量n：语句n
+                   <span class="token punctuation">[</span><span class="token keyword">break</span><span class="token punctuation">;</span><span class="token punctuation">]</span>
+   <span class="token punctuation">[</span><span class="token keyword">default</span><span class="token operator">:</span> 缺省处理语句
+                   <span class="token keyword">break</span>；<span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">//这儿的break语句不必要</span>
+   <span class="token punctuation">}</span>
+</code></pre>
+<p>&emsp;</p>
+<font face="Comic sans MS"><font color="red"><strong>注意：</strong></font> <font color="red">“case 常量”</font>只起语句标号的作用，并非在该处进行条件判断。在执行switch语句时，根据switch括号中表达式的值找到匹配的入口标号，就从此标号所标记的语句开始执行下去，<font color="red">不再进行判断，直到遇到break语句为止。</font><br></font>
+
+<pre class=" language-bash"><code class="language-bash">演示有break及没有break的情况
+public class switchBreak
+<span class="token punctuation">{</span>
+      public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+     <span class="token punctuation">{</span>   …
+         switch<span class="token punctuation">(</span>2<span class="token punctuation">)</span>
+         <span class="token punctuation">{</span> 
+          <span class="token keyword">case</span> 1: System.out.println<span class="token punctuation">(</span><span class="token string">"case1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                      <span class="token keyword">break</span><span class="token punctuation">;</span>
+          <span class="token keyword">case</span> 2: System.out.println<span class="token punctuation">(</span><span class="token string">"case2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                      <span class="token keyword">break</span><span class="token punctuation">;</span>
+          <span class="token keyword">case</span> 3: System.out.println<span class="token punctuation">(</span><span class="token string">"case3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                      <span class="token keyword">break</span><span class="token punctuation">;</span>
+          default: System.out.println<span class="token punctuation">(</span><span class="token string">"default"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&emsp;</p>
+<font face="Comic sans MS"><font color="red"><strong>使用switch-case必须注意:</strong></font><br><font color="#00B2EE"><strong>1.</strong></font> 表达式必须是符合byte,char,short和int类型的表达式,不能是浮点类型或字符串，case子句中常量的类型必须与表达式的类型相容,且每个常量必须不同；<br><font color="#00B2EE"><strong>2.</strong></font> case后面可以有多条语句，不用加{}；<br><font color="#00B2EE"><strong>3.</strong></font> default子句是可选的。如果有default，当表达式的值与case子句的值都不匹配时就会执行default分支，如果既没匹配也没default，那就什么也不执行；<br><font color="#00B2EE"><strong>4.</strong></font> break为跳转语句，表示跳出switch结构，即终止switch语句的执行。如果没有break语句，则switch在执行完一个case分支后，流程控制转移到下一个case继续执行，不再匹配，直到遇到break为止。<br><font color="#00B2EE"><strong>5.</strong></font> 多个case子句可以共享相同的语句块；<br><font color="#00B2EE"><strong>6.</strong></font> 通过if-else语句可以实现switch语句所有的功能。但通常使用switch语句更简练，且可读性强，程序的执行效率也高；<br><font color="#00B2EE"><strong>7.</strong></font> if-else语句可以基于一个范围内的值或一个条件来进行不同的操作，但switch语句中的每个case子句都必须对应一个单值。<br></font>
+
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>例3-6<span class="token punctuation">]</span> 用switch语句判断一个月份属于一年哪个季节<span class="token punctuation">(</span>春、夏、秋、冬<span class="token punctuation">)</span>。
+class SwitchDemo<span class="token punctuation">{</span>
+ public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+  int month<span class="token operator">=</span>7<span class="token punctuation">;</span>
+  String season<span class="token punctuation">;</span>
+  switch <span class="token punctuation">(</span>month<span class="token punctuation">)</span>     //值为12、1和2时将都执行：season<span class="token operator">=</span><span class="token string">"冬季"</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token punctuation">{</span> <span class="token keyword">case</span>  12: 
+    <span class="token keyword">case</span>  1:
+    <span class="token keyword">case</span>  2:
+      season<span class="token operator">=</span><span class="token string">"冬季"</span><span class="token punctuation">;</span>  
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span>  3:
+    <span class="token keyword">case</span>  4:
+    <span class="token keyword">case</span>  5:
+      season<span class="token operator">=</span><span class="token string">"春季"</span>；
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+   <span class="token keyword">case</span>  6:
+   <span class="token keyword">case</span>  7:
+   <span class="token keyword">case</span>  8:  season<span class="token operator">=</span><span class="token string">"夏季"</span><span class="token punctuation">;</span> 
+                 <span class="token keyword">break</span><span class="token punctuation">;</span>
+   <span class="token keyword">case</span>  9:
+   <span class="token keyword">case</span>  10:
+   <span class="token keyword">case</span>  11: season<span class="token operator">=</span><span class="token string">"秋季"</span>；
+                 <span class="token keyword">break</span><span class="token punctuation">;</span>
+   default:  season<span class="token operator">=</span><span class="token string">"错!"</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+   System.out.println<span class="token punctuation">(</span><span class="token string">"月份    季节"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   System.out.println<span class="token punctuation">(</span>month+<span class="token string">"    "</span>+season<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+该程序运行后输出：月份    季节
+                 7      夏季
+</code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="2-2-循环语句"><a href="#2-2-循环语句" class="headerlink" title="2.2  循环语句"></a><font color="#3CB371" face="Comic sans MS">2.2  循环语句</font></h4><h5 id="while-语句"><a href="#while-语句" class="headerlink" title="while  语句  "></a><font color="#00B2EE" face="Comic sans MS">while  语句  </font></h5><font face="Comic sans MS">while语句形式如下：<br>&emsp;&emsp;<font color="red">     while (布尔表达式) {语句块}  </font><br><strong>说明：</strong>while：语句的关键字； 布尔表达式：循环条件； 语句块：循环体，是一个语句，若是多个语句则应构成复合语句。<br></font> 
+
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>例3-7<span class="token punctuation">]</span> Sum1.java用while循环语句计算s<span class="token operator">=</span>1+1/2+1/3+…+1/100
+class Sum <span class="token punctuation">{</span>
+  public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    int n<span class="token operator">=</span>100<span class="token punctuation">;</span>　                //循环总数n<span class="token operator">=</span>100
+    int  i<span class="token operator">=</span>1<span class="token punctuation">;</span>　　     　　      //循环次数，初值为１
+    float s<span class="token operator">=</span>0<span class="token punctuation">;</span>                 //和s为实型
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>100<span class="token punctuation">)</span> 　　　      //循环条件,循环总数100
+    <span class="token punctuation">{</span>
+     s<span class="token operator">=</span>s+<span class="token punctuation">(</span>1.0f/i<span class="token punctuation">)</span><span class="token punctuation">;</span>            //s增加1/i ,1.0f表示是float型
+     i++<span class="token punctuation">;</span>                    //循环次数加１
+    <span class="token punctuation">}</span>
+    System.out.println<span class="token punctuation">(</span>“s<span class="token operator">=</span>”+s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>                              
+</code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h5 id="do-while-语句"><a href="#do-while-语句" class="headerlink" title="do-while  语句  "></a><font color="#00B2EE" face="Comic sans MS">do-while  语句  </font></h5><font face="Comic sans MS">do-while语句的语法形式如下：<br>&emsp;&emsp;<font color="red">     do{<br>&emsp;&emsp;                        语句块<br>&emsp;&emsp;                         }while（布尔表达式）;<br></font><br><strong>说明：</strong>do：语句的关键字； 语句块：循环体，是一个语句，若是多个语句则应构成复合语句； 布尔表达式：循环条件。<br></font> 
+
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>例3-8<span class="token punctuation">]</span> Sum2.java 用do-while循环语句计算s<span class="token operator">=</span>1+2+3+……100
+class Sum2<span class="token punctuation">{</span>
+    public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        int i<span class="token operator">=</span>1<span class="token punctuation">;</span>         //循环次数，初值为１
+        int s<span class="token operator">=</span>0<span class="token punctuation">;</span>         //累加和s初值为0
+        do<span class="token punctuation">{</span>              //开始无条件循环
+            s<span class="token operator">=</span>s+i<span class="token punctuation">;</span>       //s增加i
+            i++<span class="token punctuation">;</span>         //循环次数加１
+        <span class="token punctuation">}</span>while<span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>100<span class="token punctuation">)</span><span class="token punctuation">;</span>  //循环总数100
+        System.out.println<span class="token punctuation">(</span><span class="token string">"s="</span>+s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h5 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句  "></a><font color="#00B2EE" face="Comic sans MS">for 语句  </font></h5><font face="Comic sans MS">for语句的语法形式为：<br>&emsp;&emsp;<font color="red">for（表达式1；表达式2；表达式3）<br>&emsp;&emsp;                  {   语句块<br>&emsp;&emsp;                  }<br></font><br><strong>说明：</strong>（表达式1；表达式2；表达式3）：循环条件； 语句块：循环体，是一个语句，若是多个语句则应构成复合语句。<br><br><font color="red"> <strong>for语句的执行过程如下：</strong></font><br>（1）按表达式1将初值赋给循环控制变量；<br>（2）按表达式2判断循环是否成立，如果成立则执行循环体，否则退出循环；<br>（3）执行一次循环后，执行表达式3修改控制变量。<br></font> 
+
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>例3-9<span class="token punctuation">]</span> sum3.java 编程求S<span class="token operator">=</span>12+22+…92 
+public class sum3<span class="token punctuation">{</span>
+    public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        int s<span class="token operator">=</span>0<span class="token punctuation">;</span>
+        for<span class="token punctuation">(</span>int i<span class="token operator">=</span>1<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>9<span class="token punctuation">;</span>i++<span class="token punctuation">)</span>
+           s<span class="token operator">=</span>s+i*i<span class="token punctuation">;</span>
+           System.out.println<span class="token punctuation">(</span><span class="token string">"s="</span>+s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><font color="red"><strong>for语句使用注意：</strong></font><br>1.  逗号语句分隔的语句系列,被看作一个语句，这样就可以在只能放一个语句的地方放任意多个语句，只须用逗<br>    号将它们分隔开。如：<br>      for ( i=1,j=10;i &lt; j;i++,j–)<br>      {    ……    }<br>2.  表达式1、表达式2及表达式3都可以为空语句(但分号不能省略) 如：<br>         for(  ;  ;  ) { … }     相当于while(true)<br><br><br><font color="red"><strong>循环的嵌套：</strong></font><br>一个循环体内又包含<font color="red">另一个完整的循环结构</font> ，称为循环的嵌套。内嵌的循环中还可以嵌套循环，这就是多重<br>循环。上述三种循环（while循环，do-while循环和for循环）语句之间可以相互嵌套使用。<br></font></td></tr></table>
+
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>例3-10<span class="token punctuation">]</span> 百鸡问题。
+      已知公鸡5元1只，母鸡3元一只，小鸡1元3只，要求用100元刚好买100只鸡，问有多少种采购方案。
+
+     分析: 设变量I、J、K分别代表公鸡数、母鸡数及小鸡数，则应满足下列一些条件:
+① I+J+K<span class="token operator">=</span>100<span class="token punctuation">(</span>只<span class="token punctuation">)</span>，I,J,K0<span class="token punctuation">;</span>
+② 5I+3J+K/3<span class="token operator">=</span>100（元）<span class="token punctuation">;</span>
+③ 若用100元全部买公鸡，最多只能买20只, 所以I≤20<span class="token punctuation">;</span>若全部买母鸡最多只能买33只，所以J≤33<span class="token punctuation">;</span> 
+  而小鸡数目就是100-I-J<span class="token punctuation">;</span><span class="token punctuation">(</span>简化计算<span class="token punctuation">)</span>
+     根据以上分析，可编程如下：
+
+
+public class  Loop_Loop <span class="token punctuation">{</span>
+    public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      int I,J,K<span class="token punctuation">;</span>
+      System.out.println<span class="token punctuation">(</span><span class="token string">" I    J    K "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">for</span>  <span class="token punctuation">(</span>I<span class="token operator">=</span>0<span class="token punctuation">;</span>I<span class="token operator">&lt;=</span>20<span class="token punctuation">;</span>I++ <span class="token punctuation">)</span>
+       <span class="token punctuation">{</span> <span class="token keyword">for</span> <span class="token punctuation">(</span> J<span class="token operator">=</span>0<span class="token punctuation">;</span>J<span class="token operator">&lt;=</span>33<span class="token punctuation">;</span>J++<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span> K<span class="token operator">=</span>100-I-J<span class="token punctuation">;</span>                
+              <span class="token keyword">if</span> <span class="token punctuation">(</span>5*I+3*J+K/3.0<span class="token operator">==</span>100<span class="token punctuation">)</span>         //注意“K/3.0”
+              System.out.println<span class="token punctuation">(</span>I+<span class="token string">"   "</span>+J+<span class="token string">"   "</span>+K<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> 
+       <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span> 
+</code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="2-3-跳转语句"><a href="#2-3-跳转语句" class="headerlink" title="2.3  跳转语句"></a><font color="#3CB371" face="Comic sans MS">2.3  跳转语句</font></h4><h5 id="break语句"><a href="#break语句" class="headerlink" title="break语句  "></a><font color="#00B2EE" face="Comic sans MS">break语句  </font></h5><font face="Comic sans MS"><font color="red"><strong>作用：</strong></font>  使程序的流程从一个语句块的内部跳转出来。<br>(1) 从switch语句的分支中跳出来<br>(2) 从循环体内跳出来<br></font> 
+
+<p>对上述的(1)(2)举例如下：<font color="#00B2EE"><strong>(1) break用于跳出switch语句</strong></font>  </p>
+<pre class=" language-bash"><code class="language-bash">switch<span class="token punctuation">(</span>grade<span class="token punctuation">)</span>
+<span class="token punctuation">{</span> 
+<span class="token keyword">case</span> <span class="token string">'A'</span><span class="token keyword">:</span> 
+<span class="token keyword">case</span> <span class="token string">'B'</span><span class="token keyword">:</span> 
+<span class="token keyword">case</span> <span class="token string">'C'</span><span class="token keyword">:</span> System.out.println<span class="token punctuation">(</span><span class="token string">"及格\n "</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token keyword">case</span> ‘D’: System.out.println<span class="token punctuation">(</span>“不及格\n "<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-bash"><code class="language-bash">习题1：分析该程序的输出结果
+int x<span class="token operator">=</span>5<span class="token punctuation">;</span>
+do<span class="token punctuation">{</span>
+          switch<span class="token punctuation">(</span>x%2<span class="token punctuation">)</span>
+          <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> 1: x--<span class="token punctuation">;</span>
+                            <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> 0: x++<span class="token punctuation">;</span>
+                            <span class="token keyword">break</span><span class="token punctuation">;</span>
+           <span class="token punctuation">}</span>
+           x--<span class="token punctuation">;</span>
+           System.out.println<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>while<span class="token punctuation">(</span>x<span class="token operator">></span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+运行结果：
+3
+1
+-1
+
+
+
+习题2：分析该程序的输出结果
+int a<span class="token operator">=</span>5,b<span class="token operator">=</span>6,i<span class="token operator">=</span>0,j<span class="token operator">=</span>0<span class="token punctuation">;</span>
+switch<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+        <span class="token keyword">case</span> 5: switch<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                          <span class="token keyword">case</span> 5:i++<span class="token punctuation">;</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+                          <span class="token keyword">case</span> 6:j++<span class="token punctuation">;</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+                          default:i++<span class="token punctuation">;</span>j++<span class="token punctuation">;</span>
+                     <span class="token punctuation">}</span>
+         <span class="token keyword">case</span> 6: i++<span class="token punctuation">;</span>j++<span class="token punctuation">;</span>
+                     <span class="token keyword">break</span><span class="token punctuation">;</span>
+         default: i++<span class="token punctuation">;</span>j++<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+System.out.println<span class="token punctuation">(</span>i+<span class="token string">","</span>+j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+运行结果：
+1,2
+</code></pre>
+<p>&emsp;</p>
+<font color="#00B2EE"><strong>(2) break用于跳出循环体</strong></font>  
+
+<p><strong>break可用于跳出for循环、while循环、do while循环。</strong></p>
+<pre class=" language-bash"><code class="language-bash">int sum<span class="token operator">=</span>0<span class="token punctuation">;</span>      
+for<span class="token punctuation">(</span>int i<span class="token operator">=</span>1<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>100<span class="token punctuation">;</span>i++<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+      sum<span class="token operator">=</span>sum+i<span class="token punctuation">;</span>
+      if<span class="token punctuation">(</span>i<span class="token operator">==</span>50<span class="token punctuation">)</span>break<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+System.out.println<span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>    //结果为1275
+</code></pre>
+<p>&emsp;<br>&emsp;</p>
+<font color="red"><strong>如果break在多重循环中，只退出break所在的那层循环到外层循环中。</strong></font>  
+
+<pre class=" language-bash"><code class="language-bash">int sum<span class="token operator">=</span>0<span class="token punctuation">;</span>      
+for<span class="token punctuation">(</span>int i<span class="token operator">=</span>1<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>100<span class="token punctuation">;</span>i++<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+       sum<span class="token operator">=</span>sum+i<span class="token punctuation">;</span>
+       while<span class="token punctuation">(</span>i<span class="token operator">==</span>50<span class="token punctuation">)</span><span class="token punctuation">{</span>i<span class="token operator">=</span>100<span class="token punctuation">;</span><span class="token keyword">break</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+System.out.println<span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>       //结果为1275
+</code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h5 id="continue-语句"><a href="#continue-语句" class="headerlink" title="continue 语句 "></a><font color="#00B2EE" face="Comic sans MS">continue 语句 </font></h5><font face="Comic sans MS"><font color="red"><strong>作用：</strong></font>用来结束所在循环语句块的本次循环<br><font color="red"><strong>注意:</strong></font>continue语句只能在循环语句中使用。<br></font>
+
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>例3-11<span class="token punctuation">]</span> ConDemo.java
+public class ConDemo<span class="token punctuation">{</span>
+public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  int index<span class="token operator">=</span>0<span class="token punctuation">;</span>
+  while<span class="token punctuation">(</span>index<span class="token operator">&lt;=</span>99<span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+    index+<span class="token operator">=</span>10<span class="token punctuation">;</span>
+           if<span class="token punctuation">(</span>index<span class="token operator">==</span>40<span class="token punctuation">)</span>  <span class="token keyword">continue</span><span class="token punctuation">;</span> 
+    System.out.println<span class="token punctuation">(</span><span class="token string">"   The index is "</span>+index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+程序运行结果：
+   The index is 10
+   The index is 20
+   The index is 30
+   The index is 50
+   The index is 60
+   The index is 70
+   The index is 80
+   The index is 90
+   The index is 100
+</code></pre>
+<p>&emsp;<br>&emsp;</p>
+<font face="Comic sans MS"><font color="red"><strong>循环体中使用break语句和continue语句的区别：</strong></font><br><font color="#00B2EE"><strong>Break语句</strong></font>  结束整个循环,不再判断执行循环的条件;<br><font color="#00B2EE"><strong>Continue语句</strong></font>只结束本次循环,而不是终止整个循环的执行。<br></font>  
+
+
+<p>&emsp;<br>&emsp;</p>
+<h5 id="return-语句"><a href="#return-语句" class="headerlink" title="return 语句  "></a><font color="#00B2EE" face="Comic sans MS">return 语句  </font></h5><font face="Comic sans MS"><strong>格式：</strong>   <font color="red">return  表达式;</font><br><strong>用途：</strong><br>(1) 结束方法的运行，并返回一个值；<br>(2) 如果该方法没有返回值（void），则return后不能跟表达式。<br></font>
+
+<blockquote>
+<blockquote>
+<p>例如：  return  0;<br>&emsp;&emsp;&emsp;   return;</p>
+</blockquote>
+</blockquote>
+<p><strong>思考:分析以下程序运行结果</strong></p>
+<pre class=" language-bash"><code class="language-bash">1. 
+public class ArithmeticOp<span class="token punctuation">{</span>
+    public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+       int a,b,c<span class="token punctuation">;</span>
+       a<span class="token operator">=</span>b<span class="token operator">=</span>c<span class="token operator">=</span>2<span class="token punctuation">;</span>
+       a<span class="token operator">=</span>++b - ++c<span class="token punctuation">;</span>     //0 3 3
+       System.out.println（″a<span class="token operator">=</span>″+a+″b<span class="token operator">=</span>″+b+″c<span class="token operator">=</span>″+c）<span class="token punctuation">;</span>
+       a <span class="token operator">=</span>b++ + c++<span class="token punctuation">;</span>    //6 4 4
+       System.out.println（″a<span class="token operator">=</span>″+a+″b<span class="token operator">=</span>″+b+″c<span class="token operator">=</span>″+c）<span class="token punctuation">;</span>
+       a <span class="token operator">=</span>b-- + c--<span class="token punctuation">;</span>    //8 3 3
+       System.out.println（″a<span class="token operator">=</span>″+a+″b<span class="token operator">=</span>″+b+″c<span class="token operator">=</span>″+c）<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+2.
+public class TestSwitch<span class="token punctuation">{</span>
+    public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+       int  x<span class="token operator">=</span>1,y<span class="token operator">=</span>2,i<span class="token operator">=</span>0,j<span class="token operator">=</span>0<span class="token punctuation">;</span>
+       switch<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token keyword">case</span> 1: switch<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                   <span class="token keyword">case</span> 1: i++<span class="token punctuation">;</span>
+                   <span class="token keyword">break</span><span class="token punctuation">;</span>
+                   <span class="token keyword">case</span> 2: j++<span class="token punctuation">;</span>
+                   <span class="token keyword">break</span><span class="token punctuation">;</span>
+                   default:i++<span class="token punctuation">;</span>
+                    j++<span class="token punctuation">;</span><span class="token punctuation">}</span>           //i<span class="token operator">=</span>0 j<span class="token operator">=</span>1
+
+          <span class="token keyword">case</span> 2: i++<span class="token punctuation">;</span>
+                  j++<span class="token punctuation">;</span>              //i<span class="token operator">=</span>1 j<span class="token operator">=</span>2
+                  <span class="token keyword">break</span><span class="token punctuation">;</span>
+          default:i++<span class="token punctuation">;</span>
+                  j++<span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+      System.out.println<span class="token punctuation">(</span><span class="token string">"i="</span>+i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      System.out.println<span class="token punctuation">(</span><span class="token string">"j="</span>+j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>                              //i<span class="token operator">=</span>1
+<span class="token punctuation">}</span>                                  //j<span class="token operator">=</span>2
+
+
+3.
+public class J_Test<span class="token punctuation">{</span>
+  static boolean mb_fun<span class="token punctuation">(</span>char c<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>    System.out.print<span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  public  static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+       int i<span class="token operator">=</span>0<span class="token punctuation">;</span>
+       for<span class="token punctuation">(</span>mb_fun<span class="token punctuation">(</span>‘A’<span class="token punctuation">)</span><span class="token punctuation">;</span>mb_fun<span class="token punctuation">(</span>‘B’<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>2<span class="token punctuation">)</span><span class="token punctuation">;</span>mb_fun<span class="token punctuation">(</span>‘C’<span class="token punctuation">))</span>
+       <span class="token punctuation">{</span>   i++<span class="token punctuation">;</span>
+           mb_fun<span class="token punctuation">(</span>‘D’<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>     //结果： A B D C B D C B
+</code></pre>
+<hr>
+<hr>
+<p>&emsp;<br>&emsp;<br>&emsp;<br>&emsp;</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/post/java-language-2-3/" class="b-link-green">Java简单语句、复合语句、控制语句(3.7-3.8)</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/post/java-language-2-4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Java数组(3.9)">
+                        
+                        <span class="card-title">Java数组(3.9)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">&ensp;&ensp;
+数组
+
+&emsp;&emsp;
+一、 一维数组  数组： 相同类型的数据元素按顺序组成的一种线性表，元素在数组中的相对位置由下标来指定。数组中的每个元素通过数组名加下标进行引用。 数组有什么用处？ 例：定义100</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java学习/" target="_blank">
+                        <span class="chip bg-color">Java学习</span>
+                    </a>
+                    
+                    <a href="/tags/Java语言/" target="_blank">
+                        <span class="chip bg-color">Java语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/java-language-2-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Java运算符和数据类型转换(3.4-3.6)">
+                        
+                        <span class="card-title">Java运算符和数据类型转换(3.4-3.6)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">&ensp;&ensp;
+运算符及表达式、运算符的优先级、数据类型转换
+
+
+ 3.4-3.6学习知识点
+ 运算符及表达式
+ 算术运算符
+ 关系运算符
+ 逻辑运算符
+ 位运算符
+ 赋值运算符
+ 逻辑运算符
+
+
+ 运算符的优先级
+ 数据类型转换</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java学习/" target="_blank">
+                        <span class="chip bg-color">Java学习</span>
+                    </a>
+                    
+                    <a href="/tags/Java语言/" target="_blank">
+                        <span class="chip bg-color">Java语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">139.4k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

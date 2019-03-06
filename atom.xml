@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Treecatee</title>
+  
+  <subtitle>得失弹指一挥间。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="Treecatee.gitgub.io/"/>
+  <updated>2019-01-11T12:36:32.077Z</updated>
+  <id>Treecatee.gitgub.io/</id>
+  
+  <author>
+    <name>Treecatee</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Markdown</title>
+    <link href="Treecatee.gitgub.io/post/markdownusage/"/>
+    <id>Treecatee.gitgub.io/post/markdownusage/</id>
+    <published>2019-03-06T02:11:53.341Z</published>
+    <updated>2019-01-11T12:36:32.077Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;http://marxi.co/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;1.Markdown在线编辑器&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="Treecatee.gitgub.io/post/hello-world/"/>
+    <id>Treecatee.gitgub.io/post/hello-world/</id>
+    <published>2019-03-06T02:11:53.270Z</published>
+    <updated>2019-03-02T14:27:18.666Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-模块和包</title>
+    <link href="Treecatee.gitgub.io/post/python-modules-packages/"/>
+    <id>Treecatee.gitgub.io/post/python-modules-packages/</id>
+    <published>2019-03-03T10:28:06.000Z</published>
+    <updated>2019-03-03T11:33:17.056Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;from…import…😀&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python-生成器与迭代器</title>
+    <link href="Treecatee.gitgub.io/post/python-generator-iterator/"/>
+    <id>Treecatee.gitgub.io/post/python-generator-iterator/</id>
+    <published>2019-03-03T02:33:30.000Z</published>
+    <updated>2019-03-03T07:32:37.552Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;生成器生成想要的数据，可控制循环暂停，迭代器把可迭代的对象转换为生成器。( ⸝⸝⸝•_•⸝⸝⸝ )♡︎♡︎&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python-函数</title>
+    <link href="Treecatee.gitgub.io/post/python-function/"/>
+    <id>Treecatee.gitgub.io/post/python-function/</id>
+    <published>2019-03-02T06:18:58.000Z</published>
+    <updated>2019-03-03T11:33:20.285Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有两种定义函数的方法，千万不要忘了冒号和&lt;code&gt;return&lt;/code&gt;   ( ´⚰︎` )&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python-运算符</title>
+    <link href="Treecatee.gitgub.io/post/python-operators/"/>
+    <id>Treecatee.gitgub.io/post/python-operators/</id>
+    <published>2019-03-01T07:06:47.000Z</published>
+    <updated>2019-03-01T07:08:22.714Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;要常来骚扰…₍ ..̮ ₎ ₍ ..̮ ₎&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python-条件语句与循环</title>
+    <link href="Treecatee.gitgub.io/post/python-conditionalstatements-loops/"/>
+    <id>Treecatee.gitgub.io/post/python-conditionalstatements-loops/</id>
+    <published>2019-03-01T03:29:20.000Z</published>
+    <updated>2019-03-01T07:11:19.281Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记得冒号和换行的缩进呀…(｡◕︎‿◕︎)ﾉﾟ･ﾟ･&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python-列表、元组、字典、集合</title>
+    <link href="Treecatee.gitgub.io/post/python-list-tuple-dict-set/"/>
+    <id>Treecatee.gitgub.io/post/python-list-tuple-dict-set/</id>
+    <published>2019-02-28T12:28:00.000Z</published>
+    <updated>2019-03-02T09:10:23.177Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Python的列表相当于数组 ( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python-字符编码&amp;字符串&amp;格式化</title>
+    <link href="Treecatee.gitgub.io/post/python-coding/"/>
+    <id>Treecatee.gitgub.io/post/python-coding/</id>
+    <published>2019-02-27T17:15:48.000Z</published>
+    <updated>2019-02-28T03:38:54.922Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;字符编码、字符串(๑°⌓︎°๑)&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python-变量和数据类型</title>
+    <link href="Treecatee.gitgub.io/post/python-variables-datatypes/"/>
+    <id>Treecatee.gitgub.io/post/python-variables-datatypes/</id>
+    <published>2019-02-27T12:00:39.000Z</published>
+    <updated>2019-03-01T09:19:34.619Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;定义一个变量就是定义了一个指针！  ٩(ˊᗜˋ*)و&lt;br&gt;字符串内容很多，就很烦(っ ̯ -｡)&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python-基础语法</title>
+    <link href="Treecatee.gitgub.io/post/python-grammar/"/>
+    <id>Treecatee.gitgub.io/post/python-grammar/</id>
+    <published>2019-02-27T08:06:40.000Z</published>
+    <updated>2019-03-03T07:58:45.938Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;请务必注意，Python程序是&lt;font color=&quot;#FF7F00&quot;&gt;&lt;strong&gt;大小写敏感&lt;/strong&gt;&lt;/font&gt;的，如果写错了大小写，程序会报错。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python-基础</title>
+    <link href="Treecatee.gitgub.io/post/python-basics/"/>
+    <id>Treecatee.gitgub.io/post/python-basics/</id>
+    <published>2019-02-27T02:18:37.000Z</published>
+    <updated>2019-03-03T10:27:53.830Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从今天开始Python的学习吧……ヾ(๑╹◡╹)ﾉ”&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP-会话管理和控制</title>
+    <link href="Treecatee.gitgub.io/post/php-sessionmanagement/"/>
+    <id>Treecatee.gitgub.io/post/php-sessionmanagement/</id>
+    <published>2019-02-26T09:22:53.000Z</published>
+    <updated>2019-03-02T09:53:38.327Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;(。・∀・)ノ&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="Treecatee.gitgub.io/categories/PHP/"/>
+    
+    
+      <category term="PHP语言" scheme="Treecatee.gitgub.io/tags/PHP%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP操作MySQL数据库</title>
+    <link href="Treecatee.gitgub.io/post/php-mysql/"/>
+    <id>Treecatee.gitgub.io/post/php-mysql/</id>
+    <published>2019-02-24T02:32:17.000Z</published>
+    <updated>2019-02-27T17:13:19.685Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;😁&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="Treecatee.gitgub.io/categories/PHP/"/>
+    
+    
+      <category term="PHP语言" scheme="Treecatee.gitgub.io/tags/PHP%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="MySQL" scheme="Treecatee.gitgub.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL入门</title>
+    <link href="Treecatee.gitgub.io/post/mysql-primer/"/>
+    <id>Treecatee.gitgub.io/post/mysql-primer/</id>
+    <published>2019-02-23T06:23:42.000Z</published>
+    <updated>2019-02-25T10:57:56.282Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;内容好多啊◑﹏◐&lt;font color=&quot;#00B2EE&quot;&gt;[&lt;a href=&quot;http://www.php.cn/code/4954.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;那看视频吧…..&lt;/a&gt;]&lt;/font&gt; ٩(๑❛ᴗ❛๑)۶  (๑&amp;gt;◡&amp;lt;๑)&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="MySQL" scheme="Treecatee.gitgub.io/categories/MySQL/"/>
+    
+    
+      <category term="PHP语言" scheme="Treecatee.gitgub.io/tags/PHP%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="MySQL" scheme="Treecatee.gitgub.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP-文件上传</title>
+    <link href="Treecatee.gitgub.io/post/php-upload/"/>
+    <id>Treecatee.gitgub.io/post/php-upload/</id>
+    <published>2019-02-21T06:10:14.000Z</published>
+    <updated>2019-02-26T08:25:35.058Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;(。・∀・)ノ&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="Treecatee.gitgub.io/categories/PHP/"/>
+    
+    
+      <category term="PHP语言" scheme="Treecatee.gitgub.io/tags/PHP%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP-文件系统</title>
+    <link href="Treecatee.gitgub.io/post/php-filesystem/"/>
+    <id>Treecatee.gitgub.io/post/php-filesystem/</id>
+    <published>2019-02-20T05:29:20.000Z</published>
+    <updated>2019-02-26T08:22:31.455Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习文件处理本质上面就是学习&lt;font color=&quot;#00B2EE&quot;&gt;&lt;strong&gt;文件处理的函数。&lt;/strong&gt;&lt;/font&gt; ヾ(๑╹◡╹)ﾉ”&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="Treecatee.gitgub.io/categories/PHP/"/>
+    
+    
+      <category term="PHP语言" scheme="Treecatee.gitgub.io/tags/PHP%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP-函数</title>
+    <link href="Treecatee.gitgub.io/post/php-function/"/>
+    <id>Treecatee.gitgub.io/post/php-function/</id>
+    <published>2019-02-15T12:25:45.000Z</published>
+    <updated>2019-02-26T08:22:37.627Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PHP函数分为&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;自定义函数&lt;/strong&gt;&lt;/font&gt;和&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;系统函数&lt;/strong&gt;&lt;/font&gt; (oﾟvﾟ)ノ&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="Treecatee.gitgub.io/categories/PHP/"/>
+    
+    
+      <category term="PHP语言" scheme="Treecatee.gitgub.io/tags/PHP%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP-正则表达式</title>
+    <link href="Treecatee.gitgub.io/post/php-regular-expression/"/>
+    <id>Treecatee.gitgub.io/post/php-regular-expression/</id>
+    <published>2019-02-14T13:40:36.000Z</published>
+    <updated>2019-02-26T08:22:51.262Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;世界上最难懂的是道士的鬼符、医生的处方和程序员的正则表达示。(ง •_•)ง&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="Treecatee.gitgub.io/categories/PHP/"/>
+    
+    
+      <category term="PHP语言" scheme="Treecatee.gitgub.io/tags/PHP%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP-命名空间</title>
+    <link href="Treecatee.gitgub.io/post/php-namespace/"/>
+    <id>Treecatee.gitgub.io/post/php-namespace/</id>
+    <published>2019-02-14T02:09:57.000Z</published>
+    <updated>2019-02-26T08:25:51.253Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;(oﾟvﾟ)ノ&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="Treecatee.gitgub.io/categories/PHP/"/>
+    
+    
+      <category term="PHP语言" scheme="Treecatee.gitgub.io/tags/PHP%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+</feed>

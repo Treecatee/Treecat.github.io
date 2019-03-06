@@ -1,0 +1,903 @@
+<!DOCTYPE HTML>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java语言基础的字符常变量等(3.1-3.3), Treecatee">
+    <meta name="description" content="&amp;ensp;&amp;ensp;
+标识符,注释和分隔符、变量和常量、基本类型&amp;ensp;&amp;ensp;
+一、 标识符、注释和分隔符📒标识符：是程序员用来标记语言中元素（变量、常量、类、对象等）名称的命名记号。
+Java中的标识符遵守先定义后使用的原">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Java语言基础的字符常变量等(3.1-3.3) | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Home</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <span>Links</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Home
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                Links
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Java语言基础的字符常变量等(3.1-3.3)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java学习/" target="_blank">
+                                <span class="chip bg-color">Java学习</span>
+                            </a>
+                        
+                            <a href="/tags/Java语言/" target="_blank">
+                                <span class="chip bg-color">Java语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-12-20
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        1.4k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        5 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>&ensp;<br>&ensp;</p>
+<p><center><font color="#3CB371" face="Comic sans MS" size="5"><strong>标识符,注释和分隔符、变量和常量、基本类型</strong></font></center><br>&ensp;<br>&ensp;</p>
+<h4 id="一、-标识符、注释和分隔符"><a href="#一、-标识符、注释和分隔符" class="headerlink" title="一、 标识符、注释和分隔符"></a><font color="#FF6347" face="Comic sans MS">一、 标识符、注释和分隔符</font></h4><p><font color="red" face="Arial">📒标识符：</font><font face="Arial">是程序员用来标记语言中元素（变量、常量、类、对象等）名称的命名记号。</font></p>
+<table><tr><td bgcolor="#B0E0E6">Java中的标识符遵守先定义后使用的原则。即只有定义了的标识符，才可在语句部分使用。</td></tr></table>
+
+<p><font color="#EE7942" face="Arial"><strong>Java定义标识符的规则：</strong></font><br>(1)由字母、 数字、下划线、$组成，不能由数字开头<br>(2)不能是Java中的保留字(关键字)；<br>(3)大小写敏感，长度无限制。</p>
+<p>&emsp;</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>保留字  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color="#EE3A8C" face="Arial">类型保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> boolean, byte, char, short,  int, long,float, double, void</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">语句保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> if, else, switch, case, default, break, for, while, do,return,continue,try,catch,finally,throw,synchronized</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">表达式保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> new, null, this, super</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">修饰符保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> abstract, final, public, private, protected, static, transient, volatile </font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">类、方法保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> class, throws, native, instanceof</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">扩展类构筑模块保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> package, import, extends, implements, interface<font face="Comic sans MS" color="#EE3A8C"> </font></font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">其它保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> cast, futuer, generic, inner, oprater, outer, rest,var<font face="Comic sans MS"> </font></font></td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;<br>&emsp;</p>
+<h5 id="1-1-标识符"><a href="#1-1-标识符" class="headerlink" title="1.1  标识符"></a><font color="#3CB371" face="Comic sans MS">1.1  标识符</font></h5><table><tr><td bgcolor="#ADD8E6"><font color face="Comic sans MS"><strong>举例</strong>：<br>合法标识符：     A , a1,  $Systembol,  square,  ex_sa<br>不合法标识符：          1a          （以数字1开头）<br>                       break       （禁止使用保留字）<br>                       TWO  WORDS  （含有空格）<br>                       .NO         （有圆点）<br></font></td></tr></table>
+
+
+<p>&emsp;</p>
+<h5 id="1-2-注释"><a href="#1-2-注释" class="headerlink" title="1.2  注释"></a><font color="#3CB371" face="Comic sans MS">1.2  注释</font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>Java有三种注释形式：</strong><br>      1.“//” 单行注释。表示从此向后，直到行尾都是注释。<br>      2.“/*……*/“ 块注释。在“/*”和“*/”之间都是注释。<br>      3.“/**……*/”文档注释。所有在“/**”和“*/”之间的内容可以用来自动形成文档。</font></td></tr></table>
+
+
+<p>&emsp;</p>
+<h5 id="1-3-语句"><a href="#1-3-语句" class="headerlink" title="1.3  语句"></a><font color="#3CB371" face="Comic sans MS">1.3  语句</font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">与C++一样，Java中的语句也是最小的执行单位。<br>&emsp;&emsp;&emsp;&emsp;各个语句之间以  ;  间隔<br>&emsp;&emsp;&emsp;&emsp;X大括号{   }内的一系列语句称为语句块</font></td></tr></table>
+
+<hr>
+<hr>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="二、-变量和常量"><a href="#二、-变量和常量" class="headerlink" title=" 二、 变量和常量"></a><font color="#FF6347" face="Comic sans MS"> 二、 变量和常量</font></h4><h5 id="2-1-变量"><a href="#2-1-变量" class="headerlink" title="2.1  变量"></a><font color="#3CB371" face="Comic sans MS">2.1  变量</font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">📒Java的变量有两种：<font color="red"><strong>局部变量  类成员变量</strong></font><br>变量必须先定义后使用！变量的定义形式如下：<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="red">类型      变量名表；</font></font></td></tr></table>
+
+<blockquote>
+<p>注意：局部变量在使用前必须给定初值，否则，将编译出错，而类成员变量无此要求。</p>
+</blockquote>
+<p><font face="Comic sans MS">如下出现编译错误，缺少“y=8;”</font></p>
+<pre class=" language-bash"><code class="language-bash">class test<span class="token punctuation">{</span>
+  int x<span class="token punctuation">;</span>
+  void method<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      int y<span class="token punctuation">;</span> 
+      System.out.println<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+      System.out.println<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+  public static void main<span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+       <span class="token function">test</span> t<span class="token operator">=</span>new test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       t.method<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&emsp;</p>
+<h6 id="2-1-1-变量名"><a href="#2-1-1-变量名" class="headerlink" title="2.1.1  变量名 "></a><font color="#3CB371" face="Comic sans MS">2.1.1  变量名 </font></h6><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>1. 📒在Java中用标识符来表示变量名</strong>。<br>&emsp;&emsp;1.1 变量名中字母大写和小写是有区别的，如name和Name表示两个不同的变量名；<br>&emsp;&emsp;1.2 变量名标志存放变量值的内存位置，其内存存放的内容是变量的值。<br><strong>2. 📒命名方法</strong>:<br>2.1 程序员应该为变量取有意义的名称，以利于程序的阅读和理解；<br>2.2 习惯上，变量名以小写字母开头，若一个变量名由超过一个单词所组成，则第一个单词之后的所有单词都以大写字母开头，以便于理解该变量名。<br>&emsp;&emsp;例如，anIntVar<br></font></td></tr></table>
+
+<p>&emsp;</p>
+<h6 id="2-1-2-变量的类型"><a href="#2-1-2-变量的类型" class="headerlink" title="2.1.2   变量的类型 "></a><font color="#3CB371" face="Comic sans MS">2.1.2   变量的类型 </font></h6><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>变量类型用于表述数据的格式和结构。</strong><br>📒<strong>Java中的数据类型可分为两大类：</strong><br><font color="red"><strong>基本数据类型：</strong></font>整数类型、实数类型、字符型、布尔型<br><font color="red"><strong>构造数据类型：</strong></font>Java 语言中构造类型用类来描述。<br></font></td></tr></table>
+
+<hr>
+<hr>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="三、-基本数据类型表-变量和常量"><a href="#三、-基本数据类型表-变量和常量" class="headerlink" title=" 三、 基本数据类型表:变量和常量"></a><font color="#FF6347" face="Comic sans MS"> 三、 基本数据类型表:变量和常量</font></h4><p><img src="https://s1.ax1x.com/2018/12/20/Fr1nnP.png" alt="1"></p>
+<p>&emsp;</p>
+<h5 id="3-1-整型"><a href="#3-1-整型" class="headerlink" title="3.1  整型"></a><font color="#3CB371" face="Comic sans MS">3.1  整型</font></h5><p><img src="https://s1.ax1x.com/2018/12/20/Fr10NF.png" alt="2"></p>
+<p>&emsp;</p>
+<h6 id="3-1-1-整型常量"><a href="#3-1-1-整型常量" class="headerlink" title="3.1.1  整型常量"></a><font color="#3CB371" face="Comic sans MS">3.1.1  整型常量</font></h6><p><img src="https://s1.ax1x.com/2018/12/20/Fr1jUS.png" alt="3"></p>
+<p>&emsp;</p>
+<h6 id="3-1-2-整型变量"><a href="#3-1-2-整型变量" class="headerlink" title="3.1.2  整型变量"></a><font color="#3CB371" face="Comic sans MS">3.1.2  整型变量</font></h6><p><img src="https://s1.ax1x.com/2018/12/20/Fr3S3j.png" alt="4"></p>
+<p>&emsp;</p>
+<h5 id="3-2-实型"><a href="#3-2-实型" class="headerlink" title="3.2  实型"></a><font color="#3CB371" face="Comic sans MS">3.2  实型</font></h5><p><img src="https://s1.ax1x.com/2018/12/20/Fr3uvR.png" alt="5"></p>
+<p>&emsp;</p>
+<h6 id="3-2-1实型常量有两种表示法："><a href="#3-2-1实型常量有两种表示法：" class="headerlink" title="3.2.1实型常量有两种表示法："></a><font color="#3CB371" face="Comic sans MS">3.2.1实型常量有两种表示法：</font></h6><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>(1)十进制表示法</strong><br>&emsp;&emsp;-3.5f&emsp;0.0f&emsp;123.45f&emsp;+678.9f<br>      要注意,采用十进制表示法时,小数点的两侧都必须有数字, 缺一不可，如+123．和 .56都是不合法的。<br><strong>(2)科学表示法：</strong> <font face="Comic sans MS" color="red"><strong>&lt;尾数&gt; E &lt;阶码 &gt; </strong></font><br>&emsp;&emsp;-1.234567E+12&emsp;(-1.2345678901×1012)<br>&emsp;&emsp;尾数&emsp;阶码<br><strong>注意：</strong><font color="red"><br>&emsp;&emsp;&emsp;&emsp;尾数必须有，但小数部分可无；<br>&emsp;&emsp;&emsp;&emsp;阶码必须有，必须是整数。<br>&emsp;&emsp;&emsp;&emsp;基数是10<br></font></font></td></tr></table><br><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>下列表示都是不正确的。</strong><br>&emsp;&emsp;E-6&emsp;&emsp;（缺尾数）<br>&emsp;&emsp;3E&emsp;&emsp;（无阶码）<br>&emsp;&emsp;2.E3&emsp;&emsp;（尾数出错）<br>&emsp;&emsp;2E1.2&emsp;&emsp;（阶码非整数）<br>&emsp;<br><strong>📒实型变量的定义</strong><br>例如：<br>float aFloatVar;<br>double aDoubleVar;<font><br></font></font></td></tr></table>
+
+<p>&emsp;</p>
+<h5 id="3-3-布尔型"><a href="#3-3-布尔型" class="headerlink" title="3.3      布尔型"></a><font color="#3CB371" face="Comic sans MS">3.3      布尔型</font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>📒布尔数据类型用于表达逻辑状态：</strong><br>&emsp;&emsp;布尔型数据只有两个值：true和false。<br>&emsp;&emsp;<font face="Comic sans MS" color="red"><strong>注意: Java中不可将布尔类型看做整型值。true不对应1，false不对应0，不像C++一样。</strong></font></font></td></tr></table>
+
+<p>&emsp;</p>
+<h5 id="3-4-字符型"><a href="#3-4-字符型" class="headerlink" title="3.4      字符型"></a><font color="#3CB371" face="Comic sans MS">3.4      字符型</font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>📒字符类型用来表示单个字符，采用16位二进制Unicode 编码表示</strong><br>字符常量是用两个单引号括起来的一个字符<br>&emsp;&emsp;例如： ‘A’；  ‘a’； ‘2’； ‘我’；<br>也可用unicode代码表示一个字符常量<br>&emsp;&emsp;例如： ‘\u0041’<br></font></td></tr></table>    
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="四、-Unicode编码"><a href="#四、-Unicode编码" class="headerlink" title=" 四、 Unicode编码"></a><font color="#FF6347" face="Comic sans MS"> 四、 Unicode编码</font></h4><table><tr><td bgcolor="#EEE0E5"><font face="Comic sans MS"><strong>📒Unicode编码：</strong><br>1. Java的字符使用Unicode编码，使用两个字节(16位)，所以它几乎包括所有字符，中文、日文、…，它支持世<br>   界上所有语言。<br>2. 大多数语言使用ASCII码，用8位表示一个字符。ASCII码是Unicode码的一个子集，Unicode表示ASCII<br>   码时，其高位为0，它是其前255个字符。Unicode字符通常用十六进制。例如“\u0000”-“\u00ff”表示<br>   ASCII码集。”\u”表示转义字符，它用来表示其后四个十六进制数字是Unicode代码。<br></font></td></tr></table> 
+
+<p>&emsp;<br>&emsp;<br>&emsp;<br>&emsp;</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/post/java-language-2-1/" class="b-link-green">Java语言基础的字符常变量等(3.1-3.3)</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/post/java-access-permissions-3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Java类、成员变量、static访问权限(4.1-4.4)">
+                        
+                        <span class="card-title">Java类、成员变量、static访问权限(4.1-4.4)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">&ensp;&ensp;
+一、 Java中类的定义、类访问权限1.1  类的定义格式：[修饰符] class 类名 [extends父类名] [implements接口名列表]&emsp;&emsp;
+&emsp;
+1.2  类修饰符的访问</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java学习/" target="_blank">
+                        <span class="chip bg-color">Java学习</span>
+                    </a>
+                    
+                    <a href="/tags/Java访问权限/" target="_blank">
+                        <span class="chip bg-color">Java访问权限</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/http-user-agen-cookie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="《HTTP协议请求头部的User-Agen和Cookie》">
+                        
+                        <span class="card-title">《HTTP协议请求头部的User-Agen和Cookie》</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">&ensp;
+一、User-Agen注意在HTTP头部参数的首字母大写格式！
+🌸1.1 什么是User-Agen1.1.1、 Http Header之User-Agen的User-Agen中文名为用户代理，是Http协议中的一部分，属于头</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/HTTP协议/" class="post-category" target="_blank">
+                                    HTTP协议
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/User-Agen/" target="_blank">
+                        <span class="chip bg-color">User-Agen</span>
+                    </a>
+                    
+                    <a href="/tags/Cookie/" target="_blank">
+                        <span class="chip bg-color">Cookie</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">139.4k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

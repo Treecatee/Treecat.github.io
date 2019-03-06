@@ -1,0 +1,814 @@
+<!DOCTYPE HTML>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java的输入输出, Treecatee">
+    <meta name="description" content="一、Java中的流的概念1.0 数据流的概念
+
+&amp;emsp;数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Java的输入输出 | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Home</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <span>Links</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Home
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                Links
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Java的输入输出
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java学习/" target="_blank">
+                                <span class="chip bg-color">Java学习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-12-14
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        2.2k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        8 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h4 id="一、Java中的流的概念"><a href="#一、Java中的流的概念" class="headerlink" title="一、Java中的流的概念"></a><font color="#EE3A8C" face="楷体">一、Java中的流的概念</font></h4><h5 id="1-0-数据流的概念"><a href="#1-0-数据流的概念" class="headerlink" title="1.0 数据流的概念"></a><font color="#EE3A8C" face="楷体">1.0 数据流的概念</font></h5><blockquote>
+<blockquote>
+<font face="楷体">&emsp;数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程序来说，看不到数据流在写入时的分段情况，每次可以读取其中的任意长度的数据，但只能先读取前面的数据后，再读取后面的数据。不管写入时是将数据分多次写入，还是作为一个整体一次写入，读取时的效果都是完全一样的。<br>&emsp;“流是磁盘或其它外围设备中存储的数据的源点或终点。”<br>在电脑上的数据有三种存储方式，一种是外存，一种是内存，一种是缓存。比如电脑上的硬盘，磁盘，U盘等都是外存，在电脑上有内存条，缓存是在CPU里面的。外存的存储量最大，其次是内存，最后是缓存，但是外存的数据的读取最慢，其次是内存，缓存最快。这里总结从外存读取数据到内存以及将数据从内存写到外存中。对于内存和外存的理解，我们可以简单的理解为容器，即外存是一个容器，内存又是另外一个容器。那又怎样把放在外存这个容器内的数据读取到内存这个容器以及怎么把内存这个容器里的数据存到外存中呢？<br>&emsp;在Java类库中，IO部分的内容是很庞大的，因为它涉及的领域很广泛:<br>标准输入输出，文件的操作，网络上的数据流，字符串流，对象流，zip文件流等等，java中将输入输出抽象称为流，就好像水管，将两个容器连接起来。将数据冲外存中读取到内存中的称为输入流，将数据从内存写入外存中的称为输出流。<br>流是一个很形象的概念，当程序需要读取数据的时候，就会开启一个通向数据源的流，这个数据源可以是文件，内存，或是网络连接。类似的，当程序需要写入数据的时候，就会开启一个通向目的地的流。</font>
+</blockquote>
+</blockquote>
+<pre><code>  以上总结的基本概念如下：
+</code></pre><table><tr><td bgcolor="#F5FFFA"><font face="楷体">🌸数据流：一组有序，有起点和终点的字节的数据序列。包括输入流和输出流;<br>🌸输入流(Input  Stream)：程序从输入流读取数据源。数据源包括外界(键盘、文件、网络…)，即是将数据源读入到程序的通信通道;<br>🌸输出流：程序向输出流写入数据。将程序中的数据输出到外界（显示器、打印机、文件、网络…）的通信通道。采用数据流的目的就是使得输出输入独立于设备。<br>Input  Stream不关心数据源来自何种设备（键盘，文件，网络）<br>Output  Stream不关心数据的目的是何种设备（键盘，文件，网络）<br>🌸数据流分类：流序列中的数据既可以是未经加工的原始二进制数据，也可以是经一定编码处理后符合某种格式规定的特定数据。因此Java中的流分为两种：<br> 1)  字节流：数据流中最小的数据单元是字节；<br> 2)  字符流：数据流中最小的数据单元是字符，Java中的字符是Unicode编码，一个字符占用两个字节。<br>🌸具体的字节流和字符流区分请看文章《Java:字节流和字符流（输入流和输出流）》和<a href="https://blog.csdn.net/qq_25184739/article/details/51203733" target="_blank" rel="noopener">《Java 字节流与字符流的区别》</a>、<a href="https://www.cnblogs.com/absfree/p/5415092.html" target="_blank" rel="noopener">《理解Java中字符流与字节流的区别》</a>、<a href="https://www.cnblogs.com/progor/p/9357676.html" target="_blank" rel="noopener">《Java:字节流和字符流（输入流和输出流）》</a>.<br></font></td></tr></table>
+
+<p>&nbsp;</p>
+<h4 id="二、System、in、out说明"><a href="#二、System、in、out说明" class="headerlink" title="二、System、in、out说明"></a><font color="#EE3A8C" face="楷体">二、System、in、out说明</font></h4><font face="楷体">Java系统自带的标准数据流：java.lang.System:</font>
+
+<pre class=" language-bash"><code class="language-bash">java.lang.System     
+public final class System  extends Object<span class="token punctuation">{</span>     
+   static  PrintStream  err<span class="token punctuation">;</span>//标准错误流（输出）、err是对象；  
+   static  InputStream  <span class="token keyword">in</span><span class="token punctuation">;</span>//标准输入<span class="token punctuation">(</span>键盘输入流<span class="token punctuation">)</span>、in是对象；   
+   static  PrintStream  out<span class="token punctuation">;</span>//标准输出流<span class="token punctuation">(</span>显示器输出流<span class="token punctuation">)</span>、out是对象.
+<span class="token punctuation">}</span>    
+</code></pre>
+<table><tr><td bgcolor="#F5FFFA"><font face="楷体">🌼 System类不能创建对象，只能直接使用它的三个静态成员;<br>🌼 每当main方法被执行时,就自动生成上述三个对象;<br>🌼 System是java.lang包里面的一个类；<br>🌼 in是java.io.InputStream类的对象，也是System里面的一个数据成员(也称为字段)；<br>🌼 read()是java.io.InputStream类里的方法，也就是in对象的方法;<br>🌼 out是java.io.PrintStream类的对象，也是System里面的一个数据成员(也称为字段)；<br>🌼 print()、println()是java.io.PrintStream类里的方法，也就是out对象的方法;<br></font></td></tr></table>
+
+<p>&nbsp;</p>
+<h4 id="三、System-in-read-使用"><a href="#三、System-in-read-使用" class="headerlink" title="三、System.in.read()使用"></a><font color="#EE3A8C" face="楷体">三、System.in.read()使用</font></h4><table><tr><td bgcolor="#F5FFFA"><font face="楷体">🌼 System.in.read()方法的作用是按每次读取一个字节（就是ASCII码），然后返回它的<font color="#FF4040">ASCII码十进制</font>;<br>🌼 从第一次打开System.in输入流开始，以后输入的字节都存放起来，下次从这个里面依次按顺序读取;<br>🌼 用System.in.read()时，我们在键盘上按下的任何一个键都会被当做是输入值，包括Enter键也会被当做是一个值！当我们按下Enter的时候，实际上发送两个键值：一个回车\t（13），一个是换行\n（10）;<br>🌼 从键盘输入一个a，char是两个字节存储的，read()一个字节一个字节读取时，暂时把a看作是一个字节，后续深入学习了再来解释😫😂（哈，貌似想通了，当字节流读到字节为0的数据流时会舍去，相当于跳过该字节继续读下一个非0的字节…..后续更新中）—-12.27与老师探讨后得知：在流中输入的字符是一个ASCII(即一个字节=8比特)，这个时候就是一个字节，而char存储的时候是按2个字节存储的，注意的是在流中并不是存储，存储一个字符是Unicode码共16位，而流中的ASCII是8位。<br>建议去读<a href="https://blog.csdn.net/liuxiaogangqq/article/details/25892667" target="_blank" rel="noopener">《java总结输入流输出流》</a>！！！<br>可参考<a href="https://www.cnblogs.com/ioveNature/p/6797024.html" target="_blank" rel="noopener">Scanner使用方法</a></font></td></tr></table>
+
+<p><strong>注意事项：</strong></p>
+<table><tr><td bgcolor="#F5FFFA"><font face="楷体">1、由于在控制台输入时，按下回车键才代表输入完成，输入的内容才会提交到read()方法，所以按下回车之前，程序是不知道你输入了什么的;<br>2、输入”a”后按下回车，这时候read()方法读到了数据，此时buffer中的数据应该是97 13 10，也就是字符’a’,’\r’,’\n’，并且read()方法每次只能从缓冲区中读出一个字符，三次read()就刚好读出这3个字符，之后程序就结束了;<br>3、只按下回车，此时从流中只读到了”\r”和”\n”，由于没有足够的输入，那么第三次调用read()时阻塞.<br>参考：<a href="https://uule.iteye.com/blog/1128243" target="_blank" rel="noopener">《System.in.read()使用》</a>；<a href="https://blog.csdn.net/fengzijinliang/article/details/40741565?utm_source=blogxgwz0" target="_blank" rel="noopener">《System.in输入流深入理解》</a><br>推荐阅读：<a href="https://www.cnblogs.com/ylspace/p/8128112.html" target="_blank" rel="noopener">《深入理解JAVA中的IO》</a></font></td></tr></table>
+
+<p>&nbsp;</p>
+<h4 id="四、System-out-print-println"><a href="#四、System-out-print-println" class="headerlink" title="四、System.out.print()/println()"></a><font color="#EE3A8C" face="楷体">四、System.out.print()/println()</font></h4><table><tr><td bgcolor="#F5FFFA"><font face="楷体">🌼 System.out.print()输出不换行，System.out.print()输出后换行.<br>参考<a href="https://blog.csdn.net/idealemail/article/details/47318813" target="_blank" rel="noopener">《深入理解System.out.print》</a>.</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h4 id="五、Java中System-out-print-函数与Python中print-函数的详解"><a href="#五、Java中System-out-print-函数与Python中print-函数的详解" class="headerlink" title="五、Java中System.out.print()函数与Python中print()函数的详解"></a><font color="#EE3A8C" face="楷体">五、Java中System.out.print()函数与Python中print()函数的详解</font></h4><table><tr><td bgcolor="#F5FFFA"><font face="楷体">python中的print()函数和java中的System.out.print()函数都有着打印字符串的功能。<br>(1). <font color="red">python中:</font> print(“hello,world!”)<br>输出为：hello,world!<br><font color="red">Java中:</font> System.out.print(“hello,world!”);<br>输出为：hello,world!<br>说明这两个函数的用法是一样的.<br>(2). <font color="red">python中:</font> print(“1+1=”,1+1)<br>输出结果为：1+1= 2<br><font color="red">Java中:</font> System.out.print(“1+1=”+(1+1));<br>输出结果为：1+1=2<br>说明在使用print()函数的时候，我们用了一个“,”将“1+1=”和1+1的结果连接起来了，这个“,”起着连接的作用。同时，在使用System.out.print()函数的时候，我们用了一个“+”将“1+1=”和1+1的结果连接起来了，这个“+”也是起着连接作用;<br>我们再来看他们的输出结果，print()输出的是1+1= 2，“=”与“2”之间有一个空格，而System.out.print()输出的是1+1=2，“=”与“2”之间没有空格。这里我们发现python中的print()函数中的“,”不仅起着连接字符串的作用，而且还表示一个空格.<br><br><strong>结论：</strong><br><font color="#FF0000">🌼 python中的print()函数的作用和java中的System.out.print()函数的作用是一样的;<br>🌼 print()函数中“,”和System.out.print()函数中“+”都有着连接字符串的作用;<br>🌼 print()函数中“,”还表示一个空格;<br>🌼 不同的语言都有着很多的相似点，不同的语言又有着不同的新特性.</font><br>参考：<a href="https://m.jb51.net/article/128959.htm" target="_blank" rel="noopener">《python中print()函数的“,”与java中System.out.print()函数中的“+”功能详解》</a>.<br></font></td></tr></table>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/post/java-io-1/" class="b-link-green">Java的输入输出</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/post/xampp-dvwa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="XAMPP环境下配置DVWA">
+                        
+                        <span class="card-title">XAMPP环境下配置DVWA</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一、下载1. 下载XAMPP    2. 下载DVWA  
+
+&nbsp;
+二、给文件执行权限并安装XAMPP1. 在“下载”目录下，以“客户端运行” 
+
+sudo chmod a+x xampp-linux-x64-5.6.12-0-in</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/XAMPP-DVWA/" class="post-category" target="_blank">
+                                    XAMPP-DVWA
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DVWA/" target="_blank">
+                        <span class="chip bg-color">DVWA</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/sqlmap-shell/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="SQLMAP命令大全">
+                        
+                        <span class="card-title">SQLMAP命令大全</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一、sqlmap简介&emsp;sqlmap支持MySQL, Oracle,PostgreSQL, Microsoft SQL Server, Microsoft Access, IBM DB2, SQLite, Firebird,Syba</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Kali-SQLMAP/" class="post-category" target="_blank">
+                                    Kali-SQLMAP
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SQLMAP命令/" target="_blank">
+                        <span class="chip bg-color">SQLMAP命令</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">139.4k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
