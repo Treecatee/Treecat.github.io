@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Treecatee.gitgub.io/"/>
-  <updated>2019-03-06T16:38:15.957Z</updated>
+  <updated>2019-03-07T07:36:18.713Z</updated>
   <id>Treecatee.gitgub.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python-文件系统</title>
+    <link href="Treecatee.gitgub.io/post/python-filecontents/"/>
+    <id>Treecatee.gitgub.io/post/python-filecontents/</id>
+    <published>2019-03-06T07:08:54.000Z</published>
+    <updated>2019-03-07T07:36:18.713Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Python是 资源节点.write()，PHP是fwrite() 😀…&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="Treecatee.gitgub.io/categories/Python/"/>
+    
+    
+      <category term="Python语言" scheme="Treecatee.gitgub.io/tags/Python%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdown</title>
@@ -31,28 +51,6 @@
         
           &lt;p&gt;&lt;a href=&quot;http://marxi.co/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;1.Markdown在线编辑器&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="Treecatee.gitgub.io/post/hello-world/"/>
-    <id>Treecatee.gitgub.io/post/hello-world/</id>
-    <published>2019-03-06T02:11:53.270Z</published>
-    <updated>2019-03-06T16:23:49.202Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
         
       
     

@@ -1,0 +1,1690 @@
+<!DOCTYPE HTML>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python-文件系统, Treecatee">
+    <meta name="description" content="Python是 资源节点.write()，PHP是fwrite() 😀…
+
+
+文件系统 
+
+推荐参考资料：
+《Python3 输入和输出》《Python学习之路-11 (文件操作)》 
+
+
+
+
+一. 读写文件Python提供了 input">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Python-文件系统 | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>时间轴</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/book" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>资源</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <span>链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                时间轴
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/book" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                资源
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2019/03/06/5c7f728723843.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Python-文件系统
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Python语言/" target="_blank">
+                                <span class="chip bg-color">Python语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-03-06
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        5.9k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        23 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Python是 资源节点.write()，PHP是fwrite() 😀…<br><a id="more"></a></p>
+<p><br></p>
+<p><br></p>
+<center><font color="#00B2EE" face="Comic sans MS" size="5"><strong>文件系统</strong></font> </center>
+
+<p>推荐参考资料：</p>
+<font color="#00B2EE">《<a href="http://www.runoob.com/python3/python3-inputoutput.html" target="_blank" rel="noopener">Python3 输入和输出</a>》</font><br><font color="#00B2EE">《<a href="https://www.cnblogs.com/sjie0224/articles/7562509.html" target="_blank" rel="noopener">Python学习之路-11 (文件操作)</a>》</font> 
+
+
+<p><br></p>
+<p><br></p>
+<h3 id="一-读写文件"><a href="#一-读写文件" class="headerlink" title="一. 读写文件"></a><font color="#FF6347" face="Comic sans MS">一. 读写文件</font></h3><p>Python提供了 input() 内置函数从标准输入读入一行文本，并将输入以字符串形式返回，默认的标准输入是键盘。</p>
+<p>input 可以接收一个Python表达式作为输入，并将运算结果返回。</p>
+<pre class=" language-python"><code class="language-python">str <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"你输入的内容是: "</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span>
+
+这会产生如下的对应着输入的结果：
+请输入：菜鸟教程
+你输入的内容是<span class="token punctuation">:</span>  菜鸟教程
+</code></pre>
+<p><br></p>
+<blockquote>
+<p><font color="#00B2EE"><strong>使用到的方法：</strong></font></p>
+<ul>
+<li><font color="#FF7F00"><strong>open()：</strong></font> 以某种读写模式打开一个文件，将会返回一个 file 对象；</li>
+<li><font color="#FF7F00"><strong>f.write(string) ：</strong></font> 将 string 写入到文件中, 然后返回写入的字符数；</li>
+<li><font color="#FF7F00"><strong>f.read(size)：</strong></font> 将读取一定数目的数据, 然后作为字符串或字节对象返回；</li>
+<li><font color="#FF7F00"><strong>f.readline() ：</strong></font> 从文件读取整行，包括 “\n” 字符。如果指定了一个非负数的参数，则返回指定大小的字节数，包括 “\n” 字符。；</li>
+<li><font color="#FF7F00"><strong>f.readlines() ：</strong></font> 将返回该文件中包含的所有行；</li>
+<li><font color="#FF7F00"><strong>f.tell() ：</strong></font> 返回文件对象当前所处的位置, 它是从文件开头开始算起的<strong>字节数</strong>；</li>
+<li><font color="#FF7F00"><strong>f.seek() ：</strong></font> 如果要改变文件当前的位置, 可以使用 f.seek(offset, from_what) 函数；</li>
+<li><font color="#FF7F00"><strong>f.close() ：</strong></font> 当你处理完一个文件后, 调用 f.close() 来关闭文件并释放系统的资源，如果尝试再调用该文件，则会抛出异常。</li>
+</ul>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<h4 id="1-1-open"><a href="#1-1-open" class="headerlink" title="1.1 open()"></a><font color="#3CB371" face="Comic sans MS">1.1 open()</font></h4><p>Python open() 方法用于打开一个文件，并<font color="#FF7F00"><strong>返回文件对象</strong></font>，在对文件进行处理过程都需要使用到这个函数，如果该文件无法被打开，会抛出 OSError。</p>
+<p><strong>注意：</strong>使用 open() 方法一定要保证关闭文件对象，即调用 close() 方法。</p>
+<p>open() 函数常用形式是接收两个参数：<strong>文件名(file)和模式(mode)</strong>。即<strong><code>a = open(file, mode);</code></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法格式</th>
+<th style="text-align:left">参数说明</th>
+<th style="text-align:left">返回类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">open(file, mode, buffering, encoding=None, <br>&emsp;&emsp;&emsp;errors=None, newline=None, <br>&emsp;&emsp;&emsp;closefd=True, opener=None)</td>
+<td style="text-align:left">file: 必需，文件路径（相对或者绝对路径）。<br>mode: 可选，文件打开模式<br>buffering: 设置缓冲<br>encoding: 一般使用utf8<br>errors: 报错级别<br>newline: 区分换行符<br>closefd: 传入的file参数类型<br>opener:</td>
+<td style="text-align:left">文件对象</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<font color="#FF7F00"><strong>mode 参数有：</strong></font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模式</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">t</td>
+<td style="text-align:left">文本模式 (默认)。</td>
+</tr>
+<tr>
+<td style="text-align:left">x</td>
+<td style="text-align:left">写模式，新建一个文件，如果该文件已存在则会报错。</td>
+</tr>
+<tr>
+<td style="text-align:left">b</td>
+<td style="text-align:left">二进制模式。</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">打开一个文件进行<strong>更新(可读可写)</strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left">U</td>
+<td style="text-align:left">通用换行模式（不推荐）。</td>
+</tr>
+<tr>
+<td style="text-align:left">r</td>
+<td style="text-align:left">以<strong>只读方式</strong>打开文件。文件的指针将会放在<strong>文件的开头</strong>。这是默认模式。</td>
+</tr>
+<tr>
+<td style="text-align:left">rb</td>
+<td style="text-align:left">以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。<br>一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:left">r+</td>
+<td style="text-align:left">打开一个文件<strong>用于读写</strong>。文件指针将会放在文件的<strong>开头</strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left">rb+</td>
+<td style="text-align:left">以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">打开一个文件<strong>只用于写入</strong>。如果该文件已存在则打开文件，并从开头开始编辑，即<strong>原有内容会被删除</strong>。<br>如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">wb</td>
+<td style="text-align:left">以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有<br>内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:left">w+</td>
+<td style="text-align:left">打开一个文件用于<strong>读写</strong>。如果该文件已存在则打开文件，并<strong>从开头开始编辑</strong>，<strong>即原有内容会被删除</strong>。<br>如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">wb+</td>
+<td style="text-align:left">以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，<br>即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:left">打开一个文件用于<strong>追加(不能读)</strong>。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，<br>新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td style="text-align:left">ab</td>
+<td style="text-align:left">以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，<br>新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td style="text-align:left">a+</td>
+<td style="text-align:left">打开一个文件用于<strong>读写</strong>。如果该文件已存在，文件<strong>指针将会放在文件的结尾</strong>。<br>文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+<tr>
+<td style="text-align:left">ab+</td>
+<td style="text-align:left">以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。<br>如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>下图很好的总结了这几种模式：</p>
+<p><img src="https://i.loli.net/2019/03/06/5c7fb64577036.png" alt="2.png"></p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模式</th>
+<th style="text-align:center">读</th>
+<th style="text-align:center">写</th>
+<th style="text-align:center">创建</th>
+<th style="text-align:center">覆盖</th>
+<th style="text-align:center">指针在开始</th>
+<th style="text-align:center">指针在结尾</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>r</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>r+</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>w</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>w+</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>a</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>✔</strong>    </td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>a+</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"><strong>✔</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>✔</strong></td>
+</tr>
+</tbody>
+</table>
+<font color="#FF7F00"><strong>总结：</strong></font><br>1. w 和 a 都是<font color="#FF7F00"><strong>写入不能读内容</strong></font>，前者是覆盖，后者是追加内容。<br>2. w+ 和 a+ 都是<font color="#FF7F00"><strong>写入且能读内容</strong></font>，前者是覆盖，后者是追加内容。<br><br><br><br><br>以下实例将字符串写入到文件 foo.txt 中：<br><br><font color="#FF7F00"></font>
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 打开一个文件</span>
+f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"g:/PythonSt/foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"a+"</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span> <span class="token string">"Python 是一个非常好的语言。\n是的，的确非常好!!\n"</span> <span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"文件打开失败"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 关闭打开的文件</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+此时打开文件 foo<span class="token punctuation">.</span>txt<span class="token punctuation">,</span>显示如下：
+Python 是一个非常好的语言。
+是的，的确非常好!!
+</code></pre>
+<blockquote>
+<ol>
+<li>第一个参数为要打开的文件名。</li>
+<li>第二个参数描述文件如何使用的字符。 mode 可以是 <code>r</code> 如果文件只读, <code>w</code> 只用于写 (如果存在同名文件则将被删除), 和 <code>a</code> 用于追加文件内容; 所写的任何数据都会被自动增加到末尾. <code>r+</code> 同时用于读写。 mode 参数是可选的; <code>r</code> 将是默认值。</li>
+</ol>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<h4 id="1-2-f-write"><a href="#1-2-f-write" class="headerlink" title="1.2 f.write()"></a><font color="#3CB371" face="Comic sans MS">1.2 f.write()</font></h4><p><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法格式</th>
+<th style="text-align:left">参数说明</th>
+<th style="text-align:left">返回类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">f.write(string)</td>
+<td style="text-align:left">将 string 写入到文件中</td>
+<td style="text-align:left">返回写入的字符数</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 打开一个文件</span>
+f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"g:/pythonst/foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
+
+num <span class="token operator">=</span> f<span class="token punctuation">.</span>write<span class="token punctuation">(</span> <span class="token string">"16845654316532"</span> <span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 关闭打开的文件</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+OUTPUT： <span class="token number">14</span>
+</code></pre>
+<p><br></p>
+<p><br></p>
+<h4 id="1-3-f-read"><a href="#1-3-f-read" class="headerlink" title="1.3 f.read()"></a><font color="#3CB371" face="Comic sans MS">1.3 f.read()</font></h4><p>为了读取一个文件的内容，调用 <code>f.read(size)</code>, 这将读取一定数目的数据, 然后作为字符串或字节对象返回。</p>
+<p>size 是一个可选的数字类型的参数。 当 size 被忽略了或者为负, 那么该文件的所有内容都将被读取并且返回。</p>
+<p><strong>注意：</strong><font color="#FF7F00"><strong><code>f.read(size)</code>必须在<code>r</code>或者<code>r+</code>模式下来读取内容。</strong></font></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法格式</th>
+<th style="text-align:left">参数说明</th>
+<th style="text-align:left">返回类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">f.read(size)</td>
+<td style="text-align:left">文件读取指定的字节数（读取的时候文件内容的<br>一个字符按一个字节来读），如果未给定或为负则读取所有</td>
+<td style="text-align:left">字符串或字节对象返回</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>以下实例假定文件 foo.txt 已存在（上面实例中已创建）：</p>
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">'''foo.txt文件内容为16845654316532'''</span>
+<span class="token comment" spellcheck="true"># 打开一个文件</span>
+f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"g:/PythonSt/foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span>  
+m <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>isinstance<span class="token punctuation">(</span>m<span class="token punctuation">,</span>int<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token keyword">is</span> str<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 关闭打开的文件</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+OUTPUT：
+<span class="token number">168456</span>      <span class="token triple-quoted-string string">'''把一个字符当作一个字节读取'''</span>
+<span class="token boolean">False</span>       <span class="token triple-quoted-string string">'''isinstance(变量,类型)判断变量的类型'''</span>
+<span class="token boolean">True</span>        <span class="token triple-quoted-string string">'''type()...is 也可以判断类型'''</span>
+</code></pre>
+<p><br></p>
+<p><br></p>
+<h4 id="1-4-f-close"><a href="#1-4-f-close" class="headerlink" title="1.4 f.close()"></a><font color="#3CB371" face="Comic sans MS">1.4 f.close()</font></h4><p>在文本文件中 (那些打开文件的模式下没有 b 的), 只会相对于文件起始位置进行定位。</p>
+<p>当你处理完一个文件后, 调用 f.close() 来关闭文件并释放系统的资源，<font color="#FF7F00"><strong>如果尝试再调用该文件，则会抛出异常</strong></font>。如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 打开一个文件</span>
+f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"g:/pythonst/foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
+
+num <span class="token operator">=</span> f<span class="token punctuation">.</span>write<span class="token punctuation">(</span> <span class="token string">"16845654316532"</span> <span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 关闭打开的文件</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+OUTPUT： 
+<span class="token number">14</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  File <span class="token string">"3-7.py"</span><span class="token punctuation">,</span> line <span class="token number">8</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">></span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ValueError<span class="token punctuation">:</span> I<span class="token operator">/</span>O operation on closed file<span class="token punctuation">.</span>
+</code></pre>
+<p><br></p>
+<p>由于文件读写时都有可能产生IOError，一旦出错，后面的f.close()就不会调用。所以，为了保证无论是否出错都能正确地关闭文件，我们可以使用<font color="#FF7F00"><strong><code>try ... finally</code></strong></font>来实现：</p>
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">'''foo.txt内容为16845654316532'''</span>
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"g:/PythonSt/foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span>  
+    m <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+<span class="token keyword">finally</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+OUTPUT： <span class="token number">168456</span>
+</code></pre>
+<p><br></p>
+<p>但是每次都这么写实在太繁琐，所以，Python引入了<font color="#FF7F00"><strong><code>with</code>语句搭配<code>as</code></strong></font>来自动帮我们调用close()方法：</p>
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">'''foo.txt内容为16845654316532'''</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"g:/PythonSt/foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+OUTPUT： 
+<span class="token number">16845654316532</span>
+</code></pre>
+<p><br></p>
+<p><br></p>
+<h4 id="1-5-f-readline"><a href="#1-5-f-readline" class="headerlink" title="1.5 f.readline()"></a><font color="#3CB371" face="Comic sans MS">1.5 f.readline()</font></h4><p><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法格式</th>
+<th style="text-align:left">参数说明</th>
+<th style="text-align:left">返回类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">fileObject.readline(size)</td>
+<td style="text-align:left">size为从文件中读取的字节数。<br>从文件读取整行，（包括 “\n” 字符。）</td>
+<td style="text-align:left">size非负数则返回指定大小的字节数，<br>包括”\n”字符。</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>实例<br>以下实例演示了 readline() 方法的使用：</p>
+<p>文件 runoob.txt 的内容如下：</p>
+<p><code>www.runoob.com&#39;\n&#39;</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 打开文件</span>
+fo <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"runoob.txt"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"文件名为: "</span><span class="token punctuation">,</span> fo<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+line <span class="token operator">=</span> fo<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"读取第一行 %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+line <span class="token operator">=</span> fo<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"读取的字符串为: %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 关闭文件</span>
+fo<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+OUTPUT<span class="token punctuation">:</span>
+文件名为<span class="token punctuation">:</span>  runoob<span class="token punctuation">.</span>txt
+读取第一行 www<span class="token punctuation">.</span>runoob<span class="token punctuation">.</span>com<span class="token string">'\n'</span>
+
+读取的字符串为<span class="token punctuation">:</span> www<span class="token punctuation">.</span>r
+</code></pre>
+<p><br></p>
+<p><br></p>
+<h4 id="1-6-f-readlines"><a href="#1-6-f-readlines" class="headerlink" title="1.6 f.readlines()"></a><font color="#3CB371" face="Comic sans MS">1.6 f.readlines()</font></h4><p>概述<br>readlines() 方法用于读取所有行(直到结束符 EOF)并返回列表，该列表可以由 Python 的 for… in … 结构进行处理。 如果碰到结束符 EOF 则返回空字符串。</p>
+<p>如果碰到结束符 EOF 则返回空字符串。<br>关于EOF可参考：<font color="#00B2EE">[<a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">文件结束符EOF</a>]</font> </p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法格式</th>
+<th style="text-align:left">参数说明</th>
+<th style="text-align:left">返回类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">fileObject.readlines( )</td>
+<td style="text-align:left">无参数</td>
+<td style="text-align:left">返回列表，包含所有的行。</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>实例<br>以下实例演示了 readline() 方法的使用：</p>
+<p>文件 runoob.txt 的内容如下：</p>
+<p><code>www.runoob.com&#39;\n&#39;</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code></p>
+<pre class=" language-python"><code class="language-python">请自行区分下面两种输出方式：
+
+（<span class="token number">1</span>）<span class="token comment" spellcheck="true"># 打开文件</span>
+fo <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"runoob.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"文件名为: "</span><span class="token punctuation">,</span> fo<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>fo<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 关闭文件</span>
+fo<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+OUTPUT：
+<span class="token punctuation">[</span><span class="token string">"www.runoob.com'\\n'\n"</span><span class="token punctuation">,</span> <span class="token string">'www.runoob.com\n'</span><span class="token punctuation">,</span> <span class="token string">'www.runoob.com\n'</span><span class="token punctuation">,</span> <span class="token string">'www.runoob.com\n'</span><span class="token punctuation">,</span> <span class="token string">'www.runoob.com'</span><span class="token punctuation">]</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+（<span class="token number">2</span>）<span class="token comment" spellcheck="true"># 打开文件</span>
+fo <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"runoob.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"文件名为: "</span><span class="token punctuation">,</span> fo<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> line <span class="token keyword">in</span> fo<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>                          <span class="token comment" spellcheck="true">#依次读取每行  </span>
+    line <span class="token operator">=</span> line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>                             <span class="token comment" spellcheck="true">#去掉每行头尾空白  </span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"读取的数据为: %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 关闭文件</span>
+fo<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+OUTPUT：
+文件名为<span class="token punctuation">:</span>  runoob<span class="token punctuation">.</span>txt
+读取的数据为<span class="token punctuation">:</span> www<span class="token punctuation">.</span>runoob<span class="token punctuation">.</span>com<span class="token string">'\n'</span>
+读取的数据为<span class="token punctuation">:</span> www<span class="token punctuation">.</span>runoob<span class="token punctuation">.</span>com
+读取的数据为<span class="token punctuation">:</span> www<span class="token punctuation">.</span>runoob<span class="token punctuation">.</span>com
+读取的数据为<span class="token punctuation">:</span> www<span class="token punctuation">.</span>runoob<span class="token punctuation">.</span>com
+读取的数据为<span class="token punctuation">:</span> www<span class="token punctuation">.</span>runoob<span class="token punctuation">.</span>com
+</code></pre>
+<p><br></p>
+<p><br></p>
+<h4 id="1-7-f-tell"><a href="#1-7-f-tell" class="headerlink" title="1.7 f.tell()"></a><font color="#3CB371" face="Comic sans MS">1.7 f.tell()</font></h4><p>f.tell() 返回文件对象当前所处的位置, 它是从文件开头开始算起的字节数。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法格式</th>
+<th style="text-align:left">参数说明</th>
+<th style="text-align:left">返回类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">f.tell()</td>
+<td style="text-align:left">无参数</td>
+<td style="text-align:left">返回文件指针的当前位置（整数）</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>实例<br>以下实例演示了 readline() 方法的使用：</p>
+<p>文件 runoob.txt 的内容如下：</p>
+<p><code>www.runoob.com&#39;\n&#39;</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 打开文件</span>
+fo <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"runoob.txt"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"文件名为: "</span><span class="token punctuation">,</span> fo<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+line <span class="token operator">=</span> fo<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"读取的数据为: %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 获取当前文件位置</span>
+pos <span class="token operator">=</span> fo<span class="token punctuation">.</span>tell<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"当前位置: %d"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true"># 关闭文件</span>
+fo<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+OUTPUT：
+文件名为<span class="token punctuation">:</span>  runoob<span class="token punctuation">.</span>txt
+读取的数据为<span class="token punctuation">:</span> www<span class="token punctuation">.</span>runoob<span class="token punctuation">.</span>com<span class="token string">'\n'</span>
+
+当前位置<span class="token punctuation">:</span> <span class="token number">20</span>
+</code></pre>
+<p><br></p>
+<p><br></p>
+<h4 id="1-8-f-seek"><a href="#1-8-f-seek" class="headerlink" title="1.8 f.seek()"></a><font color="#3CB371" face="Comic sans MS">1.8 f.seek()</font></h4><p>如果要改变文件当前的位置, 可以使用 f.seek(offset, from_what) 函数。</p>
+<p>from_what 的值, 如果是 0 表示开头, 如果是 1 表示当前位置, 2 表示文件的结尾。from_what 值为默认为0，即文件开头。例如：</p>
+<p>seek(x,0) ： 从起始位置即文件首行首字符开始移动 x 个字符<br>seek(x,1) ： 表示从当前位置往后移动x个字符<br>seek(-x,2)：表示从文件的结尾往前移动x个字符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法格式</th>
+<th style="text-align:left">参数说明</th>
+<th style="text-align:left">返回类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"> f.seek(offset[, whence])</td>
+<td style="text-align:left">offset： 开始的偏移量，也就是代表需要移动偏移的字节数，<br>如果是负数表示从倒数第几位开始。<br>whence：可选，默认值为 0。给 offset 定义一个参数，<br>表示要从哪个位置开始偏移；0 代表从文件开头开始算起，<br>1 代表从当前位置开始算起，2 代表从文件末尾算起。</td>
+<td style="text-align:left">无返回值</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>实例<br>以下实例演示了 readline() 方法的使用：</p>
+<p>文件 runoob.txt 的内容如下：</p>
+<p><code>www.runoob.com&#39;\n&#39;</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code><br><code>www.runoob.com</code></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 打开文件</span>
+fo <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"runoob.txt"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"文件名为: "</span><span class="token punctuation">,</span> fo<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+line <span class="token operator">=</span> fo<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"读取的数据为: %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 重新设置文件读取指针到开头</span>
+fo<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+line <span class="token operator">=</span> fo<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"读取的数据为: %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true"># 关闭文件</span>
+fo<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+OUTPUT：
+文件名为<span class="token punctuation">:</span>  runoob<span class="token punctuation">.</span>txt
+读取的数据为<span class="token punctuation">:</span> www<span class="token punctuation">.</span>runoob<span class="token punctuation">.</span>com<span class="token string">'\n'</span>
+
+读取的数据为<span class="token punctuation">:</span> www<span class="token punctuation">.</span>runoob<span class="token punctuation">.</span>com<span class="token string">'\n'</span>
+</code></pre>
+<p><br></p>
+<p><br></p>
+<h4 id="1-9-file-对象的方法"><a href="#1-9-file-对象的方法" class="headerlink" title="1.9 file 对象的方法"></a><font color="#3CB371" face="Comic sans MS">1.9 file 对象的方法</font></h4><p><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">方法及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.close()</a></font><br>关闭文件。关闭后文件不能再进行读写操作。</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.flush()</a></font> <br>刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件,<br>而不是被动的等待输出缓冲区写入。</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.fileno()</a></font> <br>返回一个整型的文件描述符(file descriptor FD 整型), <br>可以用在如os模块的read方法等一些底层操作上。</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.isatty()</a></font><br>如果文件连接到一个终端设备返回 True，否则返回 False。</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.next()</a></font> <br>返回文件下一行。</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.read([size])</a></font> <br>从文件读取指定的字节数，如果未给定或为负则读取所有。</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.readline([size])</a></font> <br>读取整行，包括 “\n” 字符。</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.readlines([sizeint])</a></font><br> 读取所有行并返回列表，若给定sizeint&gt;0，返回总和大约为sizeint字节的行, <br>实际读取值可能比 sizeint 较大, 因为需要填充缓冲区。</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.seek(offset[, whence])</a></font> <br>设置文件当前位置</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.tell()</a></font> <br>返回文件当前位置。</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.truncate([size])</a></font> <br>从文件的首行首字符开始截断，截断文件为 size 个字符，无 size 表示从当前位置截断；<br>截断之后后面的所有字符被删除，其中 Widnows 系统下的换行代表2个字符大小。</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.write(str)</a></font> <br>将字符串写入文件，返回的是写入的字符长度。</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left"><font color="#00B2EE"><a href="https://blog.csdn.net/polar9527/article/details/38518703" target="_blank" rel="noopener">file.writelines(sequence)</a></font> <br>向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符。</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<h3 id="二-在内存读写"><a href="#二-在内存读写" class="headerlink" title="二. 在内存读写"></a><font color="#FF6347" face="Comic sans MS">二. 在内存读写</font></h3><p>可参考：</p>
+<font color="#00B2EE">[<a href="https://blog.51cto.com/limingyu/2320441?source=dra" target="_blank" rel="noopener">StringIO和BytesIO</a>]</font><br><font color="#00B2EE">[<a href="https://www.jianshu.com/p/b74a83e0f9fc" target="_blank" rel="noopener">Python文件读写、StringIO和BytesIO</a>]</font>
+
+<p><br></p>
+<p>IO在计算机中指Input/Output，也就是输入和输出。由于程序和运行时数据是在内存中驻留，由CPU这个超快的计算核心来执行，涉及到数据交换的地方，通常是磁盘、网络等，就需要IO接口。</p>
+<p>由于CPU和内存的速度远远高于外设的速度，所以，在IO编程中，就存在速度严重不匹配的问题。举个例子来说，比如要把100M的数据写入磁盘，CPU输出100M的数据只需要0.01秒，可是磁盘要接收这100M数据可能需要10秒，怎么办呢？有两种办法：</p>
+<p>第一种是CPU等着，也就是程序暂停执行后续代码，等100M的数据在10秒后写入磁盘，再接着往下执行，这种模式称为同步IO；</p>
+<p>另一种方法是CPU不等待，只是告诉磁盘，“您老慢慢写，不着急，我接着干别的事去了”，于是，后续代码可以立刻接着执行，这种模式称为异步IO。</p>
+<p>很明显，使用异步IO来编写程序性能会远远高于同步IO，但是异步IO的缺点是编程模型复杂。</p>
+<p>操作IO的能力都是由操作系统提供的，每一种编程语言都会把操作系统提供的低级C接口封装起来方便使用，Python也不例外。我们后面会详细讨论Python的IO编程接口。</p>
+<p>注意，本章的IO编程都是同步模式，异步IO由于复杂度太高，后续涉及到服务器端程序开发时我们再讨论。</p>
+<p><br></p>
+<p>就单独说一下Python的input()和print()：</p>
+<p><strong>input()：</strong> 在控制台把数据输入到内存中，然后从内存中把数据以字符串形式返回给调用处；</p>
+<p><strong>print()：</strong> 从内存中输出括号里的相对应的信息。</p>
+<p><br></p>
+<h4 id="2-1-StringIO"><a href="#2-1-StringIO" class="headerlink" title="2.1 StringIO"></a><font color="#3CB371" face="Comic sans MS">2.1 StringIO</font></h4><p>很多时候，数据读写不一定是文件，也可以在<font color="#FF7F00"><strong>内存中</strong></font>读写。</p>
+<p>StringIO是IO模块中的类，所以使用的时候要引用模块： <code>from io import StringIO</code></p>
+<p>StringIO顾名思义就是<font color="#FF7F00"><strong>在内存中读写str</strong></font>。</p>
+<ul>
+<li><p>内存中，开辟的一个文本模式的buffer,可以像文件对象一样操作它；</p>
+</li>
+<li><p>当使用close()前写入的数据是<font color="#FF7F00"><strong>使用追加模式</strong></font>；</p>
+</li>
+<li><p>当close方法被调用的时候，这个buffer会被释放；</p>
+</li>
+</ul>
+<p><strong>好处：</strong></p>
+<p>  一般来说，磁盘的操作比内存的操作要慢得多；内存足够的情况下，一般的优化思路是少落地，减少磁盘IO的过程，可以大大提高程序的运行效率。</p>
+<blockquote>
+<p><strong>使用到的方法：</strong></p>
+<ul>
+<li><font color="#FF7F00"><strong>StringIO()：</strong></font>创建一个StringIO对象，类似文件的<code>open()</code>方法，创建的这个对象要赋值给一个变量；</li>
+<li><font color="#FF7F00"><strong>f.write(‘String’)：</strong></font>将字符String写入到内存，返回写入的字节数（一个字符按一个字节算）；</li>
+<li><font color="#FF7F00"><strong>f.getvalue(size)：</strong></font>从内存中读取size个字节（一个字符按一个字节算），若无参数则读取全部字节；</li>
+<li><font color="#FF7F00"><strong>f.readable()：</strong></font>判断IO是否可读；</li>
+<li><font color="#FF7F00"><strong>f.writable()：</strong></font>判断IO是否可写；</li>
+<li><font color="#FF7F00"><strong>f.seekable()：</strong></font>指针是否可操作。</li>
+</ul>
+</blockquote>
+<p>要把str写入StringIO，我们需要先创建一个StringIO，然后，像文件一样写入即可：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> io <span class="token keyword">import</span> StringIO
+<span class="token comment" spellcheck="true">#内存中构建</span>
+f <span class="token operator">=</span> StringIO<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#像文件对象一样操作  这里一定要赋值给一个变量!</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>readable<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span>writable<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span>seekable<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"Hello\nPython"</span><span class="token punctuation">)</span>
+f<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>getvalue<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#无视指针，输出全部内容</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+OUTPUT：
+<span class="token boolean">True</span> <span class="token boolean">True</span> <span class="token boolean">True</span>
+Hello
+
+Hello
+Python
+</code></pre>
+<p><br></p>
+<p><br></p>
+<h4 id="2-2-BytesIO"><a href="#2-2-BytesIO" class="headerlink" title="2.2 BytesIO"></a><font color="#3CB371" face="Comic sans MS">2.2 BytesIO</font></h4><p>StringIO操作的只能是str，如果要操作<font color="#FF7F00"><strong>二进制数据</strong></font>，就需要使用BytesIO。</p>
+<p>BytesIO是IO模块中的类，所以使用的时候要引用模块：<code>from io import BytesIO</code></p>
+<ul>
+<li><p>内存中，开辟的一个二进制模式的buffer，可以像文件对象一样操作它；</p>
+</li>
+<li><p>当使用close()前写入的数据是<font color="#FF7F00"><strong>使用追加模式</strong></font>；</p>
+</li>
+<li><p>当close方法被调用的时候，这个buffer会被释放；</p>
+</li>
+<li><p>使用到的方法和StringIO一样，不过一个读的是字符一个读的是字节。</p>
+</li>
+</ul>
+<p><br></p>
+<p>BytesIO实现了在内存中读写bytes，我们创建一个BytesIO，然后写入一些bytes：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> io <span class="token keyword">import</span> BytesIO
+
+ff <span class="token operator">=</span> BytesIO<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ff<span class="token punctuation">.</span>readable<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ff<span class="token punctuation">.</span>writable<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ff<span class="token punctuation">.</span>seekable<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ff<span class="token punctuation">.</span>write<span class="token punctuation">(</span>b<span class="token string">'Hello\nPython'</span><span class="token punctuation">)</span>
+ff<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'中文'</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ff<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ff<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ff<span class="token punctuation">.</span>getvalue<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ff<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+OUTPUT：
+<span class="token boolean">True</span> <span class="token boolean">True</span> <span class="token boolean">True</span>
+b<span class="token string">'Hello\n'</span>
+
+b<span class="token string">'Hello\nPython\xe4\xb8\xad\xe6\x96\x87'</span>
+</code></pre>
+<p><br></p>
+<p><strong>file-like对象</strong></p>
+<p>类文件对象，可以像文件对象一样操作；</p>
+<p>socket对象，输入输出对象(stdin、stdout)都是类文件对象</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sys <span class="token keyword">import</span> stdout
+
+f <span class="token operator">=</span> stdout
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span>
+f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"90data.net"</span><span class="token punctuation">)</span>
+
+OUTPUT：
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'_io.TextIOWrapper'</span><span class="token operator">></span>
+90data<span class="token punctuation">.</span>net
+</code></pre>
+<p><br></p>
+<p><br></p>
+<h3 id="三-操作目录"><a href="#三-操作目录" class="headerlink" title="三. 操作目录"></a><font color="#FF6347" face="Comic sans MS">三. 操作目录</font></h3><p>如果我们要操作文件、目录，可以在命令行下面输入操作系统提供的各种命令来完成。比如dir、cp等命令。</p>
+<p>如果要在Python程序中执行这些目录和文件的操作怎么办？其实操作系统提供的命令只是简单地调用了操作系统提供的接口函数，Python内置的<font color="#FF7F00"><strong>os模块</strong></font>也可以直接<font color="#FF7F00"><strong>调用操作系统提供的接口函数</strong></font>。</p>
+<font face="Comic sans MS"><font color="#00B2EE">具体方法：[<a href="http://www.runoob.com/python3/python3-os-file-methods.html" target="_blank" rel="noopener">Python3 OS 文件/目录方法</a>]</font><br></font>
+
+
+<p>打开Python交互式命令行，我们来看看如何使用os模块的基本功能：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>name<span class="token punctuation">)</span>    <span class="token triple-quoted-string string">'''如果是posix，说明系统是Linux、Unix或Mac OS X，
+                   如果是nt，就是Windows系统。'''</span>
+
+os<span class="token punctuation">.</span>uname<span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token triple-quoted-string string">'''注意uname()函数在Windows上不提供，也就是说，
+                     os模块的某些函数是跟操作系统相关的。'''</span>
+
+os<span class="token punctuation">.</span>environ        <span class="token triple-quoted-string string">'''在操作系统中定义的环境变量，全部保存在os.environ
+                     这个变量中'''</span>
+
+os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'key'</span><span class="token punctuation">)</span>  <span class="token triple-quoted-string string">'''要获取某个环境变量的值，可以调用os.environ.get('key')，
+                        如os.environ.get('PATH')'''</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token triple-quoted-string string">'''查看当前目录的绝对路径:'''</span>
+</code></pre>
+<p><br></p>
+<p><strong>操作文件和目录</strong></p>
+<p>操作文件和目录的函数一部分放在os模块中，一部分放在os.path模块中，这一点要注意一下。查看、创建和删除目录可以这么调用：</p>
+<pre class=" language-python"><code class="language-python">查看当前目录的绝对路径<span class="token punctuation">:</span>
+<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span>
+<span class="token string">'/Users/michael'</span>
+在某个目录下创建一个新目录，首先把新目录的完整路径表示出来<span class="token punctuation">:</span>
+<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">'/Users/michael'</span><span class="token punctuation">,</span> <span class="token string">'testdir'</span><span class="token punctuation">)</span>
+<span class="token string">'/Users/michael/testdir'</span>
+然后创建一个目录<span class="token punctuation">:</span>
+<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">'/Users/michael/testdir'</span><span class="token punctuation">)</span>
+删掉一个目录<span class="token punctuation">:</span>
+<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>rmdir<span class="token punctuation">(</span><span class="token string">'/Users/michael/testdir'</span><span class="token punctuation">)</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+把两个路径合成一个时，不要直接拼字符串，而要通过os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>函数，这样可以正确处理不同
+操作系统的路径分隔符。在Linux<span class="token operator">/</span>Unix<span class="token operator">/</span>Mac下，os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>返回这样的字符串：
+
+part<span class="token number">-1</span><span class="token operator">/</span>part<span class="token number">-2</span>
+
+而Windows下会返回这样的字符串：
+
+part<span class="token number">-1</span>\part<span class="token number">-2</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>函数，这样可以
+把一个路径拆分为两部分，后一部分总是最后级别的目录或文件名：
+
+<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'/Users/michael/testdir/file.txt'</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">'/Users/michael/testdir'</span><span class="token punctuation">,</span> <span class="token string">'file.txt'</span><span class="token punctuation">)</span>
+os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span><span class="token punctuation">)</span>可以直接让你得到文件扩展名，很多时候非常方便：
+
+<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span><span class="token string">'/path/to/file.txt'</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">'/path/to/file'</span><span class="token punctuation">,</span> <span class="token string">'.txt'</span><span class="token punctuation">)</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>函数，这样可以把一个路径拆分
+为两部分，后一部分总是最后级别的目录或文件名：
+
+<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'/Users/michael/testdir/file.txt'</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">'/Users/michael/testdir'</span><span class="token punctuation">,</span> <span class="token string">'file.txt'</span><span class="token punctuation">)</span>
+os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span><span class="token punctuation">)</span>可以直接让你得到文件扩展名，很多时候非常方便：
+
+<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span><span class="token string">'/path/to/file.txt'</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">'/path/to/file'</span><span class="token punctuation">,</span> <span class="token string">'.txt'</span><span class="token punctuation">)</span>
+这些合并、拆分路径的函数并不要求目录和文件要真实存在，它们只对字符串进行操作。
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+文件操作使用下面的函数。假定当前目录下有一个test<span class="token punctuation">.</span>txt文件：
+
+ 对文件重命名<span class="token punctuation">:</span>
+<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">,</span> <span class="token string">'test.py'</span><span class="token punctuation">)</span>
+ 删掉文件<span class="token punctuation">:</span>
+<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">'test.py'</span><span class="token punctuation">)</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+但是复制文件的函数居然在os模块中不存在！原因是复制文件并非由操作系统提供的系统调用。理论上讲，我们
+通过上一节的读写文件可以完成文件复制，只不过要多写很多代码。
+
+幸运的是shutil模块提供了copyfile<span class="token punctuation">(</span><span class="token punctuation">)</span>的函数，你还可以在shutil模块中找到很多实用函数，它们可以看做是
+os模块的补充。
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+最后看看如何利用Python的特性来过滤文件。比如我们要列出当前目录下的所有目录，只需要一行代码：
+
+<span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span> <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isdir<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token string">'.lein'</span><span class="token punctuation">,</span> <span class="token string">'.local'</span><span class="token punctuation">,</span> <span class="token string">'.m2'</span><span class="token punctuation">,</span> <span class="token string">'.npm'</span><span class="token punctuation">,</span> <span class="token string">'.ssh'</span><span class="token punctuation">,</span> <span class="token string">'.Trash'</span><span class="token punctuation">,</span> <span class="token string">'.vim'</span><span class="token punctuation">,</span> <span class="token string">'Applications'</span><span class="token punctuation">,</span> <span class="token string">'Desktop'</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+要列出所有的<span class="token punctuation">.</span>py文件，也只需一行代码：
+
+<span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span> <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isfile<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">and</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'.py'</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token string">'apis.py'</span><span class="token punctuation">,</span> <span class="token string">'config.py'</span><span class="token punctuation">,</span> <span class="token string">'models.py'</span><span class="token punctuation">,</span> <span class="token string">'pymonitor.py'</span><span class="token punctuation">,</span> <span class="token string">'test_db.py'</span><span class="token punctuation">,</span> <span class="token string">'urls.py'</span><span class="token punctuation">,</span> <span class="token string">'wsgiapp.py'</span><span class="token punctuation">]</span>
+</code></pre>
+<p><br></p>
+<p><br></p>
+<h3 id="四-序列化"><a href="#四-序列化" class="headerlink" title="四. 序列化"></a><font color="#FF6347" face="Comic sans MS">四. 序列化</font></h3><p>参读资料：</p>
+<font face="Comic sans MS"><font color="#00B2EE">《<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143192607210600a668b5112e4a979dd20e4661cc9c97000" target="_blank" rel="noopener">廖雪峰的官方网站 序列化</a>》</font><br></font><br><font face="Comic sans MS"><font color="#00B2EE">《<a href="https://www.cnblogs.com/yyds/p/6563608.html" target="_blank" rel="noopener">Python之数据序列化（json、pickle、shelve）</a>》</font><br></font><br><font face="Comic sans MS"><font color="#00B2EE">《<a href="https://www.cnblogs.com/zhangxinqi/p/8034380.html" target="_blank" rel="noopener">python3之序列化（pickle&amp;json&amp;shelve）</a>》</font><br></font>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/post/python-filecontents/" class="b-link-green">Python-文件系统</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f0e6b43ea59ab9e24a70',
+        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
+        repo: 'Directoree.github.io',
+        owner: 'Directoree',
+        admin: "Directoree",
+        id: '2019-03-06T15-08-54',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'Treecatee.gitgub.io/post/python-filecontents/';
+        this.page.identifier = '/post/python-filecontents/';
+        this.page.title = 'Python-文件系统';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/post/python-filecontents/">
+                    <div class="card-image">
+                        
+                        <img src="https://i.loli.net/2019/03/06/5c7f728723843.jpg" class="responsive-img" alt="Python-文件系统">
+                        
+                        <span class="card-title">Python-文件系统</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Python是 资源节点.write()，PHP是fwrite() 😀…
+
+
+文件系统 
+
+推荐参考资料：
+《Python3 输入和输出》《Python学习之路-11 (文件操作)》 
+
+
+
+
+一. 读写文件Python提供了 input</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python语言/" target="_blank">
+                        <span class="chip bg-color">Python语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/markdownusage/">
+                    <div class="card-image">
+                        
+                        <img src="https://i.loli.net/2018/12/24/5c20d024076bd.jpg" class="responsive-img" alt="Markdown">
+                        
+                        <span class="card-title">Markdown</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">1.Markdown在线编辑器
+2.Markdown高级语法大全
+3.Markdown高级语法
+
+
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Treecatee
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Treecatee<br />'
+            + 'Author: Treecatee<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">145.3k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="directoree.top" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
