@@ -55,7 +55,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
             
             <i class="fa fa-home"></i>
             
-            <span>Home</span>
+            <span>主页</span>
         </a>
     </li>
     
@@ -64,7 +64,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
             
             <i class="fa fa-tags"></i>
             
-            <span>Tags</span>
+            <span>标签</span>
         </a>
     </li>
     
@@ -73,7 +73,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
             
             <i class="fa fa-bookmark"></i>
             
-            <span>Categories</span>
+            <span>分类</span>
         </a>
     </li>
     
@@ -82,7 +82,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
             
             <i class="fa fa-archive"></i>
             
-            <span>Archives</span>
+            <span>时间轴</span>
         </a>
     </li>
     
@@ -91,7 +91,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
             
             <i class="fa fa-user-circle-o"></i>
             
-            <span>About</span>
+            <span>关于</span>
         </a>
     </li>
     
@@ -100,14 +100,14 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
             
             <i class="fa fa-address-book"></i>
             
-            <span>Resourse</span>
+            <span>资源</span>
         </a>
     </li>
     
     <li class="hide-on-med-and-down">
         <a href="/links" class="waves-effect waves-light">
             
-            <span>Links</span>
+            <span>链接</span>
         </a>
     </li>
     
@@ -141,7 +141,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
                 
                 <i class="fa fa-fw fa-home"></i>
                 
-                Home
+                主页
             </a>
         </li>
         
@@ -150,7 +150,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
                 
                 <i class="fa fa-fw fa-tags"></i>
                 
-                Tags
+                标签
             </a>
         </li>
         
@@ -159,7 +159,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
                 
                 <i class="fa fa-fw fa-bookmark"></i>
                 
-                Categories
+                分类
             </a>
         </li>
         
@@ -168,7 +168,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
                 
                 <i class="fa fa-fw fa-archive"></i>
                 
-                Archives
+                时间轴
             </a>
         </li>
         
@@ -177,7 +177,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
-                About
+                关于
             </a>
         </li>
         
@@ -186,7 +186,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
                 
                 <i class="fa fa-fw fa-address-book"></i>
                 
-                Resourse
+                资源
             </a>
         </li>
         
@@ -195,7 +195,7 @@ Metasploit之渗透安卓实战&amp;emsp;在之前的Metaspoloit使用中都是�
                 
                 <i class="fa fa-fw fa-link"></i>
                 
-                Links
+                链接
             </a>
         </li>
         
@@ -691,12 +691,12 @@ background – 将当前会话移动到背景变成一个session，当再次使�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Meterpreter命令/" target="_blank">
-                        <span class="chip bg-color">Meterpreter命令</span>
-                    </a>
-                    
                     <a href="/tags/远程木马攻击/" target="_blank">
                         <span class="chip bg-color">远程木马攻击</span>
+                    </a>
+                    
+                    <a href="/tags/Meterpreter命令/" target="_blank">
+                        <span class="chip bg-color">Meterpreter命令</span>
                     </a>
                     
                 </div>
@@ -708,6 +708,43 @@ background – 将当前会话移动到背景变成一个session，当再次使�
 </article>
 </div>
 
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Treecatee<br />'
+            + 'Author: Treecatee<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
 
     </div>
     <div class="col l3 hide-on-med-and-down">
