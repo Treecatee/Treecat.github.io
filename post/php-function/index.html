@@ -1,391 +1,319 @@
-<!DOCTYPE HTML>
-<html lang="">
-
-
+<!DOCTYPE html>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="PHP-函数, Treecatee">
-    <meta name="description" content="PHP函数分为自定义函数和系统函数 (oﾟvﾟ)ノ
 
-&amp;ensp;&amp;ensp;
-PHP 函数
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
 
-&amp;emsp;&amp;emsp;
-&amp;emsp;&amp;emsp;
-一. 自定义函数1.1 自定义函数函数基本概念我们在实际开发过程当中需要有很多功能都需要反复">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>PHP-函数 | Treecatee</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-        
-    </style>
-
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Treecatee">
 
 
-<body>
 
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Treecatee</span>
-                </a>
-            </div>
-            
+<meta name="description" content="PHP函数分为自定义函数和系统函数 (oﾟvﾟ)ノ">
+<meta name="keywords" content="PHP语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP-函数">
+<meta property="og:url" content="Treecatee.gitgub.io/post/php-function/index.html">
+<meta property="og:site_name" content="Treecatee">
+<meta property="og:description" content="PHP函数分为自定义函数和系统函数 (oﾟvﾟ)ノ">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-06T16:37:41.324Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP-函数">
+<meta name="twitter:description" content="PHP函数分为自定义函数和系统函数 (oﾟvﾟ)ノ">
 
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>主页</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>标签</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>分类</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-calendar"></i>
-            
-            <span>时间轴</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>关于</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/book" class="waves-effect waves-light">
-            
-            <i class="fa fa-address-book"></i>
-            
-            <span>资源</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/links" class="waves-effect waves-light">
-            
-            <i class="fa fa-edit"></i>
-            
-            <span>链接</span>
-        </a>
-    </li>
-    
-    <li>
-        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-            <i id="searchIcon" class="fa fa-search" title="Search"></i>
-        </a>
-    </li>
-</ul>
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Treecatee</div>
-        <div class="logo-desc">
-            
-            得之我幸，失之我命。
-            
-        </div>
-    </div>
-
-    
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                主页
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                标签
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                分类
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-calendar"></i>
-                
-                时间轴
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                关于
-            </a>
-        </li>
-        
-        <li>
-            <a href="/book" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-address-book"></i>
-                
-                资源
-            </a>
-        </li>
-        
-        <li>
-            <a href="/links" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-edit"></i>
-                
-                链接
-            </a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-        </div>
-    </nav>
-
-</header>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
+    <link rel="alternate" href="/atom.xml" title="Treecatee" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>PHP-函数 | Treecatee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
 <script>
-    (function() {
-        let pwd = '';
-        if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，将返回主页！');
-                location.href = '/';
-            }
-        }
-    })();
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
 </script>
 
 
+    <script> yiliaConfig.jquery_ui = [false]; </script>
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2019/02/21/5c6e422e83744.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <div class="description center-align post-title">
-                        PHP-函数
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Treecatee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">得失弹指一挥间。</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
                     </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
                 </div>
             </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP欺骗/">ARP欺骗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA/">DVWA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash函数/">Hash函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java访问权限/">Java访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java语言/">Java语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meterpreter命令/">Meterpreter命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP语言/">PHP语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python语言/">Python语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLMAP命令/">SQLMAP命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/User-Agen/">User-Agen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wireshark/">Wireshark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msfvenom/">msfvenom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信安数学/">信安数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分组密码/">分组密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全指导/">安全指导</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全笔记/">安全笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓渗透/">安卓渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/序列密码/">序列密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法学习/">算法学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/远程木马攻击/">远程木马攻击</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
         </div>
-    </div>
+    </header>                
 </div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Treecatee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Treecatee</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">得失弹指一挥间。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-PHP-function" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/php-function/" class="article-date">
+      <time datetime="2019-02-15T12:25:45.000Z" itemprop="datePublished">2019-02-15</time>
+</a>
 
 
-
-<main class="post-container content">
-
+    </div>
+  
+  <div class="article-inner">
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP-函数
+    </h1>
+  
 
-    #articleContent :focus {
-        outline: none;
-    }
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/PHP/">PHP</a>
+    </div>
 
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
 
-    .toc-widget {
-        padding-left: 20px;
-    }
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP语言/">PHP语言</a></li></ul>
+    </div>
 
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-</style>
-<div class="row">
-    <div class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/PHP语言/" target="_blank">
-                                <span class="chip bg-color">PHP语言</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/PHP/" class="post-category" target="_blank">
-                                PHP
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-02-15
-                </div>
-
-                
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        9.8k
-                    </div>
-                    
-
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        38 Min
-                    </div>
-                    
-                
-				
-				
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
-        </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>PHP函数分为<font color="red"><strong>自定义函数</strong></font>和<font color="red"><strong>系统函数</strong></font> (oﾟvﾟ)ノ</p>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>PHP函数分为<font color="red"><strong>自定义函数</strong></font>和<font color="red"><strong>系统函数</strong></font> (oﾟvﾟ)ノ</p>
 <a id="more"></a>
 <p>&ensp;<br>&ensp;</p>
 <center><font color="#00B2EE" face="Comic sans MS" size="5"><strong>PHP 函数</strong></font></center>
@@ -404,36 +332,7 @@ PHP 函数
 <h4 id="1-2-回调函数"><a href="#1-2-回调函数" class="headerlink" title="1.2 回调函数"></a><font color="#3CB371" face="Comic sans MS">1.2 回调函数</font></h4><p><strong>一个函数作为另外一个函数的</strong><font color="red"><strong>参数</strong></font>。</p>
 <font face="Comic sans MS">回调函数，可以配合匿名函数和变量函数实现更加优美、复杂的一种函数结构。<br>回调函数，就是在处理一个功能的时候，我让让这个功能自定义能力再强一些，我准许调用这个函数的时候，还可以传入一个函数配合、协助进行处理。<br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token keyword">function</span> woziji<span class="token punctuation">(</span><span class="token variable">$one</span>,<span class="token variable">$two</span>,<span class="token variable">$func</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-       //我规定：检查<span class="token variable">$func</span>是否是函数，如果不是函数停止执行本段代码，返回false
-       if<span class="token punctuation">(</span><span class="token operator">!</span>is_callable<span class="token punctuation">(</span><span class="token variable">$func</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-               <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-       <span class="token punctuation">}</span>
-
-       //我把<span class="token variable">$one</span>、<span class="token variable">$two</span>相加，再把<span class="token variable">$one</span>和<span class="token variable">$two</span>传入<span class="token variable">$func</span>这个函数中处理一次
-       //<span class="token variable">$func</span>是一个变量函数，参见变量函数这一章
-       <span class="token keyword">echo</span> <span class="token variable">$one</span> + <span class="token variable">$two</span> + <span class="token variable">$func</span><span class="token punctuation">(</span><span class="token variable">$one</span>,<span class="token variable">$two</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-
-//我们定义几个函数试试
-<span class="token keyword">function</span> plusx2<span class="token punctuation">(</span> <span class="token variable">$foo</span> , <span class="token variable">$bar</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-       <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token variable">$foo</span>+<span class="token variable">$bar</span><span class="token punctuation">)</span>*2<span class="token punctuation">;</span>
-       <span class="token keyword">return</span> <span class="token variable">$result</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> jian<span class="token punctuation">(</span> <span class="token variable">$x</span> , <span class="token variable">$y</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-   <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$x</span> - <span class="token variable">$y</span><span class="token punctuation">;</span>
-   <span class="token keyword">return</span> <span class="token variable">$result</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-//调用一下函数，woziji，向里面传入参数试试
-<span class="token keyword">echo</span> woziji<span class="token punctuation">(</span>20,10,<span class="token string">'plusx2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-//将plusx2改成jian试试结果
-<span class="token keyword">echo</span> woziji<span class="token punctuation">(</span>20,10,<span class="token string">'jian'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="keyword">function</span> woziji(<span class="variable">$one</span>,<span class="variable">$two</span>,<span class="variable">$func</span>)&#123;</span><br><span class="line">       //我规定：检查<span class="variable">$func</span>是否是函数，如果不是函数停止执行本段代码，返回<span class="literal">false</span></span><br><span class="line">       <span class="keyword">if</span>(!is_callable(<span class="variable">$func</span>))&#123;</span><br><span class="line">               <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       //我把<span class="variable">$one</span>、<span class="variable">$two</span>相加，再把<span class="variable">$one</span>和<span class="variable">$two</span>传入<span class="variable">$func</span>这个函数中处理一次</span><br><span class="line">       //<span class="variable">$func</span>是一个变量函数，参见变量函数这一章</span><br><span class="line">       <span class="built_in">echo</span> <span class="variable">$one</span> + <span class="variable">$two</span> + <span class="variable">$func</span>(<span class="variable">$one</span>,<span class="variable">$two</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//我们定义几个函数试试</span><br><span class="line"><span class="keyword">function</span> plusx2( <span class="variable">$foo</span> , <span class="variable">$bar</span>)&#123;</span><br><span class="line">       <span class="variable">$result</span> = (<span class="variable">$foo</span>+<span class="variable">$bar</span>)*2;</span><br><span class="line">       <span class="built_in">return</span> <span class="variable">$result</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> jian( <span class="variable">$x</span> , <span class="variable">$y</span> )&#123;</span><br><span class="line">   <span class="variable">$result</span> = <span class="variable">$x</span> - <span class="variable">$y</span>;</span><br><span class="line">   <span class="built_in">return</span> <span class="variable">$result</span>;</span><br><span class="line">&#125;</span><br><span class="line">//调用一下函数，woziji，向里面传入参数试试</span><br><span class="line"><span class="built_in">echo</span> woziji(20,10,<span class="string">'plusx2'</span>);</span><br><span class="line"></span><br><span class="line">//将plusx2改成jian试试结果</span><br><span class="line"><span class="built_in">echo</span> woziji(20,10,<span class="string">'jian'</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>处理过程是这样的:</strong><br>    1.将20赋值给形参$one,10赋值给了$two，而plusx2或者jian这两个变量函数，赋值给了$func<br>    2.在woziji这个函数中判断plusx2或者jian是否为函数，不是函数就return false 停止执行了<br>    3.显示plusx2或者jian是函数。因此$one = 20, $two =10相加了，相加后，$one和$two又带入到了了$func($one,$two)中。<br>    4.带入至里面后而$func，是可变的，可以为plusx2或者jian。如果为plusx2的话，$one = 20,$two = 10 的这个两个结果又给        了plusx2函数里面的$foo和$bar<br>    5.$foo + $bar 乘以2后将结果返回至woziji这个函数功能体的运算处：$one + $two + $func($one,$two);<br>    6.这样得到了运算结果<br>现在我们明白了回调函数：在一个调数里面，再传入一个函数名，将函数名加上()括号。识为变量函数，配合执行。</p>
 </blockquote>
@@ -443,79 +342,27 @@ PHP 函数
 <p>&emsp;</p>
 <font face="Comic sans MS">在之前的变量部份，我们学习了可变变量。可变函数仅仅是可变变量的一个变种、变形表达。<br><font color="#00B2EE"><strong>可变函数</strong></font>，我们也会称呼为变量函数。简单回顾一下之前的知识点：<br></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> 
-<span class="token variable">$hello</span> <span class="token operator">=</span> <span class="token string">'world'</span><span class="token punctuation">;</span>
-<span class="token variable">$world</span> <span class="token operator">=</span> <span class="token string">'你好'</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//输出的结果为：你好</span>
-<span class="token keyword">echo</span> $<span class="token variable">$hello</span><span class="token punctuation">;</span> 
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$hello = <span class="string">'world'</span>;</span><br><span class="line">$world = <span class="string">'你好'</span>;</span><br><span class="line"><span class="comment">//输出的结果为：你好</span></span><br><span class="line"><span class="keyword">echo</span> $$hello; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>因为$hello先被解释成了world，再world前加上$符就输出了：你好。</p>
 </blockquote>
 <p>&emsp;<br>而<font color="#00B2EE"><strong>变量函数</strong></font>的用法是这样的：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token keyword">function</span> <span class="token function">demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token string">'天王盖地虎'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token string">'小鸡炖蘑菇'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token variable">$fu</span> <span class="token operator">=</span> <span class="token string">'demo'</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//把$fu变为了demo,把demo后加上了一个括号，就执行函数了</span>
-<span class="token variable">$fu</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//把$fu的值改为test字符串再试试？</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">demo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'天王盖地虎'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'小鸡炖蘑菇'</span>;</span><br><span class="line">&#125;</span><br><span class="line">$fu = <span class="string">'demo'</span>;</span><br><span class="line"><span class="comment">//把$fu变为了demo,把demo后加上了一个括号，就执行函数了</span></span><br><span class="line">$fu();</span><br><span class="line"><span class="comment">//把$fu的值改为test字符串再试试？</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <h4 id="1-4-匿名函数"><a href="#1-4-匿名函数" class="headerlink" title="1.4 匿名函数"></a><font color="#3CB371" face="Comic sans MS">1.4 匿名函数</font></h4><p><strong>匿名函数，也就是</strong><font color="red"><strong>没有函数名的函数。</strong></font></p>
 <p>匿名函数的第一种用法，直接把赋数赋值给变量，调用变量即为调用函数。<br>匿名函数的写法比较灵活。</p>
 <font color="#00B2EE"><strong>1.变量函数式的匿名函数</strong></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$greet</span> <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token keyword">echo</span> <span class="token variable">$name</span><span class="token keyword">.</span><span class="token string">'，你好'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token variable">$greet</span><span class="token punctuation">(</span><span class="token string">'明天'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$greet</span><span class="token punctuation">(</span><span class="token string">'PHP中文网'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$greet</span> = <span class="keyword">function</span>(<span class="variable">$name</span>)</span><br><span class="line">&#123;</span><br><span class="line"> <span class="built_in">echo</span> <span class="variable">$name</span>.<span class="string">'，你好'</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable">$greet</span>(<span class="string">'明天'</span>);</span><br><span class="line"><span class="variable">$greet</span>(<span class="string">'PHP中文网'</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>上例中的函数体没有函数名，通过$greent加上括号来调用的，这就是匿名函数。</p>
 </blockquote>
 <p>&emsp;</p>
 <font color="#00B2EE"><strong>2.回调式的匿名函数</strong></font><br>实际使用场景中，我们要通过一个函数实现更多的功能。但是，我又不想专门定义一个函数。我们回顾一下，我们回调函数的例子：<br><br><font face="Comic sans MS"></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token keyword">function</span> woziji<span class="token punctuation">(</span><span class="token variable">$one</span>,<span class="token variable">$two</span>,<span class="token variable">$func</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-       //我规定：检查<span class="token variable">$func</span>是否是函数，如果不是函数停止执行本段代码，返回false
-       if<span class="token punctuation">(</span><span class="token operator">!</span>is_callable<span class="token punctuation">(</span><span class="token variable">$func</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-               <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-       <span class="token punctuation">}</span>
-       //我把<span class="token variable">$one</span>、<span class="token variable">$two</span>相加，再把<span class="token variable">$one</span>和<span class="token variable">$two</span>传入<span class="token variable">$func</span>这个函数中处理一次
-       //<span class="token variable">$func</span>是一个变量函数，参见变量函数这一章
-       <span class="token keyword">echo</span> <span class="token variable">$one</span> + <span class="token variable">$two</span> + <span class="token variable">$func</span><span class="token punctuation">(</span><span class="token variable">$one</span>,<span class="token variable">$two</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-woziji<span class="token punctuation">(</span>20,30,function<span class="token punctuation">(</span> <span class="token variable">$foo</span> , <span class="token variable">$bar</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-               <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token variable">$foo</span>+<span class="token variable">$bar</span><span class="token punctuation">)</span>*2<span class="token punctuation">;</span>
-               <span class="token keyword">return</span> <span class="token variable">$result</span><span class="token punctuation">;</span>
-           <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="keyword">function</span> woziji(<span class="variable">$one</span>,<span class="variable">$two</span>,<span class="variable">$func</span>)&#123;</span><br><span class="line">       //我规定：检查<span class="variable">$func</span>是否是函数，如果不是函数停止执行本段代码，返回<span class="literal">false</span></span><br><span class="line">       <span class="keyword">if</span>(!is_callable(<span class="variable">$func</span>))&#123;</span><br><span class="line">               <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       //我把<span class="variable">$one</span>、<span class="variable">$two</span>相加，再把<span class="variable">$one</span>和<span class="variable">$two</span>传入<span class="variable">$func</span>这个函数中处理一次</span><br><span class="line">       //<span class="variable">$func</span>是一个变量函数，参见变量函数这一章</span><br><span class="line">       <span class="built_in">echo</span> <span class="variable">$one</span> + <span class="variable">$two</span> + <span class="variable">$func</span>(<span class="variable">$one</span>,<span class="variable">$two</span>);</span><br><span class="line">&#125;</span><br><span class="line">woziji(20,30,<span class="keyword">function</span>( <span class="variable">$foo</span> , <span class="variable">$bar</span>)&#123;</span><br><span class="line">               <span class="variable">$result</span> = (<span class="variable">$foo</span>+<span class="variable">$bar</span>)*2;</span><br><span class="line">               <span class="built_in">return</span> <span class="variable">$result</span>;</span><br><span class="line">           &#125;</span><br><span class="line">);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>仔细推理一下过程哟。只不过在之前的章节当中，plusx2换成了我们的匿名函数：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-function<span class="token punctuation">(</span> <span class="token variable">$foo</span> , <span class="token variable">$bar</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-
-       <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token variable">$foo</span>+<span class="token variable">$bar</span><span class="token punctuation">)</span>*2<span class="token punctuation">;</span>
-
-       <span class="token keyword">return</span> <span class="token variable">$result</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>( <span class="variable">$foo</span> , <span class="variable">$bar</span>)&#123;</span><br><span class="line"></span><br><span class="line">       <span class="variable">$result</span> = (<span class="variable">$foo</span>+<span class="variable">$bar</span>)*2;</span><br><span class="line"></span><br><span class="line">       <span class="built_in">return</span> <span class="variable">$result</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>因此，函名函数在调用的时候没有函数名。我们可以采用以上的一些方法来使用匿名函数。</p>
 </blockquote>
@@ -524,67 +371,20 @@ function<span class="token punctuation">(</span> <span class="token variable">$f
 <font face="Comic sans MS"><strong>注意事项：</strong><br>1. 内部函数名，不能是已存在的函数名<br>2. 假设在函数a里面定义了一个内部函数，不能定用两次函数a。<br></font>
 
 <p>我们下面来看代码，你将很快的学习会：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token keyword">function</span> foo<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'我是函数foo哟，调一下我才会执行定义函数bar的过程&lt;br />'</span><span class="token punctuation">;</span>
- <span class="token keyword">function</span> bar<span class="token punctuation">(</span><span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-      <span class="token keyword">echo</span> <span class="token string">'在foo函数内部有个函数叫bar函数&lt;br />'</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-//现在还不能调用bar<span class="token punctuation">(</span><span class="token punctuation">)</span>函数，因为它还不存在
-//bar<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> //如果现在调用会报错
-foo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-//现在可以调用bar<span class="token punctuation">(</span><span class="token punctuation">)</span>函数了，因为foo<span class="token punctuation">(</span><span class="token punctuation">)</span>函数的执行使得bar<span class="token punctuation">(</span><span class="token punctuation">)</span>函数变为已定义的函数
-bar<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-//再调一次foo<span class="token punctuation">(</span><span class="token punctuation">)</span>看看是不是会报错？  会报错
-foo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="keyword">function</span> foo()</span><br><span class="line">&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'我是函数foo哟，调一下我才会执行定义函数bar的过程&lt;br /&gt;'</span>;</span><br><span class="line"> <span class="keyword">function</span> bar()</span><br><span class="line"> &#123;</span><br><span class="line">      <span class="built_in">echo</span> <span class="string">'在foo函数内部有个函数叫bar函数&lt;br /&gt;'</span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//现在还不能调用bar()函数，因为它还不存在</span><br><span class="line">//bar(); //如果现在调用会报错</span><br><span class="line">foo();</span><br><span class="line"></span><br><span class="line">//现在可以调用bar()函数了，因为foo()函数的执行使得bar()函数变为已定义的函数</span><br><span class="line">bar();</span><br><span class="line">//再调一次foo()看看是不是会报错？  会报错</span><br><span class="line">foo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>仔细观察和实验后你会得出如下的结论：<br>   1.foo()调用两次会报错<br>   2.如果不调foo()函数无法执行bar函数，因为bar是在foo的内部</p>
 </blockquote>
 <p>&emsp;<br>&emsp;</p>
 <h4 id="1-6-参数的引用"><a href="#1-6-参数的引用" class="headerlink" title="1.6 参数的引用"></a><font color="#3CB371" face="Comic sans MS">1.6 参数的引用</font></h4><p>在变量这个函数中，我们学习了变量的引用，我们来回顾一下知识：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-
-<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token variable">$a</span><span class="token punctuation">;</span>
-
-<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-
-<span class="token keyword">echo</span> <span class="token variable">$a</span><span class="token punctuation">.</span><span class="token string">'---------'</span><span class="token punctuation">.</span><span class="token variable">$b</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">$b = &amp;$a;</span><br><span class="line"></span><br><span class="line">$a = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $a.<span class="string">'---------'</span>.$b;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>上述知识点的在变量章节中，变量引用有讲述，是指变量$a和$b指向到了同一个存储位置，来存值。</p>
 </blockquote>
 <p>&emsp;</p>
 <font color="#FF7F00"><strong>而函数的参数引用，也是这个意思，将形参和实参指向到同一个位置。如果形参在函数体内发生变化，那么实参的值也发生变化。我们来通过实验来看看：</strong></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$foo</span> <span class="token operator">=</span> 100<span class="token punctuation">;</span>
-
-//注意：在<span class="token variable">$n</span>前面加上了<span class="token operator">&amp;</span>符
-<span class="token keyword">function</span> demo<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token variable">$n</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-
-       <span class="token variable">$n</span> <span class="token operator">=</span> 10<span class="token punctuation">;</span>
-
-       <span class="token keyword">return</span> <span class="token variable">$n</span> + <span class="token variable">$n</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-
-<span class="token keyword">echo</span>  demo<span class="token punctuation">(</span><span class="token variable">$foo</span><span class="token punctuation">)</span>.<span class="token string">'&lt;br />'</span><span class="token punctuation">;</span>
-
-//你会发生<span class="token variable">$foo</span>的值变为了10
-<span class="token keyword">echo</span> <span class="token variable">$foo</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$foo</span> = 100;</span><br><span class="line"></span><br><span class="line">//注意：在<span class="variable">$n</span>前面加上了&amp;符</span><br><span class="line"><span class="keyword">function</span> demo(&amp;<span class="variable">$n</span>)&#123;</span><br><span class="line"></span><br><span class="line">       <span class="variable">$n</span> = 10;</span><br><span class="line"></span><br><span class="line">       <span class="built_in">return</span> <span class="variable">$n</span> + <span class="variable">$n</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>  demo(<span class="variable">$foo</span>).<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line"></span><br><span class="line">//你会发生<span class="variable">$foo</span>的值变为了10</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$foo</span>;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>通过上例，我们发现实参为$foo，在调用demo的时候，<font color="red"><strong>让$foo和$n指向到了同一个存储区域</strong></font>，当$n的值发生变化的时候。那么$foo的值也发生变化。</p>
 </blockquote>
@@ -593,43 +393,12 @@ foo<span class="token punctuation">(</span><span class="token punctuation">)</sp
 <font face="Comic sans MS"><font color="#00B2EE"><strong>几个思维上的盲区：</strong></font><br>  1.代码是从上到下执行的，所有代码没有exit等停止符，函数必须执行完。<br>  2.如果函数从函数A跳至函数B后，必须把函数B执行完成再执行函数A余下的代码。<br>  3.递归函数必须要能执行完有结束条件，不然函数就会限入死循环。函数会永远的自我执行下去。<br></font>
 
 <p>我们来写一代码码来理解一下：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$num</span> <span class="token operator">=</span> 10<span class="token punctuation">;</span>
-//调用一次函数A<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-A<span class="token punctuation">(</span><span class="token variable">$num</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">function</span> A<span class="token punctuation">(</span> <span class="token variable">$arg</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token variable">$arg</span><span class="token punctuation">;</span>
-   //在函数A里面去，跑去执行函数B去了
-   B<span class="token punctuation">(</span><span class="token variable">$arg</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">echo</span> <span class="token string">'我们需要不断的努力，努力到上天都为我们感动'</span><span class="token punctuation">;</span>
-   <span class="token keyword">echo</span> <span class="token variable">$arg</span><span class="token keyword">.</span><span class="token string">'&lt;br />'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">function</span> B<span class="token punctuation">(</span> <span class="token variable">$number</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-       <span class="token keyword">echo</span> <span class="token variable">$number</span><span class="token punctuation">;</span>
-       <span class="token keyword">echo</span> <span class="token string">'俺是狗蛋，执行完了&lt;br />'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$num</span> = 10;</span><br><span class="line">//调用一次函数A();</span><br><span class="line">A(<span class="variable">$num</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> A( <span class="variable">$arg</span> )&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="variable">$arg</span>;</span><br><span class="line">   //在函数A里面去，跑去执行函数B去了</span><br><span class="line">   B(<span class="variable">$arg</span>);</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'我们需要不断的努力，努力到上天都为我们感动'</span>;</span><br><span class="line">   <span class="built_in">echo</span> <span class="variable">$arg</span>.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> B( <span class="variable">$number</span> )&#123;</span><br><span class="line">       <span class="built_in">echo</span> <span class="variable">$number</span>;</span><br><span class="line">       <span class="built_in">echo</span> <span class="string">'俺是狗蛋，执行完了&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>结论：</strong><br>1.执行函数A到一半的时候，跑去执行了函数B<br>2.执行完函数B，先显示出来的是：“俺是狗蛋，执行完了”，接着显示的才是：“我们需要不断的努力，努力到上天都为我们感动”<br>3.也就是证明了我们所说思维盲区里面的内容，代码从上到下执行，代码必须执行完。</p>
 </blockquote>
 <p>&emsp;<br>  我们来写一个简单的递归代码,让函数自己调用自己。</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token variable">$n</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">dg</span><span class="token punctuation">(</span> <span class="token variable">$n</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token variable">$n</span><span class="token punctuation">.</span><span class="token string">'&lt;br />'</span><span class="token punctuation">;</span>
-   <span class="token variable">$n</span> <span class="token operator">=</span> <span class="token variable">$n</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-   <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$n</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-       <span class="token comment" spellcheck="true">//在函数体内调用了dg自己哟</span>
-       <span class="token function">dg</span><span class="token punctuation">(</span><span class="token variable">$n</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-       <span class="token keyword">echo</span> <span class="token string">'--------------'</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-   <span class="token keyword">echo</span> <span class="token string">'俺是狗蛋，俺还没执行'</span> <span class="token punctuation">.</span> <span class="token variable">$n</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br />'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$n = <span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dg</span><span class="params">( $n )</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> $n.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">   $n = $n - <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">if</span>($n &gt; <span class="number">0</span>)&#123;</span><br><span class="line">       <span class="comment">//在函数体内调用了dg自己哟</span></span><br><span class="line">       dg($n);</span><br><span class="line">   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       <span class="keyword">echo</span> <span class="string">'--------------'</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">'俺是狗蛋，俺还没执行'</span> . $n . <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>我们来仔细推理一次：<br>   1.第一次调用dg()，将数字$n = 2传到dg中，先显示出来了2<br>   2.然后将$n - 1 $n的值为了1<br>   3.接着判断$n 是否大于0,肯定是大于0的，所以调用递归自己，再把自己执行一次。<br>   4.而第二次在执行自己dg()的时候，而最下面的 echo ‘俺是狗蛋，俺还没执行’ . $n . ‘<br>‘; 还没有执行到。等待执行完成后再来执行<br>   5.$n此时等于1 ，所以显示出来1。<br>   6.$n把自己减了一次，$n的结果为0<br>   7.$n大于0肯定不成立的，所以显示了一条:”————–”<br>   8.而这个时候该执行：echo ‘俺是狗蛋，俺还没执行’ . $n . ‘<br>‘;<br>   9.第二次执行dg()执行完成。第一次dg()的代码还没执行完，将第4点中的余下代码执行完。</p>
 </blockquote>
@@ -638,44 +407,7 @@ A<span class="token punctuation">(</span><span class="token variable">$num</span
 
 <font color="#FF7F00"><strong>以下讲述局部静态变量和全局静态变量：</strong></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token comment" spellcheck="true">//--------------如何理解static静态变量-----------</span>
-
-<span class="token comment" spellcheck="true">/** 普通局部变量 */</span>
-<span class="token keyword">function</span> <span class="token function">local</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
- <span class="token variable">$loc</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//这样，如果直接不给初值0是错误的。</span>
- <span class="token operator">++</span><span class="token variable">$loc</span><span class="token punctuation">;</span>
- <span class="token keyword">echo</span> <span class="token variable">$loc</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1</span>
-<span class="token function">local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1</span>
-<span class="token function">local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1</span>
-<span class="token keyword">echo</span> <span class="token string">'===================================&lt;br/>'</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/** static静态局部变量 */</span>
-<span class="token keyword">function</span> <span class="token function">static_local</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
- <span class="token keyword">static</span> <span class="token variable">$local</span> <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//此处可以不赋0值</span>
- <span class="token variable">$local</span><span class="token operator">++</span><span class="token punctuation">;</span>
- <span class="token keyword">echo</span> <span class="token variable">$local</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">static_local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1</span>
-<span class="token function">static_local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//2</span>
-<span class="token function">static_local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//3</span>
-<span class="token comment" spellcheck="true">//echo $local; 注意虽然静态变量，但是它仍然是局部的，在外不能直接访问的。</span>
-<span class="token keyword">echo</span> <span class="token string">'=======================================&lt;br>'</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/** static静态全局变量(实际上:全局变量本身就是静态存储方式,所有的全局变量都是静态变量) */</span>
-<span class="token keyword">function</span> <span class="token function">static_global</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
- <span class="token keyword">global</span> <span class="token variable">$glo</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//此处，可以不赋值0，当然赋值0，后每次调用时其值都为0，每次调用函数得到的值都会是1，</span>
- <span class="token comment" spellcheck="true">//但是不能想当然的写上"static"加以修饰，那样是错误的.</span>
- <span class="token variable">$glo</span><span class="token operator">++</span><span class="token punctuation">;</span>
- <span class="token keyword">echo</span> <span class="token variable">$glo</span> <span class="token punctuation">.</span> <span class="token string">'&lt;br>'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">static_global</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1</span>
-<span class="token function">static_global</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//2</span>
-<span class="token function">static_global</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//3</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//--------------如何理解static静态变量-----------</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">/** 普通局部变量 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">local</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> $loc = <span class="number">0</span>; <span class="comment">//这样，如果直接不给初值0是错误的。</span></span><br><span class="line"> ++$loc;</span><br><span class="line"> <span class="keyword">echo</span> $loc . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line">local(); <span class="comment">//1</span></span><br><span class="line">local(); <span class="comment">//1</span></span><br><span class="line">local(); <span class="comment">//1</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'===================================&lt;br/&gt;'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/** static静态局部变量 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">static_local</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="keyword">static</span> $local = <span class="number">0</span> ; <span class="comment">//此处可以不赋0值</span></span><br><span class="line"> $local++;</span><br><span class="line"> <span class="keyword">echo</span> $local . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line">static_local(); <span class="comment">//1</span></span><br><span class="line">static_local(); <span class="comment">//2</span></span><br><span class="line">static_local(); <span class="comment">//3</span></span><br><span class="line"><span class="comment">//echo $local; 注意虽然静态变量，但是它仍然是局部的，在外不能直接访问的。</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'=======================================&lt;br&gt;'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/** static静态全局变量(实际上:全局变量本身就是静态存储方式,所有的全局变量都是静态变量) */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">static_global</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="keyword">global</span> $glo; <span class="comment">//此处，可以不赋值0，当然赋值0，后每次调用时其值都为0，每次调用函数得到的值都会是1，</span></span><br><span class="line"> <span class="comment">//但是不能想当然的写上"static"加以修饰，那样是错误的.</span></span><br><span class="line"> $glo++;</span><br><span class="line"> <span class="keyword">echo</span> $glo . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line">static_global(); <span class="comment">//1</span></span><br><span class="line">static_global(); <span class="comment">//2</span></span><br><span class="line">static_global(); <span class="comment">//3</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;<br>&emsp;<br>&emsp;</p>
 <h3 id="二-系统函数"><a href="#二-系统函数" class="headerlink" title="二. 系统函数"></a><font color="#FF6347" face="Comic sans MS">二. 系统函数</font></h3><h4 id="2-1-使用介绍"><a href="#2-1-使用介绍" class="headerlink" title="2.1 使用介绍"></a><font color="#3CB371" face="Comic sans MS">2.1 使用介绍</font></h4><font color="#00B2EE">[<a href="http://www.php.cn" target="_blank" rel="noopener">PHP手册下载</a>]</font><br>1. 如果代码能赚钱，帮你赚钱最多的是基本语法<br>2. 如果你还在当程序员，你看手册的时间可能比你看老婆的时间还长<br><br><font face="Comic sans MS">使用函数的重点是三块：<br>    1.了解函数的<font color="red">功能</font>，特别是常用函数的功能<br>    2.了解函数的<font color="red">参数</font><br>    3.了解函数的<font color="red">返回值</font><br></font>
 
@@ -689,80 +421,21 @@ A<span class="token punctuation">(</span><span class="token variable">$num</span
 <blockquote>
 <p><strong>这个函数的功能为：</strong> 拷备一个文件<br><strong>返回值为为：</strong> bool型值，就是成功返回true，失败返回false<br><strong>参数为：</strong> 两个字符串的值，一个是copy的源文件，一个为目标文件。第三个参数可选的，不常用，我们不管它。</p>
 </blockquote>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">copy</span><span class="token punctuation">(</span><span class="token string">'abc.txt'</span><span class="token punctuation">,</span><span class="token string">'bcd.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'复制成功'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'复制失败'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(copy(<span class="string">'abc.txt'</span>,<span class="string">'bcd.txt'</span>))&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">'复制成功'</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">'复制失败'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>2. Mixed表示任何类型的数据。如Array_unshift()</strong></font> </font><br><font color="red"><strong>int</strong></font> array_unshift ( array &amp;$array , <font color="red"><strong>mixed</strong></font>  $value1 [, mixed $… ] )<br><br><font face="Comic sans MS"></font>
 
 <blockquote>
 <p><strong>功能：</strong> 操作一个数组，向数组中之前插入其他类型的参数。<br><strong>返回值：</strong> <font color="#FF7F00"><strong>int 类型</strong></font>，可能就是插入成功最后的个数<br><strong>参数：</strong> <font color="#FF7F00"><br><strong>第一个参数为&amp;符</strong></font>，也就是在操作的过程中，改变了第一个参数的值。引用传参。也就是操作这个数组，向这个数组中传入参数。会直接改变这个数组的值。<font color="#FF7F00"><br><strong>第二个参数为mixed</strong></font>，因为数组可以存入多个不同的类型.mixed是指混合的意思。因此，mixed是指可传入任意类型<font color="#FF7F00"><br><strong>第三个数数加了中括号[ ]</strong></font>，我们所有遇到中括号的。都是指后面的参数可传，也可以不传。<br>第四，最后还看到了三个…(省略号)。代表可以传入任意多个参数。</p>
 </blockquote>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$queue</span> <span class="token operator">=</span> array<span class="token punctuation">(</span><span class="token string">"凤姐"</span>, <span class="token string">"芙蓉"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-array_unshift<span class="token punctuation">(</span><span class="token variable">$queue</span>, <span class="token string">"杨幂"</span>, <span class="token string">"姚晨"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-print_r<span class="token punctuation">(</span><span class="token variable">$queue</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-
-运行结果：
-Array <span class="token punctuation">(</span> <span class="token punctuation">[</span>0<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> 杨幂 <span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> 姚晨 <span class="token punctuation">[</span>2<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> 凤姐 <span class="token punctuation">[</span>3<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> 芙蓉 <span class="token punctuation">)</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$queue</span> = array(<span class="string">"凤姐"</span>, <span class="string">"芙蓉"</span>);</span><br><span class="line">array_unshift(<span class="variable">$queue</span>, <span class="string">"杨幂"</span>, <span class="string">"姚晨"</span>);</span><br><span class="line">print_r(<span class="variable">$queue</span>);</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">Array ( [0] =&gt; 杨幂 [1] =&gt; 姚晨 [2] =&gt; 凤姐 [3] =&gt; 芙蓉 )</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>3. 遇到callback的传函数或者匿名函数进去协助处理，让功能更强大。</strong></font><br></font><br>bool array_walk ( array &amp;$array , <font color="red"><strong>callable</strong></font> $callback [, mixed $userdata = NULL ] )<br><br><font face="Comic sans MS"></font>
 
 <blockquote>
 <p><font color="#FF7F00"><strong>功能：</strong></font><br>传入一个回调函数，将数组的原来的组操作，并且发生变化。<font color="#FF7F00"><br><strong>返回值：</strong></font><br>bool 值 也就是意味着，提示成功或者失败<font color="#FF7F00"><br><strong>参数：</strong></font><br>第一个参数是要操作的数组。<br>第二个参数是callback 代表着可以传入函数或者匿名函数。</p>
 </blockquote>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$shuaige</span> <span class="token operator">=</span> array<span class="token punctuation">(</span><span class="token string">"a"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">"wuyanzhu"</span>, <span class="token string">"b"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">"huangxiaoming"</span>, <span class="token string">"c"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">"ninzetao"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">function</span> test_print<span class="token punctuation">(</span><span class="token variable">$item2</span>, <span class="token variable">$key</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token variable">$key</span> <span class="token keyword">.</span><span class="token string">" ---"</span><span class="token keyword">.</span> strtoupper<span class="token punctuation">(</span><span class="token variable">$item2</span><span class="token punctuation">)</span> <span class="token keyword">.</span> <span class="token string">"&lt;br />\n"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">echo</span> <span class="token string">'&lt;pre>'</span><span class="token punctuation">;</span>
-var_dump<span class="token punctuation">(</span><span class="token variable">$shuaige</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;/pre>'</span><span class="token punctuation">;</span>
-
-
-array_walk<span class="token punctuation">(</span><span class="token variable">$shuaige</span>, <span class="token string">'test_print'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">echo</span> <span class="token string">'用自定义函数test_print执行后的效果：'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">echo</span> <span class="token string">'&lt;pre>'</span><span class="token punctuation">;</span>
-var_dump<span class="token punctuation">(</span><span class="token variable">$shuaige</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'&lt;/pre>'</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-
-运行结果：
-array<span class="token punctuation">(</span>3<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
-  string<span class="token punctuation">(</span>8<span class="token punctuation">)</span> <span class="token string">"wuyanzhu"</span>
-  <span class="token punctuation">[</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
-  string<span class="token punctuation">(</span>13<span class="token punctuation">)</span> <span class="token string">"huangxiaoming"</span>
-  <span class="token punctuation">[</span><span class="token string">"c"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
-  string<span class="token punctuation">(</span>8<span class="token punctuation">)</span> <span class="token string">"ninzetao"</span>
-<span class="token punctuation">}</span>
-a ---WUYANZHU
-b ---HUANGXIAOMING
-c ---NINZETAO
-用自定义函数test_print执行后的效果：
-array<span class="token punctuation">(</span>3<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
-  string<span class="token punctuation">(</span>8<span class="token punctuation">)</span> <span class="token string">"wuyanzhu"</span>
-  <span class="token punctuation">[</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
-  string<span class="token punctuation">(</span>13<span class="token punctuation">)</span> <span class="token string">"huangxiaoming"</span>
-  <span class="token punctuation">[</span><span class="token string">"c"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span>
-  string<span class="token punctuation">(</span>8<span class="token punctuation">)</span> <span class="token string">"ninzetao"</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$shuaige</span> = array(<span class="string">"a"</span> =&gt; <span class="string">"wuyanzhu"</span>, <span class="string">"b"</span> =&gt; <span class="string">"huangxiaoming"</span>, <span class="string">"c"</span> =&gt; <span class="string">"ninzetao"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> test_print(<span class="variable">$item2</span>, <span class="variable">$key</span>)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="variable">$key</span> .<span class="string">" ---"</span>. strtoupper(<span class="variable">$item2</span>) . <span class="string">"&lt;br /&gt;\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump(<span class="variable">$shuaige</span>);</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'&lt;/pre&gt;'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">array_walk(<span class="variable">$shuaige</span>, <span class="string">'test_print'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'用自定义函数test_print执行后的效果：'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump(<span class="variable">$shuaige</span>);</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'&lt;/pre&gt;'</span>;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">array(3) &#123;</span><br><span class="line">  [<span class="string">"a"</span>]=&gt;</span><br><span class="line">  string(8) <span class="string">"wuyanzhu"</span></span><br><span class="line">  [<span class="string">"b"</span>]=&gt;</span><br><span class="line">  string(13) <span class="string">"huangxiaoming"</span></span><br><span class="line">  [<span class="string">"c"</span>]=&gt;</span><br><span class="line">  string(8) <span class="string">"ninzetao"</span></span><br><span class="line">&#125;</span><br><span class="line">a ---WUYANZHU</span><br><span class="line">b ---HUANGXIAOMING</span><br><span class="line">c ---NINZETAO</span><br><span class="line">用自定义函数test_print执行后的效果：</span><br><span class="line">array(3) &#123;</span><br><span class="line">  [<span class="string">"a"</span>]=&gt;</span><br><span class="line">  string(8) <span class="string">"wuyanzhu"</span></span><br><span class="line">  [<span class="string">"b"</span>]=&gt;</span><br><span class="line">  string(13) <span class="string">"huangxiaoming"</span></span><br><span class="line">  [<span class="string">"c"</span>]=&gt;</span><br><span class="line">  string(8) <span class="string">"ninzetao"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>通过上例，我们发现数组中的每个参数和值都被修改了。上例大家只需要理解看见传callback的，需要传入函数协助处理就可以。不用理解。我们在下一章的数组部份，学习完数组，大家可以再看看。<br>函数支持的版本号很重要。</p>
 </blockquote>
@@ -806,96 +479,21 @@ array<span class="token punctuation">(</span>3<span class="token punctuation">)<
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>1. include包含函数的功能。</strong></font><br></font><br>创建一个functions.php文件，里面写上两个函数：<font color="#FF6347">(1)↓↓</font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-//functions.php文件
-
-<span class="token keyword">function</span> demo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'aaaa'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'cccdddd'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//functions.php文件</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">demo</span></span>()&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'aaaa'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">test</span></span>()&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'cccdddd'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>在functions.php的同级目录下，我再创建一个user.php文件把functions.php文件包含进来。这样我的函数就可以专门放在functions.php里面，哪儿需要用到这些函数的时候，我就从哪儿包含进来：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-//user.php
-
-include <span class="token string">'functions.php'</span><span class="token punctuation">;</span>
-
-//可以直接调用
-demo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//user.php</span><br><span class="line"></span><br><span class="line">include <span class="string">'functions.php'</span>;</span><br><span class="line"></span><br><span class="line">//可以直接调用</span><br><span class="line">demo();</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br><strong>接下来我们对比include和require：</strong><font color="#FF6347">(2)↓↓</font><br>代码中，我们先用include来<strong>包含不存在</strong>的test.php文件，</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-//user.php
-
-include <span class="token string">'functions.php'</span><span class="token punctuation">;</span>
-include <span class="token string">'test.php'</span><span class="token punctuation">;</span>
-
-//可以直接调用
-demo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//user.php</span><br><span class="line"></span><br><span class="line">include <span class="string">'functions.php'</span>;</span><br><span class="line">include <span class="string">'test.php'</span>;</span><br><span class="line"></span><br><span class="line">//可以直接调用</span><br><span class="line">demo();</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>再用require包含 不存在的test.php文件：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-//user.php
-
-include <span class="token string">'functions.php'</span><span class="token punctuation">;</span>
-require <span class="token string">'test.php'</span><span class="token punctuation">;</span>
-
-//可以直接调用
-demo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//user.php</span><br><span class="line"></span><br><span class="line">include <span class="string">'functions.php'</span>;</span><br><span class="line">require <span class="string">'test.php'</span>;</span><br><span class="line"></span><br><span class="line">//可以直接调用</span><br><span class="line">demo();</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><font color="#FF6347"><strong>通过上例的对比我们发现：</strong></font><br>(1) 如果test.php文件不存在include 会发出警告继续执行demo()和test()函数。<br>(2) 而requre则直接报错，demo()和test()函数无法继续执行。</p>
 </blockquote>
 <p>&emsp;<br>我们通过表格知道了:<strong>inlcude</strong> 和<strong>include_once</strong>的区别在于，<font color="#00B2EE"><strong>检测是否重复包含。</strong></font><font color="red"><strong>如果重复包含了include_once不会再包含 对应的文件了，而include 则不管这些。有没引入过文件，都再引入一次。</strong></font>include使用两次会报错，而include_once不会报错！</p>
 <p>同样刚刚的user.php我们再实验一下,我们将functions.php包含两次，分别使用<strong>include</strong>和<strong>include_once</strong>：<font color="#FF6347">(3)↓↓</font></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-//user.php
-
-//这儿被包含了两次同样的函数定义文件哟
-include <span class="token string">'functions.php'</span><span class="token punctuation">;</span>
-include <span class="token string">'functions.php'</span><span class="token punctuation">;</span>
-
-//可以直接调用
-demo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-
-运行后系统会报错！！！
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//user.php</span><br><span class="line"></span><br><span class="line">//这儿被包含了两次同样的函数定义文件哟</span><br><span class="line">include <span class="string">'functions.php'</span>;</span><br><span class="line">include <span class="string">'functions.php'</span>;</span><br><span class="line"></span><br><span class="line">//可以直接调用</span><br><span class="line">demo();</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>();</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行后系统会报错！！！</span><br></pre></td></tr></table></figure>
 <p>改为<strong>include_once</strong>再试一次：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-//user.php
-
-//这儿被包含了两次同样的函数定义文件哟
-include_once <span class="token string">'functions.php'</span><span class="token punctuation">;</span>
-include_once <span class="token string">'functions.php'</span><span class="token punctuation">;</span>
-
-//可以直接调用
-demo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-
-运行后系统不会报错！！！
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//user.php</span><br><span class="line"></span><br><span class="line">//这儿被包含了两次同样的函数定义文件哟</span><br><span class="line">include_once <span class="string">'functions.php'</span>;</span><br><span class="line">include_once <span class="string">'functions.php'</span>;</span><br><span class="line"></span><br><span class="line">//可以直接调用</span><br><span class="line">demo();</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>();</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行后系统不会报错！！！</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>结论：</strong><br>我们在函数定义章节讲过，函数不能定义两次，否则会报错。<font color="#FF7F00"><strong>使用include时</strong></font>，因为我们将 functions.php包含了两次所以执行了两次，<font color="#FF7F00"><strong>因此报这个错误</strong></font>。<br>而<font color="#FF7F00"><strong>include_once不报错</strong></font>的原因是因为：他检测了functions.php曾经包含过，不再进行包含引入了。</p>
 </blockquote>
@@ -1020,55 +618,22 @@ test<span class="token punctuation">(</span><span class="token punctuation">)</s
 <p>&emsp;</p>
 <font color="#FF6347">(1)↓↓</font><br>第一个函数就不重点讲解了，比较简单。<br>用法如下：<br><font color="#00B2EE"><strong>string date_default_timezone_get ( void )</strong></font><br>功能如下：<strong>取得一个脚本中所有日期时间函数所使用的默认时区</strong><br>示例：<br><font color="#00B2EE"></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token keyword">echo</span> <span class="token function">date_default_timezone_get</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-
-输出<span class="token punctuation">:</span><span class="token constant">UTC</span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> date_default_timezone_get ();</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">输出:UTC</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font color="#FF6347">(2)↓↓</font><br>第二个函数是重点：<br>用法如下：<br><font color="#00B2EE"><strong>bool date_default_timezone_set ( string $timezone_identifier )</strong></font><br>功能如下：<strong>用于所有日期时间函数的默认时区</strong><font color="#00B2EE">&emsp;[注：<a href="http://php.net/manual/zh/timezones.php" target="_blank" rel="noopener">时区列表请详见官方手册</a>]</font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-//定义一下时区常量，以后你可以放到配置文件里
-define<span class="token punctuation">(</span><span class="token string">'TIME_ZONE'</span>,<span class="token string">'Asia/shanghai'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-//执行函数
-date_default_timezone_set<span class="token punctuation">(</span>TIME_ZONE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">echo</span> date<span class="token punctuation">(</span><span class="token string">'Y-m-d H:i:s'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-
-输出：2019-02-17 13:03:42
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//定义一下时区常量，以后你可以放到配置文件里</span><br><span class="line">define(<span class="string">'TIME_ZONE'</span>,<span class="string">'Asia/shanghai'</span>);</span><br><span class="line"></span><br><span class="line">//执行函数</span><br><span class="line">date_default_timezone_set(TIME_ZONE);</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> date(<span class="string">'Y-m-d H:i:s'</span>);</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">输出：2019-02-17 13:03:42</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>2. time()获取当前的unix时间戳</strong></font><br>以下代码输出当前时间的Unix时间戳。<br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-   <span class="token variable">$time</span><span class="token operator">=</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   print_r<span class="token punctuation">(</span> <span class="token variable">$time</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-程序运行结果：
-1421597858
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">   <span class="variable">$time</span>=time();</span><br><span class="line">   print_r( <span class="variable">$time</span>);</span><br><span class="line">?&gt;</span><br><span class="line">程序运行结果：</span><br><span class="line">1421597858</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>3. “亚麻跌”是PHP学习时间处理的关键</strong></font><br><font color="red"><strong>Y</strong></font> &emsp;英文是 year， 为年份   代表年 ——亚<br><font color="red"><strong>m</strong></font> &emsp;英文代表month，为月份  代表月 ——麻<br><font color="red"><strong>d</strong></font> &emsp;英文代表day， 为日期   代表日 ——跌<br><font color="red"><strong>H:i:s</strong></font> &emsp;代表的是：时分秒<br><font color="red"><strong>h</strong></font> &emsp;的英文为：hour 代表小时<br><font color="red"><strong>i</strong></font>&emsp; 的英文为：minute 代表分钟<br><font color="red"><strong>s</strong></font>&emsp; 的英文为：second 代表秒<br></font>
 
 <p>所以我们需要输出前前的年份，月份，日期的话。例如：1997年7月1日，我们就可以用到上面的三个参数。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token keyword">echo</span> date<span class="token punctuation">(</span><span class="token string">'Y年m月d日'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-
-2019年02月17日
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> date(<span class="string">'Y年m月d日'</span>);</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">2019年02月17日</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>写全了就是：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-//就可以显示出来当前的时间了哟。
-<span class="token keyword">echo</span> date<span class="token punctuation">(</span><span class="token string">'Y-m-d H:i:s'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//就可以显示出来当前的时间了哟。</span><br><span class="line"><span class="built_in">echo</span> date(<span class="string">'Y-m-d H:i:s'</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="red"><strong>date函数</strong></font>用于将一个时间进行格式化输出，以方便时间的显示或存储。其语法格式如下：<br><font color="#00B2EE"><strong>string date ( string $forrnat [, int $timestamp] )</strong></font><br>在参数列表中:<br>$timestamp是一个时间戳，函数将这个时间戳按$format规定的格式输出。<br>如果$timestamp没有输入值，则默认为当前的时间。<br>$format是一个时间输出格式的字符串，需要使用规定的字符构造输出格式。<br></font>
 
@@ -1285,71 +850,18 @@ date_default_timezone_set<span class="token punctuation">(</span>TIME_ZONE<span 
 </tbody>
 </table>
 <p>&emsp;<br>以下代码可以返回getdate 数组的详细信息。</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-   <span class="token variable">$mytime</span><span class="token operator">=</span><span class="token function">getdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-   <span class="token function">print_r</span><span class="token punctuation">(</span> <span class="token variable">$mytime</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   $mytime=getdate(); </span><br><span class="line">   print_r( $mytime);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;<br><strong>print_r</strong>可以输出一个数组中所有的键名与值。运行这段代码，结果如下所示。程序输出当前计算机的时间与日期详细信息：</p>
-<pre class=" language-php"><code class="language-php"><span class="token keyword">Array</span>
-<span class="token punctuation">(</span>
-    <span class="token punctuation">[</span>seconds<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">1</span>            <span class="token comment" spellcheck="true">//秒</span>
-    <span class="token punctuation">[</span>minutes<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">10</span>            <span class="token comment" spellcheck="true">//分钟</span>
-    <span class="token punctuation">[</span>hours<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">17</span>            <span class="token comment" spellcheck="true">//小时</span>
-    <span class="token punctuation">[</span>mday<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">18</span>            <span class="token comment" spellcheck="true">//日</span>
-    <span class="token punctuation">[</span>wday<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">0</span>            <span class="token comment" spellcheck="true">//星期中的第几天</span>
-    <span class="token punctuation">[</span>mon<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">1</span>            <span class="token comment" spellcheck="true">//月</span>
-    <span class="token punctuation">[</span>year<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">2015</span>            <span class="token comment" spellcheck="true">//年</span>
-    <span class="token punctuation">[</span>yday<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">17</span>            <span class="token comment" spellcheck="true">//年中的第几天</span>
-    <span class="token punctuation">[</span>weekday<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> Sunday        <span class="token comment" spellcheck="true">//星期</span>
-    <span class="token punctuation">[</span>month<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> January        <span class="token comment" spellcheck="true">//月份</span>
-    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">1421597401</span>        <span class="token comment" spellcheck="true">//时间戳</span>
-<span class="token punctuation">)</span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [seconds] =&gt; <span class="number">1</span>            <span class="comment">//秒</span></span><br><span class="line">    [minutes] =&gt; <span class="number">10</span>            <span class="comment">//分钟</span></span><br><span class="line">    [hours] =&gt; <span class="number">17</span>            <span class="comment">//小时</span></span><br><span class="line">    [mday] =&gt; <span class="number">18</span>            <span class="comment">//日</span></span><br><span class="line">    [wday] =&gt; <span class="number">0</span>            <span class="comment">//星期中的第几天</span></span><br><span class="line">    [mon] =&gt; <span class="number">1</span>            <span class="comment">//月</span></span><br><span class="line">    [year] =&gt; <span class="number">2015</span>            <span class="comment">//年</span></span><br><span class="line">    [yday] =&gt; <span class="number">17</span>            <span class="comment">//年中的第几天</span></span><br><span class="line">    [weekday] =&gt; Sunday        <span class="comment">//星期</span></span><br><span class="line">    [month] =&gt; January        <span class="comment">//月份</span></span><br><span class="line">    [<span class="number">0</span>] =&gt; <span class="number">1421597401</span>        <span class="comment">//时间戳</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font color="#FF6347">↓↓</font>理解了getdate函数和返回的数组以后，就很容易取得当前的时间信息了。下面的代码就是用getdate函数取得时间信息，调用返回时间数组的值输出时间信息。<br><font color="#00B2EE"></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php 
-<span class="token variable">$mytime</span> <span class="token operator">=</span> getdate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"年 :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span><span class="token string">'year'</span><span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"月 :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span><span class="token string">'mon'</span><span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"日 :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span><span class="token string">'mday'</span><span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"时 :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span><span class="token string">'hours'</span><span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"分 :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span><span class="token string">'minutes'</span><span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"秒 :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span><span class="token string">'seconds'</span><span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"一个小时中的第几钟 :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span><span class="token string">'minutes'</span><span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"这是一分钟的第几秒 :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span><span class="token string">'seconds'</span><span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"星期名称 :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span><span class="token string">'weekday'</span><span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"月份名称 :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span><span class="token string">'month'</span><span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"时间戳   :"</span><span class="token keyword">.</span><span class="token variable">$mytime</span><span class="token punctuation">[</span>0<span class="token punctuation">]</span>.<span class="token string">"\n"</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-
-运行结果：
-年 :2019 
-月 :2 
-日 :17 
-时 :5 
-分 :39 
-秒 :34 
-一个小时中的第几钟 :39 
-这是一分钟的第几秒 :34 
-星期名称 :Sunday 
-月份名称 :February 
-时间戳 :1550381974
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"><span class="variable">$mytime</span> = getdate();</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"年 :"</span>.<span class="variable">$mytime</span>[<span class="string">'year'</span>].<span class="string">"\n"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"月 :"</span>.<span class="variable">$mytime</span>[<span class="string">'mon'</span>].<span class="string">"\n"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"日 :"</span>.<span class="variable">$mytime</span>[<span class="string">'mday'</span>].<span class="string">"\n"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"时 :"</span>.<span class="variable">$mytime</span>[<span class="string">'hours'</span>].<span class="string">"\n"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"分 :"</span>.<span class="variable">$mytime</span>[<span class="string">'minutes'</span>].<span class="string">"\n"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"秒 :"</span>.<span class="variable">$mytime</span>[<span class="string">'seconds'</span>].<span class="string">"\n"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"一个小时中的第几钟 :"</span>.<span class="variable">$mytime</span>[<span class="string">'minutes'</span>].<span class="string">"\n"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"这是一分钟的第几秒 :"</span>.<span class="variable">$mytime</span>[<span class="string">'seconds'</span>].<span class="string">"\n"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"星期名称 :"</span>.<span class="variable">$mytime</span>[<span class="string">'weekday'</span>].<span class="string">"\n"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"月份名称 :"</span>.<span class="variable">$mytime</span>[<span class="string">'month'</span>].<span class="string">"\n"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"时间戳   :"</span>.<span class="variable">$mytime</span>[0].<span class="string">"\n"</span>;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">年 :2019 </span><br><span class="line">月 :2 </span><br><span class="line">日 :17 </span><br><span class="line">时 :5 </span><br><span class="line">分 :39 </span><br><span class="line">秒 :34 </span><br><span class="line">一个小时中的第几钟 :39 </span><br><span class="line">这是一分钟的第几秒 :34 </span><br><span class="line">星期名称 :Sunday </span><br><span class="line">月份名称 :February </span><br><span class="line">时间戳 :1550381974</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>5. 日期验证函数</strong></font><br><font color="red"><strong>checkdate</strong></font>可以判断一个输出的日期是否有效。<br>在实际的工作中，我们需要经常用于检测常用于用户提交表单的数据验证。<br>例如：<strong>验证用户输入的时间是否正确</strong>。<br>函数的语法格式如下：<br><font color="red"><strong>bool checkdate ( int $month , int $day , int $year )</strong></font><br></font><br>&emsp;<br><font color="red"></font>
 
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">checkdate</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">2018</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">checkdate</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">,</span> <span class="token number">2011</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-输出结果：
-
-<span class="token function">bool</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
-<span class="token function">bool</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">var_dump(checkdate(<span class="number">12</span>, <span class="number">31</span>, <span class="number">2018</span>));</span><br><span class="line">var_dump(checkdate(<span class="number">2</span>, <span class="number">29</span>, <span class="number">2011</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">输出结果：</span><br><span class="line"></span><br><span class="line">bool(<span class="keyword">true</span>)</span><br><span class="line">bool(<span class="keyword">false</span>)</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>6.获取本地化时间戳函数</strong></font> </font><br><strong>mktime()函数、strtotime()函数。</strong><br><font color="#00B2EE">[注：<a href="http://www.php.cn/code/1116.html" target="_blank" rel="noopener">使用方法</a>]</font>
 
@@ -1357,18 +869,7 @@ date_default_timezone_set<span class="token punctuation">(</span>TIME_ZONE<span 
 <p>&emsp;<br>&emsp;</p>
 <h4 id="2-5-检测程序执行时间"><a href="#2-5-检测程序执行时间" class="headerlink" title="2.5  检测程序执行时间"></a><font color="#3CB371" face="Comic sans MS">2.5  检测程序执行时间</font></h4><font face="Comic sans MS">我们有的时经常需要做程序的执行时间执行效率判断。</font><br>实现的思路如下：<br><font color="red"></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-//记录开始时间
-
-
-
-//记录结整时
-
-
-// 开始时间  减去（-）  结束时间  得到程序的运行时间
-
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//记录开始时间</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//记录结整时</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 开始时间  减去（-）  结束时间  得到程序的运行时间</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <font face="Comic sans MS">可是不要忘了，程序的运行速度太快了。快到只有0.00000几秒的一刹那。那这个时候大家要记录一个特函的函数了：</font><br><font color="red"><strong>mixed microtime ([ bool $get_as_float ] )</strong></font><br><strong>microtime()这个函数，能够返回当前 Unix 时间戳和微秒数。</strong><br><font color="red"></font>
 
@@ -1376,26 +877,7 @@ date_default_timezone_set<span class="token punctuation">(</span>TIME_ZONE<span 
 <font color="#FF6347"><strong>参数：</strong><br>如果你传入true的话，将会返回一个浮点类型的时间，这样方便参与运算。</font>
 </blockquote>
 <p>模拟一个检测函数执行时间的例子，测试某个函数效率的快慢：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-//开始时间
-<span class="token variable">$time_start</span> <span class="token operator">=</span> microtime<span class="token punctuation">(</span>true<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-//循环一万次
-for<span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> 0 <span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> 10000 <span class="token punctuation">;</span> <span class="token variable">$i</span>++<span class="token punctuation">)</span><span class="token punctuation">{</span>
-   //你可以用上，mktime<span class="token punctuation">(</span><span class="token punctuation">)</span> 生成一个昨天的时间
-   //再用strtotime<span class="token punctuation">(</span><span class="token punctuation">)</span> 生成一个昨天的时间
-   //对比两个函数认的效率高
-<span class="token punctuation">}</span>
-//结整时间
-<span class="token variable">$time_end</span> <span class="token operator">=</span> microtime<span class="token punctuation">(</span>true<span class="token punctuation">)</span><span class="token punctuation">;</span>
-//相减得到运行时间
-<span class="token variable">$time</span> <span class="token operator">=</span> <span class="token variable">$time_end</span> - <span class="token variable">$time_start</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"这个脚本执行的时间为 <span class="token variable">$time</span> seconds\n"</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-
-运行结果：
-这个脚本执行的时间为 0.00016498565673828 seconds
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//开始时间</span><br><span class="line"><span class="variable">$time_start</span> = microtime(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">//循环一万次</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = 0 ; <span class="variable">$i</span> &lt; 10000 ; <span class="variable">$i</span>++)&#123;</span><br><span class="line">   //你可以用上，mktime() 生成一个昨天的时间</span><br><span class="line">   //再用strtotime() 生成一个昨天的时间</span><br><span class="line">   //对比两个函数认的效率高</span><br><span class="line">&#125;</span><br><span class="line">//结整时间</span><br><span class="line"><span class="variable">$time_end</span> = microtime(<span class="literal">true</span>);</span><br><span class="line">//相减得到运行时间</span><br><span class="line"><span class="variable">$time</span> = <span class="variable">$time_end</span> - <span class="variable">$time_start</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"这个脚本执行的时间为 <span class="variable">$time</span> seconds\n"</span>;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">这个脚本执行的时间为 0.00016498565673828 seconds</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>最后输出的结果就是我们实际的函数的执行时间。你可以多对比几次，看看最终的结果。<br>谁的时间短，在实际的工作中，你就可以经常使用哪个函数。</p>
 </blockquote>
@@ -1763,508 +1245,216 @@ for<span class="token punctuation">(</span><span class="token variable">$i</span
 </tbody>
 </table>
 
-            </div>
-            <hr>
-
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
+      
     </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-            
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
     
-    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+  </div>
+  
     
-</div>
-
-<script src="/libs/share/js/social-share.min.js"></script>
-
-            <div class="reprint">
-                <p>
-                    <span class="reprint-tip">
-                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
-                    </span>
-                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
-                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/php-function/" class="b-link-green">PHP-函数</a>
-                </p>
-            </div>
-        </div>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/post/php-function/">PHP-函数</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Treecatee</a></p>
+        <p><span>发布时间:</span>2019-02-15, 20:25:45</p>
+        <p><span>最后更新:</span>2019-03-07, 00:37:41</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/post/php-function/" title="PHP-函数">Treecatee.gitgub.io/post/php-function/</a>
+            <span class="copy-path" data-clipboard-text="原文: Treecatee.gitgub.io/post/php-function/　　作者: Treecatee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: 'f0e6b43ea59ab9e24a70',
-        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
-        repo: 'Directoree.github.io',
-        owner: 'Directoree',
-        admin: "Directoree",
-        id: '2019-02-15T20-25-45',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-    
-
-    
-
-    
-        <div class="disqus-card card" data-aos="fade-up">
-    <div id="disqus_thread" class="card-content">
-        <noscript>Please enable JavaScript to view the
-            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-    </div>
-</div>
-
-<script type="text/javascript">
-    disqus_config = function () {
-        this.page.url = 'Treecatee.gitgub.io/post/php-function/';
-        this.page.identifier = '/post/php-function/';
-        this.page.title = 'PHP-函数';
-    };
-    let disqus_shortname = '';
-
-    (function () { // DON'T EDIT BELOW THIS LINE
-        let d = document, s = d.createElement('script');
-        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
-        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
+    <nav id="article-nav">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
-            <div class="card">
+            <div id="article-nav-newer" class="article-nav-title">
                 <a href="/post/php-filesystem/">
-                    <div class="card-image">
-                        
-                        <img src="https://i.loli.net/2019/02/20/5c6ce86435b96.jpg" class="responsive-img" alt="PHP-文件系统">
-                        
-                        <span class="card-title">PHP-文件系统</span>
-                    </div>
+                    PHP-文件系统
                 </a>
-                <div class="card-content article-content">
-                    <div class="summary">学习文件处理本质上面就是学习文件处理的函数。 ヾ(๑╹◡╹)ﾉ”
-&ensp;&ensp;
-PHP 文件系统
-
-&emsp;&emsp;
-一. 读取文件&emsp;
-1.1 readfile读取文件读取一个文件内容的函数：int readf</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-20
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/PHP/" class="post-category" target="_blank">
-                                    PHP
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PHP语言/" target="_blank">
-                        <span class="chip bg-color">PHP语言</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
         
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
+            <div id="article-nav-older" class="article-nav-title">
                 <a href="/post/php-regular-expression/">
-                    <div class="card-image">
-                        
-                        <img src="https://i.loli.net/2019/02/15/5c66518f6861b.jpg" class="responsive-img" alt="PHP-正则表达式">
-                        
-                        <span class="card-title">PHP-正则表达式</span>
-                    </div>
+                    PHP-正则表达式
                 </a>
-                <div class="card-content article-content">
-                    <div class="summary">世界上最难懂的是道士的鬼符、医生的处方和程序员的正则表达示。(ง •_•)ง
-&ensp;&ensp;
-PHP 正则表达式
-
-&emsp;&emsp;
-正则表达示我们其实之前经常看到，它主要用在以下一些地方：1.匹配邮箱、手机号码、验证码2</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/PHP/" class="post-category" target="_blank">
-                                    PHP
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PHP语言/" target="_blank">
-                        <span class="chip bg-color">PHP语言</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-自定义函数"><span class="toc-number">1.</span> <span class="toc-text">一. 自定义函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-自定义函数函数基本概念"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 自定义函数函数基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-回调函数"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 回调函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-变量函数"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 变量函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-匿名函数"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 匿名函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-内部函数"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 内部函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-参数的引用"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 参数的引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-递归函数"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 递归函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8-静态变量"><span class="toc-number">1.8.</span> <span class="toc-text">1.8 静态变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-系统函数"><span class="toc-number">2.</span> <span class="toc-text">二. 系统函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-使用介绍"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 使用介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-文件包含函数"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 文件包含函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-数学常用函数"><span class="toc-number">2.3.</span> <span class="toc-text">2.3  数学常用函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-获取时期时间信息函数"><span class="toc-number">2.4.</span> <span class="toc-text">2.4  获取时期时间信息函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-检测程序执行时间"><span class="toc-number">2.5.</span> <span class="toc-text">2.5  检测程序执行时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-字符串常用函数"><span class="toc-number">2.6.</span> <span class="toc-text">2.6  字符串常用函数</span></a></li></ol></li></ol>
         
     </div>
-</article>
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
         }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
         }
+    </style>
 
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + 'From: Treecatee<br />'
-            + 'Author: Treecatee<br />'
-            + 'Link: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
-    </div>
-    <div class="col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
-            <div id="toc-content"></div>
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
         </div>
-    </div>
-</div>
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4,h5,h6'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-    });
-</script>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"PHP-函数　| Treecatee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
     
 
-</main>
-
-
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
-
-            
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">158k</span>
-            
-
-            
-			
-                <br>
-                
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
-        <i class="fa fa-qq"></i>
-    </a>
-
-
-
-    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-mixcloud"></i>
-    </a>
+    
 </div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/post/php-filesystem/" title="上一篇: PHP-文件系统">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/post/php-regular-expression/" title="下一篇: PHP-正则表达式">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/html-css/">CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-basics/">HTML-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-filecontents/">Python-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-modules-packages/">Python-模块和包</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-generator-iterator/">Python-生成器与迭代器</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-function/">Python-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-operators/">Python-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-conditionalstatements-loops/">Python-条件语句与循环</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-list-tuple-dict-set/">Python-列表、元组、字典、集合</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-coding/">Python-字符编码&字符串&格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-variables-datatypes/">Python-变量和数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-grammar/">Python-基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-basics/">Python-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-sessionmanagement/">PHP-会话管理和控制</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-mysql/">PHP操作MySQL数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mysql-primer/">MySQL入门</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-upload/">PHP-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-filesystem/">PHP-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-function/">PHP-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-regular-expression/">PHP-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-namespace/">PHP-命名空间</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-1/">PHP基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/wireshark-1/">Wireshark简单介绍和数据包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-4/">Java数组(3.9)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-3/">Java简单语句、复合语句、控制语句(3.7-3.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-2/">Java运算符和数据类型转换(3.4-3.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-exception-handling7/">Java-异常处理(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-variable-innerclass6/">Java变量及其传递、内部类(4.9-4.10)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-interface-package5/">Java接口、包(4.7-4.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hash-message-authentication/">Hash函数和消息认证</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-inherit-4/">Java构造方法、对象创建、继承(4.5-4.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sequence-password/">对称密码-序列密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/block-cipher/">对称密码-分组密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-access-permissions-3/">Java类、成员变量、static访问权限(4.1-4.4)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-1/">Java语言基础的字符常变量等(3.1-3.3)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-user-agen-cookie/">《HTTP协议请求头部的User-Agen和Cookie》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xampp-dvwa/">XAMPP环境下配置DVWA</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-io-1/">Java的输入输出</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sqlmap-shell/">SQLMAP命令大全</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mathematical-basis/">信息安全数学基础复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/music-collection/">Music-Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/post/pvris-onlylove/">PVRIS-OnlyLove</a></li><li class="post-list-item"><a class="post-list-link" href="/post/yang-zong-wei-kong-bai-ge-zhuan-ji/">杨宗纬-《空白格》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/network-security/">网络安全复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/algorithm/">算法复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/https-password/">内网称霸之《HTTPS账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-password/">内网称霸之《HTTP账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-picture/">内网称霸之《arp欺骗获取目标主机浏览的图片》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-broken-network/">内网称霸之《ARP欺骗断网攻击》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/resourses/">资源</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-xue-ru-shui-xing-ji-ti-mian-shou-cang-ban/">叶雪如-《水星记》《体面》收藏版</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-si-wu-ji-dan-zhuan-ji/">薛之谦-《肆无忌惮》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-na-shi-ni-chi-kai-liao-bei-jing-de-sheng-huo-zhuan-ji/">薛之谦-《那是你离开了北京的生活》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-guai-ka-zhuan-ji/">薛之谦-《怪咖》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit3/">Metasploit之渗透安卓实战</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit2/">Metasploit工具Meterpreter的命令速查表</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-du-zhuan-ji/">薛之谦-《渡》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-zui-hao-zhuan-ji/">薛之谦-《最好》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/creategithubblog/">Hexo+Github博客搭建终极大法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/markdownusage/">Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit1/">msfvenom生成各类Payload命令，远程木马攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Treecatee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
-
-<div class="progress-bar"></div>
-
-
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
-        </div>
-        <div id="searchResult"></div>
     </div>
-</div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
 </script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
-</div>
 
-
-<script src="/libs/materialize/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>

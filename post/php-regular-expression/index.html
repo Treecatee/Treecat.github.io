@@ -1,389 +1,319 @@
-<!DOCTYPE HTML>
-<html lang="">
-
-
+<!DOCTYPE html>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="PHP-正则表达式, Treecatee">
-    <meta name="description" content="世界上最难懂的是道士的鬼符、医生的处方和程序员的正则表达示。(ง •_•)ง
-&amp;ensp;&amp;ensp;
-PHP 正则表达式
 
-&amp;emsp;&amp;emsp;
-正则表达示我们其实之前经常看到，它主要用在以下一些地方：1.匹配邮箱、手机号码、验证码2">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>PHP-正则表达式 | Treecatee</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-        
-    </style>
-
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Treecatee">
 
 
-<body>
 
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Treecatee</span>
-                </a>
-            </div>
-            
+<meta name="description" content="世界上最难懂的是道士的鬼符、医生的处方和程序员的正则表达示。(ง •_•)ง">
+<meta name="keywords" content="PHP语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP-正则表达式">
+<meta property="og:url" content="Treecatee.gitgub.io/post/php-regular-expression/index.html">
+<meta property="og:site_name" content="Treecatee">
+<meta property="og:description" content="世界上最难懂的是道士的鬼符、医生的处方和程序员的正则表达示。(ง •_•)ง">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-06T16:37:21.715Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP-正则表达式">
+<meta name="twitter:description" content="世界上最难懂的是道士的鬼符、医生的处方和程序员的正则表达示。(ง •_•)ง">
 
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>主页</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>标签</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>分类</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-calendar"></i>
-            
-            <span>时间轴</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>关于</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/book" class="waves-effect waves-light">
-            
-            <i class="fa fa-address-book"></i>
-            
-            <span>资源</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/links" class="waves-effect waves-light">
-            
-            <i class="fa fa-edit"></i>
-            
-            <span>链接</span>
-        </a>
-    </li>
-    
-    <li>
-        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-            <i id="searchIcon" class="fa fa-search" title="Search"></i>
-        </a>
-    </li>
-</ul>
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Treecatee</div>
-        <div class="logo-desc">
-            
-            得之我幸，失之我命。
-            
-        </div>
-    </div>
-
-    
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                主页
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                标签
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                分类
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-calendar"></i>
-                
-                时间轴
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                关于
-            </a>
-        </li>
-        
-        <li>
-            <a href="/book" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-address-book"></i>
-                
-                资源
-            </a>
-        </li>
-        
-        <li>
-            <a href="/links" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-edit"></i>
-                
-                链接
-            </a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-        </div>
-    </nav>
-
-</header>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
+    <link rel="alternate" href="/atom.xml" title="Treecatee" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>PHP-正则表达式 | Treecatee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
 <script>
-    (function() {
-        let pwd = '';
-        if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，将返回主页！');
-                location.href = '/';
-            }
-        }
-    })();
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
 </script>
 
 
+    <script> yiliaConfig.jquery_ui = [false]; </script>
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2019/02/15/5c66518f6861b.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <div class="description center-align post-title">
-                        PHP-正则表达式
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Treecatee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">得失弹指一挥间。</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
                     </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
                 </div>
             </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP欺骗/">ARP欺骗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA/">DVWA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash函数/">Hash函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java访问权限/">Java访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java语言/">Java语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meterpreter命令/">Meterpreter命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP语言/">PHP语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python语言/">Python语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLMAP命令/">SQLMAP命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/User-Agen/">User-Agen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wireshark/">Wireshark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msfvenom/">msfvenom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信安数学/">信安数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分组密码/">分组密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全指导/">安全指导</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全笔记/">安全笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓渗透/">安卓渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/序列密码/">序列密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法学习/">算法学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/远程木马攻击/">远程木马攻击</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
         </div>
-    </div>
+    </header>                
 </div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Treecatee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Treecatee</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">得失弹指一挥间。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-PHP-Regular-Expression" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/php-regular-expression/" class="article-date">
+      <time datetime="2019-02-14T13:40:36.000Z" itemprop="datePublished">2019-02-14</time>
+</a>
 
 
-
-<main class="post-container content">
-
+    </div>
+  
+  <div class="article-inner">
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP-正则表达式
+    </h1>
+  
 
-    #articleContent :focus {
-        outline: none;
-    }
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/PHP/">PHP</a>
+    </div>
 
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
 
-    .toc-widget {
-        padding-left: 20px;
-    }
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP语言/">PHP语言</a></li></ul>
+    </div>
 
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-</style>
-<div class="row">
-    <div class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/PHP语言/" target="_blank">
-                                <span class="chip bg-color">PHP语言</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/PHP/" class="post-category" target="_blank">
-                                PHP
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-02-14
-                </div>
-
-                
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        6.7k
-                    </div>
-                    
-
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        26 Min
-                    </div>
-                    
-                
-				
-				
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
-        </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>世界上最难懂的是道士的鬼符、医生的处方和程序员的正则表达示。(ง •_•)ง<br><a id="more"></a></p>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>世界上最难懂的是道士的鬼符、医生的处方和程序员的正则表达示。(ง •_•)ง<br><a id="more"></a></p>
 <p>&ensp;<br>&ensp;</p>
 <center><font color="#00B2EE" face="Comic sans MS" size="5"><strong>PHP 正则表达式</strong></font></center>
 
@@ -447,55 +377,20 @@ PHP 正则表达式
 
 <font color="#FF6347">(1)↓↓</font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-//定义一个变量叫zz，放正则表达示。为了方便大家记忆，如果你英文比较ok，建议把变量名还是写成
-//英文的<span class="token variable">$pattern</span>。
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/a/'</span><span class="token punctuation">;</span>
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'ddfdjjvi2jfvkwkfi24'</span><span class="token punctuation">;</span>
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//定义一个变量叫zz，放正则表达示。为了方便大家记忆，如果你英文比较ok，建议把变量名还是写成</span><br><span class="line">//英文的<span class="variable">$pattern</span>。</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/a/'</span>;</span><br><span class="line"><span class="variable">$string</span> = <span class="string">'ddfdjjvi2jfvkwkfi24'</span>;</span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>因为我希望的是匹配a，而$string当是是不存在a的，所以不成功。</p>
 </blockquote>
 <font color="#FF6347">(2)↓↓</font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/wq/'</span><span class="token punctuation">;</span>
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'ssssswqaaaaaa'</span><span class="token punctuation">;</span>
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/wq/'</span>;</span><br><span class="line"><span class="variable">$string</span> = <span class="string">'ssssswqaaaaaa'</span>;</span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>上面的字符串中s后存在wq，因此匹配成功。</p>
 </blockquote>
 <p>接下来我们匹配一个空格试试：</p>
 <font color="#FF6347">(3)↓↓</font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/ /'</span><span class="token punctuation">;</span>
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'sssssw aaaaa'</span><span class="token punctuation">;</span>
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配到了，结果为：array<span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token string">" "</span> <span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/ /'</span>;</span><br><span class="line"><span class="variable">$string</span> = <span class="string">'sssssw aaaaa'</span>;</span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配到了，结果为：array(1) &#123; [0]=&gt; string(1) <span class="string">" "</span> &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>因上，$string这个变量的w字符后存在一个空格。所以匹配成功，输出了字符串类型，长度为1。只不过我们的肉眼不可见，看不到这个字符串而已。</p>
 </blockquote>
@@ -551,201 +446,46 @@ if<span class="token punctuation">(</span>preg_match<span class="token punctuati
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>1. \d匹配一个0-9</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\d/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'我爱喝9你爱不爱喝'</span><span class="token punctuation">;</span>
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\d/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'我爱喝9你爱不爱喝'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>2. \D匹配一个非0-9的值</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\D/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'121243中23453453'</span><span class="token punctuation">;</span>
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配成功，匹配到了中。因为它不是0-9之间的字符。
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\D/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'121243中23453453'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配成功，匹配到了中。因为它不是0-9之间的字符。</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>3. \w匹配一个a-zA-Z0-9_</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\w/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'新中_国万岁呀万岁'</span><span class="token punctuation">;</span>
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配成功，匹配到了下划线。
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\w/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'新中_国万岁呀万岁'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配成功，匹配到了下划线。</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>4. \W匹配一个非a-zA-Z0-9_</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\w/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'afasABCWEQR44231284737'</span><span class="token punctuation">;</span>
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配失败。因为，上面上面全是a-zA-Z0-9_，没有非a-zA-Z0-9_。
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\w/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'afasABCWEQR44231284737'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配失败。因为，上面上面全是a-zA-Z0-9_，没有非a-zA-Z0-9_。</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>5. \s 匹配所有空白字符\n \t \r 空格</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\s/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"中国万
-岁"</span><span class="token punctuation">;</span>
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配成功，因为有一个回车。
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\s/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">"中国万</span></span><br><span class="line"><span class="string">岁"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配成功，因为有一个回车。</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>6. \S 非空字符</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\s/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"        
-         a       "</span><span class="token punctuation">;</span>
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配成功。虽然上面有空格，回车和缩进。但是，有一个非空白字符a。因此，匹配成功。
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\s/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">"        </span></span><br><span class="line"><span class="string">         a       "</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配成功。虽然上面有空格，回车和缩进。但是，有一个非空白字符a。因此，匹配成功。</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>7. [] 指定范围的原子</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/[0-5]\w+/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'6a'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">'1C'</span><span class="token punctuation">;</span>
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/[0-5]\w+/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'6a'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">'1C'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论：<br>上例中0-5匹配$string失败，而$string1成功。因为，$string中的第一个数值为6，不在[0-5]的范围之内。</p>
 </blockquote>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/[a-zA-Z0-9_]\w/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'ab'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">'9A'</span><span class="token punctuation">;</span>
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/[a-zA-Z0-9_]\w/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'ab'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">'9A'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论：$string和$string1都匹配成功。因为\w就是[a-zA-Z0-9_]</p>
 </blockquote>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/[abc]\d+/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'a9'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">'b1'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">'c5'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string3</span> <span class="token operator">=</span> <span class="token string">'d4'</span><span class="token punctuation">;</span>
-
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/[abc]\d+/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'a9'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">'b1'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string2</span> = <span class="string">'c5'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string3</span> = <span class="string">'d4'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论：$string、$string1、$string2匹配成功，而$string3不成功。因为$string3超过了[abc]的范围，它是从d开始的。</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>8. [\^ 字符] 不匹配指定区间的字符</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/[^0-9A-Za-z_]/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'aaaaab311dd'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">'!<span class="token variable">$@!#</span>%<span class="token variable">$#</span>^##'</span><span class="token punctuation">;</span>
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/[^0-9A-Za-z_]/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'aaaaab311dd'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">'!$@!#%$#^##'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论：</p>
 <ol>
@@ -821,92 +561,25 @@ if<span class="token punctuation">(</span>preg_match<span class="token punctuati
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>1. + 匹配最少1次前面的字符</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\d+/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"迪奥和奥迪250都是我最爱"</span><span class="token punctuation">;</span>
-
-//待会儿再试试中间没有0-9的情况
-//<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"迪奥和奥迪都是我最爱"</span><span class="token punctuation">;</span>
-
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配成功，证明了\d+中的+。\d是匹配数字，而+是最少匹配一次前面的字符。
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\d+/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">"迪奥和奥迪250都是我最爱"</span>;</span><br><span class="line"></span><br><span class="line">//待会儿再试试中间没有0-9的情况</span><br><span class="line">//<span class="variable">$string</span> = <span class="string">"迪奥和奥迪都是我最爱"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配成功，证明了\d+中的+。\d是匹配数字，而+是最少匹配一次前面的字符。</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>2. * 匹配0次或者任意多次前面的字符</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\w*/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"!@!@!!@#@!<span class="token variable">$@#!</span>"</span><span class="token punctuation">;</span>
-
-//待会儿再试试中间没有0-9的情况
-//<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"!@#!@#!abcABC#@#!"</span><span class="token punctuation">;</span>
-
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\w*/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">"!@!@!!@#@!<span class="variable">$@</span>#!"</span>;</span><br><span class="line"></span><br><span class="line">//待会儿再试试中间没有0-9的情况</span><br><span class="line">//<span class="variable">$string1</span> = <span class="string">"!@#!@#!abcABC#@#!"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>说明，注释掉的$string1和$string都匹配成功了。因为，\w是匹配的0-9A-Za-z_，而*是说明前面的\w可以不存在。如果存在可以有1个或者多个。</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>3. ? 前面的字符出现0次或者1次，可有可无</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/ABC\d?ABC/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"ABC1ABC"</span><span class="token punctuation">;</span>
-
-//待会儿再试试中间没有0-9的情况
-//<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"ABC888888ABC"</span><span class="token punctuation">;</span>
-//<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"ABCABC"</span><span class="token punctuation">;</span>
-
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/ABC\d?ABC/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">"ABC1ABC"</span>;</span><br><span class="line"></span><br><span class="line">//待会儿再试试中间没有0-9的情况</span><br><span class="line">//<span class="variable">$string1</span> = <span class="string">"ABC888888ABC"</span>;</span><br><span class="line">//<span class="variable">$string2</span> = <span class="string">"ABCABC"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>匹配$string,$string2成功，但是匹配$string1失败。<br>因为匹配前后都是ABC，中间是一个0-9。0-9可有可无，但是不能有多个。</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>4. . (点) 匹配除\n以外的所有字符</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/gg.+gg/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"ABC1ABC"</span><span class="token punctuation">;</span>
-
-
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/gg.+gg/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">"ABC1ABC"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$zz</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>匹配$string,$string2成功，但是匹配$string1失败。<br>因为匹配前后都是ABC，中间是一个0-9。0-9可有可无，但是不能有多个。</p>
 </blockquote>
@@ -914,90 +587,26 @@ if<span class="token punctuation">(</span>preg_match<span class="token punctuati
 <font face="Comic sans MS"><font color="#00B2EE"><strong>5. |（竖线），或者，优先级最低</strong></font><br></font>
 
 <p>我们通过实验来看优先级和或者的匹配</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/abc|bcd/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"abccd"</span><span class="token punctuation">;</span>
-<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"ggggbcd"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string1</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/abc|bcd/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">"abccd"</span>;</span><br><span class="line"><span class="variable">$string2</span> = <span class="string">"ggggbcd"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$zz</span>, <span class="variable">$string1</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>我们来看看：<br>    1.最开始我匹配的想法是想匹配的是abccd或者是abbcd。可是，匹配$string1和$string2，匹配出来的结果却是abc和bcd.<br>    2.实现了或者匹配，匹配出来了abc或者是bcd。它还没有字符串连续在一起的优先级高。</p>
 <p>那么问题来了，我要匹配上例中的abccd或者是abbcd怎么办？</p>
 <font color="red">需要使用到<strong>()</strong>来改变优先级。</font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/ab(c|b)cd/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"起来abccd阅兵"</span><span class="token punctuation">;</span>
-<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"ggggbcd"</span><span class="token punctuation">;</span>
-<span class="token variable">$string3</span> <span class="token operator">=</span> <span class="token string">'中国abbcd未来'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string1</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配到了，结果为：array<span class="token punctuation">(</span>2<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>5<span class="token punctuation">)</span> <span class="token string">"abccd"</span> <span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token string">"c"</span> <span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/ab(c|b)cd/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">"起来abccd阅兵"</span>;</span><br><span class="line"><span class="variable">$string2</span> = <span class="string">"ggggbcd"</span>;</span><br><span class="line"><span class="variable">$string3</span> = <span class="string">'中国abbcd未来'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$zz</span>, <span class="variable">$string1</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配到了，结果为：array(2) &#123; [0]=&gt; string(5) <span class="string">"abccd"</span> [1]=&gt; string(1) <span class="string">"c"</span> &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论：<br>   1.确实匹配了了abccd或者abbcd（$string1 or $string3）。<br>   2.但是匹配的数组里面多了一个元素，这个元素的下标为1<br>   3.()中的内容只要匹配成功，会把匹配到的数据放到下标为1的这个数组元素中。</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>6. ^ （抑扬符），必须要以^之后的字符串开始</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/^猪哥好帅\w+/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"猪哥好帅abccdaaaasds"</span><span class="token punctuation">;</span>
-//<span class="token variable">$string2</span>没有以猪哥好帅开始
-<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"帅abccdaaaasds"</span><span class="token punctuation">;</span>
-
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string1</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/^猪哥好帅\w+/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">"猪哥好帅abccdaaaasds"</span>;</span><br><span class="line">//<span class="variable">$string2</span>没有以猪哥好帅开始</span><br><span class="line"><span class="variable">$string2</span> = <span class="string">"帅abccdaaaasds"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$zz</span>, <span class="variable">$string1</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>通过实验发现以下结论：<br>   1.$string1匹配成功，$string2没有匹配成功<br>   2.因为$string1是以指定的字符开始的<br>   3.而$string2并没有以^之后的字符开始<br>   4.翻译这个正则的意思就是：以要猪哥好帅开始后面接a-zA-Z0-9_最少一个字符。</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>7. $ （美元符）必须要以$之前的字符结束</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\d+努力$/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"12321124333努力"</span><span class="token punctuation">;</span>
-//<span class="token variable">$string2</span>
-<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"12311124112313力"</span><span class="token punctuation">;</span>
-
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string1</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\d+努力$/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">"12321124333努力"</span>;</span><br><span class="line">//<span class="variable">$string2</span></span><br><span class="line"><span class="variable">$string2</span> = <span class="string">"12311124112313力"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$zz</span>, <span class="variable">$string1</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>我们运行一下看一下结果，得出来的结论：<br>   1.$string1 匹配成功，而$string2匹配不成功<br>   2.$之前的字符是\d+，后面接着中文的努力。<br>   3.因此，匹配的是这一个整体。\d指的是0-9的整型,+号代表最少一个0-9</p>
 </blockquote>
@@ -1008,111 +617,33 @@ if<span class="token punctuation">(</span>preg_match<span class="token punctuati
 <p>   1.正则表达示是有边界的，这个边界是定界符的开始和结尾是正则的边界。</p>
 <p>   2.this是一个英文单词，后面加上一个空格，意味着这个词结束了，到达了这个词的边界</p>
 <p>\b词边界，就是指必须要在最前或者最后。<br>\B非边界，就是不能在一个正则表达示的最前或者最后。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\w+\b/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"this is a apple"</span><span class="token punctuation">;</span>
-<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"thisis a apple"</span><span class="token punctuation">;</span>
-<span class="token variable">$string3</span> <span class="token operator">=</span> <span class="token string">"thisisaapple"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string1</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\w+\b/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">"this is a apple"</span>;</span><br><span class="line"><span class="variable">$string2</span> = <span class="string">"thisis a apple"</span>;</span><br><span class="line"><span class="variable">$string3</span> = <span class="string">"thisisaapple"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$zz</span>, <span class="variable">$string1</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论：<br>   1.$string1、$string2和$string3都匹配成功。<br>   2.$string1匹配的时候this 空格是边界<br>   3.$string2匹配的时候thisis是边界<br>   4.$string3匹配的时候，thisisaapple到了整个正则表达示的最后，因此也是边界。所以匹配成功。</p>
 </blockquote>
 <p>我们来实验一下非词边界：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/\Bthis/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"hellothis9"</span><span class="token punctuation">;</span>
-
-//<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"hello this9"</span><span class="token punctuation">;</span>
-//<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"this9中国万岁"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string1</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/\Bthis/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">"hellothis9"</span>;</span><br><span class="line"></span><br><span class="line">//<span class="variable">$string2</span> = <span class="string">"hello this9"</span>;</span><br><span class="line">//<span class="variable">$string2</span> = <span class="string">"this9中国万岁"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$zz</span>, <span class="variable">$string1</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>总结：<br>   1.匹配$string1成功而$string2不成功。<br>   2.因为\B后接的是this，所以this不能在词边界（空格和开始结尾）的位置出现。</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>9. {m}有且只能出现m次</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/喝\d{3}酒/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"喝988酒"</span><span class="token punctuation">;</span>
-
-//<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"喝98811酒"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string1</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/喝\d&#123;3&#125;酒/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">"喝988酒"</span>;</span><br><span class="line"></span><br><span class="line">//<span class="variable">$string2</span> = <span class="string">"喝98811酒"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$zz</span>, <span class="variable">$string1</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论：<br>上例中\d{3}我规定了0-9只能出现3次，多一次少一次都不行。</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>10. {n,m} 可以出现n到m次</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/喝\d{1,3}酒/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"喝9酒"</span><span class="token punctuation">;</span>
-
-//<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"喝988酒"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string1</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/喝\d&#123;1,3&#125;酒/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">"喝9酒"</span>;</span><br><span class="line"></span><br><span class="line">//<span class="variable">$string2</span> = <span class="string">"喝988酒"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$zz</span>, <span class="variable">$string1</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论：<br>上例中\d{1,3}我规定了0-9只能出现1次，2次或者3次。其它次数都是错的</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>11. {m,} 至少m次，最大次数不限制</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$zz</span> <span class="token operator">=</span> <span class="token string">'/喝\d{2,}/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">"喝9"</span><span class="token punctuation">;</span>
-
-//<span class="token variable">$string2</span> <span class="token operator">=</span> <span class="token string">"喝98"</span><span class="token punctuation">;</span>
-//<span class="token variable">$string3</span> <span class="token operator">=</span> <span class="token string">"喝98122121"</span><span class="token punctuation">;</span>
-
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$zz</span>, <span class="token variable">$string1</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$zz</span> = <span class="string">'/喝\d&#123;2,&#125;/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string1</span> = <span class="string">"喝9"</span>;</span><br><span class="line"></span><br><span class="line">//<span class="variable">$string2</span> = <span class="string">"喝98"</span>;</span><br><span class="line">//<span class="variable">$string3</span> = <span class="string">"喝98122121"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$zz</span>, <span class="variable">$string1</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论：<br>上例中\d{2,}我规定喝后面的0-9最少出现两次，最多次数不限。因此$string1是匹配不成功的，$string2是匹配成功的。$string3是匹配成功的。</p>
 </blockquote>
@@ -1162,93 +693,25 @@ if<span class="token punctuation">(</span>preg_match<span class="token punctuati
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>1. i 不区分大小写</strong></font><br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php //在后面加上了一个i 
-    <span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/ABC/i'</span><span class="token punctuation">;</span> 
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'8988abc12313'</span><span class="token punctuation">;</span>
-<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">'11111ABC2222'</span><span class="token punctuation">;</span> 
-if<span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span><span class="token punctuation">{</span>
-     <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span> 
-    var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-     <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-     <span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php //在后面加上了一个i </span><br><span class="line">    <span class="variable">$pattern</span> = <span class="string">'/ABC/i'</span>; </span><br><span class="line"><span class="variable">$string</span> = <span class="string">'8988abc12313'</span>;</span><br><span class="line"><span class="variable">$string1</span> = <span class="string">'11111ABC2222'</span>; </span><br><span class="line"><span class="keyword">if</span>(preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>))&#123;</span><br><span class="line">     <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>; </span><br><span class="line">    var_dump(<span class="variable">$matches</span>); &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">     &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论，不论是$string还是$string1全都匹配成功了。因此，在后面加上了i之后，能够不共分匹配内容的大小写。</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>2. m 视为多行</strong></font><br></font><font color="red">正则在匹配的时候，要匹配的目标字符串我们通常视为一行。</font><br><font color="#00B2EE"><strong>“行起始”元字符（^）</strong></font>仅仅匹配字符串的起始，<font color="#00B2EE"><strong>“行结束”元字符（$）</strong></font>仅仅匹配字符串的结束。<br>当设定了此修正符，“行起始”和“行结束”除了匹配整个字符串开头和结束外，还分别匹配其中的换行符的之后和之前。<br><font color="red"><strong>注意：</strong></font><strong>如果要匹配的字符串中没有“\n”字符或者模式中没有 ^ 或 $，则设定此修正符没有任何效果。</strong><br><br>我们通过实验和代码来验证一下这个特点：<br>第一次匹配，你会发现匹配不成功：<font color="#FF6347">(1)↓↓</font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/^a\d+/'</span><span class="token punctuation">;</span>
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"我的未来在自己手中我需要不断的努力
-a9是一个不错的字符表示
-怎么办呢，其实需要不断奋进"</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-    var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/^a\d+/'</span>;</span><br><span class="line"><span class="variable">$string</span> = <span class="string">"我的未来在自己手中我需要不断的努力</span></span><br><span class="line"><span class="string">a9是一个不错的字符表示</span></span><br><span class="line"><span class="string">怎么办呢，其实需要不断奋进"</span>;</span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">    var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>第二次匹配，我们加上m 试试：<font color="#FF6347">(2)↓↓</font></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/^a\d+/m'</span><span class="token punctuation">;</span>
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"我的未来在自己手中我需要不断的努力
-a9是一个不错的字符表示
-怎么办呢，其实需要不断奋进"</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-    var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配到了，结果为：array<span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>2<span class="token punctuation">)</span> <span class="token string">"a9"</span> <span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/^a\d+/m'</span>;</span><br><span class="line"><span class="variable">$string</span> = <span class="string">"我的未来在自己手中我需要不断的努力</span></span><br><span class="line"><span class="string">a9是一个不错的字符表示</span></span><br><span class="line"><span class="string">怎么办呢，其实需要不断奋进"</span>;</span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">    var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配到了，结果为：array(1) &#123; [0]=&gt; string(2) <span class="string">"a9"</span> &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>哦耶！匹配成功了。/^a\d+/ 匹配的内容是a9，必须得在行开始处。在第二行也被匹配成功了。</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>3. s 视为一行</strong></font><br>如果设定了此修正符，模式中的圆点元字符（.）匹配所有的字符，包括换行符。<br></font><br>第一次，不加模式匹配符s：<font color="#FF6347">(1)↓↓</font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/新的未来.+\d+/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'新的未来
-987654321'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/新的未来.+\d+/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'新的未来</span></span><br><span class="line"><span class="string">987654321'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>第二次，在正则表达示后面加上模式匹配符s:<font color="#FF6347">(2)↓↓</font></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/新的未来.+\d+/s'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"新的未来
-987654321"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配到了，结果为：array<span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>22<span class="token punctuation">)</span> <span class="token string">"新的未来 987654321"</span> <span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/新的未来.+\d+/s'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">"新的未来</span></span><br><span class="line"><span class="string">987654321"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配到了，结果为：array(1) &#123; [0]=&gt; string(22) <span class="string">"新的未来 987654321"</span> &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结论：</p>
 <ol>
@@ -1263,47 +726,14 @@ a9是一个不错的字符表示
 <ul>
 <li><font color="#FF6347">(1)↓↓</font>我们先来实验一下忽略空白行等特性：</li>
 </ul>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/a b c /x'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'学英语要从abc开始'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配到了，结果为：array<span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>3<span class="token punctuation">)</span> <span class="token string">"abc"</span> <span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/a b c /x'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'学英语要从abc开始'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配到了，结果为：array(1) &#123; [0]=&gt; string(3) <span class="string">"abc"</span> &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这样也能匹配成功。<br>在$pattern里面有空格，每个abc后面有一个空格。而$string里面没有空格。<br>所以x忽略空白字符。</p>
 </blockquote>
 <ul>
 <li><font color="#FF6347">(2)↓↓</font>而第二句话从字面上比较难理解：</li>
 </ul>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-//重点观察这一行
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/a b c #我来写一个注释
-/x'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'学英语要从abc开始'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$matches</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$matches</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配到了，结果为：array<span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>3<span class="token punctuation">)</span> <span class="token string">"abc"</span> <span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//重点观察这一行</span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/a b c #我来写一个注释</span></span><br><span class="line"><span class="string">/x'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'学英语要从abc开始'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$matches</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配到了，结果为：array(1) &#123; [0]=&gt; string(3) <span class="string">"abc"</span> &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>结果也匹配成功了！<br>我们发现，<font color="red">x的第二个特性是忽略：#字符和下一个换行符之间的字符也被忽略</font>。</p>
 </blockquote>
@@ -1311,44 +741,12 @@ a9是一个不错的字符表示
 <font face="Comic sans MS"><font color="#00B2EE"><strong>5. e 将匹配项找出来，进行替换</strong></font><br>e模式也叫逆向引用。主要的功能是将正则表达式括号里的内容取出来，放到替换项里面替换原字符串。<br>使用这个模式匹配符前必须要使用到<font color="#00B2EE"><strong>preg_replace()</strong></font>。<br><font color="red"><strong>mixed preg_replace ( mixed $正则表达式 , mixed $用于取代字符串的字串 , mixed $目标字符串)</strong></font><br><strong>preg_replace的功能：</strong>使用正则表达式 ，找到目标字符串。然后用’用于取代字符串的字串’进行替换。<br></font>
 
 <p>在正式讲解前我们回顾一下之前的知识，我们故意的把每个要匹配的原子外面都加上括号：<font color="#FF6347">↓↓</font></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-//加上了括号
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/(\d+)([a-z]+)(\d+)/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'987abc321'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$match</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$match</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-
-运行结果：
-匹配到了，结果为：array<span class="token punctuation">(</span>4<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>9<span class="token punctuation">)</span> <span class="token string">"987abc321"</span> <span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>3<span class="token punctuation">)</span> <span class="token string">"987"</span> <span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>3<span class="token punctuation">)</span> <span class="token string">"abc"</span> <span class="token punctuation">[</span>3<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>3<span class="token punctuation">)</span> <span class="token string">"321"</span> <span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//加上了括号</span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/(\d+)([a-z]+)(\d+)/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'987abc321'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$match</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$match</span>);</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配到了，结果为：array(4) &#123; [0]=&gt; string(9) <span class="string">"987abc321"</span> [1]=&gt; string(3) <span class="string">"987"</span> [2]=&gt; string(3) <span class="string">"abc"</span> [3]=&gt; string(3) <span class="string">"321"</span> &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这是我们之前讲括号的时候：匹配到的内容外面有括号。会把括号里面的内容，也放到数组的元素里面。如图中的：987、abc、321。</p>
 </blockquote>
 <p>&emsp;<br>我们接下来看正则表达示中的e模式：<font color="#FF6347">↓↓</font></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"{April 15, 2003}"</span><span class="token punctuation">;</span>
-
-//<span class="token string">'w'</span>匹配字母，数字和下划线，<span class="token string">'d'</span>匹配0-99数字，<span class="token string">'+'</span>元字符规定其前导字符必须在目标对象中连续出现一次或多次
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">"/{(\w+) (\d+), (\d+)}/i"</span><span class="token punctuation">;</span>
-
-<span class="token variable">$replacement</span> <span class="token operator">=</span> <span class="token string">"\<span class="token variable">$2</span>"</span><span class="token punctuation">;</span>
-
-//字符串被替换为与第 n 个被捕获的括号内的子模式所匹配的文本
-<span class="token keyword">echo</span> preg_replace<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$replacement</span>, <span class="token variable">$string</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-?<span class="token operator">></span>
-
-运行结果：
-15
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$string</span> = <span class="string">"&#123;April 15, 2003&#125;"</span>;</span><br><span class="line"></span><br><span class="line">//<span class="string">'w'</span>匹配字母，数字和下划线，<span class="string">'d'</span>匹配0-99数字，<span class="string">'+'</span>元字符规定其前导字符必须在目标对象中连续出现一次或多次</span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">"/&#123;(\w+) (\d+), (\d+)&#125;/i"</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$replacement</span> = <span class="string">"\$2"</span>;</span><br><span class="line"></span><br><span class="line">//字符串被替换为与第 n 个被捕获的括号内的子模式所匹配的文本</span><br><span class="line"><span class="built_in">echo</span> preg_replace(<span class="variable">$pattern</span>, <span class="variable">$replacement</span>, <span class="variable">$string</span>);</span><br><span class="line"></span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">15</span><br></pre></td></tr></table></figure>
 <blockquote>
 </blockquote>
 <p>结论：</p>
@@ -1360,87 +758,26 @@ a9是一个不错的字符表示
 <font face="Comic sans MS"><font color="#00B2EE"><strong>6. U 贪婪模式控制</strong></font><br>正则表达式默认是贪婪的，也就是尽可能的最大限度匹配。<br></font>
 
 <p>我们来看看正则表达示是如何贪婪的：<font color="#FF6347">↓↓</font></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/&lt;div>.*&lt;\/div>/'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"&lt;div>你好&lt;/div>&lt;div>我是&lt;/div>"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$match</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$match</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-运行结果：
-匹配到了，结果为：array<span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>34<span class="token punctuation">)</span> <span class="token string">"
-你好
-我是
-"</span> <span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/&lt;div&gt;.*&lt;\/div&gt;/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">"&lt;div&gt;你好&lt;/div&gt;&lt;div&gt;我是&lt;/div&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$match</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$match</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配到了，结果为：array(1) &#123; [0]=&gt; string(34) <span class="string">"</span></span><br><span class="line"><span class="string">你好</span></span><br><span class="line"><span class="string">我是</span></span><br><span class="line"><span class="string">"</span> &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>我们来看看结果，得到如下结论。它从“<br>你好”直接匹配到了“我是<br>”。进行了最大范围的匹配。</p>
 </blockquote>
 <p>&emsp;<br>同样一段代码我们再加大写的U，再看看效果：<font color="#FF6347">↓↓</font></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/&lt;div>.*&lt;\/div>/U'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"&lt;div>你好&lt;/div>&lt;div>我是&lt;/div>"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$match</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$match</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-?<span class="token operator">></span>
-
-运行结果：
-匹配到了，结果为：array<span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> string<span class="token punctuation">(</span>17<span class="token punctuation">)</span> <span class="token string">"
-你好
-"</span> <span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/&lt;div&gt;.*&lt;\/div&gt;/U'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">"&lt;div&gt;你好&lt;/div&gt;&lt;div&gt;我是&lt;/div&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$match</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$match</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">匹配到了，结果为：array(1) &#123; [0]=&gt; string(17) <span class="string">"</span></span><br><span class="line"><span class="string">你好</span></span><br><span class="line"><span class="string">"</span> &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>我们发现，只匹配出来了：&lt;div>你好&lt;/div><br>这样，把正则的贪婪特性取消掉。让它找到了最近的匹配，就OK了。</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>7. A 从目标字符串的开头开始匹配</strong></font><br>此模式类似于元字符中的^（抑扬符）效果。<br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/this/A'</span><span class="token punctuation">;</span>
-
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">'hello this is a '</span><span class="token punctuation">;</span>
-//<span class="token variable">$string1</span> <span class="token operator">=</span> <span class="token string">'this is a '</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern</span>, <span class="token variable">$string</span>, <span class="token variable">$match</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span>
-   var_dump<span class="token punctuation">(</span><span class="token variable">$match</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/this/A'</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string</span> = <span class="string">'hello this is a '</span>;</span><br><span class="line">//<span class="variable">$string1</span> = <span class="string">'this is a '</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern</span>, <span class="variable">$string</span>, <span class="variable">$match</span>)) &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>;</span><br><span class="line">   var_dump(<span class="variable">$match</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'没有匹配到'</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>结论：</strong><br>   1.如果加A模式修正符的时候匹配不出来$string，不加时能匹配出来<br>   2.如果加上了A模式修正符的时候能匹配出来$string1,因为必须要从开始处开始匹配</p>
 </blockquote>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>8. D 结束$符后不准有回车</strong></font><br>如果设定了此修正符，模式中的美元元字符仅匹配目标字符串的结尾。没有此选项时，如果最后一个字符是换行符的话，美元符号也会匹配此字符之前。<br></font>
 
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php 
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token string">'/\w+this$/'</span><span class="token punctuation">;</span> 
-<span class="token variable">$pattern1</span> <span class="token operator">=</span> <span class="token string">'/\w+this$/D'</span><span class="token punctuation">;</span> 
-<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string">"hellothis "</span><span class="token punctuation">;</span> 
-<span class="token keyword">if</span> <span class="token punctuation">(</span>preg_match<span class="token punctuation">(</span><span class="token variable">$pattern1</span>, <span class="token variable">$string</span>, <span class="token variable">$match</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
-<span class="token keyword">echo</span> <span class="token string">'匹配到了，结果为：'</span><span class="token punctuation">;</span> 
-var_dump<span class="token punctuation">(</span><span class="token variable">$match</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>else <span class="token punctuation">{</span>
-<span class="token keyword">echo</span> <span class="token string">'没有匹配到'</span><span class="token punctuation">;</span> 
-<span class="token punctuation">}</span> 
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">'/\w+this$/'</span>; </span><br><span class="line"><span class="variable">$pattern1</span> = <span class="string">'/\w+this$/D'</span>; </span><br><span class="line"><span class="variable">$string</span> = <span class="string">"hellothis "</span>; </span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="variable">$pattern1</span>, <span class="variable">$string</span>, <span class="variable">$match</span>)) &#123;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'匹配到了，结果为：'</span>; </span><br><span class="line">var_dump(<span class="variable">$match</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'没有匹配到'</span>; </span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>结论：</strong><br>1.如pattern 在匹配$string的时候，$string的字符串this后有一个回车。在没有加D匹配符的时候也能匹配成功<br>2.如pattern 在匹配$string的时候，加上了D。$string的字符串this后有空格，匹配不成功。</p>
 </blockquote>
@@ -1503,507 +840,216 @@ var_dump<span class="token punctuation">(</span><span class="token variable">$ma
 </ol>
 <p>面试的第4题和第5题我对大家不担心，因为只要大家认真学习了我给的前五节的内容。第4，5题推理就行。<br>因为，通常在技术答题面试环节，是时候准许查手机的！  ヾ(๑╹◡╹)ﾉ”</p>
 
-            </div>
-            <hr>
-
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
+      
     </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-            
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
     
-    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+  </div>
+  
     
-</div>
-
-<script src="/libs/share/js/social-share.min.js"></script>
-
-            <div class="reprint">
-                <p>
-                    <span class="reprint-tip">
-                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
-                    </span>
-                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
-                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/php-regular-expression/" class="b-link-green">PHP-正则表达式</a>
-                </p>
-            </div>
-        </div>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/post/php-regular-expression/">PHP-正则表达式</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Treecatee</a></p>
+        <p><span>发布时间:</span>2019-02-14, 21:40:36</p>
+        <p><span>最后更新:</span>2019-03-07, 00:37:21</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/post/php-regular-expression/" title="PHP-正则表达式">Treecatee.gitgub.io/post/php-regular-expression/</a>
+            <span class="copy-path" data-clipboard-text="原文: Treecatee.gitgub.io/post/php-regular-expression/　　作者: Treecatee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: 'f0e6b43ea59ab9e24a70',
-        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
-        repo: 'Directoree.github.io',
-        owner: 'Directoree',
-        admin: "Directoree",
-        id: '2019-02-14T21-40-36',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-    
-
-    
-
-    
-        <div class="disqus-card card" data-aos="fade-up">
-    <div id="disqus_thread" class="card-content">
-        <noscript>Please enable JavaScript to view the
-            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-    </div>
-</div>
-
-<script type="text/javascript">
-    disqus_config = function () {
-        this.page.url = 'Treecatee.gitgub.io/post/php-regular-expression/';
-        this.page.identifier = '/post/php-regular-expression/';
-        this.page.title = 'PHP-正则表达式';
-    };
-    let disqus_shortname = '';
-
-    (function () { // DON'T EDIT BELOW THIS LINE
-        let d = document, s = d.createElement('script');
-        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
-        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
+    <nav id="article-nav">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
-            <div class="card">
+            <div id="article-nav-newer" class="article-nav-title">
                 <a href="/post/php-function/">
-                    <div class="card-image">
-                        
-                        <img src="https://i.loli.net/2019/02/21/5c6e422e83744.jpg" class="responsive-img" alt="PHP-函数">
-                        
-                        <span class="card-title">PHP-函数</span>
-                    </div>
+                    PHP-函数
                 </a>
-                <div class="card-content article-content">
-                    <div class="summary">PHP函数分为自定义函数和系统函数 (oﾟvﾟ)ノ
-
-&ensp;&ensp;
-PHP 函数
-
-&emsp;&emsp;
-&emsp;&emsp;
-一. 自定义函数1.1 自定义函数函数基本概念我们在实际开发过程当中需要有很多功能都需要反复</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-15
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/PHP/" class="post-category" target="_blank">
-                                    PHP
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PHP语言/" target="_blank">
-                        <span class="chip bg-color">PHP语言</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
         
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
+            <div id="article-nav-older" class="article-nav-title">
                 <a href="/post/php-namespace/">
-                    <div class="card-image">
-                        
-                        <img src="https://i.loli.net/2019/02/15/5c6651eebdaec.jpg" class="responsive-img" alt="PHP-命名空间">
-                        
-                        <span class="card-title">PHP-命名空间</span>
-                    </div>
+                    PHP-命名空间
                 </a>
-                <div class="card-content article-content">
-                    <div class="summary">(oﾟvﾟ)ノ
-
-
-如果没有定义任何命名空间，所有的类与函数的定义都是在全局空间，与 PHP 引入命名空间概念前一样。在名称前加上前缀 \ 表示该名称是全局空间中的名称，即使该名称位于其它的命名空间中时也是如此。对于函数和常量来说，如果当前</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/PHP/" class="post-category" target="_blank">
-                                    PHP
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PHP语言/" target="_blank">
-                        <span class="chip bg-color">PHP语言</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-定界符"><span class="toc-number">1.</span> <span class="toc-text">1. 定界符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-转义字符"><span class="toc-number">2.</span> <span class="toc-text"> 2. 转义字符 </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-原子"><span class="toc-number">3.</span> <span class="toc-text"> 3. 原子 </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-特殊标识的原子"><span class="toc-number">4.</span> <span class="toc-text">4. 特殊标识的原子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-元字符"><span class="toc-number">5.</span> <span class="toc-text">5. 元字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-模式修正符"><span class="toc-number">6.</span> <span class="toc-text">6. 模式修正符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-写正则的诀窍和常用正则"><span class="toc-number">7.</span> <span class="toc-text">7. 写正则的诀窍和常用正则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-常用正则函数"><span class="toc-number">8.</span> <span class="toc-text">8. 常用正则函数</span></a></li></ol>
         
     </div>
-</article>
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
         }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
         }
+    </style>
 
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + 'From: Treecatee<br />'
-            + 'Author: Treecatee<br />'
-            + 'Link: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
-    </div>
-    <div class="col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
-            <div id="toc-content"></div>
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
         </div>
-    </div>
-</div>
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4,h5,h6'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-    });
-</script>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"PHP-正则表达式　| Treecatee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
     
 
-</main>
-
-
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
-
-            
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">158k</span>
-            
-
-            
-			
-                <br>
-                
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
-        <i class="fa fa-qq"></i>
-    </a>
-
-
-
-    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-mixcloud"></i>
-    </a>
+    
 </div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/post/php-function/" title="上一篇: PHP-函数">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/post/php-namespace/" title="下一篇: PHP-命名空间">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/html-css/">CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-basics/">HTML-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-filecontents/">Python-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-modules-packages/">Python-模块和包</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-generator-iterator/">Python-生成器与迭代器</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-function/">Python-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-operators/">Python-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-conditionalstatements-loops/">Python-条件语句与循环</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-list-tuple-dict-set/">Python-列表、元组、字典、集合</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-coding/">Python-字符编码&字符串&格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-variables-datatypes/">Python-变量和数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-grammar/">Python-基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-basics/">Python-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-sessionmanagement/">PHP-会话管理和控制</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-mysql/">PHP操作MySQL数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mysql-primer/">MySQL入门</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-upload/">PHP-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-filesystem/">PHP-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-function/">PHP-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-regular-expression/">PHP-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-namespace/">PHP-命名空间</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-1/">PHP基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/wireshark-1/">Wireshark简单介绍和数据包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-4/">Java数组(3.9)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-3/">Java简单语句、复合语句、控制语句(3.7-3.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-2/">Java运算符和数据类型转换(3.4-3.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-exception-handling7/">Java-异常处理(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-variable-innerclass6/">Java变量及其传递、内部类(4.9-4.10)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-interface-package5/">Java接口、包(4.7-4.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hash-message-authentication/">Hash函数和消息认证</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-inherit-4/">Java构造方法、对象创建、继承(4.5-4.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sequence-password/">对称密码-序列密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/block-cipher/">对称密码-分组密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-access-permissions-3/">Java类、成员变量、static访问权限(4.1-4.4)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-1/">Java语言基础的字符常变量等(3.1-3.3)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-user-agen-cookie/">《HTTP协议请求头部的User-Agen和Cookie》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xampp-dvwa/">XAMPP环境下配置DVWA</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-io-1/">Java的输入输出</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sqlmap-shell/">SQLMAP命令大全</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mathematical-basis/">信息安全数学基础复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/music-collection/">Music-Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/post/pvris-onlylove/">PVRIS-OnlyLove</a></li><li class="post-list-item"><a class="post-list-link" href="/post/yang-zong-wei-kong-bai-ge-zhuan-ji/">杨宗纬-《空白格》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/network-security/">网络安全复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/algorithm/">算法复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/https-password/">内网称霸之《HTTPS账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-password/">内网称霸之《HTTP账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-picture/">内网称霸之《arp欺骗获取目标主机浏览的图片》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-broken-network/">内网称霸之《ARP欺骗断网攻击》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/resourses/">资源</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-xue-ru-shui-xing-ji-ti-mian-shou-cang-ban/">叶雪如-《水星记》《体面》收藏版</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-si-wu-ji-dan-zhuan-ji/">薛之谦-《肆无忌惮》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-na-shi-ni-chi-kai-liao-bei-jing-de-sheng-huo-zhuan-ji/">薛之谦-《那是你离开了北京的生活》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-guai-ka-zhuan-ji/">薛之谦-《怪咖》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit3/">Metasploit之渗透安卓实战</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit2/">Metasploit工具Meterpreter的命令速查表</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-du-zhuan-ji/">薛之谦-《渡》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-zui-hao-zhuan-ji/">薛之谦-《最好》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/creategithubblog/">Hexo+Github博客搭建终极大法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/markdownusage/">Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit1/">msfvenom生成各类Payload命令，远程木马攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Treecatee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
-
-<div class="progress-bar"></div>
-
-
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
-        </div>
-        <div id="searchResult"></div>
     </div>
-</div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
 </script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
-</div>
 
-
-<script src="/libs/materialize/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>

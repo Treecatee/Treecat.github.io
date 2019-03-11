@@ -1,397 +1,319 @@
-<!DOCTYPE HTML>
-<html lang="">
-
-
+<!DOCTYPE html>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Python-模块和包, Treecatee">
-    <meta name="description" content="from…import…😀
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Treecatee">
 
 
-模块和包 
+
+<meta name="description" content="from…import…😀">
+<meta name="keywords" content="Python语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-模块和包">
+<meta property="og:url" content="Treecatee.gitgub.io/post/python-modules-packages/index.html">
+<meta property="og:site_name" content="Treecatee">
+<meta property="og:description" content="from…import…😀">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-06T16:36:20.361Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python-模块和包">
+<meta name="twitter:description" content="from…import…😀">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Treecatee" type="application/atom+xml">
 
 
 
-一. 模块与包的意义
-1.1 什么是模块？
-在Python中，一个.py文件就称之为一个模块（Module）。
+    <link rel="shortcut icon" href="/favicon.png">
 
 
-1.2 为什么要使用模块？
-为了编写可维护的代码，我们把很多函数分组，分">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Python-模块和包 | Treecatee</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-        
-    </style>
-
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
 
 
-<body>
 
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Treecatee</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>主页</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>标签</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>分类</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-calendar"></i>
-            
-            <span>时间轴</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>关于</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/book" class="waves-effect waves-light">
-            
-            <i class="fa fa-address-book"></i>
-            
-            <span>资源</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/links" class="waves-effect waves-light">
-            
-            <i class="fa fa-edit"></i>
-            
-            <span>链接</span>
-        </a>
-    </li>
-    
-    <li>
-        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-            <i id="searchIcon" class="fa fa-search" title="Search"></i>
-        </a>
-    </li>
-</ul>
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Treecatee</div>
-        <div class="logo-desc">
-            
-            得之我幸，失之我命。
-            
-        </div>
-    </div>
-
-    
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                主页
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                标签
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                分类
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-calendar"></i>
-                
-                时间轴
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                关于
-            </a>
-        </li>
-        
-        <li>
-            <a href="/book" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-address-book"></i>
-                
-                资源
-            </a>
-        </li>
-        
-        <li>
-            <a href="/links" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-edit"></i>
-                
-                链接
-            </a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-        </div>
-    </nav>
-
-</header>
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
 
 
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Python-模块和包 | Treecatee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
 <script>
-    (function() {
-        let pwd = '';
-        if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，将返回主页！');
-                location.href = '/';
-            }
-        }
-    })();
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
 </script>
 
 
+    <script> yiliaConfig.jquery_ui = [false]; </script>
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2019/03/03/5c7b72e96a73f.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <div class="description center-align post-title">
-                        Python-模块和包
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Treecatee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">得失弹指一挥间。</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
                     </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
                 </div>
             </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP欺骗/">ARP欺骗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA/">DVWA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash函数/">Hash函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java访问权限/">Java访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java语言/">Java语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meterpreter命令/">Meterpreter命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP语言/">PHP语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python语言/">Python语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLMAP命令/">SQLMAP命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/User-Agen/">User-Agen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wireshark/">Wireshark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msfvenom/">msfvenom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信安数学/">信安数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分组密码/">分组密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全指导/">安全指导</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全笔记/">安全笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓渗透/">安卓渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/序列密码/">序列密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法学习/">算法学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/远程木马攻击/">远程木马攻击</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
         </div>
-    </div>
+    </header>                
 </div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Treecatee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Treecatee</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">得失弹指一挥间。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-Python-Modules-Packages" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/python-modules-packages/" class="article-date">
+      <time datetime="2019-03-03T10:28:06.000Z" itemprop="datePublished">2019-03-03</time>
+</a>
 
 
-
-<main class="post-container content">
-
+    </div>
+  
+  <div class="article-inner">
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python-模块和包
+    </h1>
+  
 
-    #articleContent :focus {
-        outline: none;
-    }
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+    </div>
 
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
 
-    .toc-widget {
-        padding-left: 20px;
-    }
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python语言/">Python语言</a></li></ul>
+    </div>
 
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-</style>
-<div class="row">
-    <div class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Python语言/" target="_blank">
-                                <span class="chip bg-color">Python语言</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                Python
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-03-03
-                </div>
-
-                
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        3.4k
-                    </div>
-                    
-
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        12 Min
-                    </div>
-                    
-                
-				
-				
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
-        </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>from…import…😀<br><a id="more"></a></p>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>from…import…😀<br><a id="more"></a></p>
 <p><br></p>
 <p><br></p>
 <center><font color="#00B2EE" face="Comic sans MS" size="5"><strong>模块和包</strong></font> </center>
@@ -468,8 +390,7 @@
 </blockquote>
 <p><br></p>
 <h4 id="2-1-import-语句"><a href="#2-1-import-语句" class="headerlink" title="2.1 import 语句"></a><font color="#3CB371" face="Comic sans MS">2.1 import 语句</font></h4><p>想使用 Python 源文件，只需在另一个源文件里执行 import 语句，语法如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> module1<span class="token punctuation">[</span><span class="token punctuation">,</span> module2<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> moduleN<span class="token punctuation">]</span>
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module1[, module2[,... moduleN]</span><br></pre></td></tr></table></figure>
 <ol>
 <li><p>使用 Python 源文件，只需在另一个源文件里执行 import 语句。</p>
 </li>
@@ -480,59 +401,13 @@
 </ol>
 <p><br></p>
 <p>举例说明：<br>当解释器遇到 import 语句，如果模块在当前的搜索路径就会被导入。如想要导入模块 support，需要把命令放在脚本的顶端：</p>
-<pre class=" language-python"><code class="language-python">support<span class="token punctuation">.</span>py 文件代码
-
-<span class="token keyword">def</span> <span class="token function">print_func</span><span class="token punctuation">(</span> par <span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Hello : "</span><span class="token punctuation">,</span> par<span class="token punctuation">)</span>
-    <span class="token keyword">return</span>
-
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-test<span class="token punctuation">.</span>py 文件代码
-<span class="token comment" spellcheck="true"># 导入模块</span>
-<span class="token keyword">import</span> support
-
-<span class="token comment" spellcheck="true"># 现在可以调用模块里包含的函数了</span>
-support<span class="token punctuation">.</span>print_func<span class="token punctuation">(</span><span class="token string">"Runoob"</span><span class="token punctuation">)</span>
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-运行test<span class="token punctuation">.</span>py实例输出结果：
-Hello <span class="token punctuation">:</span>  Runoob
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">support.py 文件代码</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_func</span><span class="params">( par )</span>:</span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Hello : "</span>, par)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------------------</span><br><span class="line">------------------------------------------------------------------------------------------</span><br><span class="line">test.py 文件代码</span><br><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> support</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 现在可以调用模块里包含的函数了</span></span><br><span class="line">support.print_func(<span class="string">"Runoob"</span>)</span><br><span class="line">------------------------------------------------------------------------------------------</span><br><span class="line">运行test.py实例输出结果：</span><br><span class="line">Hello :  Runoob</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h4 id="2-2-from-…-import-语句"><a href="#2-2-from-…-import-语句" class="headerlink" title="2.2 from … import 语句"></a><font color="#3CB371" face="Comic sans MS">2.2 from … import 语句</font></h4><p>Python 的 from 语句让你从模块中导入一个指定的部分到当前命名空间中，<strong>这种访问函数时可以直接使用函数名而不需要前缀</strong>，语法如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> modname <span class="token keyword">import</span> name1<span class="token punctuation">[</span><span class="token punctuation">,</span> name2<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> nameN<span class="token punctuation">]</span><span class="token punctuation">]</span>
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modname <span class="keyword">import</span> name1[, name2[, ... nameN]]</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p>举例说明：<br>例如，要导入模块 fibo 的 fib 函数，使用如下语句：</p>
-<pre class=" language-python"><code class="language-python">fibo<span class="token punctuation">.</span>py
-<span class="token comment" spellcheck="true"># 斐波那契(fibonacci)数列模块</span>
-
-<span class="token keyword">def</span> <span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true"># 定义到 n 的斐波那契数列</span>
-    a<span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span>
-    <span class="token keyword">while</span> b <span class="token operator">&lt;</span> n<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">' '</span><span class="token punctuation">)</span>
-        a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> a<span class="token operator">+</span>b
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token operator">//</span>输出为None
-
-<span class="token keyword">def</span> <span class="token function">fib2</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 返回到 n 的斐波那契数列</span>
-    result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    a<span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span>
-    <span class="token keyword">while</span> b <span class="token operator">&lt;</span> n<span class="token punctuation">:</span>
-        result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
-        a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> a<span class="token operator">+</span>b
-    <span class="token keyword">return</span> result
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-test<span class="token punctuation">.</span>py
-<span class="token keyword">from</span> fibo <span class="token keyword">import</span> fib<span class="token punctuation">,</span> fib2
-<span class="token keyword">print</span><span class="token punctuation">(</span>fib<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>fib2<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-运行结果：
-<span class="token number">1</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">5</span> <span class="token number">8</span> <span class="token number">13</span> <span class="token number">21</span> <span class="token number">34</span> <span class="token number">55</span> <span class="token number">89</span> <span class="token number">144</span> <span class="token number">233</span> <span class="token number">377</span>
-None
-<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">34</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">89</span><span class="token punctuation">,</span> <span class="token number">144</span><span class="token punctuation">,</span> <span class="token number">233</span><span class="token punctuation">,</span> <span class="token number">377</span><span class="token punctuation">]</span>
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">fibo.py</span><br><span class="line"><span class="comment"># 斐波那契(fibonacci)数列模块</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>    <span class="comment"># 定义到 n 的斐波那契数列</span></span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> b &lt; n:</span><br><span class="line">        print(b, end=<span class="string">' '</span>)</span><br><span class="line">        a, b = b, a+b</span><br><span class="line">    print()   //输出为<span class="literal">None</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib2</span><span class="params">(n)</span>:</span> <span class="comment"># 返回到 n 的斐波那契数列</span></span><br><span class="line">    result = []</span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> b &lt; n:</span><br><span class="line">        result.append(b)</span><br><span class="line">        a, b = b, a+b</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">------------------------------------------------------------------------------------------</span><br><span class="line">------------------------------------------------------------------------------------------</span><br><span class="line">test.py</span><br><span class="line"><span class="keyword">from</span> fibo <span class="keyword">import</span> fib, fib2</span><br><span class="line">print(fib(<span class="number">500</span>))</span><br><span class="line">print(fib2(<span class="number">500</span>))</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">13</span> <span class="number">21</span> <span class="number">34</span> <span class="number">55</span> <span class="number">89</span> <span class="number">144</span> <span class="number">233</span> <span class="number">377</span></span><br><span class="line"><span class="literal">None</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">21</span>, <span class="number">34</span>, <span class="number">55</span>, <span class="number">89</span>, <span class="number">144</span>, <span class="number">233</span>, <span class="number">377</span>]</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h4 id="2-3-from-…-import-语句"><a href="#2-3-from-…-import-语句" class="headerlink" title="2.3 from … import * 语句"></a><font color="#3CB371" face="Comic sans MS">2.3 from … import * 语句</font></h4><ul>
 <li><p>这提供了一个简单的方法来导入一个模块中的所有项目。然而这种声明不该被过多地使用。</p>
@@ -544,8 +419,7 @@ None
 </ul>
 <p><br></p>
 <p>把一个模块的所有内容全都导入到当前的命名空间也是可行的，只需使用如下声明：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> modname <span class="token keyword">import</span> <span class="token operator">*</span>
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modname <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p><br></p>
 <h3 id="三-使用模块-有包组织"><a href="#三-使用模块-有包组织" class="headerlink" title="三. 使用模块 -- 有包组织"></a><font color="#FF6347" face="Comic sans MS">三. 使用模块 -- 有包组织</font></h3><ul>
@@ -558,25 +432,17 @@ None
 <font color="#00B2EE" face="Comic sans MS">1. <strong>import 语句：</strong></font>
 
 <p>用户可以每次只导入一个包里面的特定模块，他必须使用全名去访问:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> 包名<span class="token punctuation">.</span>子包名<span class="token punctuation">.</span>模块名                 导入模块
-
-包名<span class="token punctuation">.</span>子包名<span class="token punctuation">.</span>模块名 <span class="token punctuation">.</span>函数名<span class="token punctuation">(</span>参数<span class="token punctuation">)</span>           使用模块
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> 包名.子包名.模块名                 导入模块</span><br><span class="line"></span><br><span class="line">包名.子包名.模块名 .函数名(参数)           使用模块</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <font color="#00B2EE" face="Comic sans MS">2. <strong>import …from 语句：</strong></font>    
 
 <p>同样会导入子模块，他不需要那些冗长的前缀，只需要<code>模块名.函数名(参数)</code>即可，推荐使用！</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> 包名<span class="token punctuation">.</span>子包名 <span class="token keyword">import</span> 模块名           导入模块
-
-模块名<span class="token punctuation">.</span>函数名<span class="token punctuation">(</span>参数<span class="token punctuation">)</span>                      使用模块
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> 包名.子包名 <span class="keyword">import</span> 模块名           导入模块</span><br><span class="line"></span><br><span class="line">模块名.函数名(参数)                      使用模块</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <font color="#00B2EE" face="Comic sans MS">3. <strong>import …from 语句：</strong></font>
 
 <p>还有一种变化就是直接导入一个函数或者变量:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> 包名<span class="token punctuation">.</span>子包名<span class="token punctuation">.</span>模块名  <span class="token keyword">import</span> 函数名      导入模块
-函数名<span class="token punctuation">(</span>参数<span class="token punctuation">)</span>                               使用模块
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> 包名.子包名.模块名  <span class="keyword">import</span> 函数名      导入模块</span><br><span class="line">函数名(参数)                               使用模块</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p><br></p>
 <font color="#00B2EE" face="Comic sans MS">4. <strong>import …from * 语句：</strong></font>
@@ -586,9 +452,7 @@ None
 </blockquote>
 <p>Python 会进入文件系统，找到这个包里面所有的子模块，一个一个的把它们都导入进来。但是很不幸，这个方法在 Windows平台上工作的就不是非常好，因为Windows是一个大小写不区分的系统。</p>
 <p>在这类平台上，没有人敢担保一个叫做 ECHO.py 的文件导入为模块 echo 还是 Echo 甚至 ECHO。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> 包名<span class="token punctuation">.</span>子包名 <span class="token keyword">import</span> <span class="token operator">*</span>                 导入所有模块
-模块名<span class="token punctuation">.</span>函数名<span class="token punctuation">(</span>参数<span class="token punctuation">)</span>                        使用模块
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> 包名.子包名 <span class="keyword">import</span> *                 导入所有模块</span><br><span class="line">模块名.函数名(参数)                        使用模块</span><br></pre></td></tr></table></figure>
 <p><strong>具体使用方法请看下面章节四。</strong></p>
 <p><br></p>
 <blockquote>
@@ -613,8 +477,7 @@ None
 </ol>
 </blockquote>
 <p><br><br>上述的例子：</p>
-<pre class=" language-python"><code class="language-python">__all__ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"echo"</span><span class="token punctuation">,</span> <span class="token string">"surround"</span><span class="token punctuation">,</span> <span class="token string">"reverse"</span><span class="token punctuation">]</span>
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__all__ = [<span class="string">"echo"</span>, <span class="string">"surround"</span>, <span class="string">"reverse"</span>]</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h4 id="4-1-name-、-main"><a href="#4-1-name-、-main" class="headerlink" title="4.1 __name__、__main__"></a><font color="#3CB371" face="Comic sans MS">4.1 __name__、__main__</font></h4><ol>
 <li><p>__name__是一个变量。前后加了爽下划线是因为是因为这是系统定义的名字。普通变量不要使用此方式命名变量。</p>
@@ -628,47 +491,11 @@ None
 </ol>
 <p><br></p>
 <p>下面举一个例子：</p>
-<pre class=" language-python"><code class="language-python">test1<span class="token punctuation">.</span>py
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-   <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'程序自身在运行'</span><span class="token punctuation">)</span>
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-   <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'我来自另一模块'</span><span class="token punctuation">)</span>
-
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-test2<span class="token punctuation">.</span>py
-<span class="token keyword">import</span> test1
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-
-运行test2<span class="token punctuation">.</span>py输出结果：
-我来自另一模块
-
-运行test1<span class="token punctuation">.</span>py输出结果：
-程序自身在运行
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">test1.py</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">   print(<span class="string">'程序自身在运行'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   print(<span class="string">'我来自另一模块'</span>)</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------------------</span><br><span class="line">test2.py</span><br><span class="line"><span class="keyword">import</span> test1</span><br><span class="line">------------------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">运行test2.py输出结果：</span><br><span class="line">我来自另一模块</span><br><span class="line"></span><br><span class="line">运行test1.py输出结果：</span><br><span class="line">程序自身在运行</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h4 id="4-3-author-、-doc"><a href="#4-3-author-、-doc" class="headerlink" title="4.3 __author__、__doc__"></a><font color="#3CB371" face="Comic sans MS">4.3 __author__、__doc__</font></h4><font color="#FF7F00"><strong>文档注释：</strong></font>任何模块代码的第一个字符串都被视为模块的文档注释；<br><br><font color="#FF7F00"><strong><code>__doc__</code>：</strong></font>可以访问一个文件中的第一个单引号（1、2、3对）、双引号（1、2、3对）注释的文档。<br><br><font color="#FF7F00"><strong><code>__author__</code>：</strong></font>可以将一个文件的作者名字赋给它。<br><br><br><br><br>应用示例如下：<br><font color="#FF7F00"></font>
 
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
-
-<span class="token string">' a test module '</span> 
-<span class="token string">'fgbhjknml'</span>
-
-__author__ <span class="token operator">=</span> <span class="token string">'Directoree'</span>
-
-a <span class="token operator">=</span> <span class="token number">10</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>__doc__<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>__doc__<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>__author__<span class="token punctuation">)</span>
-
-运行结果：
-<span class="token number">10</span>
- a test module
- a test module
-Directoree
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="string">' a test module '</span> </span><br><span class="line"><span class="string">'fgbhjknml'</span></span><br><span class="line"></span><br><span class="line">__author__ = <span class="string">'Directoree'</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">print(a)</span><br><span class="line">print(__doc__)</span><br><span class="line">print(__doc__)</span><br><span class="line">print(__author__)</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line"><span class="number">10</span></span><br><span class="line"> a test module</span><br><span class="line"> a test module</span><br><span class="line">Directoree</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h4 id="4-4-dir-函数"><a href="#4-4-dir-函数" class="headerlink" title="4.4 dir()函数"></a><font color="#3CB371" face="Comic sans MS">4.4 dir()函数</font></h4><blockquote>
 <p>内置的函数 dir() 可以<font color="#FF7F00"><strong>找到模块内定义的所有名称。以一个字符串列表的形式返回</strong></font> 。</p>
@@ -677,37 +504,7 @@ Directoree
 </blockquote>
 <p><br></p>
 <p>举例子说明：</p>
-<pre class=" language-python"><code class="language-python">test3<span class="token punctuation">.</span>py
-<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
-
-<span class="token string">' a test module '</span> 
-<span class="token string">'fgbhjknml'</span>
-__author__ <span class="token operator">=</span> <span class="token string">'Directoree'</span>
-a <span class="token operator">=</span> <span class="token number">10</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>__doc__<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>__author__<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>dir<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-运行结果：
- a test module
-Directoree
-<span class="token punctuation">[</span><span class="token string">'__annotations__'</span><span class="token punctuation">,</span> <span class="token string">'__author__'</span><span class="token punctuation">,</span> <span class="token string">'__builtins__'</span><span class="token punctuation">,</span> <span class="token string">'__cached__'</span><span class="token punctuation">,</span> <span class="token string">'__doc__'</span><span class="token punctuation">,</span> 
-<span class="token string">'__file__'</span><span class="token punctuation">,</span> <span class="token string">'__loader__'</span><span class="token punctuation">,</span> <span class="token string">'__name__'</span><span class="token punctuation">,</span> <span class="token string">'__package__'</span><span class="token punctuation">,</span> <span class="token string">'__spec__'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'bbb'</span><span class="token punctuation">]</span>
-
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-test3<span class="token punctuation">.</span>py
-<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
-<span class="token keyword">import</span> test3  
-<span class="token keyword">print</span><span class="token punctuation">(</span>dir<span class="token punctuation">(</span>test3<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-运行结果：
-<span class="token punctuation">[</span><span class="token string">'__author__'</span><span class="token punctuation">,</span> <span class="token string">'__builtins__'</span><span class="token punctuation">,</span> <span class="token string">'__cached__'</span><span class="token punctuation">,</span> <span class="token string">'__doc__'</span><span class="token punctuation">,</span> <span class="token string">'__file__'</span><span class="token punctuation">,</span> <span class="token string">'__loader__'</span><span class="token punctuation">,</span> 
-<span class="token string">'__name__'</span><span class="token punctuation">,</span> <span class="token string">'__package__'</span><span class="token punctuation">,</span> <span class="token string">'__spec__'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'bbb'</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token string">'__author__'</span><span class="token punctuation">,</span> <span class="token string">'__builtins__'</span><span class="token punctuation">,</span> <span class="token string">'__cached__'</span><span class="token punctuation">,</span> <span class="token string">'__doc__'</span><span class="token punctuation">,</span> <span class="token string">'__file__'</span><span class="token punctuation">,</span> <span class="token string">'__loader__'</span><span class="token punctuation">,</span> 
-<span class="token string">'__name__'</span><span class="token punctuation">,</span> <span class="token string">'__package__'</span><span class="token punctuation">,</span> <span class="token string">'__spec__'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'bbb'</span><span class="token punctuation">]</span>
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">test3.py</span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="string">' a test module '</span> </span><br><span class="line"><span class="string">'fgbhjknml'</span></span><br><span class="line">__author__ = <span class="string">'Directoree'</span></span><br><span class="line">a = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">print(__doc__)</span><br><span class="line">print(__author__)</span><br><span class="line">print(dir())</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line"> a test module</span><br><span class="line">Directoree</span><br><span class="line">[<span class="string">'__annotations__'</span>, <span class="string">'__author__'</span>, <span class="string">'__builtins__'</span>, <span class="string">'__cached__'</span>, <span class="string">'__doc__'</span>, </span><br><span class="line"><span class="string">'__file__'</span>, <span class="string">'__loader__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__spec__'</span>, <span class="string">'a'</span>, <span class="string">'bbb'</span>]</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------------------</span><br><span class="line">------------------------------------------------------------------------------------------</span><br><span class="line">test3.py</span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> test3  </span><br><span class="line">print(dir(test3))</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">[<span class="string">'__author__'</span>, <span class="string">'__builtins__'</span>, <span class="string">'__cached__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__file__'</span>, <span class="string">'__loader__'</span>, </span><br><span class="line"><span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__spec__'</span>, <span class="string">'a'</span>, <span class="string">'bbb'</span>]</span><br><span class="line">[<span class="string">'__author__'</span>, <span class="string">'__builtins__'</span>, <span class="string">'__cached__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__file__'</span>, <span class="string">'__loader__'</span>, </span><br><span class="line"><span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__spec__'</span>, <span class="string">'a'</span>, <span class="string">'bbb'</span>]</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p><br></p>
 <h3 id="五-非公开函数"><a href="#五-非公开函数" class="headerlink" title="五. 非公开函数"></a><font color="#FF6347" face="Comic sans MS">五. 非公开函数</font></h3><blockquote>
@@ -716,532 +513,221 @@ test3<span class="token punctuation">.</span>py
 <p>类似_xxx和__xxx这样的函数或变量就是非公开的（private），不应该被直接引用，比如_abc，__abc等；</p>
 <p>之所以我们说，private函数和变量“不应该”被直接引用，而不是“不能”被直接引用，是因为Python并没有一种方法可以完全限制访问private函数或变量，但是，从编程习惯上不应该引用private函数或变量。</p>
 <p>private函数或变量不应该被别人引用，那它们有什么用呢？请看例子：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">_private_1</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token string">'Hello, %s'</span> <span class="token operator">%</span> name
-
-<span class="token keyword">def</span> <span class="token function">_private_2</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token string">'Hi, %s'</span> <span class="token operator">%</span> name
-
-<span class="token keyword">def</span> <span class="token function">greeting</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> len<span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">3</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> _private_1<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> _private_2<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_private_1</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello, %s'</span> % name</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_private_2</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hi, %s'</span> % name</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(name) &gt; <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span> _private_1(name)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> _private_2(name)</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p>我们在模块里公开greeting()函数，而把内部逻辑用private函数隐藏起来了，这样，调用greeting()函数不用关心内部的private函数细节，这也是一种非常有用的代码封装和抽象的方法，即：</p>
 <p>外部不需要引用的函数全部定义成private，只有外部需要引用的函数才定义为public</p>
 
-            </div>
-            <hr>
-
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
+      
     </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-            
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
     
-    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+  </div>
+  
     
-</div>
-
-<script src="/libs/share/js/social-share.min.js"></script>
-
-            <div class="reprint">
-                <p>
-                    <span class="reprint-tip">
-                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
-                    </span>
-                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
-                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/python-modules-packages/" class="b-link-green">Python-模块和包</a>
-                </p>
-            </div>
-        </div>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/post/python-modules-packages/">Python-模块和包</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Treecatee</a></p>
+        <p><span>发布时间:</span>2019-03-03, 18:28:06</p>
+        <p><span>最后更新:</span>2019-03-07, 00:36:20</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/post/python-modules-packages/" title="Python-模块和包">Treecatee.gitgub.io/post/python-modules-packages/</a>
+            <span class="copy-path" data-clipboard-text="原文: Treecatee.gitgub.io/post/python-modules-packages/　　作者: Treecatee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: 'f0e6b43ea59ab9e24a70',
-        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
-        repo: 'Directoree.github.io',
-        owner: 'Directoree',
-        admin: "Directoree",
-        id: '2019-03-03T18-28-06',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-    
-
-    
-
-    
-        <div class="disqus-card card" data-aos="fade-up">
-    <div id="disqus_thread" class="card-content">
-        <noscript>Please enable JavaScript to view the
-            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-    </div>
-</div>
-
-<script type="text/javascript">
-    disqus_config = function () {
-        this.page.url = 'Treecatee.gitgub.io/post/python-modules-packages/';
-        this.page.identifier = '/post/python-modules-packages/';
-        this.page.title = 'Python-模块和包';
-    };
-    let disqus_shortname = '';
-
-    (function () { // DON'T EDIT BELOW THIS LINE
-        let d = document, s = d.createElement('script');
-        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
-        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
+    <nav id="article-nav">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
-            <div class="card">
+            <div id="article-nav-newer" class="article-nav-title">
                 <a href="/post/python-filecontents/">
-                    <div class="card-image">
-                        
-                        <img src="https://i.loli.net/2019/03/06/5c7f728723843.jpg" class="responsive-img" alt="Python-文件系统">
-                        
-                        <span class="card-title">Python-文件系统</span>
-                    </div>
+                    Python-文件系统
                 </a>
-                <div class="card-content article-content">
-                    <div class="summary">Python是 文件对象.write()，PHP是fwrite() 😀…
-
-
-文件系统 
-
-推荐参考资料：
-《Python3 输入和输出》《Python学习之路-11 (文件操作)》 
-
-
-
-
-一. 读写文件Python提供了 input</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-06
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python语言/" target="_blank">
-                        <span class="chip bg-color">Python语言</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
         
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
+            <div id="article-nav-older" class="article-nav-title">
                 <a href="/post/python-generator-iterator/">
-                    <div class="card-image">
-                        
-                        <img src="https://i.loli.net/2019/03/03/5c7aadc5c06f9.jpg" class="responsive-img" alt="Python-生成器与迭代器">
-                        
-                        <span class="card-title">Python-生成器与迭代器</span>
-                    </div>
+                    Python-生成器与迭代器
                 </a>
-                <div class="card-content article-content">
-                    <div class="summary">生成器生成想要的数据，可控制循环暂停，迭代器把可迭代的对象转换为生成器。( ⸝⸝⸝•_•⸝⸝⸝ )♡︎♡︎
-
-
-
-生成器与迭代器 
-
-
-
-一. 迭代、列表生成式1.1 迭代迭代：如果给定一个list或tuple，我们可以通过for循环来遍历</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python语言/" target="_blank">
-                        <span class="chip bg-color">Python语言</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-模块与包的意义"><span class="toc-number">1.</span> <span class="toc-text">一. 模块与包的意义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-什么是模块？"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 什么是模块？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-为什么要使用模块？"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 为什么要使用模块？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-什么是包？"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 什么是包？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-使用模块-无包组织"><span class="toc-number">2.</span> <span class="toc-text">二. 使用模块 -- 无包组织</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-import-语句"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 import 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-from-…-import-语句"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 from … import 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-from-…-import-语句"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 from … import * 语句</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-使用模块-有包组织"><span class="toc-number">3.</span> <span class="toc-text">三. 使用模块 -- 有包组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-init-、-all-、-name-、-author-、-doc-、dir-函数"><span class="toc-number">4.</span> <span class="toc-text">四. __init__、__all__、__name__、__author__、__doc__、dir()函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-init-、-all"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 __init__、__all__</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-name-、-main"><span class="toc-number">4.2.</span> <span class="toc-text">4.1 __name__、__main__</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-author-、-doc"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 __author__、__doc__</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-dir-函数"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 dir()函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五-非公开函数"><span class="toc-number">5.</span> <span class="toc-text">五. 非公开函数</span></a></li></ol>
         
     </div>
-</article>
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
         }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
         }
+    </style>
 
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + 'From: Treecatee<br />'
-            + 'Author: Treecatee<br />'
-            + 'Link: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
-    </div>
-    <div class="col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
-            <div id="toc-content"></div>
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
         </div>
-    </div>
-</div>
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4,h5,h6'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-    });
-</script>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Python-模块和包　| Treecatee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
     
 
-</main>
-
-
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
-
-            
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">158k</span>
-            
-
-            
-			
-                <br>
-                
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
-        <i class="fa fa-qq"></i>
-    </a>
-
-
-
-    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-mixcloud"></i>
-    </a>
+    
 </div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/post/python-filecontents/" title="上一篇: Python-文件系统">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/post/python-generator-iterator/" title="下一篇: Python-生成器与迭代器">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/html-css/">CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-basics/">HTML-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-filecontents/">Python-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-modules-packages/">Python-模块和包</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-generator-iterator/">Python-生成器与迭代器</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-function/">Python-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-operators/">Python-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-conditionalstatements-loops/">Python-条件语句与循环</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-list-tuple-dict-set/">Python-列表、元组、字典、集合</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-coding/">Python-字符编码&字符串&格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-variables-datatypes/">Python-变量和数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-grammar/">Python-基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-basics/">Python-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-sessionmanagement/">PHP-会话管理和控制</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-mysql/">PHP操作MySQL数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mysql-primer/">MySQL入门</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-upload/">PHP-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-filesystem/">PHP-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-function/">PHP-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-regular-expression/">PHP-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-namespace/">PHP-命名空间</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-1/">PHP基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/wireshark-1/">Wireshark简单介绍和数据包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-4/">Java数组(3.9)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-3/">Java简单语句、复合语句、控制语句(3.7-3.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-2/">Java运算符和数据类型转换(3.4-3.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-exception-handling7/">Java-异常处理(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-variable-innerclass6/">Java变量及其传递、内部类(4.9-4.10)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-interface-package5/">Java接口、包(4.7-4.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hash-message-authentication/">Hash函数和消息认证</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-inherit-4/">Java构造方法、对象创建、继承(4.5-4.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sequence-password/">对称密码-序列密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/block-cipher/">对称密码-分组密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-access-permissions-3/">Java类、成员变量、static访问权限(4.1-4.4)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-1/">Java语言基础的字符常变量等(3.1-3.3)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-user-agen-cookie/">《HTTP协议请求头部的User-Agen和Cookie》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xampp-dvwa/">XAMPP环境下配置DVWA</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-io-1/">Java的输入输出</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sqlmap-shell/">SQLMAP命令大全</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mathematical-basis/">信息安全数学基础复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/music-collection/">Music-Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/post/pvris-onlylove/">PVRIS-OnlyLove</a></li><li class="post-list-item"><a class="post-list-link" href="/post/yang-zong-wei-kong-bai-ge-zhuan-ji/">杨宗纬-《空白格》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/network-security/">网络安全复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/algorithm/">算法复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/https-password/">内网称霸之《HTTPS账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-password/">内网称霸之《HTTP账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-picture/">内网称霸之《arp欺骗获取目标主机浏览的图片》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-broken-network/">内网称霸之《ARP欺骗断网攻击》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/resourses/">资源</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-xue-ru-shui-xing-ji-ti-mian-shou-cang-ban/">叶雪如-《水星记》《体面》收藏版</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-si-wu-ji-dan-zhuan-ji/">薛之谦-《肆无忌惮》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-na-shi-ni-chi-kai-liao-bei-jing-de-sheng-huo-zhuan-ji/">薛之谦-《那是你离开了北京的生活》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-guai-ka-zhuan-ji/">薛之谦-《怪咖》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit3/">Metasploit之渗透安卓实战</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit2/">Metasploit工具Meterpreter的命令速查表</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-du-zhuan-ji/">薛之谦-《渡》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-zui-hao-zhuan-ji/">薛之谦-《最好》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/creategithubblog/">Hexo+Github博客搭建终极大法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/markdownusage/">Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit1/">msfvenom生成各类Payload命令，远程木马攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Treecatee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
-
-<div class="progress-bar"></div>
-
-
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
-        </div>
-        <div id="searchResult"></div>
     </div>
-</div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
 </script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
-</div>
 
-
-<script src="/libs/materialize/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>

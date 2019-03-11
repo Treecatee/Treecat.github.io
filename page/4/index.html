@@ -1,879 +1,1478 @@
-<!DOCTYPE HTML>
-<html lang="">
-
-
+<!DOCTYPE html>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Treecatee">
-    <meta name="description" content="Treecatee">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Treecatee</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-        
-    </style>
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
 
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Treecatee">
 
-
-<body>
-
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Treecatee</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>主页</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>标签</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>分类</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-calendar"></i>
-            
-            <span>时间轴</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>关于</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/book" class="waves-effect waves-light">
-            
-            <i class="fa fa-address-book"></i>
-            
-            <span>资源</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/links" class="waves-effect waves-light">
-            
-            <i class="fa fa-edit"></i>
-            
-            <span>链接</span>
-        </a>
-    </li>
-    
-    <li>
-        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-            <i id="searchIcon" class="fa fa-search" title="Search"></i>
-        </a>
-    </li>
-</ul>
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Treecatee</div>
-        <div class="logo-desc">
-            
-            得之我幸，失之我命。
-            
-        </div>
-    </div>
 
     
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                主页
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                标签
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                分类
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-calendar"></i>
-                
-                时间轴
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                关于
-            </a>
-        </li>
-        
-        <li>
-            <a href="/book" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-address-book"></i>
-                
-                资源
-            </a>
-        </li>
-        
-        <li>
-            <a href="/links" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-edit"></i>
-                
-                链接
-            </a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-        </div>
-    </nav>
-
-</header>
+    
 
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                    得失弹指一挥间。
-                
-            </div>
+<meta name="description" content="得之我幸，失之我命。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Treecatee">
+<meta property="og:url" content="Treecatee.gitgub.io/page/4/index.html">
+<meta property="og:site_name" content="Treecatee">
+<meta property="og:description" content="得之我幸，失之我命。">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Treecatee">
+<meta name="twitter:description" content="得之我幸，失之我命。">
 
-            <div class="description center-align">
-                
-                    得之我幸，失之我命。
-                
-            </div>
-        </div>
-    </div>
-</div>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Treecatee" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <style> .article { opacity: 0;} </style>
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Treecatee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
 <script>
-// 每天切换 banner 图.  Switch banner image every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: true,
+        isPost: false,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
 </script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Treecatee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">得失弹指一挥间。</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP欺骗/">ARP欺骗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA/">DVWA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash函数/">Hash函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java访问权限/">Java访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java语言/">Java语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meterpreter命令/">Meterpreter命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP语言/">PHP语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python语言/">Python语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLMAP命令/">SQLMAP命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/User-Agen/">User-Agen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wireshark/">Wireshark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msfvenom/">msfvenom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信安数学/">信安数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分组密码/">分组密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全指导/">安全指导</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全笔记/">安全笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓渗透/">安卓渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/序列密码/">序列密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法学习/">算法学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/远程木马攻击/">远程木马攻击</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
     </div>
-</div>
-
-
-<main class="content">
-
-    
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/post/java-inherit-4/">
-                        <div class="card-image">
-                            
-                            <img src="https://i.loli.net/2018/12/25/5c21082154dab.jpg" class="responsive-img" alt="Java构造方法、对象创建、继承(4.5-4.6)">
-                            
-                            <span class="card-title">Java构造方法、对象创建、继承(4.5-4.6)</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
-                                &ensp;&ensp;
-继承
-
-&ensp;&ensp;
-一、 构造方法📒定义： 构造方法是一种特殊的、与类同名的方法，专门用于创建对象
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-25
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Java学习/" target="_blank">
-                            <span class="chip bg-color">Java学习</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/post/sequence-password/">
-                        <div class="card-image">
-                            
-                            <img src="https://s1.ax1x.com/2018/12/24/F62ftf.png" class="responsive-img" alt="对称密码-序列密码">
-                            
-                            <span class="card-title">对称密码-序列密码</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
-                                &emsp;&emsp;&emsp;
-序列密码
-
-一、 序列密码分类
-
-
-
-&emsp;&emsp;
-1.1  同步序列密码
-&emsp;&
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/密码学/" class="post-category" target="_blank">
-                                    密码学
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/序列密码/" target="_blank">
-                            <span class="chip bg-color">序列密码</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/post/block-cipher/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="对称密码-分组密码">
-                            
-                            <span class="card-title">对称密码-分组密码</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
-                                &ensp;&ensp;
-DES、AES、IDEA、SMS4&ensp;&ensp;
-一、 DES1.1  DES加密算法过程&ensp;&
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/密码学/" class="post-category" target="_blank">
-                                    密码学
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/分组密码/" target="_blank">
-                            <span class="chip bg-color">分组密码</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/post/java-access-permissions-3/">
-                        <div class="card-image">
-                            
-                            <img src="https://i.loli.net/2018/12/24/5c20d0912e97e.jpg" class="responsive-img" alt="Java类、成员变量、static访问权限(4.1-4.4)">
-                            
-                            <span class="card-title">Java类、成员变量、static访问权限(4.1-4.4)</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
-                                &ensp;&ensp;
-一、 Java中类的定义、类访问权限1.1  类的定义格式：[修饰符] class 类名 [extends父类名]
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Java学习/" target="_blank">
-                            <span class="chip bg-color">Java学习</span>
-                        </a>
-                        
-                        <a href="/tags/Java访问权限/" target="_blank">
-                            <span class="chip bg-color">Java访问权限</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/post/java-language-2-1/">
-                        <div class="card-image">
-                            
-                            <img src="https://i.loli.net/2018/12/24/5c20d0d7b3249.jpg" class="responsive-img" alt="Java语言基础的字符常变量等(3.1-3.3)">
-                            
-                            <span class="card-title">Java语言基础的字符常变量等(3.1-3.3)</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
-                                &ensp;&ensp;
-标识符,注释和分隔符、变量和常量、基本类型&ensp;&ensp;
-一、 标识符、注释和分隔符📒标识符：是程序员
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Java学习/" target="_blank">
-                            <span class="chip bg-color">Java学习</span>
-                        </a>
-                        
-                        <a href="/tags/Java语言/" target="_blank">
-                            <span class="chip bg-color">Java语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/post/http-user-agen-cookie/">
-                        <div class="card-image">
-                            
-                            <img src="https://i.loli.net/2018/12/24/5c20d05c80016.jpg" class="responsive-img" alt="《HTTP协议请求头部的User-Agen和Cookie》">
-                            
-                            <span class="card-title">《HTTP协议请求头部的User-Agen和Cookie》</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
-                                &ensp;
-一、User-Agen注意在HTTP头部参数的首字母大写格式！
-🌸1.1 什么是User-Agen1.1.1、 Http H
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/HTTP协议/" class="post-category" target="_blank">
-                                    HTTP协议
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/User-Agen/" target="_blank">
-                            <span class="chip bg-color">User-Agen</span>
-                        </a>
-                        
-                        <a href="/tags/Cookie/" target="_blank">
-                            <span class="chip bg-color">Cookie</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/post/xampp-dvwa/">
-                        <div class="card-image">
-                            
-                            <img src="https://i.loli.net/2018/12/24/5c20d1ab47ce1.jpg" class="responsive-img" alt="XAMPP环境下配置DVWA">
-                            
-                            <span class="card-title">XAMPP环境下配置DVWA</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
-                                一、下载1. 下载XAMPP    2. 下载DVWA  
-
-&nbsp;
-二、给文件执行权限并安装XAMPP1. 在“下载”目录下，以“客
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/XAMPP-DVWA/" class="post-category" target="_blank">
-                                    XAMPP-DVWA
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/DVWA/" target="_blank">
-                            <span class="chip bg-color">DVWA</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/post/java-io-1/">
-                        <div class="card-image">
-                            
-                            <img src="https://i.loli.net/2018/12/24/5c20d0ac2faa2.jpg" class="responsive-img" alt="Java的输入输出">
-                            
-                            <span class="card-title">Java的输入输出</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
-                                一、Java中的流的概念1.0 数据流的概念
-
-&emsp;数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Java学习/" target="_blank">
-                            <span class="chip bg-color">Java学习</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/post/sqlmap-shell/">
-                        <div class="card-image">
-                            
-                            <img src="https://i.loli.net/2018/12/24/5c20d190199db.jpg" class="responsive-img" alt="SQLMAP命令大全">
-                            
-                            <span class="card-title">SQLMAP命令大全</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
-                                一、sqlmap简介&emsp;sqlmap支持MySQL, Oracle,PostgreSQL, Microsoft SQL Server
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Kali-SQLMAP/" class="post-category" target="_blank">
-                                    Kali-SQLMAP
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/SQLMAP命令/" target="_blank">
-                            <span class="chip bg-color">SQLMAP命令</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/post/mathematical-basis/">
-                        <div class="card-image">
-                            
-                            <img src="https://i.loli.net/2018/12/24/5c20d0fc97981.jpg" class="responsive-img" alt="信息安全数学基础复习笔记">
-                            
-                            <span class="card-title">信息安全数学基础复习笔记</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-                            
-                                &nbsp;12.3复习笔记
-第一章、整数的可除性1.1 整数的概念、欧几里得除法&nbsp;
-1.2 最大公因数与广义欧几里得除法&nbs
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/密码学/" class="post-category" target="_blank">
-                                    密码学
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/信安数学/" target="_blank">
-                            <span class="chip bg-color">信安数学</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    </article>
-
-</main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/3/" class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fa fa-angle-left"></i>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Treecatee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
             </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Treecatee</a></h1>
+            </hgroup>
             
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">4 / 7</div>
-        </div>
-        <div class="col s6 m4 l4">
+            <p class="header-subtitle">得失弹指一挥间。</p>
             
-            <a href="/page/5/" class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fa fa-angle-right"></i>
-            </a>
-            
-        </div>
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
     </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-Java-Inherit-4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/java-inherit-4/" class="article-date">
+      <time datetime="2018-12-24T16:15:10.000Z" itemprop="datePublished">2018-12-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/java-inherit-4/">Java构造方法、对象创建、继承(4.5-4.6)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&ensp;<br>&ensp;</p>
+<center><font color="#3CB371" face="Comic sans MS" size="5"><strong>继承</strong></font></center>
+
+<p>&ensp;<br>&ensp;</p>
+<h3 id="一、-构造方法"><a href="#一、-构造方法" class="headerlink" title="一、 构造方法"></a><font color="#FF6347" face="Comic sans MS">一、 构造方法</font></h3><font color="red"><strong>📒定义：</strong></font> 构造方法是一种特殊的、与类同名的方法，专门用于<font color="red">创建对象，完成初始化工作。</font> 
+
+<p>&emsp;</p>
+<table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><font color="red"><strong>📒构造方法的特殊性：</strong></font><br><strong>(1)构造方法的方法名与类名相同。</strong><br><strong>(2)构造方法没有返回类型，也不能写void。</strong><br><strong>(3)构造方法的主要作用是完成对类对象的初始化工作。</strong><br><strong>(4)构造方法一般不能由编程人员显式地直接调用，而是用new来调用。</strong><br><strong>(5)在创建一个类的新对象的同时，系统会自动调用该类的构造方法为新对象初始化。</strong><br><strong>(6)在Java中，每个类都至少有一个构造方法，如果没有显示地定义构造方法，Java<br>   会自动提供一个缺省的构造方法。</strong><br></font></td></tr></table>
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-1-构造方法说明"><a href="#1-1-构造方法说明" class="headerlink" title="1.1  构造方法说明"></a><font color="#3CB371" face="Comic sans MS">1.1  构造方法说明</font></h4><font color="red"><strong>📒构造方法说明形式如下：</strong></font><br><font color="red">[构造方法修饰符] 方法名（[形式参数列表]）[throws异常列表] {方法体}</font> 
+
+<table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>📒当构造一个类的实例时，编译器主要完成以下3件事情：</strong><br>(1) 为对象分配内存空间(堆)；<br>(2) 按缺省值初始化对象中的实例变量的值；<br>(3) 调用对象的构造方法(可以在构造方法中初始化其他的值)；<br>(4) 对象变量都是引用型变量。<br></font></td></tr></table>
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-2-构造方法的重载"><a href="#1-2-构造方法的重载" class="headerlink" title="1.2  构造方法的重载"></a><font color="#3CB371" face="Comic sans MS">1.2  构造方法的重载</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">(1)  缺省的构造方法：如果没有定义构造方法，则Java自动提供了一个缺省的构造方法，如下：<br>public Person(){}；//对象成员变量的初值按Java规定<br>(2)  带参数的构造方法：按需要将一些指定的参数传递给构造方法<br> 例如：public Person(String n){Name=n;}<br><strong>📒定义构造方法注意：</strong><br>&emsp;只要类中显式定义了一个或多个构造方法，而且所有显式定义的构造方法都带参数，那么将失去缺省<br>   构造方法。<br></font></td></tr></table>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PersonC(String n ,int a)&#123;</span><br><span class="line">   name=n;</span><br><span class="line">   age=a;</span><br><span class="line">   System.out.println(<span class="string">"The Person's name is "</span>+name+<span class="string">",age is "</span>+age);&#125; </span><br><span class="line"> public static void main(String args[])&#123;</span><br><span class="line">      PersonC per1=new PersonC();</span><br><span class="line">      PersonC per2=new PersonC(<span class="string">"wang li"</span>);</span><br><span class="line">      PersonC per3=new PersonC(<span class="string">"li ming"</span>,24);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-3-对象的创建"><a href="#1-3-对象的创建" class="headerlink" title="1.3  对象的创建"></a><font color="#3CB371" face="Comic sans MS">1.3  对象的创建</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>1.3.1 📒对象说明：</strong><br>对象说明的语法形式为：<br>&emsp;&emsp;&emsp;<font color="red">类名&emsp;对象名；</font><br><strong>1.3.2. 📒对象的实例化和初始化:</strong><br><strong>对象构造的语法形式为：</strong><br>&emsp;&emsp;&emsp;<font color="red">对象名=new 类构造方法名([实参表]);</font><br><strong>由new操作符和相应的构造方法完成：</strong><br>new以类为模板，开辟空间并执行相应的构造方法，完成对象的实例化和初始化，并返回该对象的一个引<br>用（即该对象所在的内存首地址)<br></font></td></tr></table>
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-4-this的使用"><a href="#1-4-this的使用" class="headerlink" title="1.4  this的使用"></a><font color="#3CB371" face="Comic sans MS">1.4  this的使用</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>1.4.1 📒使用this来访问成员变量及方法</strong><br>在方法及构造方法中，可以使用this来访问对象的属性和方法 .<br><strong>1.4.2. 📒构造方法中，用this调用另一构造方法：</strong><br><strong>1.4.3. 📒使用this的注意事项：</strong><br>(1)通过this不仅可以引用该类中定义的变量和方法，还可以引用该类的父类中定义的成员变量和方法。<br>(2)在所有的非static方法中，都隐含了一个参数this。而static方法中，不能使用this。<br></font></td></tr></table>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.4.1</span><br><span class="line"> Person(String n,int a)&#123;</span><br><span class="line">        name=n;</span><br><span class="line">        age=a;</span><br><span class="line">    &#125; </span><br><span class="line">等价于如下：</span><br><span class="line"> Person(String name,int age)</span><br><span class="line">           &#123;this.name=name;</span><br><span class="line">             this.age=age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.4.2 </span><br><span class="line"> <span class="function"><span class="title">Desk</span></span>()&#123;   Color=<span class="string">""</span>;</span><br><span class="line">           Length=0;</span><br><span class="line">         Width=0;</span><br><span class="line">         Height=0;&#125; </span><br><span class="line"> Desk(String C,int L,int W,int H)</span><br><span class="line">  &#123;Color=C;</span><br><span class="line">     Length=L;</span><br><span class="line">   Width=W;</span><br><span class="line">   Height=H;&#125; </span><br><span class="line"> <span class="function"><span class="title">Desk</span></span>()&#123;</span><br><span class="line">    this(<span class="string">""</span>,0,0,0);&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="二、-继承"><a href="#二、-继承" class="headerlink" title="二、 继承"></a><font color="#FF6347" face="Comic sans MS">二、 继承</font></h3><h4 id="2-1-类继承语法形式"><a href="#2-1-类继承语法形式" class="headerlink" title="2.1  类继承语法形式"></a><font color="#3CB371" face="Comic sans MS">2.1  类继承语法形式</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>2.1.1 📒类继承语法形式如下：</strong><br>&emsp;&emsp;<font color="red">class&emsp;SubClassName&emsp;extends&emsp;SupperClassName</font><br>extends：继承关键词<br>SubClassName：新的子类名<br>SupperClassName：继承的父类名，必须有且只能一个（即每个子类有且只能有一个父类）<br><strong>2.1.2 📒子类的特性:</strong><br>(1) 子类拥有其父类的所有属性和方法。但父类中说明为private的属性和方法，子类不可直接访问。<br>(2) 子类可以对父类的方法覆盖或重载。<br></font></td></tr></table>
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="2-2-属性的继承、隐藏和添加"><a href="#2-2-属性的继承、隐藏和添加" class="headerlink" title="2.2  属性的继承、隐藏和添加"></a><font color="#3CB371" face="Comic sans MS">2.2  属性的继承、隐藏和添加</font></h4><p><strong>注意：属性叫隐藏，方法叫覆盖</strong></p>
+<font face="Comic sans MS"><strong>2.2.1 📒属性的继承：</strong><br>• 子类可以继承父类的所有属性（只要该属性没有private修饰）<br>• 通过属性的继承，子类不需要把父类属性的定义部分重复定义一遍，这样做的好处是减少程序维护的工作量。<br><font color="red">例如：ColorPoint类自动具有Point类的坐标a,b属性</font></font><br>&emsp;<br><font face="Comic sans MS"><strong>2.2.2 📒属性的隐藏：</strong><br>子类重新定义一个与父类那里继承来的成员变量完全相同的变量，就称作属性的隐藏。</font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> class living</span><br><span class="line">&#123;   public int age; &#125;</span><br><span class="line">class human extends living</span><br><span class="line">&#123;   public int age; //将父类的age隐藏</span><br><span class="line">    public static void main(String args[])</span><br><span class="line">   &#123; human h1=new human(); h1.age=20;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;</p>
+<font face="Comic sans MS"><strong>2.2.3 📒属性的添加：</strong></font><br>在定义子类时，加上的新的属性变量，就可以使子类比父类多一些属性<br><br><font color="red">例如：ColorPoint类比父类Point多了一个属性，颜色（color）</font>
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="2-3-方法的继承、覆盖、重载和添加"><a href="#2-3-方法的继承、覆盖、重载和添加" class="headerlink" title="2.3  方法的继承、覆盖、重载和添加"></a><font color="#3CB371" face="Comic sans MS">2.3  方法的继承、覆盖、重载和添加</font></h4><font face="Comic sans MS"><strong>2.3.1 📒方法的继承：</strong><br>父类的非私有方法也可以被子类自动继承。例如类A具有method()方法，那它的子类B不定义该方法也同样拥有method()。</font>
+
+<p>&emsp;</p>
+<font face="Comic sans MS"><strong>2.3.2 📒方法的覆盖：</strong></font>
+
+<font color="red"><strong>方法的覆盖</strong></font>(方法用覆盖这个词修饰，属性用隐藏这个词来修饰)<br>覆盖：在子类中定义的方法和父类中的方法的首部是一样的，包括方法名、参数列表、返回类型和异常抛出。但方法体的实现改变了。<br><img src="https://i.loli.net/2018/12/26/5c23095dc4ba6.png" alt="1.png"><br><br><font face="Comic sans MS" color="red"><strong>例如:</strong></font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">……</span><br><span class="line">int method(int x, int y)</span><br><span class="line">throws Exception&#123;</span><br><span class="line">……</span><br><span class="line">&#125;</span><br><span class="line">……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class B extends A&#123;</span><br><span class="line">……</span><br><span class="line">int method(int x, int y) throws  //覆盖父类的方法method(int x, int y)</span><br><span class="line">IOException&#123;</span><br><span class="line">……</span><br><span class="line">&#125;</span><br><span class="line">……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;</p>
+<font face="Comic sans MS" color="red">覆盖的效果：当一个B类对象调用method方法时它只会使用B类的method版本，而父类A的method版本被覆盖掉了</font><br><font face="Comic sans MS"><strong>在覆盖时要注意以下几点：</strong><br>（1）覆盖的方法的<font color="#00B2EE"><strong>首部</strong></font>必须要和被覆盖的方法的首部完全匹配，才能达到覆盖的效果；<br>（2）覆盖的方法的<font color="#00B2EE"><strong>返回值类型</strong></font>必须和被覆盖的方法的返回值类型一致；<br>（3）覆盖的方法所<font color="#00B2EE"><strong>抛出的异常</strong></font>必须和被覆盖方法的所抛出的异常一致，或者是其子类；<br>（4）被覆盖的方法<font color="#00B2EE"><strong>不能为private</strong></font>，否则在其子类中只是新定义了一个方法，并没有对其进行覆盖</font><br>&emsp;<br><font face="Comic sans MS"><strong>2.3.3 📒方法的重载：</strong><br><font color="red"><strong>含义：方法名相同，但参数列表不同</strong></font><br>通过方法的覆盖，能够修改对象的同名方法的具体实现体，相同的方法在各个子类中实现的版本可以不一样.<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; —&ensp;—实现多个类中多态性的基础之一<br><font color="red"><strong>重载的效果：</strong></font>父类A的method版本不会被覆盖掉，相当于在子类B中有两个method方法，一个来自父类，一个自己加的，它们之间的参数列表不一样.<br><font color="red"><strong>注意：</strong></font><br>（1）在使用重载时只能通过不同的参数表样式。<br>（2）不能通过访问权限、返回类型、抛出的异常进行重载；(但是同一类里面的成员方法可以这样重载)<br>（3）被重载的方法不能为private，否则在其子类中只是新定义了一个方法，并没有对其进行重载。<br><br><font color="red"><strong>特别注意：</strong></font>在继承机制中，不允许在子类中降低成员(包括变量和方法)的访问权限（访问权限大小关系是private &lt; 缺省 &lt; protected &lt; public）。即如果一个方法在父类中是protected的，那么在子类中要重载或覆盖该方法时，就不能把该方法改成是缺省或private，否则会出现编译错误。</font><br>&emsp;<br><font color="green"><em>习题1：分析下列程序输出结果</em> </font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class A</span><br><span class="line">&#123;          public void PrintNumber(int a)</span><br><span class="line">           &#123;          System.out.println(++a);</span><br><span class="line">           &#125;            </span><br><span class="line">&#125;</span><br><span class="line">class B extends A</span><br><span class="line">&#123;          public void PrintNumber(int a,int b)</span><br><span class="line">           &#123;          System.out.println(a);</span><br><span class="line">           &#125;  </span><br><span class="line">           public static void main(String args[])</span><br><span class="line">         &#123;  </span><br><span class="line">                   B b=new B();</span><br><span class="line">                   b.PrintNumber(100);         </span><br><span class="line">          &#125;   </span><br><span class="line">&#125;</span><br><span class="line">输出结果：101</span><br></pre></td></tr></table></figure>
+<p>&emsp;</p>
+<font color="green"><em>习题2：分析下列程序输出结果</em> </font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class A</span><br><span class="line">&#123;          public void PrintNumber(int a)</span><br><span class="line">           &#123;          System.out.println(++a);</span><br><span class="line">           &#125;            </span><br><span class="line">&#125;</span><br><span class="line">class B extends A</span><br><span class="line">&#123;          public void PrintNumber(int a)</span><br><span class="line">           &#123;          System.out.println(--a);</span><br><span class="line">           &#125;  </span><br><span class="line">           public static void main(String args[])</span><br><span class="line">         &#123;  </span><br><span class="line">                   B b=new B();</span><br><span class="line">                   b.PrintNumber(100);         </span><br><span class="line">          &#125;   </span><br><span class="line">&#125;</span><br><span class="line">输出结果：99</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>&emsp;</p>
+<font face="Comic sans MS"><strong>2.3.4 📒方法的添加：</strong><br><font color="red"><strong>子类可以新加一些方法，以针对子类实现相应的功能.</strong></font><br></font>
+
+<p>&emsp;<br>&emsp;</p>
+<h5 id="2-4-静态成员变量的继承"><a href="#2-4-静态成员变量的继承" class="headerlink" title="2.4  静态成员变量的继承"></a><font color="#3CB371" face="Comic sans MS">2.4  静态成员变量的继承</font></h5><font face="Comic sans MS">(1)某类的静态成员为该类及该类的所有子类所共有；<br>(2)如果子类中新定义的静态成员变量与父类中的某个静态成员变量同名，则这两个静态成员变量相互独立。</font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(1)</span><br><span class="line">class a</span><br><span class="line">&#123;</span><br><span class="line">  public static int b=10; //静态属性</span><br><span class="line">&#125;</span><br><span class="line">class <span class="built_in">test</span> extends a</span><br><span class="line">&#123; </span><br><span class="line">  public static void main(String args[])</span><br><span class="line">  &#123;</span><br><span class="line">    test.b=20;</span><br><span class="line">    System.out.println(a.b);        </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果：20</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(2)</span><br><span class="line">class living</span><br><span class="line">&#123;</span><br><span class="line">       public static int age; //静态属性               </span><br><span class="line">&#125;</span><br><span class="line">class human extends living</span><br><span class="line">&#123; </span><br><span class="line">       public static int age; //静态属性</span><br><span class="line">       public static void main(String args[])</span><br><span class="line">        &#123;</span><br><span class="line">               human.age=20;</span><br><span class="line">               System.out.println(living.age);</span><br><span class="line">        &#125;   </span><br><span class="line">&#125;</span><br><span class="line">输出结果：0</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="2-5-super的使用"><a href="#2-5-super的使用" class="headerlink" title="2.5  super的使用"></a><font color="#3CB371" face="Comic sans MS">2.5  super的使用</font></h4><font color="red" face="Comic sans MS">super：代表父类对象，在继承中有重要的作用</font><br><font face="Comic sans MS">📒<strong>使用情况：</strong><br>(1)  子类隐藏了超类中的变量或方法，而在程序中又要使用超类中被隐藏的变量或方法时<br><font color="red">&emsp;&emsp;格式：super.变量 ;  super.方法([参数表])</font><br>(2)  在子类的构造方法中引用超类的构造方法时<br><font color="red">&emsp;&emsp;格式： super([参数表])<br>📒<strong>注意:</strong>  构造方法不能被继承，但是子类的构造方法能确保它的直接父类<br>和间接父类的构造方法都被调用，但是注意一点：<strong>子类构造方法中调用父类构造方法时，调用语句必须放在子类构造方法中的第一句.</strong></font></font><br>&emsp;<br>&emsp;<br><font face="Comic sans MS"><br><strong>1.  📒使用super访问父类的属性和方法</strong><br><img src="https://i.loli.net/2018/12/26/5c232ab96c4be.png" alt="1.png"><br>&emsp;<br>&emsp;<br><strong>2.  📒使用super在子类中调用父类的构造方法</strong><br><img src="https://i.loli.net/2018/12/26/5c23311cb1dd4.png" alt="2.png"><br><br>&emsp;<br><strong>3.  📒使用super的注意事项</strong><br>(1)通过super不仅可以访问直接父类中定义的属性和方法，还可以访问间接父类中定义的属性和方法。<br>(2)由于它指的是父类对象，所以super不能在static环境中使用，包括类变量、类方法和static语句块。<br>(3)使用super不能访问本类定义的属性和方法。<br>(4)在构造方法中使用super时，super语句必须放在第一句<br>(5)在子类的构造方法中，super可以不明确使用，也可以明确使用。<br></font>
+
+<p>&emsp;</p>
+<font face="Comic sans MS"><strong>4.  📒明确使用super调用父类构造方法</strong></font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Point&#123;</span><br><span class="line">    int x=0;</span><br><span class="line">    Point（int x）&#123;</span><br><span class="line">     this.x=x;</span><br><span class="line">&#125;</span><br><span class="line">｝</span><br><span class="line">  </span><br><span class="line">class MapPoint extends Point&#123;</span><br><span class="line"><span class="function"><span class="title">MapPoint</span></span>()&#123;</span><br><span class="line">    super(3);  //明确使用</span><br><span class="line">　System.out.println(<span class="string">"MapPoint()"</span>);</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">　　new MapPoint();</span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>&emsp;</p>
+<font face="Comic sans MS"><strong>5.  📒不明确使用super调用父类构造方法</strong></font><br><font color="#FF6347">&emsp;<strong>当父类重载自己的构造函数时，在子类的构造函数中要明确写出到底是使用父类的哪一个构造函数！！！否则编译器不知道在子类中到底是调用父类的哪一个构造方法！</strong><br></font>
+
+<font color="red"><strong>如下:</strong></font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Point&#123;</span><br><span class="line">    int x=0;</span><br><span class="line">    Point（int x）&#123;</span><br><span class="line">     this.x=x;</span><br><span class="line">&#125;</span><br><span class="line">｝</span><br><span class="line"></span><br><span class="line">class MapPoint extends Point&#123;</span><br><span class="line"><span class="function"><span class="title">MapPoint</span></span>()&#123;</span><br><span class="line">　System.out.println(<span class="string">"MapPoint()"</span>);</span><br><span class="line">　　&#125;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">　　new MapPoint();</span><br><span class="line">　　&#125;</span><br><span class="line">｝</span><br><span class="line">//编译会出错</span><br></pre></td></tr></table></figure>
+<font face="楷体">答案：因为子类中没有明确使用super，系统会自动在构造方法中加上super()，来调用直接父类的不带参数的构造方法，由于Point类中没有定义不带参数的构造方法，所以编译通不过。以上代码相当于：<br></font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Point&#123;</span><br><span class="line">    int x=0;</span><br><span class="line">    Point（int x）&#123;</span><br><span class="line">     this.x=x;</span><br><span class="line">&#125;</span><br><span class="line">｝</span><br><span class="line">  </span><br><span class="line">class MapPoint extends Point&#123;</span><br><span class="line"><span class="function"><span class="title">MapPoint</span></span>()&#123;</span><br><span class="line">　super(); //此处不能缺省</span><br><span class="line">　System.out.println(<span class="string">"MapPoint()"</span>);</span><br><span class="line">　　&#125;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">　　new MapPoint();</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br><strong>解决方法：</strong><br>(1)在MapPoint的构造方法中，明确使用super来调用父类已有的构造方法，如super(3);<br>(2)在Point中加入一个不带参数的构造方法，如Point{} 　　　　　<br>(3)去掉Point中全部的构造方法，则编译器会自动加入一个不带参数的构造方法，称为缺省构造方法。</p>
+<p>&emsp;<br><strong>6.  📒构造方法的调用顺序</strong></p>
+<font color="red"><strong>一个复杂对象的构造方法调用顺序如下：</strong></font>
+
+<p>(1)首先调用父类的构造方法。这个步骤会反复递归，使继承阶层的根源最先被构建，然后是次一层的子类，直至最末一层子类为止；（即先调用最根部的父类，然后依次调用该父类的子类的子类的……..）<br>(2)根据各个成员的声明顺序，执行成员变量的初始化赋值；<br>(3)执行该构造方法中的各语句</p>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="三、-抽象类与抽象方法abstract"><a href="#三、-抽象类与抽象方法abstract" class="headerlink" title="三、 抽象类与抽象方法abstract"></a><font color="#FF6347" face="Comic sans MS">三、 抽象类与抽象方法abstract</font></h3><font color="red" face="Comic sans MS"><strong>类似于它是一个模板！！！</strong></font>
+
+<table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">(1)abstract关键字修饰的类和方法<br>(2)抽象类不能创建任何对象，抽象类必须产生其子类，由子类创建对象。<br>(3)抽象类中可以包含抽象方法，也可以不包含抽象方法，但如果类中的某一方法是抽象的，整个类就必须被说<br>    明成抽象的。<br>(4)抽象方法在子类中必须被实现，否则子类仍是抽象的。<br>(5)抽象类不是可有可无的。<br>(6)(类、成员方法、成员属性)访问权限修饰符为abstract。</font></td></tr></table>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[例4-17]  抽象类举例</span><br><span class="line">abstract class Shape </span><br><span class="line">&#123;  abstract  double  area(); </span><br><span class="line">    abstract void draw(); &#125;                                         </span><br><span class="line"> //上述方法对一般图形无法定义其实现</span><br><span class="line">class Rectangle  extends Shape  &#123;</span><br><span class="line">int width;                        </span><br><span class="line">       int length;                       </span><br><span class="line">public double <span class="function"><span class="title">area</span></span>() &#123;</span><br><span class="line">//矩型类实现了Shape类的抽象方法area()</span><br><span class="line">   <span class="built_in">return</span> width*length;</span><br><span class="line">&#125;</span><br><span class="line">public void <span class="function"><span class="title">draw</span></span> () &#123;  … …     </span><br><span class="line">//矩型类实现了Shape类的抽象方法draw()，详细可由自己完成&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="四、-final类和final方法"><a href="#四、-final类和final方法" class="headerlink" title="四、 final类和final方法 "></a><font color="#FF6347" face="Comic sans MS">四、 final类和final方法 </font></h3><h4 id="4-1-final类"><a href="#4-1-final类" class="headerlink" title="4.1  final类"></a><font color="#3CB371" face="Comic sans MS">4.1  final类</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">如果一个类被final修饰符所修饰和限定，说明这个类不能被继承，即不可能有子类——最终类<br>             例如：<em>java.lang.System</em><br><strong>📒作用：</strong><br>final修饰符通常是出于安全的目的而使用的，因为不能继承final类，人们就不能重载或覆盖它的任何方法。<br>如果允许一个类被继承，其允许被重载或覆盖的方法可能会被改写。保证某个特定的方法在类层次关系上<br>的某层以后只有一个定义，这对于那些安全性非常关键的类是非常必要的。</font></td></tr></table>
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="4-2-final方法"><a href="#4-2-final方法" class="headerlink" title="4.2  final方法"></a><font color="#3CB371" face="Comic sans MS">4.2  final方法</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">final修饰符所修饰的方法，是不能被子类所覆盖的方法。<br>📒<strong>作用：</strong>固定了这个方法所对应的具体操作，可以防止子类对父类关键<br>            方法的错误的重定义，保证了程序的安全性和正确性。<br>📒<strong>注意：</strong>所有已被private修饰符限定为私有的方法，以及所有包含在final类中的方法，都被默认为是<br>            final的。<br>            因为这些方法不可能被子类所继承，所以不可能被重载，自然都是最终的方法。<br></font></td></tr></table>
+
+<p>&emsp;<br>&emsp;<br>&emsp;<br>&emsp;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java学习/">Java学习</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Sequence-Password" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/sequence-password/" class="article-date">
+      <time datetime="2018-12-24T07:59:25.000Z" itemprop="datePublished">2018-12-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/sequence-password/">对称密码-序列密码</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&emsp;<br>&emsp;<br>&emsp;</p>
+<center><font color="#3CB371" face="Comic sans MS" size="5"><strong>序列密码</strong></font></center>
+
+<h3 id="一、-序列密码分类"><a href="#一、-序列密码分类" class="headerlink" title="一、 序列密码分类"></a><font color="#FF6347" face="Comic sans MS">一、 序列密码分类</font></h3><p><img src="https://i.loli.net/2018/12/24/5c20924c6021f.png" alt="1.1.png"></p>
+<p><img src="https://i.loli.net/2018/12/24/5c20939d133c4.png" alt="1.2.png"></p>
+<p><img src="https://i.loli.net/2018/12/24/5c2093fd8fe58.png" alt="1.3.png"></p>
+<p><img src="https://i.loli.net/2018/12/24/5c2095260e6f8.png" alt="1.4.png"></p>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-1-同步序列密码"><a href="#1-1-同步序列密码" class="headerlink" title="1.1  同步序列密码"></a><font color="#3CB371" face="Comic sans MS">1.1  同步序列密码<font></font></font></h4><p><img src="https://i.loli.net/2018/12/24/5c2098c694866.png" alt="1.5.png"><br><img src="https://i.loli.net/2018/12/24/5c2096f7beef5.png" alt="1.6.png"><br><img src="https://i.loli.net/2018/12/24/5c2098c550e68.png" alt="1.7.png"></p>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-2-自同步序列密码"><a href="#1-2-自同步序列密码" class="headerlink" title="1.2  自同步序列密码"></a><font color="#3CB371" face="Comic sans MS">1.2  自同步序列密码<font></font></font></h4><p><img src="https://i.loli.net/2018/12/24/5c209e3986f6d.png" alt="1.8.png"><br><img src="https://i.loli.net/2018/12/24/5c209ec21a9ee.png" alt="1.9.png"><br><img src="https://i.loli.net/2018/12/24/5c20a0919380a.png" alt="1.10.png"><br><img src="https://i.loli.net/2018/12/24/5c20a09615554.png" alt="1.11.png"></p>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="二、-密钥流与密钥生成器"><a href="#二、-密钥流与密钥生成器" class="headerlink" title="二、 密钥流与密钥生成器"></a><font color="#FF6347" face="Comic sans MS">二、 密钥流与密钥生成器</font></h3><p><img src="https://s1.ax1x.com/2018/12/24/F6bHu6.png" alt="1.12"><br><img src="https://s1.ax1x.com/2018/12/24/F6bj4H.png" alt="1.13"><br><img src="https://s1.ax1x.com/2018/12/24/F6qSgI.png" alt="1.14"><br><img src="https://s1.ax1x.com/2018/12/24/F6qkVS.png" alt="1.15"><br><img src="https://s1.ax1x.com/2018/12/24/F6qe8s.png" alt="1.16"><br><img src="https://s1.ax1x.com/2018/12/24/F6qKK0.png" alt="1.17"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/密码学/">密码学</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/序列密码/">序列密码</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Block-Cipher" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/block-cipher/" class="article-date">
+      <time datetime="2018-12-24T05:19:38.000Z" itemprop="datePublished">2018-12-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/block-cipher/">对称密码-分组密码</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&ensp;<br>&ensp;</p>
+<p><center><font color="#3CB371" face="Comic sans MS" size="5"><strong>DES、AES、IDEA、SMS4</strong></font></center><br>&ensp;<br>&ensp;</p>
+<h3 id="一、-DES"><a href="#一、-DES" class="headerlink" title="一、 DES"></a><font color="#FF6347" face="Comic sans MS">一、 DES</font></h3><h4 id="1-1-DES加密算法过程"><a href="#1-1-DES加密算法过程" class="headerlink" title="1.1  DES加密算法过程"></a><font color="#3CB371" face="Comic sans MS">1.1  DES加密算法过程<font></font></font></h4><p><a href="https://i.loli.net/2018/12/24/5c208a0084c6e.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/12/24/5c208a0084c6e.png" alt="DES1"></a><br>&ensp;<br>&ensp;</p>
+<h4 id="1-2-DES子密钥生成过程"><a href="#1-2-DES子密钥生成过程" class="headerlink" title="1.2  DES子密钥生成过程"></a><font color="#3CB371" face="Comic sans MS">1.2  DES子密钥生成过程<font></font></font></h4><p><a href="https://i.loli.net/2018/12/24/5c208a6e71ed4.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/12/24/5c208a6e71ed4.png" alt="DES子密钥生成过程.png"></a></p>
+<p>&ensp;<br>&ensp;</p>
+<h3 id="二、-AES"><a href="#二、-AES" class="headerlink" title="二、 AES"></a><font color="#FF6347" face="Comic sans MS">二、 AES</font></h3><h4 id="2-1-AES加密算法过程"><a href="#2-1-AES加密算法过程" class="headerlink" title="2.1  AES加密算法过程"></a><font color="#3CB371" face="Comic sans MS">2.1  AES加密算法过程<font></font></font></h4><p><a href="https://i.loli.net/2019/01/06/5c31d1a71cb07.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/01/06/5c31d1a71cb07.png" alt="AES算法.png"></a></p>
+<p>&ensp;<br>&ensp;</p>
+<h4 id="2-2-AES子密钥生成过程"><a href="#2-2-AES子密钥生成过程" class="headerlink" title="2.2  AES子密钥生成过程"></a><font color="#3CB371" face="Comic sans MS">2.2  AES子密钥生成过程<font></font></font></h4><p><a href="https://i.loli.net/2019/01/06/5c31d76899c9d.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/01/06/5c31d76899c9d.png" alt="AES密钥.png"></a></p>
+<p>&ensp;<br>&ensp;</p>
+<h3 id="三、-IDEA"><a href="#三、-IDEA" class="headerlink" title="三、 IDEA"></a><font color="#FF6347" face="Comic sans MS">三、 IDEA</font></h3><h4 id="3-1-IDEA加密算法与子密钥生成"><a href="#3-1-IDEA加密算法与子密钥生成" class="headerlink" title="3.1  IDEA加密算法与子密钥生成"></a><font color="#3CB371" face="Comic sans MS">3.1  IDEA加密算法与子密钥生成<font></font></font></h4><p><a href="https://i.loli.net/2018/12/24/5c208baac9966.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/12/24/5c208baac9966.png" alt="IDEA算法1.png"></a></p>
+<p>&ensp;<br>&ensp;</p>
+<h3 id="四、-SMS4"><a href="#四、-SMS4" class="headerlink" title="四、 SMS4"></a><font color="#FF6347" face="Comic sans MS">四、 SMS4</font></h3><h4 id="4-1-SMS4加密算法与子密钥生成"><a href="#4-1-SMS4加密算法与子密钥生成" class="headerlink" title="4.1  SMS4加密算法与子密钥生成"></a><font color="#3CB371" face="Comic sans MS">4.1  SMS4加密算法与子密钥生成<font></font></font></h4><p><a href="https://i.loli.net/2018/12/24/5c208bf5102ef.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/12/24/5c208bf5102ef.png" alt="SMS4密码算法.png"></a></p>
+<p>&ensp;<br>&ensp;<br>&ensp;<br>&ensp;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/密码学/">密码学</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分组密码/">分组密码</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java-Access-Permissions-3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/java-access-permissions-3/" class="article-date">
+      <time datetime="2018-12-23T15:46:18.000Z" itemprop="datePublished">2018-12-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/java-access-permissions-3/">Java类、成员变量、static访问权限(4.1-4.4)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&ensp;<br>&ensp;</p>
+<h4 id="一、-Java中类的定义、类访问权限"><a href="#一、-Java中类的定义、类访问权限" class="headerlink" title="一、 Java中类的定义、类访问权限"></a><font color="#FF6347" face="Comic sans MS">一、 Java中类的定义、类访问权限</font></h4><h5 id="1-1-类的定义格式："><a href="#1-1-类的定义格式：" class="headerlink" title="1.1  类的定义格式："></a><font color="#3CB371" face="Comic sans MS">1.1  类的定义格式：<font></font></font></h5><p><font color="red"><strong>[修饰符] class 类名 [extends父类名] [implements接口名列表]</strong></font><br>&emsp;<br>&emsp;<br><img src="https://i.loli.net/2018/12/24/5c1fb67d13ec7.png" alt="1"></p>
+<p>&emsp;</p>
+<h5 id="1-2-类修饰符的访问权限："><a href="#1-2-类修饰符的访问权限：" class="headerlink" title="1.2  类修饰符的访问权限："></a><font color="#3CB371" face="Comic sans MS">1.2  类修饰符的访问权限：<font></font></font></h5><table>
+<thead>
+<tr>
+<th>类修饰符</th>
+<th>访问权限  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color="#EE3A8C" face="Arial">缺省(默认方式)</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C">这种类只能被同一个包中的类访问；</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">public(公共)</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C">它修饰的类能被所有的类访问；</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">abstract(抽象)</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> 它修饰的类不能被实例化，它可能包含有未实现的方法。</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">extends(继承)</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C">该保留字用来表明新创建的类继承哪个类, 被继承的类称为此类的父类。extends后面只能跟一个父类名称, 因为Java中一个类最多能继承一个类(单继承)。</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">final(最终)</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> 它修饰的类不能被继承，即不能有子类。</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">implements (实现)</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C">该保留字用来表明这个类实现了哪些接口，接口名可以有多个。</font></td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;</p>
+<h5 id="1-3-关于类访问权限的总结："><a href="#1-3-关于类访问权限的总结：" class="headerlink" title="1.3  关于类访问权限的总结："></a><font color="#3CB371" face="Comic sans MS">1.3  关于类访问权限的总结：<font></font></font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">1.    具有继承关系的子类可以继承父类的一些成员变量，即可以不创建对象就可以直接访问，如果是<br>      同一个包的子类可以继承到public、缺省和protected修饰的变量，如果是不同的包的子类就只能继承<br>      到public 和protected的；<br>2.    如果是其他类，不管是一个包还是不在一个包，都要创建该类的对象才能引用<br>3.    如果是main方法，不管是本类还是非本类，要访问实例变量都要创建对象，可以引申到其他所有<br>       的类方法中<br>4.    私有成员只能在本类中访问，如果在main方法中访问私有成员 必须创建对象</font></td></tr></table>
+
+<p>&ensp;<br>&ensp;</p>
+<h4 id="二、-成员变量访问权限"><a href="#二、-成员变量访问权限" class="headerlink" title="二、 成员变量访问权限"></a><font color="#FF6347" face="Comic sans MS">二、 成员变量访问权限</font></h4><p>&ensp;<br><img src="https://i.loli.net/2018/12/24/5c1fbf2618e79.png" alt="2"></p>
+<p>&ensp;<br>&emsp;</p>
+<h5 id="2-1-成员变量访问权限总结为："><a href="#2-1-成员变量访问权限总结为：" class="headerlink" title="2.1  成员变量访问权限总结为："></a><font color="#3CB371" face="Comic sans MS">2.1  成员变量访问权限总结为：<font></font></font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>(1) 访问修饰符缺省</strong><br>访问修饰符缺省时，成员变量只能被同一包(package) 中的所有类访问，所以也称为包(package)变量。<br>(缺省访问修饰符实际是friendly修饰符，但因为friendly不是Java语言的关键字，所以friendly修饰符<br>不能显式说明。）<br><strong>(2) public(公共)</strong><br>public修饰的成员变量可以被程序中的任何类所访问。由于public成员变量不受限制, 这易使类的对象引起<br>不希望的修改，建议成员变量尽量不要使用public修饰符。<br><strong>(3) protected (受保护)</strong><br>protected修饰的成员变量可以被本包及有继承关系的类自由访问。<br><strong>(4) private (私有)</strong><br>private修饰的成员变量只能在同一个类中使用。这种方式通常是最为安全的。<br></font></td></tr></table>
+
+<p>&ensp;<br>&ensp;</p>
+<h4 id="三、-static-静态-——静态变量访问权限"><a href="#三、-static-静态-——静态变量访问权限" class="headerlink" title="三、 static(静态)——静态变量访问权限"></a><font color="#FF6347" face="Comic sans MS">三、 static(静态)——静态变量访问权限</font></h4><table><tr><td bgcolor="#ADD8E6">(1)<font color="green"><strong>static修饰的成员变量称为</strong></font><font color="#1874CD"><strong>类变量(静态变量)</strong></font>；<font color="green"><strong>不用static修饰的成员变量又叫</strong></font><font color="#1874CD"><strong>对象变量(实例变量)。</strong></font><br>(2)<font color="red"><strong>区别：</strong></font>对象变量依附于具体的对象实例，它的值因具体对象实例的不同而不同，而类变量为该类的所有<br>对象所共享，它的值不因类的对象不同而不同。<br>(3)可以通过类来访问静态成员变量，也可以通过该类的对象访问静态成员变量。<br>&ensp;&ensp;<font color="red"><strong>形式：类名.成员变量/对象名.成员变量</strong></font><br>(4)<font color="red"><strong>反过来，非staic的对象方法可以直接使用static的类变量</strong></font><br>(5)类方法不能直接调用类中的对象方法（非static方法）。<br>(6)定义变量时必须当即赋值。<br></td></tr></table>
+
+<p>&emsp;<br>&emsp;<br>&emsp;<br>&emsp;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java访问权限/">Java访问权限</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java-Language-2-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/java-language-2-1/" class="article-date">
+      <time datetime="2018-12-20T08:48:59.000Z" itemprop="datePublished">2018-12-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/java-language-2-1/">Java语言基础的字符常变量等(3.1-3.3)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&ensp;<br>&ensp;</p>
+<p><center><font color="#3CB371" face="Comic sans MS" size="5"><strong>标识符,注释和分隔符、变量和常量、基本类型</strong></font></center><br>&ensp;<br>&ensp;</p>
+<h4 id="一、-标识符、注释和分隔符"><a href="#一、-标识符、注释和分隔符" class="headerlink" title="一、 标识符、注释和分隔符"></a><font color="#FF6347" face="Comic sans MS">一、 标识符、注释和分隔符</font></h4><p><font color="red" face="Arial">📒标识符：</font><font face="Arial">是程序员用来标记语言中元素（变量、常量、类、对象等）名称的命名记号。</font></p>
+<table><tr><td bgcolor="#B0E0E6">Java中的标识符遵守先定义后使用的原则。即只有定义了的标识符，才可在语句部分使用。</td></tr></table>
+
+<p><font color="#EE7942" face="Arial"><strong>Java定义标识符的规则：</strong></font><br>(1)由字母、 数字、下划线、$组成，不能由数字开头<br>(2)不能是Java中的保留字(关键字)；<br>(3)大小写敏感，长度无限制。</p>
+<p>&emsp;</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>保留字  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color="#EE3A8C" face="Arial">类型保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> boolean, byte, char, short,  int, long,float, double, void</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">语句保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> if, else, switch, case, default, break, for, while, do,return,continue,try,catch,finally,throw,synchronized</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">表达式保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> new, null, this, super</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">修饰符保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> abstract, final, public, private, protected, static, transient, volatile </font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">类、方法保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> class, throws, native, instanceof</font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">扩展类构筑模块保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> package, import, extends, implements, interface<font face="Comic sans MS" color="#EE3A8C"> </font></font></td>
+</tr>
+<tr>
+<td><font color="#EE3A8C" face="Arial">其它保留字</font></td>
+<td><font face="Comic sans MS" color="#EE3A8C"> cast, futuer, generic, inner, oprater, outer, rest,var<font face="Comic sans MS"> </font></font></td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;<br>&emsp;</p>
+<h5 id="1-1-标识符"><a href="#1-1-标识符" class="headerlink" title="1.1  标识符"></a><font color="#3CB371" face="Comic sans MS">1.1  标识符</font></h5><table><tr><td bgcolor="#ADD8E6"><font color face="Comic sans MS"><strong>举例</strong>：<br>合法标识符：     A , a1,  $Systembol,  square,  ex_sa<br>不合法标识符：          1a          （以数字1开头）<br>                       break       （禁止使用保留字）<br>                       TWO  WORDS  （含有空格）<br>                       .NO         （有圆点）<br></font></td></tr></table>
+
+
+<p>&emsp;</p>
+<h5 id="1-2-注释"><a href="#1-2-注释" class="headerlink" title="1.2  注释"></a><font color="#3CB371" face="Comic sans MS">1.2  注释</font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>Java有三种注释形式：</strong><br>      1.“//” 单行注释。表示从此向后，直到行尾都是注释。<br>      2.“/*……*/“ 块注释。在“/*”和“*/”之间都是注释。<br>      3.“/**……*/”文档注释。所有在“/**”和“*/”之间的内容可以用来自动形成文档。</font></td></tr></table>
+
+
+<p>&emsp;</p>
+<h5 id="1-3-语句"><a href="#1-3-语句" class="headerlink" title="1.3  语句"></a><font color="#3CB371" face="Comic sans MS">1.3  语句</font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">与C++一样，Java中的语句也是最小的执行单位。<br>&emsp;&emsp;&emsp;&emsp;各个语句之间以  ;  间隔<br>&emsp;&emsp;&emsp;&emsp;X大括号{   }内的一系列语句称为语句块</font></td></tr></table>
+
+<hr>
+<hr>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="二、-变量和常量"><a href="#二、-变量和常量" class="headerlink" title=" 二、 变量和常量"></a><font color="#FF6347" face="Comic sans MS"> 二、 变量和常量</font></h4><h5 id="2-1-变量"><a href="#2-1-变量" class="headerlink" title="2.1  变量"></a><font color="#3CB371" face="Comic sans MS">2.1  变量</font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">📒Java的变量有两种：<font color="red"><strong>局部变量  类成员变量</strong></font><br>变量必须先定义后使用！变量的定义形式如下：<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="red">类型      变量名表；</font></font></td></tr></table>
+
+<blockquote>
+<p>注意：局部变量在使用前必须给定初值，否则，将编译出错，而类成员变量无此要求。</p>
+</blockquote>
+<p><font face="Comic sans MS">如下出现编译错误，缺少“y=8;”</font></p>
+<pre class=" language-bash">class <span class="built_in"><code class="language-bash">class <span class="built_in">test</span>{
+  int x;
+  void <span class="function"><span class="title">method</span></span>(){
+      int y; 
+      System.out.println(x)
+      System.out.println(y);}
+  public static void main(String[] args){
+       <span class="built_in">test</span> t=new <span class="built_in">test</span>();
+       t.method();}
+}
+</code></span></pre>
+<p>&emsp;</p>
+<h6 id="2-1-1-变量名"><a href="#2-1-1-变量名" class="headerlink" title="2.1.1  变量名 "></a><font color="#3CB371" face="Comic sans MS">2.1.1  变量名 </font></h6><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>1. 📒在Java中用标识符来表示变量名</strong>。<br>&emsp;&emsp;1.1 变量名中字母大写和小写是有区别的，如name和Name表示两个不同的变量名；<br>&emsp;&emsp;1.2 变量名标志存放变量值的内存位置，其内存存放的内容是变量的值。<br><strong>2. 📒命名方法</strong>:<br>2.1 程序员应该为变量取有意义的名称，以利于程序的阅读和理解；<br>2.2 习惯上，变量名以小写字母开头，若一个变量名由超过一个单词所组成，则第一个单词之后的所有单词都以大写字母开头，以便于理解该变量名。<br>&emsp;&emsp;例如，anIntVar<br></font></td></tr></table>
+
+<p>&emsp;</p>
+<h6 id="2-1-2-变量的类型"><a href="#2-1-2-变量的类型" class="headerlink" title="2.1.2   变量的类型 "></a><font color="#3CB371" face="Comic sans MS">2.1.2   变量的类型 </font></h6><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>变量类型用于表述数据的格式和结构。</strong><br>📒<strong>Java中的数据类型可分为两大类：</strong><br><font color="red"><strong>基本数据类型：</strong></font>整数类型、实数类型、字符型、布尔型<br><font color="red"><strong>构造数据类型：</strong></font>Java 语言中构造类型用类来描述。<br></font></td></tr></table>
+
+<hr>
+<hr>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="三、-基本数据类型表-变量和常量"><a href="#三、-基本数据类型表-变量和常量" class="headerlink" title=" 三、 基本数据类型表:变量和常量"></a><font color="#FF6347" face="Comic sans MS"> 三、 基本数据类型表:变量和常量</font></h4><p><img src="https://s1.ax1x.com/2018/12/20/Fr1nnP.png" alt="1"></p>
+<p>&emsp;</p>
+<h5 id="3-1-整型"><a href="#3-1-整型" class="headerlink" title="3.1  整型"></a><font color="#3CB371" face="Comic sans MS">3.1  整型</font></h5><p><img src="https://s1.ax1x.com/2018/12/20/Fr10NF.png" alt="2"></p>
+<p>&emsp;</p>
+<h6 id="3-1-1-整型常量"><a href="#3-1-1-整型常量" class="headerlink" title="3.1.1  整型常量"></a><font color="#3CB371" face="Comic sans MS">3.1.1  整型常量</font></h6><p><img src="https://s1.ax1x.com/2018/12/20/Fr1jUS.png" alt="3"></p>
+<p>&emsp;</p>
+<h6 id="3-1-2-整型变量"><a href="#3-1-2-整型变量" class="headerlink" title="3.1.2  整型变量"></a><font color="#3CB371" face="Comic sans MS">3.1.2  整型变量</font></h6><p><img src="https://s1.ax1x.com/2018/12/20/Fr3S3j.png" alt="4"></p>
+<p>&emsp;</p>
+<h5 id="3-2-实型"><a href="#3-2-实型" class="headerlink" title="3.2  实型"></a><font color="#3CB371" face="Comic sans MS">3.2  实型</font></h5><p><img src="https://s1.ax1x.com/2018/12/20/Fr3uvR.png" alt="5"></p>
+<p>&emsp;</p>
+<h6 id="3-2-1实型常量有两种表示法："><a href="#3-2-1实型常量有两种表示法：" class="headerlink" title="3.2.1实型常量有两种表示法："></a><font color="#3CB371" face="Comic sans MS">3.2.1实型常量有两种表示法：</font></h6><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>(1)十进制表示法</strong><br>&emsp;&emsp;-3.5f&emsp;0.0f&emsp;123.45f&emsp;+678.9f<br>      要注意,采用十进制表示法时,小数点的两侧都必须有数字, 缺一不可，如+123．和 .56都是不合法的。<br><strong>(2)科学表示法：</strong> <font face="Comic sans MS" color="red"><strong>&lt;尾数&gt; E &lt;阶码 &gt; </strong></font><br>&emsp;&emsp;-1.234567E+12&emsp;(-1.2345678901×1012)<br>&emsp;&emsp;尾数&emsp;阶码<br><strong>注意：</strong><font color="red"><br>&emsp;&emsp;&emsp;&emsp;尾数必须有，但小数部分可无；<br>&emsp;&emsp;&emsp;&emsp;阶码必须有，必须是整数。<br>&emsp;&emsp;&emsp;&emsp;基数是10<br></font></font></td></tr></table><br><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>下列表示都是不正确的。</strong><br>&emsp;&emsp;E-6&emsp;&emsp;（缺尾数）<br>&emsp;&emsp;3E&emsp;&emsp;（无阶码）<br>&emsp;&emsp;2.E3&emsp;&emsp;（尾数出错）<br>&emsp;&emsp;2E1.2&emsp;&emsp;（阶码非整数）<br>&emsp;<br><strong>📒实型变量的定义</strong><br>例如：<br>float aFloatVar;<br>double aDoubleVar;<font><br></font></font></td></tr></table>
+
+<p>&emsp;</p>
+<h5 id="3-3-布尔型"><a href="#3-3-布尔型" class="headerlink" title="3.3      布尔型"></a><font color="#3CB371" face="Comic sans MS">3.3      布尔型</font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>📒布尔数据类型用于表达逻辑状态：</strong><br>&emsp;&emsp;布尔型数据只有两个值：true和false。<br>&emsp;&emsp;<font face="Comic sans MS" color="red"><strong>注意: Java中不可将布尔类型看做整型值。true不对应1，false不对应0，不像C++一样。</strong></font></font></td></tr></table>
+
+<p>&emsp;</p>
+<h5 id="3-4-字符型"><a href="#3-4-字符型" class="headerlink" title="3.4      字符型"></a><font color="#3CB371" face="Comic sans MS">3.4      字符型</font></h5><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>📒字符类型用来表示单个字符，采用16位二进制Unicode 编码表示</strong><br>字符常量是用两个单引号括起来的一个字符<br>&emsp;&emsp;例如： ‘A’；  ‘a’； ‘2’； ‘我’；<br>也可用unicode代码表示一个字符常量<br>&emsp;&emsp;例如： ‘\u0041’<br></font></td></tr></table>    
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="四、-Unicode编码"><a href="#四、-Unicode编码" class="headerlink" title=" 四、 Unicode编码"></a><font color="#FF6347" face="Comic sans MS"> 四、 Unicode编码</font></h4><table><tr><td bgcolor="#EEE0E5"><font face="Comic sans MS"><strong>📒Unicode编码：</strong><br>1. Java的字符使用Unicode编码，使用两个字节(16位)，所以它几乎包括所有字符，中文、日文、…，它支持世<br>   界上所有语言。<br>2. 大多数语言使用ASCII码，用8位表示一个字符。ASCII码是Unicode码的一个子集，Unicode表示ASCII<br>   码时，其高位为0，它是其前255个字符。Unicode字符通常用十六进制。例如“\u0000”-“\u00ff”表示<br>   ASCII码集。”\u”表示转义字符，它用来表示其后四个十六进制数字是Unicode代码。<br></font></td></tr></table> 
+
+<p>&emsp;<br>&emsp;<br>&emsp;<br>&emsp;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java语言/">Java语言</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTTP-User-Agen-Cookie" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/http-user-agen-cookie/" class="article-date">
+      <time datetime="2018-12-18T07:07:00.000Z" itemprop="datePublished">2018-12-18</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/http-user-agen-cookie/">《HTTP协议请求头部的User-Agen和Cookie》</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&ensp;</p>
+<h4 id="一、User-Agen"><a href="#一、User-Agen" class="headerlink" title="一、User-Agen"></a><font color="red">一、User-Agen</font></h4><p><strong>注意在HTTP头部参数的首字母大写格式！</strong></p>
+<h5 id="🌸1-1-什么是User-Agen"><a href="#🌸1-1-什么是User-Agen" class="headerlink" title="🌸1.1 什么是User-Agen"></a>🌸<font color="red" face="楷体">1.1 什么是User-Agen</font></h5><table><tr><td bgcolor="#EDEDED"><font face="楷体"><font color="#008B45"><strong>1.1.1</strong>、</font> Http Header之User-Agen的User-Agen中文名为用户代理，是Http协议中的一部分，属于头域的组成部分，User Agent也简称UA。它是一个特殊字符串头，是一种向访问网站提供你所使用的浏览器类型及版本、操作系统及版本、浏览器内核、等信息的标识。通过这个标识，用户所访问的网站可以显示不同的排版从而为用户提供更好的体验或者进行信息统计；例如用手机访问谷歌和电脑访问是不一样的，这些是谷歌根据访问者的UA来判断的。UA可以进行伪装。<font color="red">浏览器的UA字串的标准格式：浏览器标识 (操作系统标识; 加密等级标识; 浏览器语言)渲染引擎标识版本信息</font>。但各个浏览器有所不同。</font></td></tr></table><table><tr><td bgcolor="#EDEDED"><font face="楷体"><font color="#008B45"><strong>1.1.2</strong>、</font>用较为普通的一点来说，是一种向访问网站提供你所使用的浏览器类型、操作系统及版本、CPU 类型、浏览器渲染引擎、浏览器语言、浏览器插件等信息的标识。UA字符串在每次浏览器 HTTP 请求时发送到服务器！User-Agen也是用户识别的重要部分，通过分析，能知道用户使用的是什么设备、什么浏览器、什么应用等，进而可以分析其购买力、属性、职业等。</font></td></tr></table>
+
+
+<p>&ensp;</p>
+<h5 id="🌸1-2-对UA字串的说明"><a href="#🌸1-2-对UA字串的说明" class="headerlink" title="🌸1.2 对UA字串的说明"></a><font color="red" face="楷体">🌸1.2 对UA字串的说明</font></h5><font face="楷体"><font color="#008B45"><strong>1.2.1</strong> </font><br><font face="仿体">&emsp;出于兼容及推广等目的，很多浏览器的标识相同，因此浏览器标识并不能说明浏览器的真实版本，真实版本信息在 UA 字串尾部可以找到。</font></font>
+
+<hr>
+<hr>
+<font face="仿体"><font color="#008B45"><strong>1.2.2</strong> <strong>操作系统标识</strong></font><br><img src="https://s1.ax1x.com/2018/12/18/FBlnde.jpg" alt="FBlnde.jpg"></font>
+
+<hr>
+<hr>
+<font face="仿体"><font color="#008B45"><strong>1.2.3</strong> <strong>加密等级标识</strong></font><br>&emsp;N: 表示无安全加密<br>&emsp;I: 表示弱安全加密<br>&emsp;U: 表示强安全加密</font>
+
+<hr>
+<hr>
+<font face="仿体"><font color="#008B45"><strong>1.2.4</strong> <strong>浏览器语言</strong></font><br>&emsp;在首选项 &gt; 常规 &gt; 语言中指定的语言</font>
+
+<hr>
+<hr>
+<font face="仿体"><font color="#008B45"><strong>1.2.5</strong> <strong>渲染引擎</strong></font><br>&emsp;显示浏览器使用的主流渲染引擎有：Gecko、WebKit、KHTML、Presto、Trident、Tasman等，格式为：渲染引擎/版本信息</font>
+
+<hr>
+<hr>
+<font face="仿体"><font color="#008B45"><strong>1.2.6</strong> <strong>版本信息</strong></font><br>&emsp;显示浏览器的真实版本信息，格式为：浏览器/版本信息<br>注：<br>1、在广告定向设定中，浏览器定向和操作系统定向均是针对User-Agent中的信息进行定向。<br>2、欲了解更多的User-Agent信息，请参考User-Agen 字串史</font>
+
+<hr>
+<hr>
+<p>&ensp;</p>
+<h5 id="🌸1-3-User-Agen的作用"><a href="#🌸1-3-User-Agen的作用" class="headerlink" title="🌸1.3 User-Agen的作用"></a><font color="red">🌸1.3 User-Agen的作用</font></h5><table><tr><td bgcolor="#EDEDED"><font face="楷体">通过user-agent不能完全准确的判断是属于那款浏览器。由于UA字符串在每次浏览器HTTP 请求时发送到服务器，所以服务器就可以根据它来做好多事。<br>比如：<br>1、统计用户浏览器使用情况。有些浏览器说被多少人使用了，实际上就可以通过判断每个IP的UA来确定这个IP是用什么浏览器访问的，以得到使用量的数据。<br>2、根据用户使用浏览器的不同，显示不同的排版从而为用户提供更好的体验。有些网站会根据这个来调整打开网站的类型,如是手机的就打开wap，显示非手机的就打开pc常规页面。用手机访问谷歌和电脑访问是不一样的，这些是谷歌根据访问者的UA来判断的。<br>既然知道了UA的作用，那么其实客户端也可以使用UA来做一些神奇的事。<br>比如：伪装 User-Agen 来回避某些侦测特定浏览器才能读取的网站。<br>如果使用Firefox浏览器插件User-Agen switcher，用户就可以轻松地在不同UA之间切换，把自己伪装成其他浏览器。这样就可以在PC上预览WAP或移动格式的网页，比如专门为iPhone设计的页面。</font></td></tr></table>
+
+<p>&ensp;</p>
+<h4 id="二、Cookie——用户追踪之基础技术"><a href="#二、Cookie——用户追踪之基础技术" class="headerlink" title="二、Cookie——用户追踪之基础技术"></a><font color="red">二、Cookie——用户追踪之基础技术</font></h4><h5 id="2-1-关于Cookie"><a href="#2-1-关于Cookie" class="headerlink" title="2.1 关于Cookie"></a><font color="red" face="楷体">2.1 关于Cookie</font></h5><h6 id="2-1-1-前言"><a href="#2-1-1-前言" class="headerlink" title="2.1.1 前言 "></a><font color="#008B45" face="楷体"><strong>2.1.1 前言</strong> </font></h6><font face="仿体">&emsp;Cookie是如此的重要，以至于我们后面要讲到的回头客定向、访客频次定向、用户定向等等都需要基于此技术才可以实现，并且我们日常工作中所能见到的第三方监测工具如doubleclick、99click、秒针等也都要利用cookie技术，网站分析工具如GA、百度统计、CNZZ等也需要利用Cookie。如果没有Cookie，互联网广告市场将受到巨大打击，尤其对于目前我们谈论的精准广告而言。如果没有Cookie，网站分析也不从做起，遑论优化了。<br></font>
+
+<hr>
+<hr>
+<h6 id="2-1-2-Cookie是什么"><a href="#2-1-2-Cookie是什么" class="headerlink" title="2.1.2 Cookie是什么 "></a><font color="#008B45" face="楷体"><strong>2.1.2 Cookie是什么</strong> </font></h6><font face="仿体">&emsp;Cookie在英文中是小甜品的意思，但在计算机语言中，Cookie指的是当你浏览某网站时，网站存储在你电脑上的一个小文本文件，伴随着用户请求和页面在 Web 服务器和浏览器之间传递。它记录了你的用户ID，密码、浏览过的网页、停留的时间等信息，用于用户身份的辨别。Cookie通常是以user@domain格式命名的，user是你的本地用户名，domain是所访问的网站的域名。</font>
+
+<hr>
+<hr>
+<h6 id="2-1-3-为什么要Cookie"><a href="#2-1-3-为什么要Cookie" class="headerlink" title="2.1.3 为什么要Cookie "></a><font color="#008B45" face="楷体"><strong>2.1.3 为什么要Cookie</strong> </font></h6><font face="仿体">&emsp;因为HTTP协议是无状态的，对于一个浏览器发出的请求，服务器无法区分是不是同一个来源，无法知道上一次用户做了什么。所以，需要额外的数据用于维护会话。 Cookie 正是这样的一段随HTTP请求一起被传递的额外数据，用于维护浏览器和服务器的会话。我们可以想象一个场景，你没有登录京东时在京东上购物，选择了3件商品放入购物车，在结算时，京东为什么还能知道这三件商品是什么？没错，是Cookie！</font>
+
+<hr>
+<hr>
+<h6 id="2-1-4-Cookie的工作原理"><a href="#2-1-4-Cookie的工作原理" class="headerlink" title="2.1.4 Cookie的工作原理 "></a><font color="#008B45" face="楷体"><strong>2.1.4 Cookie的工作原理</strong> </font></h6><font face="仿体">&emsp;Cookie利用网页代码中的HTTP头信息，伴随着用户请求和页面在 Web 服务器和浏览器之间传递。例如：当你在浏览器地址栏中键入了Amazon的URL，浏览器会向Amazon发送一个读取网页的请求，并将结果在显示器上显示。在发送之前，该网页在你的电脑上寻找Amazon网站设置的Cookie文件，如果找到，浏览器会把Cookie文件中的数据连同前面输入的URL一同发送到Amazon服务器。服务器收到Cookie数据，就会在他的数据库中检索你的ID，你的购物记录、个人喜好等信息，并记录下新的内容，增加到数据库和Cookie文件中去。如果没有检测到Cookie或者你的Cookie信息与数据库中的信息不符合，则说明你是第一次浏览该网站，服务器的CGI程序将为你创建新的ID信息，并保存到数据库中。（此例子来源于百度百科——Cookie）</font>
+
+<hr>
+<hr>
+<h6 id="2-1-5-关于Cookie的一些知识点"><a href="#2-1-5-关于Cookie的一些知识点" class="headerlink" title="2.1.5 关于Cookie的一些知识点 "></a><font color="#008B45" face="楷体"><strong>2.1.5 关于Cookie的一些知识点</strong> </font></h6><font face="仿体">&emsp;1、Cookie是基于浏览器的，因此当电脑上安装多个浏览器时，服务器会生成多个Cookie。虽然是同一个人，但服务器是识别为多个用户。<br>&emsp;2、Cookie是基于浏览器的，因此当同一台电脑有多个人使用时，服务器也只会生成一个Cookie。虽然是多个人，但服务器会认为是一个用户。<br>&emsp;3、Cookie是无法跨设备进行设置的。比如我们在单位和家里分别使用两台电脑，即使我们使用同一种同一版本的浏览器，我们还是生成了两个Cookie，服务器会认为是两个用户。（PS：现在有些浏览器可以同步数据，比如Chrome、Friefox，可以避免这种问题）<br><font color="red">请注意：以上所说的Cooke指的全部是Http Cookie。有一种Cookie——Flash Cookie，可以解决多浏览器的问题</font></font>
+
+<hr>
+<hr>
+<h6 id="2-1-6-关于Flash-Cookie"><a href="#2-1-6-关于Flash-Cookie" class="headerlink" title="2.1.6 关于Flash Cookie "></a><font color="#008B45" face="楷体"><strong>2.1.6 关于Flash Cookie</strong> </font></h6><font face="仿体">&emsp;FlashCookie是由FlashPlayer控制的客户端共享存储技术，鉴于目前Flash技术的普遍性，几乎所有的网站都采用，所以具有同Http Cookie一样的作用。在技术上，通过使用JavaScript与ActionScript可以将Http Cookie和Flash Cookie进行互通。<br>Flash cookie的优势在于：<br>1、跨浏览器<br>不管用户的计算机上安装了多少个浏览器或者浏览器的不同版本，使用Flash Cookie能够使所有的浏览器共用一个Cookie。<br>2、不易删除<br>所有的浏览器均提供了清除Http Cookie的快捷方式，但Flash Cookie并没有此种方式，并且其保存位置非常隐蔽，网民难以删除。<br>3、容量更大<br>Flash Cookie可以容纳最多100千字节的数据，而一个标准的HTTP Cookie只有4千字节。</font>
+
+<hr>
+<hr>
+<h6 id="2-1-7-Cookie的数量"><a href="#2-1-7-Cookie的数量" class="headerlink" title="2.1.7 Cookie的数量 "></a><font color="#008B45" face="楷体"><strong>2.1.7 Cookie的数量</strong> </font></h6><font face="仿体">&emsp;1、大多数浏览器支持最大为 4096 字节的 Cookie。因此最好用 Cookie 来存储用户 ID 之类的标识符，用户的详细信息则通过用户 ID从数据库或其他数据源中读取。<br>&emsp;2、浏览器还限制站点可以在用户计算机上存储的 Cookie 的数量。大多数浏览器只允许每个站点存储 20 个 Cookie；当存储更多 Cookie时，最旧的 Cookie 便会被丢弃。有些浏览器还会对它们将接受的来自所有站点的 Cookie 总数作出绝对限制，通常为 300 个。 </font>
+
+<hr>
+<hr>
+<h6 id="2-1-8-Cookie的失效时间"><a href="#2-1-8-Cookie的失效时间" class="headerlink" title="2.1.8 Cookie的失效时间 "></a><font color="#008B45" face="楷体"><strong>2.1.8 Cookie的失效时间</strong> </font></h6><font face="仿体">&emsp;1、浏览器的Cookie设置会决定是否保存Cookie数据。如果浏览器不允许Cookie保存，则关掉浏览器后，这些数据就消失。<br>&emsp;2、如果浏览器允许保存Cookie，那么Cookie的时间由服务器的设置决定。Cookie有一个Expires（有效期）属性，这个属性决定了Cookie的保存时间，服务器可以通过设定Expires字段的数值，来改变Cookie的保存时间。如果不设置该属性，那么Cookie只在浏览网页期间有效，关闭浏览器，这些Cookie自动消失，绝大多数网站属于这种情况。通常情况下，Cookie包含Server、Expires、Name、value这几个字段，其中对服务器有用的只是Name和value字段，Expires等字段的内容仅仅是为了告诉浏览器如何处理这些Cookies。 </font>
+
+<hr>
+<hr>
+<p>参考：<a href="https://blog.csdn.net/u012195214/article/details/78889602" target="_blank" rel="noopener">《【总结】浏览器 User-Agent 大全》</a>、<a href="https://blog.csdn.net/xinyuan_java/article/details/66092335" target="_blank" rel="noopener">《User-Agent详解》</a>.<br>&ensp;<br>&ensp;<br>&ensp;<br>&ensp;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/HTTP协议/">HTTP协议</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/User-Agen/">User-Agen</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-XAMPP-DVWA" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/xampp-dvwa/" class="article-date">
+      <time datetime="2018-12-15T16:04:45.000Z" itemprop="datePublished">2018-12-16</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/xampp-dvwa/">XAMPP环境下配置DVWA</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <font color="#008B45"><strong>一、下载</strong></font><br><font face="楷体">1. <a href="http://www.apachefriends.org" target="_blank" rel="noopener">下载XAMPP</a><br>    2. <a href="https://github.com/ethicalhack3r/DVWA" target="_blank" rel="noopener">下载DVWA</a></font>  
+
+<p>&nbsp;</p>
+<font color="#008B45"><strong>二、给文件执行权限并安装XAMPP</strong></font><br><font face="楷体">1. 在“下载”目录下，以“客户端运行”</font> 
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x xampp-linux-x64-5.6.12-0-installer.run</span><br></pre></td></tr></table></figure>
+<font face="楷体">2. 在“下载”目录下，运行安装</font> 
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./xampp-linux-x64-5.6.12-0-installer.run</span><br></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+<font color="#008B45"><strong>三、数据库配置</strong></font><br><font face="楷体">1. 在浏览器中访问127.0.0.1；<br>2. 点击右上角phpmyadmin -&gt; new(新建) -&gt;user(用户) -&gt;add user(添加用户)并填写下面内容：</font> 
+
+<blockquote>
+<p>用户名:dvwa<br>主机名:127.0.0.1<br>密码一:dvwa<br>重复密码:dvwa</p>
+</blockquote>
+<font face="楷体">下面除了require ssl全部都勾选<br>3. go(执行)</font> 
+
+<p>&nbsp;</p>
+<font color="#008B45"><strong>四、移动DVWA文件、更名、提权</strong></font><br><font face="楷体">1. 移动更名：将DVWA-master移动到<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2. 提权：然后给文件夹高权限否则网页打不开```127.0.0.1/dvwa/```&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">chmod -R 755 /opt/lampp/htdocs/dvwa</span><br></pre></td></tr></table></figure><br><br>&nbsp;<br><font color="#008B45"><strong>五、更改dvwa配置的文件名和内容</strong></font><br><font face="楷体">1. 将<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">改为```/opt/lampp/htdocs/DVWA-master/config/config.inc.php</span><br></pre></td></tr></table></figure><br><br>2. 原内容：</font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$_DVWA</span> = array();</span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">'db_server'</span> ]   = <span class="string">'127.0.0.1'</span>;</span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">'db_database'</span> ] = <span class="string">'dvwa'</span>;</span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">'db_user'</span> ]     = <span class="string">'root'</span>;</span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">'db_password'</span> ] = <span class="string">'p@ssw0rd'</span>;</span><br></pre></td></tr></table></figure>
+<font face="楷体">更改为：</font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$_DVWA</span> = array();</span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">'db_server'</span> ] = <span class="string">'127.0.0.1'</span>;</span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">'db_database'</span> ] = <span class="string">'dvwa'</span>;</span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">'db_user'</span> ] = <span class="string">'dvwa'</span>;</span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">'db_password'</span> ] = <span class="string">'dvwa'</span>;</span><br></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+<font color="#008B45"><strong>六、创建数据库并重新登陆</strong></font><br><font face="楷体">1. 浏览器输入<code>127.0.0.1/dvwa/</code>，输入账号：dvwa    密码：dvwa &emsp;进去之后根据提示创建数据库；<br>2. 数据库创建好之后会自动跳到登陆界面，重新登陆，输入用户名admin和密码password就可以用了😄😁….</font>
+
+<p>&ensp;<br>&ensp;<br>&ensp;</p>
+</font>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/XAMPP-DVWA/">XAMPP-DVWA</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DVWA/">DVWA</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java-IO-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/java-io-1/" class="article-date">
+      <time datetime="2018-12-13T17:00:39.000Z" itemprop="datePublished">2018-12-14</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/java-io-1/">Java的输入输出</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h4 id="一、Java中的流的概念"><a href="#一、Java中的流的概念" class="headerlink" title="一、Java中的流的概念"></a><font color="#EE3A8C" face="楷体">一、Java中的流的概念</font></h4><h5 id="1-0-数据流的概念"><a href="#1-0-数据流的概念" class="headerlink" title="1.0 数据流的概念"></a><font color="#EE3A8C" face="楷体">1.0 数据流的概念</font></h5><blockquote>
+<blockquote>
+<font face="楷体">&emsp;数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程序来说，看不到数据流在写入时的分段情况，每次可以读取其中的任意长度的数据，但只能先读取前面的数据后，再读取后面的数据。不管写入时是将数据分多次写入，还是作为一个整体一次写入，读取时的效果都是完全一样的。<br>&emsp;“流是磁盘或其它外围设备中存储的数据的源点或终点。”<br>在电脑上的数据有三种存储方式，一种是外存，一种是内存，一种是缓存。比如电脑上的硬盘，磁盘，U盘等都是外存，在电脑上有内存条，缓存是在CPU里面的。外存的存储量最大，其次是内存，最后是缓存，但是外存的数据的读取最慢，其次是内存，缓存最快。这里总结从外存读取数据到内存以及将数据从内存写到外存中。对于内存和外存的理解，我们可以简单的理解为容器，即外存是一个容器，内存又是另外一个容器。那又怎样把放在外存这个容器内的数据读取到内存这个容器以及怎么把内存这个容器里的数据存到外存中呢？<br>&emsp;在Java类库中，IO部分的内容是很庞大的，因为它涉及的领域很广泛:<br>标准输入输出，文件的操作，网络上的数据流，字符串流，对象流，zip文件流等等，java中将输入输出抽象称为流，就好像水管，将两个容器连接起来。将数据冲外存中读取到内存中的称为输入流，将数据从内存写入外存中的称为输出流。<br>流是一个很形象的概念，当程序需要读取数据的时候，就会开启一个通向数据源的流，这个数据源可以是文件，内存，或是网络连接。类似的，当程序需要写入数据的时候，就会开启一个通向目的地的流。</font>
+</blockquote>
+</blockquote>
+<pre><code>以上总结的基本概念如下：
+</code></pre><table><tr><td bgcolor="#F5FFFA"><font face="楷体">🌸数据流：一组有序，有起点和终点的字节的数据序列。包括输入流和输出流;<br>🌸输入流(Input  Stream)：程序从输入流读取数据源。数据源包括外界(键盘、文件、网络…)，即是将数据源读入到程序的通信通道;<br>🌸输出流：程序向输出流写入数据。将程序中的数据输出到外界（显示器、打印机、文件、网络…）的通信通道。采用数据流的目的就是使得输出输入独立于设备。<br>Input  Stream不关心数据源来自何种设备（键盘，文件，网络）<br>Output  Stream不关心数据的目的是何种设备（键盘，文件，网络）<br>🌸数据流分类：流序列中的数据既可以是未经加工的原始二进制数据，也可以是经一定编码处理后符合某种格式规定的特定数据。因此Java中的流分为两种：<br> 1)  字节流：数据流中最小的数据单元是字节；<br> 2)  字符流：数据流中最小的数据单元是字符，Java中的字符是Unicode编码，一个字符占用两个字节。<br>🌸具体的字节流和字符流区分请看文章《Java:字节流和字符流（输入流和输出流）》和<a href="https://blog.csdn.net/qq_25184739/article/details/51203733" target="_blank" rel="noopener">《Java 字节流与字符流的区别》</a>、<a href="https://www.cnblogs.com/absfree/p/5415092.html" target="_blank" rel="noopener">《理解Java中字符流与字节流的区别》</a>、<a href="https://www.cnblogs.com/progor/p/9357676.html" target="_blank" rel="noopener">《Java:字节流和字符流（输入流和输出流）》</a>.<br></font></td></tr></table>
+
+<p>&nbsp;</p>
+<h4 id="二、System、in、out说明"><a href="#二、System、in、out说明" class="headerlink" title="二、System、in、out说明"></a><font color="#EE3A8C" face="楷体">二、System、in、out说明</font></h4><font face="楷体">Java系统自带的标准数据流：java.lang.System:</font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java.lang.System     </span><br><span class="line">public final class System  extends Object&#123;     </span><br><span class="line">   static  PrintStream  err;//标准错误流（输出）、err是对象；  </span><br><span class="line">   static  InputStream  <span class="keyword">in</span>;//标准输入(键盘输入流)、<span class="keyword">in</span>是对象；   </span><br><span class="line">   static  PrintStream  out;//标准输出流(显示器输出流)、out是对象.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table><tr><td bgcolor="#F5FFFA"><font face="楷体">🌼 System类不能创建对象，只能直接使用它的三个静态成员;<br>🌼 每当main方法被执行时,就自动生成上述三个对象;<br>🌼 System是java.lang包里面的一个类；<br>🌼 in是java.io.InputStream类的对象，也是System里面的一个数据成员(也称为字段)；<br>🌼 read()是java.io.InputStream类里的方法，也就是in对象的方法;<br>🌼 out是java.io.PrintStream类的对象，也是System里面的一个数据成员(也称为字段)；<br>🌼 print()、println()是java.io.PrintStream类里的方法，也就是out对象的方法;<br></font></td></tr></table>
+
+<p>&nbsp;</p>
+<h4 id="三、System-in-read-使用"><a href="#三、System-in-read-使用" class="headerlink" title="三、System.in.read()使用"></a><font color="#EE3A8C" face="楷体">三、System.in.read()使用</font></h4><table><tr><td bgcolor="#F5FFFA"><font face="楷体">🌼 System.in.read()方法的作用是按每次读取一个字节（就是ASCII码），然后返回它的<font color="#FF4040">ASCII码十进制</font>;<br>🌼 从第一次打开System.in输入流开始，以后输入的字节都存放起来，下次从这个里面依次按顺序读取;<br>🌼 用System.in.read()时，我们在键盘上按下的任何一个键都会被当做是输入值，包括Enter键也会被当做是一个值！当我们按下Enter的时候，实际上发送两个键值：一个回车\t（13），一个是换行\n（10）;<br>🌼 从键盘输入一个a，char是两个字节存储的，read()一个字节一个字节读取时，暂时把a看作是一个字节，后续深入学习了再来解释😫😂（哈，貌似想通了，当字节流读到字节为0的数据流时会舍去，相当于跳过该字节继续读下一个非0的字节…..后续更新中）—-12.27与老师探讨后得知：在流中输入的字符是一个ASCII(即一个字节=8比特)，这个时候就是一个字节，而char存储的时候是按2个字节存储的，注意的是在流中并不是存储，存储一个字符是Unicode码共16位，而流中的ASCII是8位。<br>建议去读<a href="https://blog.csdn.net/liuxiaogangqq/article/details/25892667" target="_blank" rel="noopener">《java总结输入流输出流》</a>！！！<br>可参考<a href="https://www.cnblogs.com/ioveNature/p/6797024.html" target="_blank" rel="noopener">Scanner使用方法</a></font></td></tr></table>
+
+<p><strong>注意事项：</strong></p>
+<table><tr><td bgcolor="#F5FFFA"><font face="楷体">1、由于在控制台输入时，按下回车键才代表输入完成，输入的内容才会提交到read()方法，所以按下回车之前，程序是不知道你输入了什么的;<br>2、输入”a”后按下回车，这时候read()方法读到了数据，此时buffer中的数据应该是97 13 10，也就是字符’a’,’\r’,’\n’，并且read()方法每次只能从缓冲区中读出一个字符，三次read()就刚好读出这3个字符，之后程序就结束了;<br>3、只按下回车，此时从流中只读到了”\r”和”\n”，由于没有足够的输入，那么第三次调用read()时阻塞.<br>参考：<a href="https://uule.iteye.com/blog/1128243" target="_blank" rel="noopener">《System.in.read()使用》</a>；<a href="https://blog.csdn.net/fengzijinliang/article/details/40741565?utm_source=blogxgwz0" target="_blank" rel="noopener">《System.in输入流深入理解》</a><br>推荐阅读：<a href="https://www.cnblogs.com/ylspace/p/8128112.html" target="_blank" rel="noopener">《深入理解JAVA中的IO》</a></font></td></tr></table>
+
+<p>&nbsp;</p>
+<h4 id="四、System-out-print-println"><a href="#四、System-out-print-println" class="headerlink" title="四、System.out.print()/println()"></a><font color="#EE3A8C" face="楷体">四、System.out.print()/println()</font></h4><table><tr><td bgcolor="#F5FFFA"><font face="楷体">🌼 System.out.print()输出不换行，System.out.print()输出后换行.<br>参考<a href="https://blog.csdn.net/idealemail/article/details/47318813" target="_blank" rel="noopener">《深入理解System.out.print》</a>.</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h4 id="五、Java中System-out-print-函数与Python中print-函数的详解"><a href="#五、Java中System-out-print-函数与Python中print-函数的详解" class="headerlink" title="五、Java中System.out.print()函数与Python中print()函数的详解"></a><font color="#EE3A8C" face="楷体">五、Java中System.out.print()函数与Python中print()函数的详解</font></h4><table><tr><td bgcolor="#F5FFFA"><font face="楷体">python中的print()函数和java中的System.out.print()函数都有着打印字符串的功能。<br>(1). <font color="red">python中:</font> print(“hello,world!”)<br>输出为：hello,world!<br><font color="red">Java中:</font> System.out.print(“hello,world!”);<br>输出为：hello,world!<br>说明这两个函数的用法是一样的.<br>(2). <font color="red">python中:</font> print(“1+1=”,1+1)<br>输出结果为：1+1= 2<br><font color="red">Java中:</font> System.out.print(“1+1=”+(1+1));<br>输出结果为：1+1=2<br>说明在使用print()函数的时候，我们用了一个“,”将“1+1=”和1+1的结果连接起来了，这个“,”起着连接的作用。同时，在使用System.out.print()函数的时候，我们用了一个“+”将“1+1=”和1+1的结果连接起来了，这个“+”也是起着连接作用;<br>我们再来看他们的输出结果，print()输出的是1+1= 2，“=”与“2”之间有一个空格，而System.out.print()输出的是1+1=2，“=”与“2”之间没有空格。这里我们发现python中的print()函数中的“,”不仅起着连接字符串的作用，而且还表示一个空格.<br><br><strong>结论：</strong><br><font color="#FF0000">🌼 python中的print()函数的作用和java中的System.out.print()函数的作用是一样的;<br>🌼 print()函数中“,”和System.out.print()函数中“+”都有着连接字符串的作用;<br>🌼 print()函数中“,”还表示一个空格;<br>🌼 不同的语言都有着很多的相似点，不同的语言又有着不同的新特性.</font><br>参考：<a href="https://m.jb51.net/article/128959.htm" target="_blank" rel="noopener">《python中print()函数的“,”与java中System.out.print()函数中的“+”功能详解》</a>.<br></font></td></tr></table>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java学习/">Java学习</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-SQLMAP-shell" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/sqlmap-shell/" class="article-date">
+      <time datetime="2018-12-11T11:10:10.000Z" itemprop="datePublished">2018-12-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/sqlmap-shell/">SQLMAP命令大全</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h4 id="一、sqlmap简介"><a href="#一、sqlmap简介" class="headerlink" title="一、sqlmap简介"></a><font color="#00BFFF" face="楷体">一、sqlmap简介</font></h4><p>&emsp;sqlmap支持MySQL, Oracle,PostgreSQL, Microsoft SQL Server, Microsoft Access, IBM DB2, SQLite, Firebird,Sybase和SAP MaxDB等数据库的各种安全漏洞检测。</p>
+<table><tr><td bgcolor="#F0FFF0"><font face="楷体">sqlmap支持五种不同的注入模式：<br> 🌸<strong>基于布尔的盲注</strong>，即可以根据返回页面判断条件真假的注入；<br> 🌸<strong>基于时间的盲注</strong>，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语      句是否执行（即页面返回时间是否增加）来判断；<br> 🌸<strong>基于报错注入</strong>，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中；<br> 🌸<strong>联合查询注入</strong>，可以使用union的情况下的注入；<br> 🌸<strong>堆查询注入</strong>，可以同时执行多条语句的执行时的注入。</font></td></tr></table>
+
+
+<p>&ensp;</p>
+<h4 id="二、SQL使用参数详解"><a href="#二、SQL使用参数详解" class="headerlink" title="二、SQL使用参数详解"></a><font color="#00BFFF" face="楷体">二、SQL使用参数详解</font></h4><p><font face="楷体">每条指令使用方法参见：<a href="http://blog.51cto.com/wt7315/1841241" target="_blank" rel="noopener">《sqlmap注入总结》</a>.</font></p>
+<h5 id="2-1-选项Options"><a href="#2-1-选项Options" class="headerlink" title="2.1 选项Options"></a><font face="楷体" color="#FF6347">2.1 选项Options</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">-h,–help  显示基本帮助信息并退出<br> -hh    显示高级帮助信息并退出<br>--version  显示程序版本信息并退出<br>-vVERBOSE信息级别: 0-6 （缺省1），其值具体含义：“0”只显示python错误以及严重的信息；1同时显示基本信息和警告信息（默认）；“2”同时显示debug信息；“3”同时显示注入的payload；“4”同时显示HTTP请求；“5”同时显示HTTP响应头；“6”同时显示HTTP响应页面；如果想看到sqlmap发送的测试payload最好的等级就是3。</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-2-目标Target"><a href="#2-2-目标Target" class="headerlink" title="2.2 目标Target"></a><font face="楷体" color="#FF6347">2.2 目标Target</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">在这些选项中必须提供至少有一个确定目标<br> -d DIRECT    直接连接数据库的连接字符串<br>-u URL, –url=URL   目标URL (e.g.”<a href="http://www.site.com/vuln.php?id=1“)，使用-u或者–url" target="_blank" rel="noopener">http://www.site.com/vuln.php?id=1“)，使用-u或者–url</a><br>-l LOGFILE     从Burp或者WebScarab代理日志文件中分析目标<br>-x SITEMAPURL  从远程网站地图（sitemap.xml）文件来解析目标<br>-m BULKFILE      将目标地址保存在文件中，一行为一个URL地址进行批量检测。<br>-r REQUESTFILE   从文件加载HTTP请求，sqlmap可以从一个文本文件中获取HTTP请求，这样就可以跳过设置一些其他参数（比如cookie，POST数据，等等），请求是HTTPS的时需要配合这个–force-ssl参数来使用，或者可以在Host头后门加上:443<br>-g GOOGLEDORK     从谷歌中加载结果目标URL（只获取前100个结果，需要挂代理）<br>-c CONFIGFILE       从配置ini文件中加载选项</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-3-请求Request"><a href="#2-3-请求Request" class="headerlink" title="2.3 请求Request"></a><font face="楷体" color="#FF6347">2.3 请求Request</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可以用来指定如何连接到目标URL<br>--method=METHOD  强制使用给定的HTTP方法（例如put）<br>    --data=DATA   通过POST发送数据参数，sqlmap会像检测GET参数一样检测POST的参数。--data=”id=1” -f --banner --dbs --users<br>   --param-del=PARA..  当GET或POST的数据需要用其他字符分割测试参数的时候需要用到此参数。<br>   --cookie=COOKIE     HTTP Cookieheader 值<br>   --cookie-del=COO..  用来分隔cookie的字符串值<br>   --load-cookies=L..  Filecontaining cookies in Netscape/wget format<br>   --drop-set-cookie   IgnoreSet-Cookie header from response<br>   --user-agent=AGENT  默认情况下sqlmap的HTTP请求头中User-Agent值是：sqlmap/1.0-dev-xxxxxxx(<a href="http://sqlmap.org)可以使用--user-agent参数来修改，同时也可以使用--random-agent参数来随机的从./txt/user-agents.txt中获取。当--level参数设定为3或者3以上的时候，会尝试对User-Angent进行注入" target="_blank" rel="noopener">http://sqlmap.org)可以使用--user-agent参数来修改，同时也可以使用--random-agent参数来随机的从./txt/user-agents.txt中获取。当--level参数设定为3或者3以上的时候，会尝试对User-Angent进行注入</a><br>   --random-agent     使用random-agent作为HTTP User-Agent头值<br>   --host=HOST         HTTP Hostheader value<br>   --referer=REFERER   sqlmap可以在请求中伪造HTTP中的referer，当–level参数设定为3或者3以上的时候会尝试对referer注入<br>   -H HEADER, –hea..  额外的http头(e.g.”X-Forwarded-For: 127.0.0.1″)<br>   --headers=HEADERS  可以通过–headers参数来增加额外的http头(e.g.”Accept-Language: fr\nETag: 123″)<br>   --auth-type=AUTH.. HTTP的认证类型 (Basic, Digest, NTLM or PKI)<br>   --auth-cred=AUTH..  HTTP 认证凭证(name:password)<br>   --auth-file=AUTH..  HTTP 认证PEM证书/私钥文件；当Web服务器需要客户端证书进行身份验证时，需要提供两个文件:key_file，cert_file,key_file是格式为PEM文件，包含着你的私钥，cert_file是格式为PEM的连接文件。<br>   --ignore-401        Ignore HTTPError 401 (Unauthorized)忽略HTTP 401错误（未授权的）<br>   --ignore-proxy      忽略系统的默认代理设置<br>   --ignore-redirects忽略重定向的尝试<br>   --ignore-timeouts   忽略连接超时<br>   --proxy=PROXY       使用代理服务器连接到目标URL<br>   --proxy-cred=PRO..  代理认证凭证(name:password)<br>   --proxy-file=PRO..  从文件加载代理列表<br>   --tor               使用Tor匿名网络<br>   --tor-port=TORPORT  设置Tor代理端口<br>   --tor-type=TORTYPE  设置Tor代理类型 (HTTP,SOCKS4 or SOCKS5 (缺省))<br>   --check-tor       检查Tor的是否正确使用<br>   --delay=DELAY   可以设定两个HTTP(S)请求间的延迟，设定为0.5的时候是半秒，默认是没有延迟的。<br>   --timeout=TIMEOUT   可以设定一个HTTP(S)请求超过多久判定为超时，10表示10秒，默认是30秒。<br>   --retries=RETRIES   当HTTP(S)超时时，可以设定重新尝试连接次数，默认是3次。<br>   --randomize=RPARAM可以设定某一个参数值在每一次请求中随机的变化，长度和类型会与提供的初始值一样<br>   --safe-url=SAFEURL  提供一个安全不错误的连接，每隔一段时间都会去访问一下<br>   --safe-post=SAFE..  提供一个安全不错误的连接，每次测试请求之后都会再访问一遍安全连接。<br>   --safe-req=SAFER..  从文件中加载安全HTTP请求<br>   --safe-freq=SAFE..  测试一个给定安全网址的两个访问请求<br>   --skip-urlencode    跳过URL的有效载荷数据编码<br>   --csrf-token=CSR..  Parameter usedto hold anti-CSRF token参数用来保存反CSRF令牌<br>   --csrf-url=CSRFURL  URL地址访问提取anti-CSRF令牌<br>   --force-ssl         强制使用SSL/HTTPS<br>   --hpp               使用HTTP参数污染的方法<br>   --eval=EVALCODE     在有些时候，需要根据某个参数的变化，而修改另个一参数，才能形成正常的请求，这时可以用–eval参数在每次请求时根据所写python代码做完修改后请求。(e.g “import hashlib;id2=hashlib.md5(id).hexdigest()”)<br> sqlmap.py -u”<a href="http://www.target.com/vuln.php?id=1&amp;hash=c4ca4238a0b923820dcc509a6f75849b“--eval=”import" target="_blank" rel="noopener">http://www.target.com/vuln.php?id=1&amp;hash=c4ca4238a0b923820dcc509a6f75849b“--eval=”import</a> hashlib;hash=hashlib.md5(id).hexdigest()”</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-4-优化Optimization"><a href="#2-4-优化Optimization" class="headerlink" title="2.4 优化Optimization"></a><font face="楷体" color="#FF6347">2.4 优化Optimization</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可用于优化sqlmap性能<br>-o               打开所有的优化开关<br>--predict-output    预测普通查询输出<br>--keep-alive        使用持久HTTP（S）连接<br>--null-connection   获取页面长度<br>--threads=THREADS   当前http(s)最大请求数 (默认 1)</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-5-注入Injection"><a href="#2-5-注入Injection" class="headerlink" title="2.5 注入Injection"></a><font face="楷体" color="#FF6347">2.5 注入Injection</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可用于指定要测试的参数、提供自定义注入有效载荷和可选的篡改脚本。<br>   -p TESTPARAMETER    可测试的参数<br>   --skip=SKIP         跳过对给定参数的测试<br>   --skip-static       跳过测试不显示为动态的参数<br>   --param-exclude=..  使用正则表达式排除参数进行测试（e.g. “ses”）<br>   --dbms=DBMS         强制后端的DBMS为此值<br>   --dbms-cred=DBMS..  DBMS认证凭证(user:password)<br>   --os=OS            强制后端的DBMS操作系统为这个值<br>   --invalid-bignum    使用大数字使值无效<br>   --invalid-logical   使用逻辑操作使值无效<br>   --invalid-string    使用随机字符串使值无效<br>   --no-cast          关闭有效载荷铸造机制<br>   --no-escape         关闭字符串逃逸机制<br>   --prefix=PREFIX     注入payload字符串前缀<br>   --suffix=SUFFIX     注入payload字符串后缀<br>   --tamper=TAMPER   使用给定的脚本篡改注入数据</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-6-检测Detection"><a href="#2-6-检测Detection" class="headerlink" title="2.6 检测Detection"></a><font face="楷体" color="#FF6347">2.6 检测Detection</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可以用来指定在SQL盲注时如何解析和比较HTTP响应页面的内容<br>   --level=LEVEL     执行测试的等级（1-5，默认为1）<br>   --risk=RISK       执行测试的风险（0-3，默认为1）<br>   --string=STRING    查询时有效时在页面匹配字符串<br>   --not-string=NOT..  当查询求值为无效时匹配的字符串<br>   --regexp=REGEXP     查询时有效时在页面匹配正则表达式<br>   --code=CODE       当查询求值为True时匹配的HTTP代码<br>   --text-only        仅基于在文本内容比较网页<br>   --titles           仅根据他们的标题进行比较</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-7-技巧Techniques"><a href="#2-7-技巧Techniques" class="headerlink" title="2.7 技巧Techniques"></a><font face="楷体" color="#FF6347">2.7 技巧Techniques</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可用于调整具体的SQL注入测试<br>   --technique=TECH    SQL注入技术测试（默认BEUST）<br>   --time-sec=TIMESEC  DBMS响应的延迟时间（默认为5秒）<br>   --union-cols=UCOLS  定列范围用于测试UNION查询注入<br>   --union-char=UCHAR  暴力猜测列的字符数<br>   --union-from=UFROM  SQL注入UNION查询使用的格式<br>   --dns-domain=DNS..  DNS泄露攻击使用的域名<br>   --second-order=S..  URL搜索产生的结果页面</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-8-指纹Fingerprint"><a href="#2-8-指纹Fingerprint" class="headerlink" title="2.8 指纹Fingerprint"></a><font face="楷体" color="#FF6347">2.8 指纹Fingerprint</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">-f, --fingerprint   执行广泛的DBMS版本指纹检查</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-9-枚举Enumeration"><a href="#2-9-枚举Enumeration" class="headerlink" title="2.9 枚举Enumeration"></a><font face="楷体" color="#FF6347">2.9 枚举Enumeration</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可以用来列举后端数据库管理系统的信息、表中的结构和数据。此外，您还可以运行自定义的SQL语句。<br>   -a, --all           获取所有信息<br>   -b, --banner        获取数据库管理系统的标识<br>   --current-user      获取数据库管理系统当前用户<br>   --current-db        获取数据库管理系统当前数据库<br>   --hostname         获取数据库服务器的主机名称<br>   --is-dba            检测DBMS当前用户是否DBA<br>   --users             枚举数据库管理系统用户<br>   --passwords         枚举数据库管理系统用户密码哈希<br>   --privileges        枚举数据库管理系统用户的权限<br>   --roles            枚举数据库管理系统用户的角色<br>   --dbs             枚举数据库管理系统数据库<br>   --tables            枚举的DBMS数据库中的表<br>   --columns          枚举DBMS数据库表列<br>   --schema            枚举数据库架构<br>   --count             检索表的项目数，有时候用户只想获取表中的数据个数而不是具体的内容，那么就可以使用这个参数：sqlmap.py -u url –count -D testdb<br>   --dump            转储数据库表项<br>   --dump-all          转储数据库所有表项<br>   --search           搜索列（S），表（S）和/或数据库名称（S）<br>   --comments          获取DBMS注释<br>   -D DB               要进行枚举的指定数据库名<br>   -T TBL              DBMS数据库表枚举<br>   -C COL             DBMS数据库表列枚举<br>   -X EXCLUDECOL     DBMS数据库表不进行枚举<br>   -U USER           用来进行枚举的数据库用户<br>   --exclude-sysdbs    枚举表时排除系统数据库<br>   --pivot-column=P..  Pivot columnname<br>   --where=DUMPWHERE   Use WHEREcondition while table dumping<br>   --start=LIMITSTART  获取第一个查询输出数据位置<br>   --stop=LIMITSTOP   获取最后查询的输出数据<br>   --first=FIRSTCHAR   第一个查询输出字的字符获取<br>   --last=LASTCHAR    最后查询的输出字字符获取<br>   --sql-query=QUERY   要执行的SQL语句<br>   --sql-shell         提示交互式SQL的shell<br>   --sql-file=SQLFILE  要执行的SQL文件</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-10-暴力Brute-force"><a href="#2-10-暴力Brute-force" class="headerlink" title="2.10 暴力Brute force"></a><font face="楷体" color="#FF6347">2.10 暴力Brute force</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可以被用来运行暴力检查<br>   --common-tables     检查存在共同表<br>   --common-columns    检查存在共同列</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-11-用户自定义函数注入User-defined-function-injection"><a href="#2-11-用户自定义函数注入User-defined-function-injection" class="headerlink" title="2.11 用户自定义函数注入User-defined function injection"></a><font face="楷体" color="#FF6347">2.11 用户自定义函数注入User-defined function injection</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可以用来创建用户自定义函数<br>   --udf-inject    注入用户自定义函数<br>   --shared-lib=SHLIB  共享库的本地路径</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-12-访问文件系统File-system-access"><a href="#2-12-访问文件系统File-system-access" class="headerlink" title="2.12 访问文件系统File system access"></a><font face="楷体" color="#FF6347">2.12 访问文件系统File system access</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可以被用来访问后端数据库管理系统的底层文件系统<br>   --file-read=RFILE   从后端的数据库管理系统文件系统读取文件，SQL Server2005中读取二进制文件example.exe:<br>sqlmap.py -u”<a href="http://192.168.136.129/sqlmap/mssql/iis/get_str2.asp?name=luther“\--file-read" target="_blank" rel="noopener">http://192.168.136.129/sqlmap/mssql/iis/get_str2.asp?name=luther“\--file-read</a> “C:/example.exe” -v 1<br>   --file-write=WFILE  编辑后端的数据库管理系统文件系统上的本地文件<br>   --file-dest=DFILE   后端的数据库管理系统写入文件的绝对路径<br>在kali中将/software/nc.exe文件上传到C:/WINDOWS/Temp下：<br>python sqlmap.py -u”<a href="http://192.168.136.129/sqlmap/mysql/get_int.aspx?id=1”" target="_blank" rel="noopener">http://192.168.136.129/sqlmap/mysql/get_int.aspx?id=1”</a> --file-write”/software/nc.exe” --file-dest “C:/WINDOWS/Temp/nc.exe” -v1</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-13-操作系统访问Operating-system-access"><a href="#2-13-操作系统访问Operating-system-access" class="headerlink" title="2.13 操作系统访问Operating system access"></a><font face="楷体" color="#FF6347">2.13 操作系统访问Operating system access</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体"><br>这些选项可以用于访问后端数据库管理系统的底层操作系统<br>   --os-cmd=OSCMD   执行操作系统命令（OSCMD）<br>   --os-shell          交互式的操作系统的shell<br>   --os-pwn          获取一个OOB shell，meterpreter或VNC<br>   --os-smbrelay       一键获取一个OOBshell，meterpreter或VNC<br>   --os-bof           存储过程缓冲区溢出利用<br>   --priv-esc          数据库进程用户权限提升<br>   --msf-path=MSFPATH  MetasploitFramework本地的安装路径<br>   --tmp-path=TMPPATH  远程临时文件目录的绝对路径<br>linux查看当前用户命令：<br>sqlmap.py -u”<a href="http://192.168.136.131/sqlmap/pgsql/get_int.php?id=1”" target="_blank" rel="noopener">http://192.168.136.131/sqlmap/pgsql/get_int.php?id=1”</a> --os-cmd id -v1</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-14-Windows注册表访问Windows-registry-access"><a href="#2-14-Windows注册表访问Windows-registry-access" class="headerlink" title="2.14 Windows注册表访问Windows registry access"></a><font face="楷体" color="#FF6347">2.14 Windows注册表访问Windows registry access</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可以被用来访问后端数据库管理系统Windows注册表<br>   --reg-read          读一个Windows注册表项值<br>   --reg-add           写一个Windows注册表项值数据<br>   --reg-del           删除Windows注册表键值<br>   --reg-key=REGKEY    Windows注册表键<br>   --reg-value=REGVAL  Windows注册表项值<br>   --reg-data=REGDATA  Windows注册表键值数据<br>   --reg-type=REGTYPE  Windows注册表项值类型</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-15-一般选项General"><a href="#2-15-一般选项General" class="headerlink" title="2.15 一般选项General"></a><font face="楷体" color="#FF6347">2.15 一般选项General</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体">这些选项可以用来设置一些一般的工作参数<br>   -s SESSIONFILE     保存和恢复检索会话文件的所有数据<br>   -t TRAFFICFILE      记录所有HTTP流量到一个文本文件中<br>   --batch            从不询问用户输入，使用所有默认配置。<br>   --binary-fields=..  结果字段具有二进制值(e.g.”digest”)<br>   --charset=CHARSET   强制字符编码<br>   --crawl=CRAWLDEPTH  从目标URL爬行网站<br>   --crawl-exclude=..  正则表达式从爬行页中排除<br>   --csv-del=CSVDEL    限定使用CSV输出 (default”,”)<br>   --dump-format=DU..  转储数据格式(CSV(default), HTML or SQLITE)<br>   --eta              显示每个输出的预计到达时间<br>   --flush-session     刷新当前目标的会话文件<br>   --forms           解析和测试目标URL表单<br>   --fresh-queries     忽略在会话文件中存储的查询结果<br>   --hex             使用DBMS Hex函数数据检索<br>   --output-dir=OUT..  自定义输出目录路径<br>   --parse-errors      解析和显示响应数据库错误信息<br>   --save=SAVECONFIG   保存选项到INI配置文件<br>   --scope=SCOPE    从提供的代理日志中使用正则表达式过滤目标<br>   --test-filter=TE..  选择测试的有效载荷和/或标题(e.g. ROW)<br>   --test-skip=TEST..  跳过试验载荷和/或标题(e.g.BENCHMARK)<br>   --update            更新sqlmap</font></td></tr></table>
+
+<p>&nbsp;</p>
+<h5 id="2-16-杂项Miscellaneous"><a href="#2-16-杂项Miscellaneous" class="headerlink" title="2.16 杂项Miscellaneous"></a><font face="楷体" color="#FF6347">2.16 杂项Miscellaneous</font></h5><table><tr><td bgcolor="#F0FFF0"><font face="楷体"><br>   -z MNEMONICS        使用短记忆法 (e.g.”flu,bat,ban,tec=EU”)<br>   --alert=ALERT       发现SQL注入时，运行主机操作系统命令<br>   --answers=ANSWERS   当希望sqlmap提出输入时，自动输入自己想要的答案(e.g. “quit=N,follow=N”)，例如：sqlmap.py -u”<a href="http://192.168.22.128/get_int.php?id=1“–technique=E\--answers=”extending=N”" target="_blank" rel="noopener">http://192.168.22.128/get_int.php?id=1“–technique=E\--answers=”extending=N”</a> --batch<br>   --beep    发现sql注入时，发出蜂鸣声。<br>   --cleanup     清除sqlmap注入时在DBMS中产生的udf与表。<br>   --dependencies      Check formissing (non-core) sqlmap dependencies<br>   --disable-coloring  默认彩色输出，禁掉彩色输出。<br>   --gpage=GOOGLEPAGE 使用前100个URL地址作为注入测试，结合此选项，可以指定页面的URL测试<br>   --identify-waf      进行WAF/IPS/IDS保护测试，目前大约支持30种产品的识别<br>   --mobile     有时服务端只接收移动端的访问，此时可以设定一个手机的User-Agent来模仿手机登陆。<br>   --offline           Work inoffline mode (only use session data)<br>   --purge-output     从输出目录安全删除所有内容，有时需要删除结果文件，而不被恢复，可以使用此参数，原有文件将会被随机的一些文件覆盖。<br>   --skip-waf           跳过WAF／IPS / IDS启发式检测保护<br>   --smart            进行积极的启发式测试，快速判断为注入的报错点进行注入<br>   --sqlmap-shell      互动提示一个sqlmapshell<br>   --tmp-dir=TMPDIR    用于存储临时文件的本地目录<br>   --web-root=WEBROOT  Web服务器的文档根目录(e.g.”/var/www”)<br>   --wizard   新手用户简单的向导使用，可以一步一步教你如何输入针对目标注入</font></td></tr></table>
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Kali-SQLMAP/">Kali-SQLMAP</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQLMAP命令/">SQLMAP命令</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Mathematical-basis" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/mathematical-basis/" class="article-date">
+      <time datetime="2018-12-08T17:00:45.000Z" itemprop="datePublished">2018-12-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/mathematical-basis/">信息安全数学基础复习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&nbsp;<font face="楷体">12.3复习笔记</font></p>
+<h4 id="第一章、整数的可除性"><a href="#第一章、整数的可除性" class="headerlink" title="第一章、整数的可除性"></a><font face="楷体">第一章、整数的可除性</font></h4><h5 id="1-1-整数的概念、欧几里得除法"><a href="#1-1-整数的概念、欧几里得除法" class="headerlink" title="1.1 整数的概念、欧几里得除法"></a><font face="楷体">1.1 整数的概念、欧几里得除法</font></h5><p><a href="https://s1.ax1x.com/2018/12/03/FM6Bwj.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FM6Bwj.jpg" alt="1"></a><br><a href="https://s1.ax1x.com/2018/12/03/FM6hm4.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FM6hm4.jpg" alt="2"></a><br>&nbsp;</p>
+<h5 id="1-2-最大公因数与广义欧几里得除法"><a href="#1-2-最大公因数与广义欧几里得除法" class="headerlink" title="1.2 最大公因数与广义欧几里得除法"></a><font face="楷体">1.2 最大公因数与广义欧几里得除法</font></h5><p><a href="https://s1.ax1x.com/2018/12/03/FM6v0H.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FM6v0H.jpg" alt="3"></a><br><a href="https://s1.ax1x.com/2018/12/03/FMcSAA.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FMcSAA.jpg" alt="4"></a><br>&nbsp;</p>
+<h5 id="1-3-整除的进一步性质及最小公倍数"><a href="#1-3-整除的进一步性质及最小公倍数" class="headerlink" title="1.3 整除的进一步性质及最小公倍数"></a><font face="楷体">1.3 整除的进一步性质及最小公倍数</font></h5><h5 id="1-4-整数分解"><a href="#1-4-整数分解" class="headerlink" title="1.4 整数分解"></a><font face="楷体">1.4 整数分解</font></h5><p><a href="https://s1.ax1x.com/2018/12/03/FMcFc8.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FMcFc8.jpg" alt="5"></a><br>&nbsp;</p>
+<h5 id="1-5-素数的算术基本定理"><a href="#1-5-素数的算术基本定理" class="headerlink" title="1.5 素数的算术基本定理"></a><font face="楷体">1.5 素数的算术基本定理</font></h5><p><a href="https://s1.ax1x.com/2018/12/03/FMc8uF.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FMc8uF.jpg" alt="6"></a></p>
+<p>&nbsp;<br>&nbsp;</p>
+<h4 id="第二章、同余"><a href="#第二章、同余" class="headerlink" title="第二章、同余"></a><font face="楷体">第二章、同余</font></h4><h5 id="2-1-同余的概念及基本性质"><a href="#2-1-同余的概念及基本性质" class="headerlink" title="2.1 同余的概念及基本性质"></a><font face="楷体">2.1 同余的概念及基本性质</font></h5><p><a href="https://s1.ax1x.com/2018/12/03/FMcIKS.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FMcIKS.jpg" alt="7"></a><br><a href="https://s1.ax1x.com/2018/12/03/FMcTbQ.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FMcTbQ.jpg" alt="8"></a><br>&nbsp;</p>
+<h5 id="2-2-剩余类及完全剩余系"><a href="#2-2-剩余类及完全剩余系" class="headerlink" title="2.2 剩余类及完全剩余系"></a><font face="楷体">2.2 剩余类及完全剩余系</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8N4wn.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8N4wn.jpg" alt="9"></a><br>&nbsp;</p>
+<h5 id="2-3-简化剩余系与欧拉函数"><a href="#2-3-简化剩余系与欧拉函数" class="headerlink" title="2.3 简化剩余系与欧拉函数"></a><font face="楷体">2.3 简化剩余系与欧拉函数</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8N7WT.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8N7WT.jpg" alt="10"></a><br>&nbsp;</p>
+<h5 id="2-4-欧拉定理、费马小定理、Wilson定理"><a href="#2-4-欧拉定理、费马小定理、Wilson定理" class="headerlink" title="2.4 欧拉定理、费马小定理、Wilson定理"></a><font face="楷体">2.4 欧拉定理、费马小定理、Wilson定理</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8Njm9.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8Njm9.jpg" alt="11"></a><br>&nbsp;</p>
+<h5 id="2-5-模重复平方算法"><a href="#2-5-模重复平方算法" class="headerlink" title="2.5 模重复平方算法"></a><font face="楷体">2.5 模重复平方算法</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8NxT1.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8NxT1.jpg" alt="12"></a></p>
+<p>&nbsp;<br>&nbsp;</p>
+<p><font face="楷体">12.5复习笔记</font></p>
+<h4 id="第三章、同余式"><a href="#第三章、同余式" class="headerlink" title="第三章、同余式"></a><font face="楷体">第三章、同余式</font></h4><h5 id="3-1-基本概念及一次同余式"><a href="#3-1-基本概念及一次同余式" class="headerlink" title="3.1 基本概念及一次同余式"></a><font face="楷体">3.1 基本概念及一次同余式</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UpY6.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UpY6.jpg" alt="13"></a><br>&nbsp;</p>
+<h5 id="3-2-中国剩余定理"><a href="#3-2-中国剩余定理" class="headerlink" title="3.2 中国剩余定理"></a><font face="楷体">3.2 中国剩余定理</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UF6e.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UF6e.jpg" alt="14"></a><br>&nbsp;</p>
+<h5 id="3-3-高次同余式的解法及解数"><a href="#3-3-高次同余式的解法及解数" class="headerlink" title="3.3 高次同余式的解法及解数"></a><font face="楷体">3.3 高次同余式的解法及解数</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UV0A.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UV0A.jpg" alt="15"></a><br>&nbsp;</p>
+<h5 id="3-4-素数模的同余式"><a href="#3-4-素数模的同余式" class="headerlink" title="3.4 素数模的同余式"></a><font face="楷体">3.4 素数模的同余式</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8Utkq.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8Utkq.jpg" alt="16"></a></p>
+<p>&nbsp;<br>&nbsp;</p>
+<h4 id="第四章、二次同余式与平方剩余"><a href="#第四章、二次同余式与平方剩余" class="headerlink" title="第四章、二次同余式与平方剩余"></a><font face="楷体">第四章、二次同余式与平方剩余</font></h4><h5 id="4-1-一般二次同余式"><a href="#4-1-一般二次同余式" class="headerlink" title="4.1 一般二次同余式"></a><font face="楷体">4.1 一般二次同余式</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UBX4.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UBX4.jpg" alt="17"></a><br>&nbsp;</p>
+<h5 id="4-2-模为奇素数的平方剩余与平方剩余"><a href="#4-2-模为奇素数的平方剩余与平方剩余" class="headerlink" title="4.2 模为奇素数的平方剩余与平方剩余"></a><font face="楷体">4.2 模为奇素数的平方剩余与平方剩余</font></h5><h5 id="4-3-勒让得符号"><a href="#4-3-勒让得符号" class="headerlink" title="4.3 勒让得符号"></a><font face="楷体">4.3 勒让得符号</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8Uy7R.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8Uy7R.jpg" alt="18"></a><br>&nbsp;</p>
+<h5 id="4-4-二次互反律"><a href="#4-4-二次互反律" class="headerlink" title="4.4 二次互反律"></a><font face="楷体">4.4 二次互反律</font></h5><h5 id="4-5-雅可比符号"><a href="#4-5-雅可比符号" class="headerlink" title="4.5 雅可比符号"></a><font face="楷体">4.5 雅可比符号</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UjgS.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UjgS.jpg" alt="19"></a></p>
+<p>&nbsp;<br>&nbsp;</p>
+<h4 id="第五章、原根与指标"><a href="#第五章、原根与指标" class="headerlink" title="第五章、原根与指标"></a><font face="楷体">第五章、原根与指标</font></h4><h5 id="5-1-指数及基本性质"><a href="#5-1-指数及基本性质" class="headerlink" title="5.1 指数及基本性质"></a><font face="楷体">5.1 指数及基本性质</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UzuQ.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UzuQ.jpg" alt="20"></a><br><a href="https://s1.ax1x.com/2018/12/09/F8apHs.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8apHs.jpg" alt="21"></a><br>&nbsp;</p>
+<h5 id="5-2-原根"><a href="#5-2-原根" class="headerlink" title="5.2 原根"></a><font face="楷体">5.2 原根</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8anb9.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8anb9.jpg" alt="22"></a><br>&nbsp;</p>
+<h5 id="5-3-指标及n次同余式"><a href="#5-3-指标及n次同余式" class="headerlink" title="5.3 指标及n次同余式"></a><font face="楷体">5.3 指标及n次同余式</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8a38K.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8a38K.jpg" alt="23"></a><br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/密码学/">密码学</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信安数学/">信安数学</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    </nav>
+  
 </div>
-
-
-
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
-
-            
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">158k</span>
-            
-
-            
-			
-                <br>
-                
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
-            
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Treecatee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
-        <i class="fa fa-qq"></i>
-    </a>
-
-
-
-    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-mixcloud"></i>
-    </a>
-</div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
-
-<div class="progress-bar"></div>
-
-
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
-        </div>
-        <div id="searchResult"></div>
     </div>
-</div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
 </script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
-</div>
 
-
-<script src="/libs/materialize/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>

@@ -1,390 +1,321 @@
-<!DOCTYPE HTML>
-<html lang="">
-
-
+<!DOCTYPE html>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="PHP-文件系统, Treecatee">
-    <meta name="description" content="学习文件处理本质上面就是学习文件处理的函数。 ヾ(๑╹◡╹)ﾉ”
-&amp;ensp;&amp;ensp;
-PHP 文件系统
 
-&amp;emsp;&amp;emsp;
-一. 读取文件&amp;emsp;
-1.1 readfile读取文件读取一个文件内容的函数：int readf">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>PHP-文件系统 | Treecatee</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-        
-    </style>
-
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Treecatee">
 
 
-<body>
 
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Treecatee</span>
-                </a>
-            </div>
-            
+<meta name="description" content="学习文件处理本质上面就是学习文件处理的函数。 ヾ(๑╹◡╹)ﾉ”">
+<meta name="keywords" content="PHP语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP-文件系统">
+<meta property="og:url" content="Treecatee.gitgub.io/post/php-filesystem/index.html">
+<meta property="og:site_name" content="Treecatee">
+<meta property="og:description" content="学习文件处理本质上面就是学习文件处理的函数。 ヾ(๑╹◡╹)ﾉ”">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e21be78910.png">
+<meta property="og:updated_time" content="2019-03-06T16:37:44.250Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP-文件系统">
+<meta name="twitter:description" content="学习文件处理本质上面就是学习文件处理的函数。 ヾ(๑╹◡╹)ﾉ”">
+<meta name="twitter:image" content="https://i.loli.net/2019/02/21/5c6e21be78910.png">
 
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>主页</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>标签</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>分类</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-calendar"></i>
-            
-            <span>时间轴</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>关于</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/book" class="waves-effect waves-light">
-            
-            <i class="fa fa-address-book"></i>
-            
-            <span>资源</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/links" class="waves-effect waves-light">
-            
-            <i class="fa fa-edit"></i>
-            
-            <span>链接</span>
-        </a>
-    </li>
-    
-    <li>
-        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-            <i id="searchIcon" class="fa fa-search" title="Search"></i>
-        </a>
-    </li>
-</ul>
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Treecatee</div>
-        <div class="logo-desc">
-            
-            得之我幸，失之我命。
-            
-        </div>
-    </div>
-
-    
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                主页
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                标签
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                分类
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-calendar"></i>
-                
-                时间轴
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                关于
-            </a>
-        </li>
-        
-        <li>
-            <a href="/book" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-address-book"></i>
-                
-                资源
-            </a>
-        </li>
-        
-        <li>
-            <a href="/links" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-edit"></i>
-                
-                链接
-            </a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-        </div>
-    </nav>
-
-</header>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
+    <link rel="alternate" href="/atom.xml" title="Treecatee" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>PHP-文件系统 | Treecatee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
 <script>
-    (function() {
-        let pwd = '';
-        if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，将返回主页！');
-                location.href = '/';
-            }
-        }
-    })();
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
 </script>
 
 
+    <script> yiliaConfig.jquery_ui = [false]; </script>
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2019/02/20/5c6ce86435b96.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <div class="description center-align post-title">
-                        PHP-文件系统
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Treecatee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">得失弹指一挥间。</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
                     </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
                 </div>
             </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP欺骗/">ARP欺骗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA/">DVWA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash函数/">Hash函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java访问权限/">Java访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java语言/">Java语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meterpreter命令/">Meterpreter命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP语言/">PHP语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python语言/">Python语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLMAP命令/">SQLMAP命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/User-Agen/">User-Agen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wireshark/">Wireshark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msfvenom/">msfvenom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信安数学/">信安数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分组密码/">分组密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全指导/">安全指导</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全笔记/">安全笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓渗透/">安卓渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/序列密码/">序列密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法学习/">算法学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/远程木马攻击/">远程木马攻击</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
         </div>
-    </div>
+    </header>                
 </div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Treecatee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Treecatee</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">得失弹指一挥间。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-PHP-FileSystem" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/php-filesystem/" class="article-date">
+      <time datetime="2019-02-20T05:29:20.000Z" itemprop="datePublished">2019-02-20</time>
+</a>
 
 
-
-<main class="post-container content">
-
+    </div>
+  
+  <div class="article-inner">
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP-文件系统
+    </h1>
+  
 
-    #articleContent :focus {
-        outline: none;
-    }
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/PHP/">PHP</a>
+    </div>
 
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
 
-    .toc-widget {
-        padding-left: 20px;
-    }
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP语言/">PHP语言</a></li></ul>
+    </div>
 
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-</style>
-<div class="row">
-    <div class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/PHP语言/" target="_blank">
-                                <span class="chip bg-color">PHP语言</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/PHP/" class="post-category" target="_blank">
-                                PHP
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-02-20
-                </div>
-
-                
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        5.9k
-                    </div>
-                    
-
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        23 Min
-                    </div>
-                    
-                
-				
-				
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
-        </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>学习文件处理本质上面就是学习<font color="#00B2EE"><strong>文件处理的函数。</strong></font> ヾ(๑╹◡╹)ﾉ”<br><a id="more"></a></p>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>学习文件处理本质上面就是学习<font color="#00B2EE"><strong>文件处理的函数。</strong></font> ヾ(๑╹◡╹)ﾉ”<br><a id="more"></a></p>
 <p>&ensp;<br>&ensp;</p>
 <center><font color="#00B2EE" face="Comic sans MS" size="5"><strong>PHP 文件系统</strong></font></center>
 
@@ -394,13 +325,7 @@ PHP 文件系统
 <blockquote>
 <font color="#FF7F00"><strong>功能：传入一个文件路径，输出这个文件里面的内容。</strong></font>
 </blockquote>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-   //linux类的读取方式
-   readfile<span class="token punctuation">(</span><span class="token string">"/home/paul/test.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   //windows类的读取方式
-   readfile<span class="token punctuation">(</span><span class="token string">"c:\\boot.ini"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">   //linux类的读取方式</span><br><span class="line">   readfile(<span class="string">"/home/paul/test.txt"</span>);</span><br><span class="line">   //windows类的读取方式</span><br><span class="line">   readfile(<span class="string">"c:\\boot.ini"</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意：</strong>上面的代码中windows的斜线是\斜线，可能会转义掉一些字符。因此，我们写的时候写上两个斜线。</p>
 </blockquote>
@@ -410,39 +335,12 @@ PHP 文件系统
 <blockquote>
 <font color="#FF7F00"><strong>功能：传入一个文件或文件路径，打开这个文件<font color="#00B2EE">返回</font>文件的内容。文件的内容是一个字符串。</strong></font>
 </blockquote>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-
-   <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">'NoAlike.txt'</span><span class="token punctuation">;</span>
-
-   <span class="token variable">$filestring</span> <span class="token operator">=</span> file_get_contents<span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">echo</span> <span class="token variable">$filestring</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">   <span class="variable">$filename</span> = <span class="string">'NoAlike.txt'</span>;</span><br><span class="line"></span><br><span class="line">   <span class="variable">$filestring</span> = file_get_contents(<span class="variable">$filename</span>);</span><br><span class="line">   <span class="built_in">echo</span> <span class="variable">$filestring</span>;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>上面的代码，就打开了一个文件，并且将文件当中的内容进行了输出。</p>
 </blockquote>
 <p>&emsp;<br>我们来针对之前的知识把代码进行一下扩展。用一用之前的知识点。</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-   <span class="token comment" spellcheck="true">//假设我们有一个多行的文件叫NoAlike.txt，没有的话你可以新建一个这个文件</span>
-    <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">'NoAlike.txt'</span><span class="token punctuation">;</span>
-
-
-   <span class="token comment" spellcheck="true">//打开这个文件，将文件内容赋值给$filestring</span>
-   <span class="token variable">$filestring</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token comment" spellcheck="true">//因为每一行有一个回车即\n，我用\n来把这个字符串切割成数组</span>
-   <span class="token variable">$filearray</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">,</span> <span class="token variable">$filestring</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token comment" spellcheck="true">//把切割成的数组，下标赋值给$key,值赋值给$val，每次循环将$key加1。</span>
-   <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">,</span> <span class="token variable">$val</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">each</span><span class="token punctuation">(</span><span class="token variable">$filearray</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token operator">++</span><span class="token variable">$key</span><span class="token punctuation">;</span>
-       <span class="token variable">$val</span> <span class="token operator">=</span> <span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$val</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-       <span class="token comment" spellcheck="true">//用的单引号，单引号不解释变量进行了拼接而已</span>
-       <span class="token keyword">print</span> <span class="token string">'Line'</span> <span class="token punctuation">.</span> <span class="token variable">$key</span> <span class="token punctuation">.</span><span class="token string">':'</span><span class="token punctuation">.</span>  <span class="token variable">$val</span><span class="token punctuation">.</span><span class="token string">'&lt;br />'</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="comment">//假设我们有一个多行的文件叫NoAlike.txt，没有的话你可以新建一个这个文件</span></span><br><span class="line">    $filename = <span class="string">'NoAlike.txt'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="comment">//打开这个文件，将文件内容赋值给$filestring</span></span><br><span class="line">   $filestring = file_get_contents($filename);</span><br><span class="line"></span><br><span class="line">   <span class="comment">//因为每一行有一个回车即\n，我用\n来把这个字符串切割成数组</span></span><br><span class="line">   $filearray = explode(<span class="string">"\n"</span>, $filestring);</span><br><span class="line"></span><br><span class="line">   <span class="comment">//把切割成的数组，下标赋值给$key,值赋值给$val，每次循环将$key加1。</span></span><br><span class="line">   <span class="keyword">while</span> (<span class="keyword">list</span>($key, $val) = each($filearray)) &#123;</span><br><span class="line">       ++$key;</span><br><span class="line">       $val = trim($val);</span><br><span class="line"></span><br><span class="line">       <span class="comment">//用的单引号，单引号不解释变量进行了拼接而已</span></span><br><span class="line">       <span class="keyword">print</span> <span class="string">'Line'</span> . $key .<span class="string">':'</span>.  $val.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS">上述的<font color="#00B2EE">explode()、list()</font>两个字符串函数和<font color="#00B2EE">each()</font>数组函数。<br><font color="red"><strong>1. explode()函数：</strong></font><strong>把字符串打散为数组</strong>。</font><font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_string_explode.asp" target="_blank" rel="noopener">PHP explode() 函数</a>]</font>&emsp;<font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/php_ref_string.asp" target="_blank" rel="noopener">PHP String 函数</a>]</font><br>语法：explode(separator,string,limit)<br><font color="red"></font>
 
@@ -471,36 +369,11 @@ PHP 文件系统
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="red"><strong>2. list()函数：</strong></font><strong>把数组中的值赋给一些变量,在一次操作中给一组变量赋值。</strong></font><font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_array_list.asp" target="_blank" rel="noopener">PHP list() 函数</a>]</font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token variable">$my_array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">"Dog"</span><span class="token punctuation">,</span><span class="token string">"Cat"</span><span class="token punctuation">,</span><span class="token string">"Horse"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token variable">$b</span><span class="token punctuation">,</span> <span class="token variable">$c</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token variable">$my_array</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"I have several animals, a $a, a $b and a $c."</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$my_array = <span class="keyword">array</span>(<span class="string">"Dog"</span>,<span class="string">"Cat"</span>,<span class="string">"Horse"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">list</span>($a, $b, $c) = $my_array;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"I have several animals, a $a, a $b and a $c."</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="red"><strong>3. each()函数：</strong></font><strong>返回当前元素的键名和键值。该元素的键名和键值返回到带有四个元素的数组中。<br>两个元素（1 和 Value）包含键值，两个元素（0 和 Key）包含键名。</strong></font><font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_array_each.asp" target="_blank" rel="noopener">PHP each() 函数</a>]</font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token variable">$people</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">"Bill"</span><span class="token punctuation">,</span> <span class="token string">"Steve"</span><span class="token punctuation">,</span> <span class="token string">"Mark"</span><span class="token punctuation">,</span> <span class="token string">"David"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token variable">$people</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token variable">$people</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-
-运行结果：
-G<span class="token punctuation">:</span>\<span class="token package">WAMP<span class="token punctuation">\</span>www<span class="token punctuation">\</span>2</span><span class="token operator">-</span><span class="token number">20</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">.</span>php<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span>
-<span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span>
-  <span class="token number">1</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'Bill'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span>
-  <span class="token string">'value'</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'Bill'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span>
-  <span class="token number">0</span> <span class="token operator">=</span><span class="token operator">></span> int <span class="token number">0</span>
-  <span class="token string">'key'</span> <span class="token operator">=</span><span class="token operator">></span> int <span class="token number">0</span>
-G<span class="token punctuation">:</span>\<span class="token package">WAMP<span class="token punctuation">\</span>www<span class="token punctuation">\</span>2</span><span class="token operator">-</span><span class="token number">20</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">.</span>php<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span>
-<span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span>
-  <span class="token number">1</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'Steve'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
-  <span class="token string">'value'</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'Steve'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
-  <span class="token number">0</span> <span class="token operator">=</span><span class="token operator">></span> int <span class="token number">1</span>
-  <span class="token string">'key'</span> <span class="token operator">=</span><span class="token operator">></span> int <span class="token number">1</span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$people = <span class="keyword">array</span>(<span class="string">"Bill"</span>, <span class="string">"Steve"</span>, <span class="string">"Mark"</span>, <span class="string">"David"</span>);</span><br><span class="line">var_dump(each($people));</span><br><span class="line">var_dump(each($people));</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">G:\WAMP\www\<span class="number">2</span><span class="number">-20</span><span class="number">-1.</span>php:<span class="number">3</span>:</span><br><span class="line"><span class="keyword">array</span> (size=<span class="number">4</span>)</span><br><span class="line">  <span class="number">1</span> =&gt; string <span class="string">'Bill'</span> (length=<span class="number">4</span>)</span><br><span class="line">  <span class="string">'value'</span> =&gt; string <span class="string">'Bill'</span> (length=<span class="number">4</span>)</span><br><span class="line">  <span class="number">0</span> =&gt; int <span class="number">0</span></span><br><span class="line">  <span class="string">'key'</span> =&gt; int <span class="number">0</span></span><br><span class="line">G:\WAMP\www\<span class="number">2</span><span class="number">-20</span><span class="number">-1.</span>php:<span class="number">4</span>:</span><br><span class="line"><span class="keyword">array</span> (size=<span class="number">4</span>)</span><br><span class="line">  <span class="number">1</span> =&gt; string <span class="string">'Steve'</span> (length=<span class="number">5</span>)</span><br><span class="line">  <span class="string">'value'</span> =&gt; string <span class="string">'Steve'</span> (length=<span class="number">5</span>)</span><br><span class="line">  <span class="number">0</span> =&gt; int <span class="number">1</span></span><br><span class="line">  <span class="string">'key'</span> =&gt; int <span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <h4 id="1-3-fopen、fread、fclose操作读取文件"><a href="#1-3-fopen、fread、fclose操作读取文件" class="headerlink" title="1.3 fopen、fread、fclose操作读取文件"></a><font color="#3CB371" face="Comic sans MS">1.3 fopen、fread、fclose操作读取文件</font></h4><p>上面file_get_contents打开文件的方式简单、粗暴。下面的</p>
 <font face="Comic sans MS"><font color="#00B2EE"><strong>resource fopen ( string $文件名, string 模式)<br>string fread ( resource $操作资源, int 读取长度)<br>bool fclose ( resource $操作资源 )</strong></font>
@@ -564,35 +437,15 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 <p>&emsp;</p>
 <font color="#00B2EE"><strong>r模式示例：</strong></font><br>1.打开文件：fopen()<br><font color="red"></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-   <span class="token comment" spellcheck="true">//你可以创建一个NoAlike.txt，以只读模式打开</span>
-   <span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">'NoAlike.txt'</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-   <span class="token comment" spellcheck="true">//var_dump()操作一下$fp看看效果，输出的是不是只有类型提示的是resource</span>
-   <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="comment">//你可以创建一个NoAlike.txt，以只读模式打开</span></span><br><span class="line">   $fp = fopen(<span class="string">'NoAlike.txt'</span>, <span class="string">"r"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="comment">//var_dump()操作一下$fp看看效果，输出的是不是只有类型提示的是resource</span></span><br><span class="line">   var_dump($fp);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>2.读取文件：fread()</p>
 <font color="red"></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-   <span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">'NoAlike.txt'</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token comment" spellcheck="true">//打开一个文件类型后，读取长度</span>
-   <span class="token variable">$contents</span> <span class="token operator">=</span> <span class="token function">fread</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   $fp = fopen(<span class="string">'NoAlike.txt'</span>, <span class="string">"r"</span>);</span><br><span class="line"></span><br><span class="line">   <span class="comment">//打开一个文件类型后，读取长度</span></span><br><span class="line">   $contents = fread($fp, <span class="number">1024</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>3.关闭文件：fclose()</p>
 <font color="red"></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-   <span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token variable">$contents</span> <span class="token operator">=</span> <span class="token function">fread</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">echo</span> <span class="token variable">$contents</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   $fp = fopen($filename, <span class="string">'r'</span>);</span><br><span class="line">   $contents = fread($fp, <span class="number">1024</span>);</span><br><span class="line">   fclose($fp);</span><br><span class="line">   <span class="keyword">echo</span> $contents;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;<br><strong>其他注意事项：</strong></p>
 <table>
 <thead>
@@ -621,33 +474,11 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 <blockquote>
 <p><strong>功能：向指定的文件当中写入一个字符串，如果文件不存在则创建文件。返回的是写入的字节长度</strong></p>
 </blockquote>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-   <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token string">"在PHP中文网学好PHP，妹子票子不再话下！"</span><span class="token punctuation">;</span>
-
-   <span class="token variable">$numbytes</span> <span class="token operator">=</span> <span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token string">'bin.txt'</span><span class="token punctuation">,</span> <span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$numbytes</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">//$numbytes接收到整形的数字</span>
-       <span class="token keyword">echo</span> <span class="token string">'写入成功，我们读取看看结果试试：'</span><span class="token punctuation">;</span>
-
-       <span class="token keyword">echo</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token string">'bin.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-       <span class="token keyword">echo</span> <span class="token string">'写入失败或者没有权限，注意检查'</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   $data = <span class="string">"在PHP中文网学好PHP，妹子票子不再话下！"</span>;</span><br><span class="line"></span><br><span class="line">   $numbytes = file_put_contents(<span class="string">'bin.txt'</span>, $data);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span>($numbytes)&#123;</span><br><span class="line">      <span class="comment">//$numbytes接收到整形的数字</span></span><br><span class="line">       <span class="keyword">echo</span> <span class="string">'写入成功，我们读取看看结果试试：'</span>;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">echo</span> file_get_contents(<span class="string">'bin.txt'</span>);</span><br><span class="line"></span><br><span class="line">   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       <span class="keyword">echo</span> <span class="string">'写入失败或者没有权限，注意检查'</span>;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <h4 id="2-2-fwrite配合fopen进行写入操作、fopen-打开模式的比较"><a href="#2-2-fwrite配合fopen进行写入操作、fopen-打开模式的比较" class="headerlink" title="2.2 fwrite配合fopen进行写入操作、fopen()打开模式的比较"></a><font color="#3CB371" face="Comic sans MS">2.2 fwrite配合fopen进行写入操作、fopen()打开模式的比较</font></h4><font face="Comic sans MS"><font color="#00B2EE"><strong>int fwrite ( resource $文件资源变量, string $写入的字符串 [, int 长度])</strong></font><br>注：fwrite的别名函数是fputs<br><br><font color="red"><strong>1. fopen()的w模式：</strong></font>写入方式打开，将文件指针指向文件头并将文件大小截为零。如果文件不存在则尝试创建。每一次写入新的数据时，都会将原来的数据清空之后才写入！<br></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-   <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">'test.txt'</span><span class="token punctuation">;</span>
-   <span class="token variable">$fp</span><span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token variable">$len</span> <span class="token operator">=</span> <span class="token function">fwrite</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token string">'我是一只来自北方的狼，却在南方冻成了狗'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">print</span> <span class="token variable">$len</span> <span class="token punctuation">.</span><span class="token string">'字节被写入了\n'</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   $filename = <span class="string">'test.txt'</span>;</span><br><span class="line">   $fp= fopen($filename, <span class="string">"w"</span>);</span><br><span class="line">   $len = fwrite($fp, <span class="string">'我是一只来自北方的狼，却在南方冻成了狗'</span>);</span><br><span class="line">   fclose($fp);</span><br><span class="line">   <span class="keyword">print</span> $len .<span class="string">'字节被写入了\n'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><font color="#FF7F00"><strong>总结：</strong></font><br><strong>1. 不论有没有新建都会打开文件重新写入<br>2.原有的文件内容会被覆盖掉<br>3.文件不存在会创建</strong></p>
 </blockquote>
@@ -702,13 +533,7 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 <p>&emsp;</p>
 <font color="#FF7F00"><strong>2. x模式和w模式总结：</strong></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-   <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">'test.txt'</span><span class="token punctuation">;</span>
-   <span class="token variable">$fp</span><span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">,</span> <span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token variable">$len</span> <span class="token operator">=</span> <span class="token function">fwrite</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span><span class="token string">'读大学迷茫了，PHP中文网学PHP给你希望'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">echo</span>  <span class="token variable">$len</span> <span class="token punctuation">.</span><span class="token string">'字节被写入了\n'</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   $filename = <span class="string">'test.txt'</span>;</span><br><span class="line">   $fp= fopen($filename, <span class="string">"x"</span>);</span><br><span class="line">   $len = fwrite($fp,<span class="string">'读大学迷茫了，PHP中文网学PHP给你希望'</span>);</span><br><span class="line">   <span class="keyword">echo</span>  $len .<span class="string">'字节被写入了\n'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>总结：</strong><br>   1.文件存在的时候会报错<br>   2.如果把$filename 改成其他的文件名,就可以了。但是，再次刷新的时候又报错了<br>   3.x+ 是增强的x模式。读取时也可以使用。</p>
 </blockquote>
@@ -717,19 +542,7 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 <blockquote>
 <p><strong>功能：创建一个临时文件，返回资源类型。关闭文件即被删除。</strong></p>
 </blockquote>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
-   //创建了一个临时文件,创建后并且打开这个文件    
-   <span class="token variable">$handle</span> <span class="token operator">=</span> tmpfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   //向里面写入了数据
-   <span class="token variable">$numbytes</span> <span class="token operator">=</span> fwrite<span class="token punctuation">(</span><span class="token variable">$handle</span>, <span class="token string">'写入临时文件'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   //关闭临时文件，文件即被删除
-   fclose<span class="token punctuation">(</span><span class="token variable">$handle</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token keyword">echo</span>  <span class="token string">'向临时文件中写入了'</span><span class="token keyword">.</span><span class="token variable">$numbytes</span> <span class="token keyword">.</span> <span class="token string">'个字节'</span><span class="token punctuation">;</span>
-?<span class="token operator">></span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">   //创建了一个临时文件,创建后并且打开这个文件	</span><br><span class="line">   <span class="variable">$handle</span> = tmpfile();</span><br><span class="line"></span><br><span class="line">   //向里面写入了数据</span><br><span class="line">   <span class="variable">$numbytes</span> = fwrite(<span class="variable">$handle</span>, <span class="string">'写入临时文件'</span>);</span><br><span class="line"></span><br><span class="line">   //关闭临时文件，文件即被删除</span><br><span class="line">   fclose(<span class="variable">$handle</span>);</span><br><span class="line"></span><br><span class="line">   <span class="built_in">echo</span>  <span class="string">'向临时文件中写入了'</span>.<span class="variable">$numbytes</span> . <span class="string">'个字节'</span>;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <h3 id="四-移动、拷贝和删除文件"><a href="#四-移动、拷贝和删除文件" class="headerlink" title="四. 移动、拷贝和删除文件"></a><font color="#FF6347" face="Comic sans MS">四. 移动、拷贝和删除文件</font></h3><h4 id="4-1-重命名文件"><a href="#4-1-重命名文件" class="headerlink" title="4.1 重命名文件"></a><font color="#3CB371" face="Comic sans MS">4.1 重命名文件</font></h4><font face="Comic sans MS"><strong>bool</strong> <font color="#00B2EE"><strong>rename(oldname,newname,context)</strong></font>;<br></font>
 
@@ -755,17 +568,7 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 </tr>
 </tbody>
 </table>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-   <span class="token comment" spellcheck="true">//旧文件名</span>
-   <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">'test.php.old'</span><span class="token punctuation">;</span>
-
-   <span class="token comment" spellcheck="true">//新文件名</span>
-   <span class="token variable">$filename2</span> <span class="token operator">=</span> <span class="token string">'test.php'</span><span class="token punctuation">;</span>
-
-   <span class="token comment" spellcheck="true">//复制文件</span>
-   <span class="token function">rename</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">,</span> <span class="token variable">$filename2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="comment">//旧文件名</span></span><br><span class="line">   $filename = <span class="string">'test.php.old'</span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//新文件名</span></span><br><span class="line">   $filename2 = <span class="string">'test.php'</span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//复制文件</span></span><br><span class="line">   rename($filename, $filename2);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <h4 id="4-2-复制文件"><a href="#4-2-复制文件" class="headerlink" title="4.2 复制文件"></a><font color="#3CB371" face="Comic sans MS">4.2 复制文件</font></h4><font face="Comic sans MS"><strong>bool</strong> <font color="#00B2EE"><strong>copy(源文件,目标文件)</strong></font>;<br></font> 
 
@@ -792,48 +595,13 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 </tbody>
 </table>
 <p>(1)创建文件并复制到当前文件夹下面<font color="#FF7F00">↓↓</font></p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-    <span class="token comment" spellcheck="true">//创建文件</span>
-   <span class="token variable">$fi</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">'copy.txt'</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
-   <span class="token variable">$a</span><span class="token operator">=</span><span class="token function">fwrite</span><span class="token punctuation">(</span><span class="token variable">$fi</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">//旧文件名 </span>
-   <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">'copy.txt'</span><span class="token punctuation">;</span>  
-   <span class="token comment" spellcheck="true">//新文件名   </span>
-   <span class="token variable">$filename2</span> <span class="token operator">=</span> <span class="token variable">$filename</span> <span class="token punctuation">.</span> <span class="token string">'_new.txt'</span><span class="token punctuation">;</span>  
-
-   <span class="token comment" spellcheck="true">//修改名字。</span>
-   <span class="token function">copy</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">,</span> <span class="token variable">$filename2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fi</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="comment">//创建文件</span></span><br><span class="line">   $fi = fopen(<span class="string">'copy.txt'</span>,<span class="string">"w"</span>);  </span><br><span class="line">   $a=fwrite($fi,<span class="string">""</span>);</span><br><span class="line">   <span class="comment">//旧文件名 </span></span><br><span class="line">   $filename = <span class="string">'copy.txt'</span>;  </span><br><span class="line">   <span class="comment">//新文件名   </span></span><br><span class="line">   $filename2 = $filename . <span class="string">'_new.txt'</span>;  </span><br><span class="line"></span><br><span class="line">   <span class="comment">//修改名字。</span></span><br><span class="line">   copy($filename, $filename2);</span><br><span class="line">   fclose($fi);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>(2)创建文件并复制到其他文件夹下面<font color="#FF7F00">↓↓</font></p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-    <span class="token comment" spellcheck="true">//创建文件</span>
-   <span class="token variable">$fi</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">'copy.txt'</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
-   <span class="token variable">$a</span><span class="token operator">=</span><span class="token function">fwrite</span><span class="token punctuation">(</span><span class="token variable">$fi</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">//旧文件名 </span>
-   <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">'copy.txt'</span><span class="token punctuation">;</span>  
-   <span class="token comment" spellcheck="true">//新文件名   </span>
-   <span class="token variable">$filename2</span> <span class="token operator">=</span> <span class="token string">"./01/copy.txt"</span><span class="token punctuation">;</span>  
-
-   <span class="token comment" spellcheck="true">//修改名字。</span>
-   <span class="token function">copy</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">,</span> <span class="token variable">$filename2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fi</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="comment">//创建文件</span></span><br><span class="line">   $fi = fopen(<span class="string">'copy.txt'</span>,<span class="string">"w"</span>);  </span><br><span class="line">   $a=fwrite($fi,<span class="string">""</span>);</span><br><span class="line">   <span class="comment">//旧文件名 </span></span><br><span class="line">   $filename = <span class="string">'copy.txt'</span>;  </span><br><span class="line">   <span class="comment">//新文件名   </span></span><br><span class="line">   $filename2 = <span class="string">"./01/copy.txt"</span>;  </span><br><span class="line"></span><br><span class="line">   <span class="comment">//修改名字。</span></span><br><span class="line">   copy($filename, $filename2);</span><br><span class="line">   fclose($fi);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <h4 id="4-3-删除文件"><a href="#4-3-删除文件" class="headerlink" title="4.3 删除文件"></a><font color="#3CB371" face="Comic sans MS">4.3 删除文件</font></h4><font face="Comic sans MS"><strong>bool</strong> <font color="#00B2EE"><strong>unlink(指定路径的文件)</strong></font>;<br></font> 
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-   <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">'test.txt'</span><span class="token punctuation">;</span>
-
-   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">unlink</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token keyword">echo</span>  <span class="token string">"删除文件成功 $filename!\n"</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-       <span class="token keyword">echo</span> <span class="token string">"删除 $filename 失败!\n"</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   $filename = <span class="string">'test.txt'</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (unlink($filename)) &#123;</span><br><span class="line">       <span class="keyword">echo</span>  <span class="string">"删除文件成功 $filename!\n"</span>;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       <span class="keyword">echo</span> <span class="string">"删除 $filename 失败!\n"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <h3 id="五-检测文件属性函数"><a href="#五-检测文件属性函数" class="headerlink" title="五. 检测文件属性函数"></a><font color="#FF6347" face="Comic sans MS">五. 检测文件属性函数</font></h3><table>
 <thead>
@@ -874,20 +642,7 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 </tbody>
 </table>
 <p>&emsp;</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-  <span class="token variable">$g</span><span class="token operator">=</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token string">"install.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">echo</span> <span class="token variable">$g</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token string">'install.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'已安装，请不要再次进行安装'</span><span class="token punctuation">;</span>
-   exit<span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-<span class="token keyword">else</span> 
-    <span class="token keyword">echo</span> <span class="token number">5462564</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-运行结果：<span class="token number">1</span> 已安装，请不要再次进行安装
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  $g=file_exists(<span class="string">"install.txt"</span>);</span><br><span class="line">  <span class="keyword">echo</span> $g;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span>(file_exists(<span class="string">'install.txt'</span>))&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">'已安装，请不要再次进行安装'</span>;</span><br><span class="line">   <span class="keyword">exit</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">	<span class="keyword">echo</span> <span class="number">5462564</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">运行结果：<span class="number">1</span> 已安装，请不要再次进行安装</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <h3 id="六-文件常用函数和常量"><a href="#六-文件常用函数和常量" class="headerlink" title="六. 文件常用函数和常量"></a><font color="#FF6347" face="Comic sans MS">六. 文件常用函数和常量</font></h3><h4 id="6-1-目录分割符常量"><a href="#6-1-目录分割符常量" class="headerlink" title="6.1 目录分割符常量"></a><font color="#3CB371" face="Comic sans MS">6.1 目录分割符常量</font></h4><table>
 <thead>
@@ -957,13 +712,7 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 </tbody>
 </table>
 <p>&emsp;</p>
-<h4 id="6-4-filesize-检测文件的大小"><a href="#6-4-filesize-检测文件的大小" class="headerlink" title="6.4 filesize 检测文件的大小"></a><font color="#3CB371" face="Comic sans MS">6.4 filesize 检测文件的大小</font></h4><pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">'demo.txt'</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token variable">$filename</span> <span class="token punctuation">.</span> <span class="token string">'文件大小为: '</span> <span class="token punctuation">.</span> <span class="token function">filesize</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">' bytes'</span><span class="token punctuation">;</span>
-
-<span class="token delimiter">?></span>
-</code></pre>
+<h4 id="6-4-filesize-检测文件的大小"><a href="#6-4-filesize-检测文件的大小" class="headerlink" title="6.4 filesize 检测文件的大小"></a><font color="#3CB371" face="Comic sans MS">6.4 filesize 检测文件的大小</font></h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$filename = <span class="string">'demo.txt'</span>;</span><br><span class="line"><span class="keyword">echo</span> $filename . <span class="string">'文件大小为: '</span> . filesize($filename) . <span class="string">' bytes'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>还有一些其他操作文件的函数，读取文件：</p>
 <table>
 <thead>
@@ -1014,65 +763,7 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 </tr>
 </tbody>
 </table>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string">'demo.txt'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">'$filename文件的上次访问时间是:'</span>  <span class="token punctuation">.</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">"Y-m-d H:i:s"</span><span class="token punctuation">,</span> <span class="token function">fileatime</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">echo</span> <span class="token string">'$filename文件的创建时间是: '</span> <span class="token punctuation">.</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">"Y-m-d H:i:s"</span><span class="token punctuation">,</span> <span class="token function">filectime</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">echo</span> <span class="token string">'$filename文件的修改时间是: '</span> <span class="token punctuation">.</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">"Y-m-d H:i:s"</span><span class="token punctuation">,</span> <span class="token function">filemtime</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token delimiter">?></span>
-</code></pre>
-<p>&emsp;<br>&emsp;</p>
-<h3 id="七-文件锁处理机制"><a href="#七-文件锁处理机制" class="headerlink" title="七. 文件锁处理机制"></a><font color="#FF6347" face="Comic sans MS">七. 文件锁处理机制</font></h3><blockquote>
-<p><strong>文件锁的用途：</strong><br>若一个人在写入一个文件，另外一个人同时也打个了这个文件进行写入文件。<br>这情况下，如果遇到一定的碰撞概率的话，不知道到底谁的操作为准。<br>因此，这个时候我们引入锁机制。<br>若用户A在写入或者读取这个文件的时候，将文件加上共享所。我可以读，其他人也可以读。<br>但是，我如果这与的时候。我使用独占锁。这个文件归我了，你们都别动，除非我将文件锁进行释放。</p>
-</blockquote>
-<font color="#FF7F00"><strong>注意：不论加上了文件锁后要注意释放。</strong></font>
-
-<p><strong>bool</strong> <font color="#00B2EE"><strong>flock(file,lock,block)</strong></font></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">file</td>
-<td style="text-align:left">必需。规定要锁定或释放的已打开的文件。</td>
-</tr>
-<tr>
-<td style="text-align:center">lock</td>
-<td style="text-align:left">必需。规定要使用哪种锁定类型。<br>lock 参数可以是以下值之一：<br>要取得共享锁定（读取的程序），将 lock 设为 LOCK_SH（PHP 4.0.1 以前的版本设置为 1）<br>要取得独占锁定（写入的程序），将 lock 设为 LOCK_EX（PHP 4.0.1 以前的版本中设置为 2）<br>要释放锁定（无论共享或独占），将 lock 设为 LOCK_UN（PHP 4.0.1 以前的版本中设置为 3）<br>如果不希望 flock() 在锁定时堵塞，则给 lock 加上 LOCK_NB(PHP 4.0.1 以前的版本中设置为 4)</td>
-</tr>
-<tr>
-<td style="text-align:center">block</td>
-<td style="text-align:left">可选。若设置为 1 或 true，则当进行锁定时阻挡其他进程。</td>
-</tr>
-</tbody>
-</table>
-<p>示例：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"demo.txt"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// 进行排它型锁定</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">flock</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token constant">LOCK_EX</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-
-   <span class="token function">fwrite</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token string">"文件这个时候被我独占了哟\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token comment" spellcheck="true">// 释放锁定</span>
-   <span class="token function">flock</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token constant">LOCK_UN</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-   <span class="token keyword">echo</span> <span class="token string">"锁失败，可能有人在操作，这个时候不能将文件上锁"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$filename = <span class="string">'demo.txt'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (file_exists($filename)) &#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">'$filename文件的上次访问时间是:'</span>  . date(<span class="string">"Y-m-d H:i:s"</span>, fileatime($filename));</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">'$filename文件的创建时间是: '</span> . date(<span class="string">"Y-m-d H:i:s"</span>, filectime($filename));</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'$filename文件的修改时间是: '</span> . date(<span class="string">"Y-m-d H:i:s"</span>, filemtime($filename));&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">```			</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&amp;emsp;</span><br><span class="line">&amp;emsp;</span><br><span class="line"><span class="comment">### &lt;font color="#FF6347" face="Comic sans MS"&gt;七. 文件锁处理机制&lt;/font&gt;</span></span><br><span class="line"></span><br><span class="line">&gt;**文件锁的用途：**</span><br><span class="line">若一个人在写入一个文件，另外一个人同时也打个了这个文件进行写入文件。</span><br><span class="line">这情况下，如果遇到一定的碰撞概率的话，不知道到底谁的操作为准。</span><br><span class="line">因此，这个时候我们引入锁机制。</span><br><span class="line">若用户A在写入或者读取这个文件的时候，将文件加上共享所。我可以读，其他人也可以读。</span><br><span class="line">但是，我如果这与的时候。我使用独占锁。这个文件归我了，你们都别动，除非我将文件锁进行释放。</span><br><span class="line"></span><br><span class="line">&lt;font color=<span class="string">"#FF7F00"</span>&gt;**注意：不论加上了文件锁后要注意释放。**&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">**bool** &lt;font color=<span class="string">"#00B2EE"</span>&gt;**flock(file,lock,block)**&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">参数	|描述|</span><br><span class="line">:-:|:-|	</span><br><span class="line">file	|必需。规定要锁定或释放的已打开的文件。</span><br><span class="line">lock	|必需。规定要使用哪种锁定类型。&lt;br&gt;lock 参数可以是以下值之一：&lt;br&gt;要取得共享锁定（读取的程序），将 lock 设为 LOCK_SH（PHP <span class="number">4.0</span><span class="number">.1</span> 以前的版本设置为 <span class="number">1</span>）&lt;br&gt;要取得独占锁定（写入的程序），将 lock 设为 LOCK_EX（PHP <span class="number">4.0</span><span class="number">.1</span> 以前的版本中设置为 <span class="number">2</span>）&lt;br&gt;要释放锁定（无论共享或独占），将 lock 设为 LOCK_UN（PHP <span class="number">4.0</span><span class="number">.1</span> 以前的版本中设置为 <span class="number">3</span>）&lt;br&gt;如果不希望 flock() 在锁定时堵塞，则给 lock 加上 LOCK_NB(PHP <span class="number">4.0</span><span class="number">.1</span> 以前的版本中设置为 <span class="number">4</span>)</span><br><span class="line">block	|可选。若设置为 <span class="number">1</span> 或 <span class="keyword">true</span>，则当进行锁定时阻挡其他进程。</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"></span><br><span class="line">```php</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$fp = fopen(<span class="string">"demo.txt"</span>, <span class="string">"r+"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 进行排它型锁定</span></span><br><span class="line"><span class="keyword">if</span> (flock($fp, LOCK_EX)) &#123; </span><br><span class="line"></span><br><span class="line">   fwrite($fp, <span class="string">"文件这个时候被我独占了哟\n"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 释放锁定</span></span><br><span class="line">   flock($fp, LOCK_UN);    </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"锁失败，可能有人在操作，这个时候不能将文件上锁"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fclose($fp);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>说明：</strong></p>
 <ol>
@@ -1157,13 +848,7 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 <p>上面的函数用法与linux的权限操作的用法一样。</p>
 </blockquote>
 <p>&emsp;<br>chmod 主要是修改文件的的权限</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token comment" spellcheck="true">//修改linux  系统/var/wwwroot/某文件权限为755</span>
-<span class="token function">chmod</span><span class="token punctuation">(</span><span class="token string">"/var/wwwroot/index.html"</span><span class="token punctuation">,</span> <span class="token number">755</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
-<span class="token function">chmod</span><span class="token punctuation">(</span><span class="token string">"/var/wwwroot/index.html"</span><span class="token punctuation">,</span> <span class="token string">"u+rwx,go+rx"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token function">chmod</span><span class="token punctuation">(</span><span class="token string">"/somedir/somefile"</span><span class="token punctuation">,</span> <span class="token number">0755</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//修改linux  系统/var/wwwroot/某文件权限为755</span></span><br><span class="line">chmod(<span class="string">"/var/wwwroot/index.html"</span>, <span class="number">755</span>);  </span><br><span class="line">chmod(<span class="string">"/var/wwwroot/index.html"</span>, <span class="string">"u+rwx,go+rx"</span>); </span><br><span class="line">chmod(<span class="string">"/somedir/somefile"</span>, <span class="number">0755</span>); </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <h3 id="十-文件路径函数"><a href="#十-文件路径函数" class="headerlink" title="十. 文件路径函数"></a><font color="#FF6347" face="Comic sans MS">十. 文件路径函数</font></h3><blockquote>
 <p><font color="#FF7F00"><strong>我们经常会遇到处理文件路径的情况。</strong></font></p>
@@ -1234,21 +919,7 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 </tr>
 </tbody>
 </table>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token variable">$path_parts</span> <span class="token operator">=</span> <span class="token function">pathinfo</span><span class="token punctuation">(</span><span class="token string">'d:/www/index.inc.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">echo</span> <span class="token string">'文件目录名：'</span><span class="token punctuation">.</span><span class="token variable">$path_parts</span><span class="token punctuation">[</span><span class="token string">'dirname'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">"&lt;br />"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'文件全名：'</span><span class="token punctuation">.</span><span class="token variable">$path_parts</span><span class="token punctuation">[</span><span class="token string">'basename'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">"&lt;br />"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'文件扩展名：'</span><span class="token punctuation">.</span><span class="token variable">$path_parts</span><span class="token punctuation">[</span><span class="token string">'extension'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">"&lt;br />"</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">'不包含扩展的文件名：'</span><span class="token punctuation">.</span><span class="token variable">$path_parts</span><span class="token punctuation">[</span><span class="token string">'filename'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">"&lt;br />"</span><span class="token punctuation">;</span> 
-<span class="token delimiter">?></span>
-
-结果如下：
-文件目录名：d<span class="token punctuation">:</span><span class="token operator">/</span>www
-文件全名：lib<span class="token punctuation">.</span>inc<span class="token punctuation">.</span>php
-文件扩展名：php
-不包含扩展的文件名：lib<span class="token punctuation">.</span>inc
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$path_parts = pathinfo(<span class="string">'d:/www/index.inc.php'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'文件目录名：'</span>.$path_parts[<span class="string">'dirname'</span>].<span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'文件全名：'</span>.$path_parts[<span class="string">'basename'</span>].<span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'文件扩展名：'</span>.$path_parts[<span class="string">'extension'</span>].<span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'不包含扩展的文件名：'</span>.$path_parts[<span class="string">'filename'</span>].<span class="string">"&lt;br /&gt;"</span>; </span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">结果如下：</span><br><span class="line">文件目录名：d:/www</span><br><span class="line">文件全名：lib.inc.php</span><br><span class="line">文件扩展名：php</span><br><span class="line">不包含扩展的文件名：lib.inc</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <h4 id="10-2-basename-函数"><a href="#10-2-basename-函数" class="headerlink" title="10.2 basename()函数"></a><font color="#3CB371" face="Comic sans MS">10.2 basename()函数</font></h4><blockquote>
 <font color="#FF7F00"><strong>功能：返回路径中不带有文件扩展名的文件名</strong></font>
@@ -1273,19 +944,7 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 </tr>
 </tbody>
 </table>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> 
-
-<span class="token keyword">echo</span> <span class="token string">"1: "</span><span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span><span class="token string">"d:/www/index.d"</span><span class="token punctuation">,</span> <span class="token string">".d"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">PHP_EOL</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"2: "</span><span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span><span class="token string">"d:/www/index.php"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">PHP_EOL</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token string">"3: "</span><span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span><span class="token string">"d:/www/passwd"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token constant">PHP_EOL</span><span class="token punctuation">;</span>
-
-<span class="token delimiter">?></span>
-
-执行结果如下
-<span class="token number">1</span><span class="token punctuation">:</span> index
-<span class="token number">2</span><span class="token punctuation">:</span> index<span class="token punctuation">.</span>php
-<span class="token number">3</span><span class="token punctuation">:</span> passwd
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"1: "</span>.basename(<span class="string">"d:/www/index.d"</span>, <span class="string">".d"</span>).PHP_EOL;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"2: "</span>.basename(<span class="string">"d:/www/index.php"</span>).PHP_EOL;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"3: "</span>.basename(<span class="string">"d:/www/passwd"</span>).PHP_EOL;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">执行结果如下</span><br><span class="line"><span class="number">1</span>: index</span><br><span class="line"><span class="number">2</span>: index.php</span><br><span class="line"><span class="number">3</span>: passwd</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <h4 id="10-3-dirname-函数"><a href="#10-3-dirname-函数" class="headerlink" title="10.3 dirname()函数"></a><font color="#3CB371" face="Comic sans MS">10.3 dirname()函数</font></h4><blockquote>
 <font color="#FF7F00"><strong>功能：返回文件路径的文件目录部份,不包含文件名。</strong></font>
@@ -1306,13 +965,7 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 </tr>
 </tbody>
 </table>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> 
-<span class="token keyword">echo</span> <span class="token function">dirname</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token delimiter">?></span>
-
-执行结果如下
-G<span class="token punctuation">:</span>\<span class="token package">WAMP<span class="token punctuation">\</span>www</span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="keyword">echo</span> dirname(<span class="keyword">__FILE__</span>); </span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">执行结果如下</span><br><span class="line">G:\WAMP\www</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <h4 id="10-4-parse-url-函数"><a href="#10-4-parse-url-函数" class="headerlink" title="10.4 parse_url()函数"></a><font color="#3CB371" face="Comic sans MS">10.4 parse_url()函数</font></h4><blockquote>
 <font color="#FF7F00"><strong>功能：将网址拆解成各个部份，返回一个数组</strong></font>
@@ -1320,45 +973,14 @@ G<span class="token punctuation">:</span>\<span class="token package">WAMP<span 
 <font color="#00B2EE"><strong>mixed parse_url ( string $路径 )</strong></font>
 
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token variable">$url</span> <span class="token operator">=</span> 'http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//username:password@hostname:9090/path?arg=value#anchor';</span>
-
-<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token function">parse_url</span><span class="token punctuation">(</span><span class="token variable">$url</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token delimiter">?></span>
-
-结果如下：
-<span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token punctuation">[</span><span class="token string">"scheme"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">"http"</span>
-<span class="token punctuation">[</span><span class="token string">"host"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token string">"hostname"</span>
-<span class="token punctuation">[</span><span class="token string">"port"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> <span class="token function">int</span><span class="token punctuation">(</span><span class="token number">9090</span><span class="token punctuation">)</span>
-<span class="token punctuation">[</span><span class="token string">"user"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token string">"username"</span>
-<span class="token punctuation">[</span><span class="token string">"pass"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token string">"password"</span>
-<span class="token punctuation">[</span><span class="token string">"path"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token string">"/path"</span>
-<span class="token punctuation">[</span><span class="token string">"query"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span> <span class="token string">"arg=value"</span>
-<span class="token punctuation">[</span><span class="token string">"fragment"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">></span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token string">"anchor"</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$url = <span class="string">'http://username:password@hostname:9090/path?arg=value#anchor'</span>;</span><br><span class="line"></span><br><span class="line">var_dump(parse_url($url));</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">结果如下：</span><br><span class="line"><span class="keyword">array</span>(<span class="number">8</span>) &#123;</span><br><span class="line">[<span class="string">"scheme"</span>]=&gt; string(<span class="number">4</span>) <span class="string">"http"</span></span><br><span class="line">[<span class="string">"host"</span>]=&gt; string(<span class="number">8</span>) <span class="string">"hostname"</span></span><br><span class="line">[<span class="string">"port"</span>]=&gt; int(<span class="number">9090</span>)</span><br><span class="line">[<span class="string">"user"</span>]=&gt; string(<span class="number">8</span>) <span class="string">"username"</span></span><br><span class="line">[<span class="string">"pass"</span>]=&gt; string(<span class="number">8</span>) <span class="string">"password"</span></span><br><span class="line">[<span class="string">"path"</span>]=&gt; string(<span class="number">5</span>) <span class="string">"/path"</span></span><br><span class="line">[<span class="string">"query"</span>]=&gt; string(<span class="number">9</span>) <span class="string">"arg=value"</span></span><br><span class="line">[<span class="string">"fragment"</span>]=&gt; string(<span class="number">6</span>) <span class="string">"anchor"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <h4 id="10-5-http-build-query-函数"><a href="#10-5-http-build-query-函数" class="headerlink" title="10.5 http_build_query()函数"></a><font color="#3CB371" face="Comic sans MS">10.5 http_build_query()函数</font></h4><blockquote>
 <font color="#FF7F00"><strong>功能：生成url 中的query字符串</strong></font>
 </blockquote>
 <font color="#00B2EE"><strong>string http_build_query ( mixed $需要处理的数据)</strong></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token comment" spellcheck="true">//定义一个关联数组</span>
-<span class="token variable">$data</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
-       <span class="token string">'username'</span><span class="token operator">=</span><span class="token operator">></span><span class="token string">'php'</span><span class="token punctuation">,</span>
-       <span class="token string">'area'</span><span class="token operator">=</span><span class="token operator">></span><span class="token string">'hubei'</span>
-        <span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//生成query内容</span>
-<span class="token keyword">echo</span> <span class="token function">http_build_query</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter">?></span>
-
-结果如下：
-username<span class="token operator">=</span>php<span class="token operator">&amp;</span>area<span class="token operator">=</span>hubei
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//定义一个关联数组</span></span><br><span class="line">$data = [</span><br><span class="line">       <span class="string">'username'</span>=&gt;<span class="string">'php'</span>,</span><br><span class="line">       <span class="string">'area'</span>=&gt;<span class="string">'hubei'</span></span><br><span class="line">        ];</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成query内容</span></span><br><span class="line"><span class="keyword">echo</span> http_build_query($data);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">结果如下：</span><br><span class="line">username=php&amp;area=hubei</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注：</strong>PHP_EOL 常量<br>在 windows平台相当于 echo “\r\n”;<br>在unix\linux平台相当于 echo “\n”;<br>在mac平台相当于 echo “\r”;</p>
 </blockquote>
@@ -1375,64 +997,11 @@ username<span class="token operator">=</span>php<span class="token operator">&am
 <p>index.php文件：</p>
 <font color="#FF7F00"></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?Php</span>
-<span class="token comment" spellcheck="true">//设置时区</span>
-<span class="token function">date_default_timezone_set</span><span class="token punctuation">(</span><span class="token string">'PRC'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//读了内容</span>
-@<span class="token variable">$string</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token string">'message.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//如果$string 不为空的时候执行，也就是message.txt中有留言数据</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token variable">$string</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//每一段留言有一个分格符，但是最后多出了一个&amp;^。因此，我们要将&amp;^删掉</span>
-    <span class="token variable">$string</span> <span class="token operator">=</span> <span class="token function">rtrim</span><span class="token punctuation">(</span><span class="token variable">$string</span><span class="token punctuation">,</span> <span class="token string">'&amp;^'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//以&amp;^切成数组</span>
-    <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">'&amp;^'</span><span class="token punctuation">,</span> <span class="token variable">$string</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//将留言内容读取</span>
-    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$arr</span> <span class="token keyword">as</span> <span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//将用户名和内容分开</span>
-        <span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$username</span><span class="token punctuation">,</span> <span class="token variable">$content</span><span class="token punctuation">,</span> <span class="token variable">$time</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">'$#'</span><span class="token punctuation">,</span> <span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">'用户名为&lt;font color="gree">'</span> <span class="token punctuation">.</span> <span class="token variable">$username</span> <span class="token punctuation">.</span> <span class="token string">'&lt;/font>内容为&lt;font color="red">'</span> <span class="token punctuation">.</span> <span class="token variable">$content</span> <span class="token punctuation">.</span> <span class="token string">'&lt;/font>时间为'</span> <span class="token punctuation">.</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'Y-m-d H:i:s'</span><span class="token punctuation">,</span> <span class="token variable">$time</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token string">'&lt;hr />'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token delimiter">?></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span></span>基于文件的留言本演示<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>write.php<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
-    用户名：<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>
-    留言内容：<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span>  <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>textarea</span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>提交<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?Php</span></span><br><span class="line"><span class="comment">//设置时区</span></span><br><span class="line">date_default_timezone_set(<span class="string">'PRC'</span>);</span><br><span class="line"><span class="comment">//读了内容</span></span><br><span class="line">@$string = file_get_contents(<span class="string">'message.txt'</span>);</span><br><span class="line"><span class="comment">//如果$string 不为空的时候执行，也就是message.txt中有留言数据</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>($string)) &#123;</span><br><span class="line">    <span class="comment">//每一段留言有一个分格符，但是最后多出了一个&amp;^。因此，我们要将&amp;^删掉</span></span><br><span class="line">    $string = rtrim($string, <span class="string">'&amp;^'</span>);</span><br><span class="line">    <span class="comment">//以&amp;^切成数组</span></span><br><span class="line">    $arr = explode(<span class="string">'&amp;^'</span>, $string);</span><br><span class="line">    <span class="comment">//将留言内容读取</span></span><br><span class="line">    <span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $value) &#123;</span><br><span class="line">        <span class="comment">//将用户名和内容分开</span></span><br><span class="line">        <span class="keyword">list</span>($username, $content, $time) = explode(<span class="string">'$#'</span>, $value);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'用户名为&lt;font color="gree"&gt;'</span> . $username . <span class="string">'&lt;/font&gt;内容为&lt;font color="red"&gt;'</span> . $content . <span class="string">'&lt;/font&gt;时间为'</span> . date(<span class="string">'Y-m-d H:i:s'</span>, $time);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'&lt;hr /&gt;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;h1&gt;基于文件的留言本演示&lt;/h1&gt;</span><br><span class="line">&lt;form action=<span class="string">"write.php"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">    用户名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"username"</span> /&gt;&lt;br /&gt;</span><br><span class="line">    留言内容：&lt;textarea  name=<span class="string">"content"</span>&gt;&lt;/textarea&gt;&lt;br /&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span> /&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>write.php文件：</p>
 <font color="#FF7F00"></font>
 
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
-<span class="token comment" spellcheck="true">//追加方式打开文件</span>
-<span class="token variable">$fp</span><span class="token operator">=</span><span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">'message.txt'</span><span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//设置时间</span>
-<span class="token variable">$time</span><span class="token operator">=</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//得到用户名</span>
-<span class="token variable">$username</span><span class="token operator">=</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//得到内容</span>
-<span class="token variable">$content</span><span class="token operator">=</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'content'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-<span class="token comment" spellcheck="true">//组合写入的字符串：内容和用户之间分开，使用$#</span>
-<span class="token comment" spellcheck="true">//行与行之间分开，使用&amp;^</span>
-<span class="token variable">$string</span><span class="token operator">=</span><span class="token variable">$username</span><span class="token punctuation">.</span><span class="token string">'$#'</span><span class="token punctuation">.</span><span class="token variable">$content</span><span class="token punctuation">.</span><span class="token string">'$#'</span><span class="token punctuation">.</span><span class="token variable">$time</span><span class="token punctuation">.</span><span class="token string">'&amp;^'</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//写入文件</span>
-<span class="token function">fwrite</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span><span class="token variable">$string</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//关闭文件</span>
-<span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'location:index.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token delimiter">?></span>
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//追加方式打开文件</span></span><br><span class="line">$fp=fopen(<span class="string">'message.txt'</span>,<span class="string">'a'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置时间</span></span><br><span class="line">$time=time();</span><br><span class="line"></span><br><span class="line"><span class="comment">//得到用户名</span></span><br><span class="line">$username=trim($_POST[<span class="string">'username'</span>]);</span><br><span class="line"><span class="comment">//得到内容</span></span><br><span class="line">$content=trim($_POST[<span class="string">'content'</span>]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//组合写入的字符串：内容和用户之间分开，使用$#</span></span><br><span class="line"><span class="comment">//行与行之间分开，使用&amp;^</span></span><br><span class="line">$string=$username.<span class="string">'$#'</span>.$content.<span class="string">'$#'</span>.$time.<span class="string">'&amp;^'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//写入文件</span></span><br><span class="line">fwrite($fp,$string);</span><br><span class="line"></span><br><span class="line"><span class="comment">//关闭文件</span></span><br><span class="line">fclose($fp);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">header(<span class="string">'location:index.php'</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <p><font color="#00B2EE"><strong>步骤1：</strong></font><strong>在www目录下的index.php里面复制上面相对应的内容、新建一个write.php文件并复制相应的内容、新建一个message.txt空文件；</strong></p>
 <p><font color="#00B2EE"><strong>步骤2：</strong></font><strong>运行index.php如下：</strong></p>
@@ -1442,520 +1011,216 @@ username<span class="token operator">=</span>php<span class="token operator">&am
 <p>&emsp;</p>
 <h4 id="11-2-修改配置文件"><a href="#11-2-修改配置文件" class="headerlink" title="11.2 修改配置文件"></a><font color="#3CB371" face="Comic sans MS">11.2 修改配置文件</font></h4><p><font color="#00B2EE">[<a href="http://www.php.cn/code/4935.html" target="_blank" rel="noopener"><strong>视频教程</strong></a>]</font><br>&emsp;</p>
 
-            </div>
-            <hr>
-
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
+      
     </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-            
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
     
-    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+  </div>
+  
     
-</div>
-
-<script src="/libs/share/js/social-share.min.js"></script>
-
-            <div class="reprint">
-                <p>
-                    <span class="reprint-tip">
-                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
-                    </span>
-                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
-                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/php-filesystem/" class="b-link-green">PHP-文件系统</a>
-                </p>
-            </div>
-        </div>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/post/php-filesystem/">PHP-文件系统</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Treecatee</a></p>
+        <p><span>发布时间:</span>2019-02-20, 13:29:20</p>
+        <p><span>最后更新:</span>2019-03-07, 00:37:44</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/post/php-filesystem/" title="PHP-文件系统">Treecatee.gitgub.io/post/php-filesystem/</a>
+            <span class="copy-path" data-clipboard-text="原文: Treecatee.gitgub.io/post/php-filesystem/　　作者: Treecatee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: 'f0e6b43ea59ab9e24a70',
-        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
-        repo: 'Directoree.github.io',
-        owner: 'Directoree',
-        admin: "Directoree",
-        id: '2019-02-20T13-29-20',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-    
-
-    
-
-    
-        <div class="disqus-card card" data-aos="fade-up">
-    <div id="disqus_thread" class="card-content">
-        <noscript>Please enable JavaScript to view the
-            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-    </div>
-</div>
-
-<script type="text/javascript">
-    disqus_config = function () {
-        this.page.url = 'Treecatee.gitgub.io/post/php-filesystem/';
-        this.page.identifier = '/post/php-filesystem/';
-        this.page.title = 'PHP-文件系统';
-    };
-    let disqus_shortname = '';
-
-    (function () { // DON'T EDIT BELOW THIS LINE
-        let d = document, s = d.createElement('script');
-        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
-        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
+    <nav id="article-nav">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
-            <div class="card">
+            <div id="article-nav-newer" class="article-nav-title">
                 <a href="/post/php-upload/">
-                    <div class="card-image">
-                        
-                        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="responsive-img" alt="PHP-文件上传">
-                        
-                        <span class="card-title">PHP-文件上传</span>
-                    </div>
+                    PHP-文件上传
                 </a>
-                <div class="card-content article-content">
-                    <div class="summary">(。・∀・)ノ
-&ensp;&ensp;
-PHP 文件上传
-
-&emsp;&emsp;
-一. 修改php.ini文件一般情况需要修改：[可以使用ctrl+f 搜索相关配置项。]
-
-
-
-配置项
-功能说明
-
-
-
-
-file_uploads
-on</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/PHP/" class="post-category" target="_blank">
-                                    PHP
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PHP语言/" target="_blank">
-                        <span class="chip bg-color">PHP语言</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
         
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
+            <div id="article-nav-older" class="article-nav-title">
                 <a href="/post/php-function/">
-                    <div class="card-image">
-                        
-                        <img src="https://i.loli.net/2019/02/21/5c6e422e83744.jpg" class="responsive-img" alt="PHP-函数">
-                        
-                        <span class="card-title">PHP-函数</span>
-                    </div>
+                    PHP-函数
                 </a>
-                <div class="card-content article-content">
-                    <div class="summary">PHP函数分为自定义函数和系统函数 (oﾟvﾟ)ノ
-
-&ensp;&ensp;
-PHP 函数
-
-&emsp;&emsp;
-&emsp;&emsp;
-一. 自定义函数1.1 自定义函数函数基本概念我们在实际开发过程当中需要有很多功能都需要反复</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-15
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/PHP/" class="post-category" target="_blank">
-                                    PHP
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PHP语言/" target="_blank">
-                        <span class="chip bg-color">PHP语言</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-读取文件"><span class="toc-number">1.</span> <span class="toc-text">一. 读取文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-readfile读取文件"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 readfile读取文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-file-get-contents打开文件"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 file_get_contents打开文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-fopen、fread、fclose操作读取文件"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 fopen、fread、fclose操作读取文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-创建和修改文件内容"><span class="toc-number">2.</span> <span class="toc-text">二. 创建和修改文件内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-file-put-contents写入文件"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 file_put_contents写入文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-fwrite配合fopen进行写入操作、fopen-打开模式的比较"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 fwrite配合fopen进行写入操作、fopen()打开模式的比较</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-a模式和w模式、x模式和w模式的不同"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 a模式和w模式、x模式和w模式的不同</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-创建临时文件"><span class="toc-number">3.</span> <span class="toc-text">三. 创建临时文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-移动、拷贝和删除文件"><span class="toc-number">4.</span> <span class="toc-text">四. 移动、拷贝和删除文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-重命名文件"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 重命名文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-复制文件"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 复制文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-删除文件"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 删除文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五-检测文件属性函数"><span class="toc-number">5.</span> <span class="toc-text">五. 检测文件属性函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六-文件常用函数和常量"><span class="toc-number">6.</span> <span class="toc-text">六. 文件常用函数和常量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-目录分割符常量"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 目录分割符常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-DIRECTORY-SEPARATOR常量"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 DIRECTORY_SEPARATOR常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-文件指针操作函数"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 文件指针操作函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-filesize-检测文件的大小"><span class="toc-number">6.4.</span> <span class="toc-text">6.4 filesize 检测文件的大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-5-文件的时间函数"><span class="toc-number">6.5.</span> <span class="toc-text">6.5 文件的时间函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八-目录-文件夹-处理函数"><span class="toc-number">7.</span> <span class="toc-text">八. 目录(文件夹)处理函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九-文件权限设置"><span class="toc-number">8.</span> <span class="toc-text">九. 文件权限设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十-文件路径函数"><span class="toc-number">9.</span> <span class="toc-text">十. 文件路径函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-1-pathinfo-函数"><span class="toc-number">9.1.</span> <span class="toc-text">10.1 pathinfo()函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-2-basename-函数"><span class="toc-number">9.2.</span> <span class="toc-text">10.2 basename()函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-3-dirname-函数"><span class="toc-number">9.3.</span> <span class="toc-text">10.3 dirname()函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-4-parse-url-函数"><span class="toc-number">9.4.</span> <span class="toc-text">10.4 parse_url()函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-5-http-build-query-函数"><span class="toc-number">9.5.</span> <span class="toc-text">10.5 http_build_query()函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十一-文件系统实例案例"><span class="toc-number">10.</span> <span class="toc-text">十一. 文件系统实例案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11-1-文件留言本"><span class="toc-number">10.1.</span> <span class="toc-text">11.1 文件留言本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-2-修改配置文件"><span class="toc-number">10.2.</span> <span class="toc-text">11.2 修改配置文件</span></a></li></ol></li></ol>
         
     </div>
-</article>
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
         }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
         }
+    </style>
 
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + 'From: Treecatee<br />'
-            + 'Author: Treecatee<br />'
-            + 'Link: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
-    </div>
-    <div class="col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
-            <div id="toc-content"></div>
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
         </div>
-    </div>
-</div>
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4,h5,h6'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-    });
-</script>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"PHP-文件系统　| Treecatee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
     
 
-</main>
-
-
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
-
-            
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">158k</span>
-            
-
-            
-			
-                <br>
-                
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
-        <i class="fa fa-qq"></i>
-    </a>
-
-
-
-    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-mixcloud"></i>
-    </a>
+    
 </div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/post/php-upload/" title="上一篇: PHP-文件上传">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/post/php-function/" title="下一篇: PHP-函数">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/html-css/">CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-basics/">HTML-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-filecontents/">Python-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-modules-packages/">Python-模块和包</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-generator-iterator/">Python-生成器与迭代器</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-function/">Python-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-operators/">Python-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-conditionalstatements-loops/">Python-条件语句与循环</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-list-tuple-dict-set/">Python-列表、元组、字典、集合</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-coding/">Python-字符编码&字符串&格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-variables-datatypes/">Python-变量和数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-grammar/">Python-基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-basics/">Python-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-sessionmanagement/">PHP-会话管理和控制</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-mysql/">PHP操作MySQL数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mysql-primer/">MySQL入门</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-upload/">PHP-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-filesystem/">PHP-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-function/">PHP-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-regular-expression/">PHP-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-namespace/">PHP-命名空间</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-1/">PHP基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/wireshark-1/">Wireshark简单介绍和数据包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-4/">Java数组(3.9)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-3/">Java简单语句、复合语句、控制语句(3.7-3.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-2/">Java运算符和数据类型转换(3.4-3.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-exception-handling7/">Java-异常处理(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-variable-innerclass6/">Java变量及其传递、内部类(4.9-4.10)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-interface-package5/">Java接口、包(4.7-4.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hash-message-authentication/">Hash函数和消息认证</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-inherit-4/">Java构造方法、对象创建、继承(4.5-4.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sequence-password/">对称密码-序列密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/block-cipher/">对称密码-分组密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-access-permissions-3/">Java类、成员变量、static访问权限(4.1-4.4)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-1/">Java语言基础的字符常变量等(3.1-3.3)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-user-agen-cookie/">《HTTP协议请求头部的User-Agen和Cookie》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xampp-dvwa/">XAMPP环境下配置DVWA</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-io-1/">Java的输入输出</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sqlmap-shell/">SQLMAP命令大全</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mathematical-basis/">信息安全数学基础复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/music-collection/">Music-Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/post/pvris-onlylove/">PVRIS-OnlyLove</a></li><li class="post-list-item"><a class="post-list-link" href="/post/yang-zong-wei-kong-bai-ge-zhuan-ji/">杨宗纬-《空白格》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/network-security/">网络安全复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/algorithm/">算法复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/https-password/">内网称霸之《HTTPS账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-password/">内网称霸之《HTTP账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-picture/">内网称霸之《arp欺骗获取目标主机浏览的图片》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-broken-network/">内网称霸之《ARP欺骗断网攻击》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/resourses/">资源</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-xue-ru-shui-xing-ji-ti-mian-shou-cang-ban/">叶雪如-《水星记》《体面》收藏版</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-si-wu-ji-dan-zhuan-ji/">薛之谦-《肆无忌惮》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-na-shi-ni-chi-kai-liao-bei-jing-de-sheng-huo-zhuan-ji/">薛之谦-《那是你离开了北京的生活》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-guai-ka-zhuan-ji/">薛之谦-《怪咖》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit3/">Metasploit之渗透安卓实战</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit2/">Metasploit工具Meterpreter的命令速查表</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-du-zhuan-ji/">薛之谦-《渡》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-zui-hao-zhuan-ji/">薛之谦-《最好》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/creategithubblog/">Hexo+Github博客搭建终极大法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/markdownusage/">Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit1/">msfvenom生成各类Payload命令，远程木马攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Treecatee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
-
-<div class="progress-bar"></div>
-
-
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
-        </div>
-        <div id="searchResult"></div>
     </div>
-</div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
 </script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
-</div>
 
-
-<script src="/libs/materialize/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>

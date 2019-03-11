@@ -1,389 +1,324 @@
-<!DOCTYPE HTML>
-<html lang="">
-
-
+<!DOCTYPE html>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Java-异常处理(5), Treecatee">
-    <meta name="description" content="&amp;emsp;&amp;emsp;
-异常处理
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Treecatee">
 
 
-&amp;emsp;
-一、 Java异常基础1.1  为什么要引入异常处理机制？程序的错误分为：编译错误：程序员编写程序时语法上出现的错误；运行错误：程序员编写的程序在语法上没有错误，但是程序在运行时出现错误">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Java-异常处理(5) | Treecatee</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-        
-    </style>
+<meta name="description" content="&amp;emsp;&amp;emsp; 异常处理   &amp;emsp; 一、 Java异常基础1.1  为什么要引入异常处理机制？程序的错误分为：编译错误：程序员编写程序时语法上出现的错误；运行错误：程序员编写的程序在语法上没有错误，但是程序在运行时出现错误，本章就主要针对该类错误讲解 -&amp;ensp;- 即异常、异常类和异常处理机制。  &amp;emsp; 1.2  以往的错误处理方法主要缺陷：&amp;emsp;程序复杂&amp;em">
+<meta name="keywords" content="Java学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java-异常处理(5)">
+<meta property="og:url" content="Treecatee.gitgub.io/post/java-exception-handling7/index.html">
+<meta property="og:site_name" content="Treecatee">
+<meta property="og:description" content="&amp;emsp;&amp;emsp; 异常处理   &amp;emsp; 一、 Java异常基础1.1  为什么要引入异常处理机制？程序的错误分为：编译错误：程序员编写程序时语法上出现的错误；运行错误：程序员编写的程序在语法上没有错误，但是程序在运行时出现错误，本章就主要针对该类错误讲解 -&amp;ensp;- 即异常、异常类和异常处理机制。  &amp;emsp; 1.2  以往的错误处理方法主要缺陷：&amp;emsp;程序复杂&amp;em">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2018/12/28/5c25dfcbaa09b.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/28/5c25e36859c86.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/29/5c2656f46e0d4.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/29/5c2656f96a129.png">
+<meta property="og:updated_time" content="2019-03-06T16:38:47.978Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java-异常处理(5)">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp; 异常处理   &amp;emsp; 一、 Java异常基础1.1  为什么要引入异常处理机制？程序的错误分为：编译错误：程序员编写程序时语法上出现的错误；运行错误：程序员编写的程序在语法上没有错误，但是程序在运行时出现错误，本章就主要针对该类错误讲解 -&amp;ensp;- 即异常、异常类和异常处理机制。  &amp;emsp; 1.2  以往的错误处理方法主要缺陷：&amp;emsp;程序复杂&amp;em">
+<meta name="twitter:image" content="https://i.loli.net/2018/12/28/5c25dfcbaa09b.png">
 
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 
-<body>
-
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Treecatee</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>主页</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>标签</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>分类</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-calendar"></i>
-            
-            <span>时间轴</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>关于</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/book" class="waves-effect waves-light">
-            
-            <i class="fa fa-address-book"></i>
-            
-            <span>资源</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/links" class="waves-effect waves-light">
-            
-            <i class="fa fa-edit"></i>
-            
-            <span>链接</span>
-        </a>
-    </li>
-    
-    <li>
-        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-            <i id="searchIcon" class="fa fa-search" title="Search"></i>
-        </a>
-    </li>
-</ul>
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Treecatee</div>
-        <div class="logo-desc">
-            
-            得之我幸，失之我命。
-            
-        </div>
-    </div>
-
-    
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                主页
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                标签
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                分类
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-calendar"></i>
-                
-                时间轴
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                关于
-            </a>
-        </li>
-        
-        <li>
-            <a href="/book" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-address-book"></i>
-                
-                资源
-            </a>
-        </li>
-        
-        <li>
-            <a href="/links" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-edit"></i>
-                
-                链接
-            </a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-        </div>
-    </nav>
-
-</header>
+    <link rel="alternate" href="/atom.xml" title="Treecatee" type="application/atom+xml">
 
 
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Java-异常处理(5) | Treecatee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
 <script>
-    (function() {
-        let pwd = '';
-        if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，将返回主页！');
-                location.href = '/';
-            }
-        }
-    })();
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
 </script>
 
 
+    <script> yiliaConfig.jquery_ui = [false]; </script>
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2018/12/28/5c2580ec2bc8a.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <div class="description center-align post-title">
-                        Java-异常处理(5)
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Treecatee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">得失弹指一挥间。</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
                     </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
                 </div>
             </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP欺骗/">ARP欺骗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA/">DVWA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash函数/">Hash函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java访问权限/">Java访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java语言/">Java语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meterpreter命令/">Meterpreter命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP语言/">PHP语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python语言/">Python语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLMAP命令/">SQLMAP命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/User-Agen/">User-Agen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wireshark/">Wireshark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msfvenom/">msfvenom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信安数学/">信安数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分组密码/">分组密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全指导/">安全指导</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全笔记/">安全笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓渗透/">安卓渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/序列密码/">序列密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法学习/">算法学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/远程木马攻击/">远程木马攻击</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
         </div>
-    </div>
+    </header>                
 </div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Treecatee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Treecatee</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">得失弹指一挥间。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-Java-Exception-Handling7" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/java-exception-handling7/" class="article-date">
+      <time datetime="2018-12-28T01:47:07.000Z" itemprop="datePublished">2018-12-28</time>
+</a>
 
 
-
-<main class="post-container content">
-
+    </div>
+  
+  <div class="article-inner">
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java-异常处理(5)
+    </h1>
+  
 
-    #articleContent :focus {
-        outline: none;
-    }
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
 
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
 
-    .toc-widget {
-        padding-left: 20px;
-    }
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java学习/">Java学习</a></li></ul>
+    </div>
 
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-</style>
-<div class="row">
-    <div class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Java学习/" target="_blank">
-                                <span class="chip bg-color">Java学习</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                Java
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2018-12-28
-                </div>
-
-                
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        5.3k
-                    </div>
-                    
-
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        19 Min
-                    </div>
-                    
-                
-				
-				
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
-        </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>&emsp;<br>&emsp;</p>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&emsp;<br>&emsp;</p>
 <center><font color="#3CB371" face="Comic sans MS" size="5"><strong>异常处理</strong></font></center>
 
 <p><a href="https://i.loli.net/2018/12/28/5c25dfcbaa09b.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/12/28/5c25dfcbaa09b.png" alt="程序错误.png"></a><br><a href="https://i.loli.net/2018/12/28/5c25e36859c86.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/12/28/5c25e36859c86.png" alt="程序错误1.png"></a></p>
@@ -393,110 +328,12 @@
 <p>&emsp;</p>
 <h4 id="1-2-以往的错误处理方法"><a href="#1-2-以往的错误处理方法" class="headerlink" title="1.2  以往的错误处理方法"></a><font color="#20B2AA" face="Comic sans MS">1.2  以往的错误处理方法</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><strong>主要缺陷：</strong><br>&emsp;程序复杂<br>&emsp;可靠性差<br>&emsp;返回信息有限<br>&emsp;返回代码标准化困难　<br>以往的程序开发过程中，常常采用<font color="#00B2EE"><strong>返回值</strong></font>进行处理。例如，在编写一个方法，可以返回一个状态代码，调用者<br>根据状态代码判断出错与否。若状态代码表示一个错误，则调用该错误的处理程序进行相应的处理，或显示一<br>个错误页面或错误信息。<br></font></td></tr></table>
 
-<p><em>举例</em> <strong><em>以往的错误处理方法：采用返回值进行处理</em></strong></p>
-<pre class=" language-bash"><code class="language-bash">举例：实现将一个文件从硬盘加载近来，导致加载可能失败的运行错误有硬盘错误、文件无法找到等
-int status<span class="token operator">=</span>loadTextfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-If <span class="token punctuation">(</span>status<span class="token operator">!=</span>1<span class="token punctuation">)</span><span class="token punctuation">{</span>
-  //something unusual happened, describe it
- switch<span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">case</span> 2: 
-       //file not found
-      <span class="token keyword">break</span><span class="token punctuation">;</span>
-   <span class="token keyword">case</span> 3:
-       //disk error
-   default:
-      //other error<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>else <span class="token punctuation">{</span>
-    //file loaded OK, <span class="token keyword">continue</span> with program<span class="token punctuation">}</span> 
-</code></pre>
-<p>&emsp;<br>&emsp;</p>
-<h4 id="1-3-Java异常处理方法"><a href="#1-3-Java异常处理方法" class="headerlink" title="1.3  Java异常处理方法"></a><font color="#20B2AA" face="Comic sans MS">1.3  Java异常处理方法</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">Java异常处理方法：Java为运行错误引入了异常、异常类和异常处理机制。<br>  <strong>异常：</strong>特殊的运行错误，是在程序运行过程中发生的、会打断程序正常执行的错误<br>　例如：<br>　除0溢出<br>　文件找不到<br>  数组元素下标越界　<br><br><strong>异常类：</strong>Java用面向对象的方法处理异常，Java的异常类是处理运行时错误的特殊类，每一种异常类对应一种<br>特定的运行错误，每一个异常事件由一个异常类的对象来代表。<br> <em>例如：除0溢出（ArithmeticException）<br>　　　文件找不到（FileNotFoundException）<br>　　　数组元素下标越界（ArrayIndexOutofBoundsException）</em><br><br><strong>异常处理机制：抛出异常——捕捉异常：</strong><br> 1.  当出现了一些错误，方法都会产生一个<font color="red">异常对象</font>，这个异常对象将交由运行系统来处理。此过程就称为抛出<br>     <font color="red">(throwing)异常</font>。<strong>包括：系统抛出、用户自定义抛出。</strong><br> 2.  接着，运行系统开始寻找合适的处理方法，来处理这个异常。如果系统找到了一个适合的处理该异常方法，<br>     这一过程就叫<font color="red">捕获异常</font>。<br></font></td></tr></table>
-
-<p>&emsp;<br>&emsp;</p>
-<h4 id="1-4-异常处理的语法支持"><a href="#1-4-异常处理的语法支持" class="headerlink" title="1.4  异常处理的语法支持"></a><font color="#20B2AA" face="Comic sans MS">1.4  异常处理的语法支持</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">       <strong>－try,catch,throws,throw,finally</strong><br>(1) try包含可能出现异常的语句块；<br>(2) 一个或多个catch块紧随try{}块，每个catch块通常处理指定类型的异常；<br>(3) finally引导块紧随catch块后，主要用于清理现场（可有可无）。<br>格式：<br>try<br>{ ……<br>}catch( ExceptionName1 e )<br>{ ……}<br>catch( ExceptionName2 e )<br>{ ……}<br>finally<br>{ ……}<br>注意：finally总是执行，catch块不一定执行<br></font></td></tr></table>
-
-<p>&emsp;<br>&emsp;</p>
-<h4 id="1-5-总结"><a href="#1-5-总结" class="headerlink" title="1.5  总结"></a><font color="#20B2AA" face="Comic sans MS">1.5  总结</font></h4><table><tr><td bgcolor="#EEE0E5"><font face="Comic sans MS"> (1) Java的异常处理把错误集中起来统一处理。程序员只需要说明何处可能出现异常，如何处理即可；<br> (2) 采用面向对象的思想标准化了各种错误的类型；<br> (3) Java把程序运行过程中可能遇到的问题分为两类，一类是致命性的，即程序遇到了非常严重的不正常状<br> 态，不能简单地恢复执行，这就是<font color="red"><strong>错误(对应Error类)</strong></font>，如程序运行过程中内存耗尽。另一类是非致命性的，<br> 通过某种处理后程序还能继续运行，这就是<font color="red"><strong>异常(对应Exception类)</strong></font>。<br></font></td></tr></table>
-
-
-<p>&emsp;<br>&emsp;</p>
-<h3 id="二、-异常类的层次"><a href="#二、-异常类的层次" class="headerlink" title="二、 异常类的层次"></a><font color="#FF6347" face="Comic sans MS">二、 异常类的层次</font></h3><h4 id="2-1-异常分类"><a href="#2-1-异常分类" class="headerlink" title="2.1  异常分类"></a><font color="#20B2AA" face="Comic sans MS">2.1  异常分类</font></h4><font face="Comic sans MS"><font color="red"><strong>☕异常类：</strong></font>异常在Java中都是作为类的实例(对象)的形式出现的。<br>&emsp;     如 Throwable类, Exception类, Error类……<br><br><font color="red"><strong>☕Java中异常分类：</strong></font><br> (1)  <font color="#00B2EE"><strong>Error类及其子类：</strong></font>描述Java运行时刻系统内部的错误或资源枯竭导致的错误，无法恢复和抛出，发生几率小；<br> (2)  <font color="#00B2EE"><strong>Exception类及其子类：</strong></font>普通程序可以从中恢复，分为<font color="red"><strong>运行时异常</strong></font>和<font color="red"><strong>非运行时异常</strong></font>。<br><br>&emsp;异常在Java中也是作为类的实例的形式出现的。Java中的所有的异常类都是从Throwable类派生出来的。<font color="red"><strong>Throwable类有两个直接子类：</strong></font><font color="#00B2EE"><strong>java.lang.Error</strong></font> 和 <font color="#00B2EE"><strong>java.lang.Exception</strong></font>。<br><br><br>异常类的层次结构如下图所示。<br><img src="https://i.loli.net/2018/12/28/5c2621a200c43.png" alt="58.png"><br><strong>(1) 🔺Error类及其子类主要用来描述一些Java运行时刻系统内部的错误或资源枯竭导致的错误。</strong>普通的程序不能从这类错误中恢复，也无法抛出这种类型的错误，这类错误出现的几率是很小的。<br><strong>(2) 🔺另一个异常类的子类是Exception类和它的子类。</strong>在编程中错误的处理主要是对这类错误的处理，如除数为零、数组下标越界等。类Exception是普通程序可以从中恢复的所有规范了的异常的父类。<br></font>
-
-<p>&emsp;<br>&emsp;</p>
-<h4 id="2-2-Exception类的子类"><a href="#2-2-Exception类的子类" class="headerlink" title="2.2  Exception类的子类"></a><font color="#20B2AA" face="Comic sans MS">2.2  Exception类的子类</font></h4><font face="Comic sans MS"><font color="red"><strong>☕Exception类子类有两种：</strong></font><br><strong>运行时异常</strong>和<strong>非运行时异常（一般异常）</strong>　&emsp;&emsp;&emsp;　<em>区别？？？</em><br><font color="#00B2EE"><strong>（1）运行时异常：</strong></font>RuntimeException类及其所有子类。      运行时异常是程序员编写程序不正确所导致的异常，理论上，程序员经过检查和测试可以查出这类错误。如<strong>除数为零等，错误的强制类型转换、数组越界访问、空引用</strong>。<br><font color="#00B2EE"><strong>（2）非运行时异常（一般异常）：</strong></font>指可以由编译器在编译时检测到的、可能会发生在方法执行过程中的异常，如找不到指定的文件等，这不是程序本身的错误，如果这些异常情况没有发生，程序本身仍然是完好的。　　<br><font color="red"><strong>注意：</strong></font><strong>编译器强制要求Java程序必须</strong><font color="#00B2EE"><strong>捕获</strong></font><strong>或</strong><font color="#00B2EE"><strong>声明抛出</strong></font><strong>所有非运行时异常，但对运行时异常不作要求。运行时异常编译可以通过但是运行时出现异常；非运行时异常编译的时候就通不过。</strong><br><br><em>例如：格式不正确的URL、试图为一个不存在的类找到一个代表它的类的对象。除了runtimeexception及其子类以外，其他exception类的子类都是非运行时异常。</em><br></font>
-
-<pre class=" language-bash"><code class="language-bash">//运行时异常和非运行时异常区别举例  
-<span class="token punctuation">[</span>例5-1<span class="token punctuation">]</span> RuntimeExceptionDemo1.java
-class RuntimeExceptionDemo1<span class="token punctuation">{</span>  
-public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    int i<span class="token operator">=</span>0<span class="token punctuation">;</span>
-System.out.println<span class="token punctuation">(</span>2/0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">}</span>
-
-该程序能编译通过，而在运行时，出现如下提示：
-<span class="token operator">></span> javac RuntimeExceptionDemo1.java
-<span class="token operator">></span> java RuntimeExceptionDemo1
-Exception <span class="token keyword">in</span> thread <span class="token string">"main"</span> java.lang.ArithmeticException: / by zero at 
-RuntimeExceptionDemo1.main<span class="token punctuation">(</span>RuntimeExceptionDemo1.java:4<span class="token punctuation">)</span>
-//这里的<span class="token string">"ArithmeticException"</span>
-</code></pre>
-<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>例5-2<span class="token punctuation">]</span> NonRuntimeExceptionDemo1.java
-<span class="token function">import</span> java.io.*<span class="token punctuation">;</span>
-class NonRuntimeExceptionDemo1
-<span class="token punctuation">{</span> 
-      public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-       FileInputStream in<span class="token operator">=</span>new FileInputStream<span class="token punctuation">(</span><span class="token string">"text.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        int s<span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token variable"><span class="token punctuation">((</span>s<span class="token operator">=</span>in.read<span class="token punctuation">(</span><span class="token punctuation">))</span></span><span class="token operator">!=</span>-1<span class="token punctuation">)</span> System.out.print<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        in.close<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-会出现如下的错误提示：
-javac NonRuntimeExceptionDemo1.java
-NonRuntimeExceptionDemo1.java:5: unreported exception java.io.FileNotFoundException<span class="token punctuation">;</span> must
- be caught or declared to be thrown
-FileInputStream in<span class="token operator">=</span>new FileInputStream<span class="token punctuation">(</span><span class="token string">"text.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                   ^
-NonRuntimeExceptionDemo1.java:7: unreported exception java.io.IOException<span class="token punctuation">;</span> mustbe
- caught or declared to be thrown
-<span class="token keyword">while</span><span class="token variable"><span class="token punctuation">((</span>s<span class="token operator">=</span>in.read<span class="token punctuation">(</span><span class="token punctuation">))</span></span><span class="token operator">!=</span>-1<span class="token punctuation">)</span> System.out.print<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                ^
-NonRuntimeExceptionDemo1.java:8: unreported exception java.io.IOException<span class="token punctuation">;</span> mustbe caught 
-or declared to be thrown
-in.close<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<p><em>举例</em> <strong><em>以往的错误处理方法：采用返回值进行处理</em></strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line">举例：实现将一个文件从硬盘加载近来，导致加载可能失败的运行错误有硬盘错误、文件无法找到等</span><br><span class="line">int status=loadTextfile();</span><br><span class="line">If (status!=1)&#123;</span><br><span class="line">  //something unusual happened, describe it</span><br><span class="line"> switch(status) &#123;</span><br><span class="line">    <span class="keyword">case</span> 2: </span><br><span class="line">       //file not found</span><br><span class="line">      <span class="built_in">break</span>;</span><br><span class="line">   <span class="keyword">case</span> 3:</span><br><span class="line">       //disk error</span><br><span class="line">   default:</span><br><span class="line">      //other error&#125;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    //file loaded OK, <span class="built_in">continue</span> with program&#125; </span><br><span class="line">```      </span><br><span class="line"></span><br><span class="line">&amp;emsp;</span><br><span class="line">&amp;emsp;</span><br><span class="line"><span class="comment">#### &lt;font color="#20B2AA" face="Comic sans MS"&gt;1.3  Java异常处理方法&lt;/font&gt;</span></span><br><span class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=<span class="comment">#ADD8E6&gt;&lt;font face="Comic sans MS"&gt;Java异常处理方法：Java为运行错误引入了异常、异常类和异常处理机制。</span></span><br><span class="line">  **异常：**特殊的运行错误，是在程序运行过程中发生的、会打断程序正常执行的错误</span><br><span class="line">　例如：</span><br><span class="line">　除0溢出</span><br><span class="line">　文件找不到</span><br><span class="line">  数组元素下标越界　</span><br><span class="line"></span><br><span class="line">**异常类：**Java用面向对象的方法处理异常，Java的异常类是处理运行时错误的特殊类，每一种异常类对应一种</span><br><span class="line">特定的运行错误，每一个异常事件由一个异常类的对象来代表。</span><br><span class="line"> *例如：除0溢出（ArithmeticException）</span><br><span class="line">　　　文件找不到（FileNotFoundException）</span><br><span class="line">　　　数组元素下标越界（ArrayIndexOutofBoundsException）*</span><br><span class="line"></span><br><span class="line">**异常处理机制：抛出异常——捕捉异常：**</span><br><span class="line"> 1.  当出现了一些错误，方法都会产生一个&lt;font color=<span class="string">"red"</span>&gt;异常对象&lt;/font&gt;，这个异常对象将交由运行系统来处理。此过程就称为抛出</span><br><span class="line">     &lt;font color=<span class="string">"red"</span>&gt;(throwing)异常&lt;/font&gt;。**包括：系统抛出、用户自定义抛出。**</span><br><span class="line"> 2.  接着，运行系统开始寻找合适的处理方法，来处理这个异常。如果系统找到了一个适合的处理该异常方法，</span><br><span class="line">     这一过程就叫&lt;font color=<span class="string">"red"</span>&gt;捕获异常&lt;/font&gt;。</span><br><span class="line">&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line"></span><br><span class="line">&amp;emsp;</span><br><span class="line">&amp;emsp;</span><br><span class="line"><span class="comment">#### &lt;font color="#20B2AA" face="Comic sans MS"&gt;1.4  异常处理的语法支持&lt;/font&gt;</span></span><br><span class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=<span class="comment">#ADD8E6&gt;&lt;font face="Comic sans MS"&gt;       **－try,catch,throws,throw,finally**</span></span><br><span class="line">(1) try包含可能出现异常的语句块；</span><br><span class="line">(2) 一个或多个catch块紧随try&#123;&#125;块，每个catch块通常处理指定类型的异常；</span><br><span class="line">(3) finally引导块紧随catch块后，主要用于清理现场（可有可无）。</span><br><span class="line">格式：</span><br><span class="line">try</span><br><span class="line">&#123; ......</span><br><span class="line">&#125;catch( ExceptionName1 e )</span><br><span class="line">&#123; ......&#125;</span><br><span class="line">catch( ExceptionName2 e )</span><br><span class="line">&#123; ......&#125;</span><br><span class="line">finally</span><br><span class="line">&#123; ......&#125;</span><br><span class="line">注意：finally总是执行，catch块不一定执行</span><br><span class="line">&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line"></span><br><span class="line">&amp;emsp;</span><br><span class="line">&amp;emsp;</span><br><span class="line"><span class="comment">#### &lt;font color="#20B2AA" face="Comic sans MS"&gt;1.5  总结&lt;/font&gt;</span></span><br><span class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=<span class="comment">#EEE0E5&gt;&lt;font face="Comic sans MS"&gt; (1) Java的异常处理把错误集中起来统一处理。程序员只需要说明何处可能出现异常，如何处理即可；</span></span><br><span class="line"> (2) 采用面向对象的思想标准化了各种错误的类型；</span><br><span class="line"> (3) Java把程序运行过程中可能遇到的问题分为两类，一类是致命性的，即程序遇到了非常严重的不正常状</span><br><span class="line"> 态，不能简单地恢复执行，这就是&lt;font color=<span class="string">"red"</span>&gt;**错误(对应Error类)**&lt;/font&gt;，如程序运行过程中内存耗尽。另一类是非致命性的，</span><br><span class="line"> 通过某种处理后程序还能继续运行，这就是&lt;font color=<span class="string">"red"</span>&gt;**异常(对应Exception类)**&lt;/font&gt;。</span><br><span class="line">&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&amp;emsp;</span><br><span class="line">&amp;emsp;</span><br><span class="line"><span class="comment">### &lt;font color="#FF6347" face="Comic sans MS"&gt;二、 异常类的层次&lt;/font&gt;</span></span><br><span class="line"><span class="comment">#### &lt;font color="#20B2AA" face="Comic sans MS"&gt;2.1  异常分类&lt;/font&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;font face=<span class="string">"Comic sans MS"</span>&gt;&lt;font color=<span class="string">"red"</span>&gt;**☕异常类：**&lt;/font&gt;异常在Java中都是作为类的实例(对象)的形式出现的。</span><br><span class="line">&amp;emsp;     如 Throwable类, Exception类, Error类……</span><br><span class="line"></span><br><span class="line">&lt;font color=<span class="string">"red"</span>&gt;**☕Java中异常分类：**&lt;/font&gt;</span><br><span class="line"> (1)  &lt;font color=<span class="string">"#00B2EE"</span>&gt;**Error类及其子类：**&lt;/font&gt;描述Java运行时刻系统内部的错误或资源枯竭导致的错误，无法恢复和抛出，发生几率小；</span><br><span class="line"> (2)  &lt;font color=<span class="string">"#00B2EE"</span>&gt;**Exception类及其子类：**&lt;/font&gt;普通程序可以从中恢复，分为&lt;font color=<span class="string">"red"</span>&gt;**运行时异常**&lt;/font&gt;和&lt;font color=<span class="string">"red"</span>&gt;**非运行时异常**&lt;/font&gt;。</span><br><span class="line"></span><br><span class="line">&amp;emsp;异常在Java中也是作为类的实例的形式出现的。Java中的所有的异常类都是从Throwable类派生出来的。&lt;font color=<span class="string">"red"</span>&gt;**Throwable类有两个直接子类：**&lt;/font&gt;&lt;font color=<span class="string">"#00B2EE"</span>&gt;**java.lang.Error**&lt;/font&gt; 和 &lt;font color=<span class="string">"#00B2EE"</span>&gt;**java.lang.Exception**&lt;/font&gt;。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">异常类的层次结构如下图所示。</span><br><span class="line">![58.png](https://i.loli.net/2018/12/28/5c2621a200c43.png)</span><br><span class="line">**(1) 🔺Error类及其子类主要用来描述一些Java运行时刻系统内部的错误或资源枯竭导致的错误。**普通的程序不能从这类错误中恢复，也无法抛出这种类型的错误，这类错误出现的几率是很小的。</span><br><span class="line">**(2) 🔺另一个异常类的子类是Exception类和它的子类。**在编程中错误的处理主要是对这类错误的处理，如除数为零、数组下标越界等。类Exception是普通程序可以从中恢复的所有规范了的异常的父类。</span><br><span class="line">&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">&amp;emsp;</span><br><span class="line">&amp;emsp;</span><br><span class="line"><span class="comment">#### &lt;font color="#20B2AA" face="Comic sans MS"&gt;2.2  Exception类的子类&lt;/font&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;font face=<span class="string">"Comic sans MS"</span>&gt;&lt;font color=<span class="string">"red"</span>&gt;**☕Exception类子类有两种：**&lt;/font&gt;</span><br><span class="line">**运行时异常**和**非运行时异常（一般异常）**　&amp;emsp;&amp;emsp;&amp;emsp;　*区别？？？*</span><br><span class="line">&lt;font color=<span class="string">"#00B2EE"</span>&gt;**（1）运行时异常：**&lt;/font&gt;RuntimeException类及其所有子类。      运行时异常是程序员编写程序不正确所导致的异常，理论上，程序员经过检查和测试可以查出这类错误。如**除数为零等，错误的强制类型转换、数组越界访问、空引用**。</span><br><span class="line">&lt;font color=<span class="string">"#00B2EE"</span>&gt;**（2）非运行时异常（一般异常）：**&lt;/font&gt;指可以由编译器在编译时检测到的、可能会发生在方法执行过程中的异常，如找不到指定的文件等，这不是程序本身的错误，如果这些异常情况没有发生，程序本身仍然是完好的。　　</span><br><span class="line">&lt;font color=<span class="string">"red"</span>&gt;**注意：**&lt;/font&gt;**编译器强制要求Java程序必须**&lt;font color=<span class="string">"#00B2EE"</span>&gt;**捕获**&lt;/font&gt;**或**&lt;font color=<span class="string">"#00B2EE"</span>&gt;**声明抛出**&lt;/font&gt;**所有非运行时异常，但对运行时异常不作要求。运行时异常编译可以通过但是运行时出现异常；非运行时异常编译的时候就通不过。**</span><br><span class="line"></span><br><span class="line">*例如：格式不正确的URL、试图为一个不存在的类找到一个代表它的类的对象。除了runtimeexception及其子类以外，其他exception类的子类都是非运行时异常。*</span><br><span class="line">&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">//运行时异常和非运行时异常区别举例  </span><br><span class="line">[例5-1] RuntimeExceptionDemo1.java</span><br><span class="line">class RuntimeExceptionDemo1&#123;  </span><br><span class="line">public static void main(String args[])&#123;</span><br><span class="line">    int i=0;</span><br><span class="line">System.out.println(2/0);</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">该程序能编译通过，而在运行时，出现如下提示：</span><br><span class="line">&gt; javac RuntimeExceptionDemo1.java</span><br><span class="line">&gt; java RuntimeExceptionDemo1</span><br><span class="line">Exception <span class="keyword">in</span> thread <span class="string">"main"</span> java.lang.ArithmeticException: / by zero at </span><br><span class="line">RuntimeExceptionDemo1.main(RuntimeExceptionDemo1.java:4)</span><br><span class="line">//这里的<span class="string">"ArithmeticException"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[例5-2] NonRuntimeExceptionDemo1.java</span><br><span class="line">import java.io.*;</span><br><span class="line">class NonRuntimeExceptionDemo1</span><br><span class="line">&#123; </span><br><span class="line">      public static void main(String args[])&#123;</span><br><span class="line">       FileInputStream <span class="keyword">in</span>=new FileInputStream(<span class="string">"text.txt"</span>);</span><br><span class="line">        int s;</span><br><span class="line">        <span class="keyword">while</span>((s=in.read())!=-1) System.out.print(s);</span><br><span class="line">        in.close();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">会出现如下的错误提示：</span><br><span class="line">javac NonRuntimeExceptionDemo1.java</span><br><span class="line">NonRuntimeExceptionDemo1.java:5: unreported exception java.io.FileNotFoundException; must</span><br><span class="line"> be caught or declared to be thrown</span><br><span class="line">FileInputStream <span class="keyword">in</span>=new FileInputStream(<span class="string">"text.txt"</span>);</span><br><span class="line">                   ^</span><br><span class="line">NonRuntimeExceptionDemo1.java:7: unreported exception java.io.IOException; mustbe</span><br><span class="line"> caught or declared to be thrown</span><br><span class="line"><span class="keyword">while</span>((s=in.read())!=-1) System.out.print(s);</span><br><span class="line">                ^</span><br><span class="line">NonRuntimeExceptionDemo1.java:8: unreported exception java.io.IOException; mustbe caught </span><br><span class="line">or declared to be thrown</span><br><span class="line">in.close();</span><br></pre></td></tr></table></figure>
 <p>&emsp;</p>
 <font face="Comic sans MS"><font color="red"><strong>☕对运行时异常的说明：</strong></font>由于运行时异常可能会出现在程序的任何地方，而且出现的可能性非常大，因而由程序本身去检测运行异常出现与否，将会使程序的开销过大，所以<br>运行时异常是由Java运行时系统在程序的运行过程中检测到的,它可能在程序中任意部位发生,而且其数目可能很大,因此Java编译器允许程序不对它进行处理。这时，java运行时系统会把生成的运行时异常对象交给默认的异常处理，在标准输出设备上显示异常的内容以及发生异常的位置<br><font color="#00B2EE"><strong>建议对于运行时异常用户不要去捕获，捕获就是承认这个错误，但是一般我们编程的希望是发生错误能改正就尽量改正，除非不是由程序员自己意愿决定的错误。</strong></font><br>&emsp;<br><font color="red"><br><strong>☕对运行时异常和非运行时异常的总结：</strong></font><br>(1) 当出现java.lang.ArithmeticException运行时异常时，不需要用户在程序中对其进行处理，而直接由Java运行时系统进行处理；<br>(2) 对于非运行时异常，Java编译器对程序进行编译的时候，便指出用户需要<font color="#00B2EE">①捕获该类异常</font>或者<font color="#00B2EE">②声明抛出</font>。即对于非运行时异常，用户需要在程序中进行处理，否则编译时无法通过。<br></font>
 
-<pre class=" language-bash"><code class="language-bash">① 捕获该类异常
-<span class="token punctuation">[</span>例5-2<span class="token punctuation">]</span> NonRuntimeExceptionDemo1.java
-<span class="token function">import</span> java.io.*<span class="token punctuation">;</span>
-class NonRuntimeExceptionDemo1
-<span class="token punctuation">{</span> 
-      public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        try<span class="token punctuation">{</span>
-             FileInputStream in<span class="token operator">=</span>new FileInputStream<span class="token punctuation">(</span><span class="token string">"text.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            int s<span class="token punctuation">;</span>
-            <span class="token keyword">while</span><span class="token variable"><span class="token punctuation">((</span>s<span class="token operator">=</span>in.read<span class="token punctuation">(</span><span class="token punctuation">))</span></span><span class="token operator">!=</span>-1<span class="token punctuation">)</span> System.out.print<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-           in.close<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-              <span class="token punctuation">}</span>catch<span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span><span class="token punctuation">{</span>…<span class="token punctuation">}</span>
-   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-
-② 声明抛出
-<span class="token punctuation">[</span>例5-2<span class="token punctuation">]</span> NonRuntimeExceptionDemo1.java
-<span class="token function">import</span> java.io.*<span class="token punctuation">;</span>
-class NonRuntimeExceptionDemo1
-<span class="token punctuation">{</span> 
-      public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>throws Exception<span class="token punctuation">{</span>
-      FileInputStream in<span class="token operator">=</span>new FileInputStream<span class="token punctuation">(</span><span class="token string">"text.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      int s<span class="token punctuation">;</span>
-      <span class="token keyword">while</span><span class="token variable"><span class="token punctuation">((</span>s<span class="token operator">=</span>in.read<span class="token punctuation">(</span><span class="token punctuation">))</span></span><span class="token operator">!=</span>-1<span class="token punctuation">)</span> System.out.print<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      in.close<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">① 捕获该类异常</span><br><span class="line">[例5-2] NonRuntimeExceptionDemo1.java</span><br><span class="line">import java.io.*;</span><br><span class="line">class NonRuntimeExceptionDemo1</span><br><span class="line">&#123; </span><br><span class="line">      public static void main(String args[])&#123;</span><br><span class="line">        try&#123;</span><br><span class="line">             FileInputStream <span class="keyword">in</span>=new FileInputStream(<span class="string">"text.txt"</span>);</span><br><span class="line">            int s;</span><br><span class="line">            <span class="keyword">while</span>((s=in.read())!=-1) System.out.print(s);</span><br><span class="line">           in.close();</span><br><span class="line">              &#125;catch(Exception e)&#123;…&#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">② 声明抛出</span><br><span class="line">[例5-2] NonRuntimeExceptionDemo1.java</span><br><span class="line">import java.io.*;</span><br><span class="line">class NonRuntimeExceptionDemo1</span><br><span class="line">&#123; </span><br><span class="line">      public static void main(String args[])throws Exception&#123;</span><br><span class="line">      FileInputStream <span class="keyword">in</span>=new FileInputStream(<span class="string">"text.txt"</span>);</span><br><span class="line">      int s;</span><br><span class="line">      <span class="keyword">while</span>((s=in.read())!=-1) System.out.print(s);</span><br><span class="line">      in.close();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <h4 id="2-3-对于运行时异常和非运行时异常的一些说明"><a href="#2-3-对于运行时异常和非运行时异常的一些说明" class="headerlink" title="2.3  对于运行时异常和非运行时异常的一些说明"></a><font color="#20B2AA" face="Comic sans MS">2.3  对于运行时异常和非运行时异常的一些说明</font></h4><font face="Comic sans MS"><font color="red"><strong>1. ☕编译器和异常：</strong></font>编译器强制要求程序员捕获或声明抛出非运行时异常<br>   <em>到底为什么要这么做呢？？？</em><br>对于运行时异常，编译器不强制要求，但用户也可以自己去捕获<br>   <em>这个时候会出现什么效果呢？？？</em><br><br><font color="red"><strong>2. ☕运行时系统和异常：</strong></font><br>(1) 异常都有抛出的轨迹；<br>(2) 对于所有异常，某个方法产生的异常 ，如果没有被捕获，就会自动抛给方法的调用者（但是对非运行时异常一定要声明抛出），如果调用者还没有捕获，再抛给调用者的调用者，以此类推，直到main方法里发现还没有捕获，那么运行时系统就会来处理这个异常，把异常信息和异常的轨迹信息打印给用户。<br><br><font color="red"><strong>3. ☕两点建议：</strong></font><br>(1) 建议对于运行时异常用户不要去捕获，捕获就是承认这个错误，但是一般我们编程者希望是发生错误能改正就尽量改正，除非不是由程序员自己意愿决定的错误；<br>(2) 建议对于非运行时异常，用户应该去捕获，以交代程序员的处理该错误的代码，实在不行，就声明抛出给方法的调用者。<br><br><font color="red"><strong>3. ☕异常类常用的方法：</strong></font><br><font color="#00B2EE"><strong>public Exception()</strong></font><br><font color="#00B2EE"><strong>public Exception(String s)</strong></font>&emsp; :该参数一般表示该异常对应的错误的描述<br><font color="#00B2EE"><strong>public String toString()</strong></font>&emsp;:返回描述当前异常对象信息的字符串<br><font color="#00B2EE"><strong>public String getMessage()</strong></font>&emsp;:返回描述当前异常对象信息的详细信息。<br><font color="#00B2EE"><strong>public void printStackTrace()</strong></font>&emsp;:打印当前异常对象使用堆栈的轨迹。<br></font>
 
@@ -505,46 +342,8 @@ class NonRuntimeExceptionDemo1
 <p>&emsp;<br>&emsp;</p>
 <h3 id="三、-try-catch-finally异常处理"><a href="#三、-try-catch-finally异常处理" class="headerlink" title="三、 try-catch-finally异常处理"></a><font color="#FF6347" face="Comic sans MS">三、 try-catch-finally异常处理</font></h3><h4 id="3-1-概括try-catch-finally语句"><a href="#3-1-概括try-catch-finally语句" class="headerlink" title="3.1  概括try-catch-finally语句"></a><font color="#20B2AA" face="Comic sans MS">3.1  概括try-catch-finally语句</font></h4><font face="Comic sans MS"><font color="red"><strong>用户处理异常的三种方法:</strong></font><br>       (1)用户可以用try-catch-finally语句进行<font color="#00B2EE"><strong>抛出</strong></font>和<font color="#00B2EE"><strong>捕获处理</strong></font>；<br>       (2)如果不想捕获和处理异常，可以通过throws语句<font color="#00B2EE"><strong>声明要抛出的异常</strong></font>；<br>       (3) 用户可以定义自己的异常类,并用throw语句来抛出。<br><br>运行时异常是由Java运行时系统在程序的运行过程中检测到的,它可能在程序中任意部位发生,而且其数目可能很大,因此Java编译器允许程序不对它进行处理。这时，java运行时系统会把生成的运行时异常对象交给默认的异常处理，在标准输出设备上显示异常的内容以及发生异常的位置。即：<font color="red"><strong>运行时异常：会输出到设备显示哪里存在错误，请更正；非运行时异常：编译报错时提示必须添加非运行时异常处理，比如加try{}…catch(类名 对象){}或者使用throws来抛出异常</strong></font>。<br></font>
 
-<pre class=" language-bash"><code class="language-bash">try-catch-finally语句对程序运行进行监控，捕获和处理异常通常形式： 
-try<span class="token punctuation">{</span>
-调用可能产生异常的方法及其它java语句；
-<span class="token punctuation">}</span>
-catch<span class="token punctuation">(</span>异常类名1 异常对象名e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-异常处理语句块；
-<span class="token punctuation">}</span>
-catch<span class="token punctuation">(</span>异常类名2 异常对象名e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-异常处理语句块；
-<span class="token punctuation">}</span>
-finally<span class="token punctuation">{</span>
-最终处理；
-<span class="token punctuation">}</span>
-</code></pre>
-<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>例5-3<span class="token punctuation">]</span>访问文本文件text.txt，并将其在屏幕上打印出来。
-<span class="token function">import</span> java.io.*<span class="token punctuation">;</span>
-class TryCatchFinally
-<span class="token punctuation">{</span> 
-      public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-       try<span class="token punctuation">{</span>
-        FileInputStream in<span class="token operator">=</span>new FileInputStream<span class="token punctuation">(</span><span class="token string">"text.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        int s<span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token variable"><span class="token punctuation">((</span>s<span class="token operator">=</span>in.read<span class="token punctuation">(</span><span class="token punctuation">))</span></span><span class="token operator">!=</span>-1<span class="token punctuation">)</span> System.out.print<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        in.close<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token punctuation">}</span>
-       catch<span class="token punctuation">(</span>FileNotFoundException e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-          System.out.println<span class="token punctuation">(</span>“捕获异常：”+e<span class="token punctuation">)</span><span class="token punctuation">;</span>   //e会调用toString<span class="token punctuation">(</span><span class="token punctuation">)</span>方法回显异常信息给程序员
-       <span class="token punctuation">}</span>
-       catch<span class="token punctuation">(</span>IOException e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-          System.out.println<span class="token punctuation">(</span><span class="token string">"捕获异常："</span>+e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token punctuation">}</span>
-       finally<span class="token punctuation">{</span>
-       System.out.println<span class="token punctuation">(</span><span class="token string">"finally块总是执行！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token punctuation">}</span> <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-运行结果：
-捕获异常：java.io.FileNotFoundException: text.txt <span class="token punctuation">(</span>系统找不到指定的文件。<span class="token punctuation">)</span>
-finally块总是执行！
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">try-catch-finally语句对程序运行进行监控，捕获和处理异常通常形式： </span><br><span class="line">try&#123;</span><br><span class="line">调用可能产生异常的方法及其它java语句；</span><br><span class="line">&#125;</span><br><span class="line">catch(异常类名1 异常对象名e)&#123;</span><br><span class="line">异常处理语句块；</span><br><span class="line">&#125;</span><br><span class="line">catch(异常类名2 异常对象名e)&#123;</span><br><span class="line">异常处理语句块；</span><br><span class="line">&#125;</span><br><span class="line">finally&#123;</span><br><span class="line">最终处理；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[例5-3]访问文本文件text.txt，并将其在屏幕上打印出来。</span><br><span class="line">import java.io.*;</span><br><span class="line">class TryCatchFinally</span><br><span class="line">&#123; </span><br><span class="line">      public static void main(String args[])&#123;</span><br><span class="line">       try&#123;</span><br><span class="line">        FileInputStream <span class="keyword">in</span>=new FileInputStream(<span class="string">"text.txt"</span>);</span><br><span class="line">        int s;</span><br><span class="line">        <span class="keyword">while</span>((s=in.read())!=-1) System.out.print(s);</span><br><span class="line">        in.close();</span><br><span class="line">       &#125;</span><br><span class="line">       catch(FileNotFoundException e)&#123;</span><br><span class="line">          System.out.println(“捕获异常：”+e);   //e会调用toString()方法回显异常信息给程序员</span><br><span class="line">       &#125;</span><br><span class="line">       catch(IOException e)&#123;</span><br><span class="line">          System.out.println(<span class="string">"捕获异常："</span>+e);</span><br><span class="line">       &#125;</span><br><span class="line">       finally&#123;</span><br><span class="line">       System.out.println(<span class="string">"finally块总是执行！"</span>);</span><br><span class="line">       &#125; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">捕获异常：java.io.FileNotFoundException: text.txt (系统找不到指定的文件。)</span><br><span class="line">finally块总是执行！</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <h4 id="3-2-try语句"><a href="#3-2-try语句" class="headerlink" title="3.2  try语句"></a><font color="#20B2AA" face="Comic sans MS">3.2  try语句</font></h4><font face="Comic sans MS">☕<font color="red"><strong>try{}</strong></font>：将可能抛出一个或者若干个异常的代码放入try语句块中。<br><font color="red"><strong>注意：</strong></font>应当尽量<strong>减小</strong>try代码块的大小，不要将整个程序代码全部放入try语句块中，而是应当仔细分析代码，在可能出现异常情况的地方用try进行监控。<br><br>因为当发生异常时，程序控制由try块转到catch块，Java将跳过try中后面的语句，且永远不会从catch块返回到try块。因此若将整个程序代码都放在try中，若一开始发生异常，则后面的语句将永远不会被执行，从而影响了程序的实现。<br></font>
 
@@ -554,70 +353,17 @@ finally块总是执行！
 <p>&emsp;</p>
 <h4 id="3-4-finally子句"><a href="#3-4-finally子句" class="headerlink" title="3.4  finally子句"></a><font color="#20B2AA" face="Comic sans MS">3.4  finally子句</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><font color="red"><strong>1.finally语句：</strong></font> 无论在try块中是否产生异常，也不管产生的异常是否会被捕获，finally中的语句最终都会<br>                           被执行。<br><font color="red"><strong>2.作用：</strong></font> 为异常处理事件提供一个清理机制,例如清理打开文件、Socket、JDBC连接之类的资源。<br><br>  如果程序用到了文件、Socket、JDBC连接之类的资源，即使遇到了异常，也要正确释放占用的资源。<br>&ensp;<strong>finally语句可以说是为异常处理事件提供的一个清理机制. 一般是用来关闭文件或释放其他的系统资源，作<br>  为try-catch-finally结构的一部分，可以没有finally语句，如果存在finally语句，不论try块中是否发生<br>  了异常，是否执行过catch语句，都要执行finally语句。</strong><br><br><font color="red"><strong>3. 带有finally子句的try-catch-finally语句的形式如下：</strong></font></font></td></tr></table>  
 
-<pre class=" language-bash"><code class="language-bash">try <span class="token punctuation">{</span> … <span class="token punctuation">}</span>           //…是正常执行的代码, 可能产生异常
-       catch <span class="token punctuation">(</span>异常类1 e<span class="token punctuation">)</span> <span class="token punctuation">{</span> … <span class="token punctuation">}</span>    //…是异常类1的处理代码
-       catch <span class="token punctuation">(</span>异常类2 e<span class="token punctuation">)</span> <span class="token punctuation">{</span> … <span class="token punctuation">}</span>    //…是异常类1的处理代码
-        ……
-      catch <span class="token punctuation">(</span>异常类n e<span class="token punctuation">)</span> <span class="token punctuation">{</span> … <span class="token punctuation">}</span>   //…是异常类2的处理代码
-      finally <span class="token punctuation">{</span> … <span class="token punctuation">}</span>                   //…是执行清除工作的语句
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try &#123; … &#125;           //…是正常执行的代码, 可能产生异常</span><br><span class="line">       catch (异常类1 e) &#123; … &#125;    //…是异常类1的处理代码</span><br><span class="line">       catch (异常类2 e) &#123; … &#125;    //…是异常类1的处理代码</span><br><span class="line">        ……</span><br><span class="line">      catch (异常类n e) &#123; … &#125;   //…是异常类2的处理代码</span><br><span class="line">      finally &#123; … &#125;                   //…是执行清除工作的语句</span><br></pre></td></tr></table></figure>
 <table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><font color="red"><strong>4.执行过程：</strong></font><br><strong>(1) try块中的语句没有产生异常。</strong>在这种情况下，Java首先执行try块中的所有的语句，然后执行finally子句<br>    中的代码，最后执行try…catch..finally块后面的语句；<br><strong>(2) try块中的语句产生了异常，而且此异常在方法内被捕获(有catch匹配)。</strong> 在这种情况下，Java首先执行try<br>    块中的语句，直到产生异常处，然后跳过此try块中剩下的语句，执行捕获此异常的catch子句的处理代码；<br>    然后执行finally子句中的代码；<br><strong>(3) 如果在catch子句又重新抛出了异常。</strong>也会执行finally，然后将这个异常抛出给方法的调用者；<br><strong>(4) try块中产生了异常，而此异常在方法内没有被捕获(没有catch匹配) 。</strong>在这种情况下，Java将执行try块<br>    中的代码直到产生异常，然后跳过try块中的代码而转去执行finally子句中的代码，最后将异常抛出给方法<br>    的调用者。<br></font></td></tr></table>  
 
 <p>&emsp;<br>&emsp;</p>
 <h3 id="四、-throws-throw抛出异常"><a href="#四、-throws-throw抛出异常" class="headerlink" title="四、 throws-throw抛出异常"></a><font color="#FF6347" face="Comic sans MS">四、 throws-throw抛出异常</font></h3><h4 id="4-1-throws抛出异常"><a href="#4-1-throws抛出异常" class="headerlink" title="4.1  throws抛出异常"></a><font color="#20B2AA" face="Comic sans MS">4.1  throws抛出异常</font></h4><font face="Comic sans MS"><font color="red"><strong>📒throws说明：</strong></font><br><strong>在设计可能会抛出异常的方法时，可以有两个选择：</strong><br><font color="#00B2EE"><strong>(1) 使用try-catch-finally处理方法中的异常</strong></font>；<br><font color="#00B2EE"><strong>(2) 声明抛出异常：</strong></font>不捕获异常(<font color="red">没有throws方法的创建异常类的实例和抛出异常。是个空语句。</font>)，而是将异常交由上一层处理，在其他地方捕获异常。如果使用后者，那么应该（在某些情况下）向编译器表明：此方法可能会抛出异常，但方法本身不会捕获它。可以在方法头中用throws子句来实现此功能。<br><br>(2.1)带throws异常说明的方法说明形式如下：<br>       <font color="#00B2EE"> …  方法名(…) [throws 异常类列表]<br>        { 方法体  }<br></font><br>&emsp;<br><font color="red"><strong>📒注意：</strong></font><br> （１）方法抛出的异常类是throws子句中指定的异常类或其子类。<br> （２）并不是所有可能发生的异常都要在方法的说明中指定，从Error类中派生出的异常和从RuntimeException类中派生的异常就不用在方法声明中指定。<br><br><font color="red"><strong>📒在下列情况下Java方法可以声明抛出异常：</strong></font><br> （１）调用的方法抛出了异常；<br> （２）检测到了错误并使用throw语句抛出异常；<br></font> 
 
-<pre class=" language-bash"><code class="language-bash">例1：调用的方法抛出了异常 
-class Test <span class="token punctuation">{</span>……
- public String getInput<span class="token punctuation">(</span><span class="token punctuation">)</span> throws IOException
- <span class="token punctuation">{</span>……
-    System.in.read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-
-
-例2：检测到了错误并使用throw语句抛出异常
-<span class="token function">import</span> java.io.*<span class="token punctuation">;</span>
- class Test <span class="token punctuation">{</span>……
- public String getInput<span class="token punctuation">(</span><span class="token punctuation">)</span> throws IOException
- <span class="token punctuation">{</span>……
-     IOException ae <span class="token operator">=</span>new IOException<span class="token punctuation">(</span><span class="token string">"buffer is full"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    throw ae<span class="token punctuation">;</span> 
-<span class="token punctuation">}</span>
-
-
-
-例3： throws多个异常
-class Animation
-<span class="token punctuation">{</span>                                                   
- public Image loadImage<span class="token punctuation">(</span>String s<span class="token punctuation">)</span> throws  
-                 EOFException, MalformURLException  
- <span class="token punctuation">{</span>
-  ……
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span> 
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">例1：调用的方法抛出了异常 </span><br><span class="line">class Test &#123;……</span><br><span class="line"> public String getInput() throws IOException</span><br><span class="line"> &#123;……</span><br><span class="line">    System.in.read();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">例2：检测到了错误并使用throw语句抛出异常</span><br><span class="line">import java.io.*;</span><br><span class="line"> class Test &#123;……</span><br><span class="line"> public String getInput() throws IOException</span><br><span class="line"> &#123;……</span><br><span class="line">     IOException ae =new IOException(<span class="string">"buffer is full"</span>);</span><br><span class="line">    throw ae; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">例3： throws多个异常</span><br><span class="line">class Animation</span><br><span class="line">&#123;                                                   </span><br><span class="line"> public Image loadImage(String s) throws  </span><br><span class="line">                 EOFException, MalformURLException  </span><br><span class="line"> &#123;</span><br><span class="line">  ……</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <h4 id="4-2-throw抛出异常"><a href="#4-2-throw抛出异常" class="headerlink" title="4.2  throw抛出异常"></a><font color="#20B2AA" face="Comic sans MS">4.2  throw抛出异常</font></h4><font face="Comic sans MS"><font color="red"><strong>📒throw说明：</strong></font><br><strong>要使用throw，则必须在方法名后面指出throws；但是使用throws，抛出可以是空语句不用写，交给上一层处理！！</strong><br>在捕获一个异常前，必须有一段Java代码来生成和抛出一个异常对象。Java用throw语句抛出异常。throw语句的格式如下：<br>                <font color="red">throw ThrowableObject；<br></font><br>&emsp;<br><font color="#00B2EE"><strong>异常对象的生成和抛出可以有以下三种情况：</strong></font><br>　　　（１）Java运行时系统<br>　　　（２）JDK中某个类<br>　　　（３）在程序中创建异常对象抛出<br><br><font color="#00B2EE"><strong>使用throw语句应注意：</strong></font><br>（１）一般这种抛出异常的语句应该在满足一定条件执行，例如把throw语句if分支中<br>（２）含有throw语句的方法，应该在方法头定义中用throws语句声明所有可能抛出的异常<br><br><br><font color="#00B2EE"><strong>抛出异常有这样三步：</strong></font><br>    （1）确定异常类；<br>    （2）创建异常类的实例；<br>    （3）抛出异常。<br></font>
 
-<pre class=" language-bash"><code class="language-bash">举例
-static String getInput<span class="token punctuation">(</span><span class="token punctuation">)</span> throws IOException<span class="token punctuation">{</span>
-  char<span class="token punctuation">[</span><span class="token punctuation">]</span> buffer <span class="token operator">=</span>new char<span class="token punctuation">[</span>20<span class="token punctuation">]</span><span class="token punctuation">;</span>
-   int counter <span class="token operator">=</span> 0<span class="token punctuation">;</span>
-   boolean flag <span class="token operator">=</span>true<span class="token punctuation">;</span>
-   while<span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       buffer<span class="token punctuation">[</span>counter<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span>System.in.read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-
-      if<span class="token punctuation">(</span>buffer<span class="token punctuation">[</span>counter<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'\n'</span><span class="token punctuation">)</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-      counter++<span class="token punctuation">;</span>
-      if<span class="token punctuation">(</span>counter<span class="token operator">>=</span>20<span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token punctuation">}</span> IOException ae <span class="token operator">=</span>new IOException<span class="token punctuation">(</span><span class="token string">"buffer is full"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-      throw ae<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> new String<span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
- <span class="token string">"//IOException ae =new IOException("</span><span class="token string">"buffer is full"</span><span class="token string">");  throw ae;"</span>使用throw
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">举例</span><br><span class="line">static String getInput() throws IOException&#123;</span><br><span class="line">  char[] buffer =new char[20];</span><br><span class="line">   int counter = 0;</span><br><span class="line">   boolean flag =<span class="literal">true</span>;</span><br><span class="line">   <span class="keyword">while</span>(flag) &#123;</span><br><span class="line">       buffer[counter] =(char)System.in.read(); </span><br><span class="line">         </span><br><span class="line">      <span class="keyword">if</span>(buffer[counter]==<span class="string">'\n'</span>) flag = <span class="literal">false</span>;</span><br><span class="line">      counter++;</span><br><span class="line">      <span class="keyword">if</span>(counter&gt;=20)&#123;</span><br><span class="line">&#125; IOException ae =new IOException(<span class="string">"buffer is full"</span>); </span><br><span class="line">      throw ae; &#125;</span><br><span class="line">    <span class="built_in">return</span> new String(buffer);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="string">"//IOException ae =new IOException("</span><span class="string">"buffer is full"</span><span class="string">");  throw ae;"</span>使用throw</span><br></pre></td></tr></table></figure>
 <p>&emsp;<br>&emsp;</p>
 <h3 id="五、-正确地使用异常"><a href="#五、-正确地使用异常" class="headerlink" title="五、 正确地使用异常"></a><font color="#FF6347" face="Comic sans MS">五、 正确地使用异常</font></h3><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS">由于异常使用起来非常方便，以至于在很多情况下可能会滥用异常。但是，使用异常处理会降低程序运行的<br>速度，几点建议：<br><br><font color="red"><strong>（1） 在可以使用简单的测试就能完成的检查中，不要使用异常来代替它。</strong></font>例如：<br>      if (ins!=null)       //使用ins引用对象<br>       {  …   }<br><br><font color="red"><strong>（2） 不要过细地使用异常。</strong></font>最好不要到处使用异常，更不要在循环体内使用异常处理, 可以将它包裹在循环<br>体外面。<br><font color="red"><strong>（3）不要捕获了一个异常而又不对它做任何的处理。</strong></font><br>   try<br>   {<br>     …… //正常执行的代码<br>   }<br>   catch(Exception e) {  }<br><br><font color="red"><strong>(4) 将异常保留给方法的调用者并非不好的做法。</strong></font><br>     对于有些异常，将其交给方法的调用者去处理是一种更好的处理办法。没有类似这样if(counter&gt;=20){<br>      IOException ae =new IOException(“buffer is full”);<br>      throw ae; }的语句，是个空语句。<br></font></td></tr></table>  
 
@@ -625,520 +371,216 @@ static String getInput<span class="token punctuation">(</span><span class="token
 <hr>
 <p>&emsp;<br>&emsp;<br>&emsp;<br>&emsp;</p>
 
-            </div>
-            <hr>
-
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
+      
     </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-            
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
     
-    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+  </div>
+  
     
-</div>
-
-<script src="/libs/share/js/social-share.min.js"></script>
-
-            <div class="reprint">
-                <p>
-                    <span class="reprint-tip">
-                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
-                    </span>
-                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
-                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/java-exception-handling7/" class="b-link-green">Java-异常处理(5)</a>
-                </p>
-            </div>
-        </div>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/post/java-exception-handling7/">Java-异常处理(5)</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Treecatee</a></p>
+        <p><span>发布时间:</span>2018-12-28, 09:47:07</p>
+        <p><span>最后更新:</span>2019-03-07, 00:38:47</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/post/java-exception-handling7/" title="Java-异常处理(5)">Treecatee.gitgub.io/post/java-exception-handling7/</a>
+            <span class="copy-path" data-clipboard-text="原文: Treecatee.gitgub.io/post/java-exception-handling7/　　作者: Treecatee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: 'f0e6b43ea59ab9e24a70',
-        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
-        repo: 'Directoree.github.io',
-        owner: 'Directoree',
-        admin: "Directoree",
-        id: '2018-12-28T09-47-07',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-    
-
-    
-
-    
-        <div class="disqus-card card" data-aos="fade-up">
-    <div id="disqus_thread" class="card-content">
-        <noscript>Please enable JavaScript to view the
-            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-    </div>
-</div>
-
-<script type="text/javascript">
-    disqus_config = function () {
-        this.page.url = 'Treecatee.gitgub.io/post/java-exception-handling7/';
-        this.page.identifier = '/post/java-exception-handling7/';
-        this.page.title = 'Java-异常处理(5)';
-    };
-    let disqus_shortname = '';
-
-    (function () { // DON'T EDIT BELOW THIS LINE
-        let d = document, s = d.createElement('script');
-        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
-        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
+    <nav id="article-nav">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
-            <div class="card">
+            <div id="article-nav-newer" class="article-nav-title">
                 <a href="/post/java-language-2-2/">
-                    <div class="card-image">
-                        
-                        <img src="https://i.loli.net/2019/01/11/5c388e8172b3b.jpg" class="responsive-img" alt="Java运算符和数据类型转换(3.4-3.6)">
-                        
-                        <span class="card-title">Java运算符和数据类型转换(3.4-3.6)</span>
-                    </div>
+                    Java运算符和数据类型转换(3.4-3.6)
                 </a>
-                <div class="card-content article-content">
-                    <div class="summary">&ensp;&ensp;
-运算符及表达式、运算符的优先级、数据类型转换
-
-
- 3.4-3.6学习知识点
- 运算符及表达式
- 算术运算符
- 关系运算符
- 逻辑运算符
- 位运算符
- 赋值运算符
- 逻辑运算符
-
-
- 运算符的优先级
- 数据类型转换</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-11
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java学习/" target="_blank">
-                        <span class="chip bg-color">Java学习</span>
-                    </a>
-                    
-                    <a href="/tags/Java语言/" target="_blank">
-                        <span class="chip bg-color">Java语言</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
         
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
+            <div id="article-nav-older" class="article-nav-title">
                 <a href="/post/java-variable-innerclass6/">
-                    <div class="card-image">
-                        
-                        <img src="https://i.loli.net/2018/12/27/5c24f015bda37.jpg" class="responsive-img" alt="Java变量及其传递、内部类(4.9-4.10)">
-                        
-                        <span class="card-title">Java变量及其传递、内部类(4.9-4.10)</span>
-                    </div>
+                    Java变量及其传递、内部类(4.9-4.10)
                 </a>
-                <div class="card-content article-content">
-                    <div class="summary">&emsp;&emsp;
-变量及其传递 &amp; 内部类
-
-&emsp;
-一、 Java变量及其传递1.1  基本数据变量与引用型变量1.  📒Java变量:&emsp;(1). 基本型变量(8种)&emsp;&emsp; char,b</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-27
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java学习/" target="_blank">
-                        <span class="chip bg-color">Java学习</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、-Java异常基础"><span class="toc-number">1.</span> <span class="toc-text">一、 Java异常基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-为什么要引入异常处理机制？"><span class="toc-number">1.1.</span> <span class="toc-text">1.1  为什么要引入异常处理机制？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-以往的错误处理方法"><span class="toc-number">1.2.</span> <span class="toc-text">1.2  以往的错误处理方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-对于运行时异常和非运行时异常的一些说明"><span class="toc-number">1.3.</span> <span class="toc-text">2.3  对于运行时异常和非运行时异常的一些说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、-try-catch-finally异常处理"><span class="toc-number">2.</span> <span class="toc-text">三、 try-catch-finally异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-概括try-catch-finally语句"><span class="toc-number">2.1.</span> <span class="toc-text">3.1  概括try-catch-finally语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-try语句"><span class="toc-number">2.2.</span> <span class="toc-text">3.2  try语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-catch语句"><span class="toc-number">2.3.</span> <span class="toc-text">3.3  catch语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-finally子句"><span class="toc-number">2.4.</span> <span class="toc-text">3.4  finally子句</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、-throws-throw抛出异常"><span class="toc-number">3.</span> <span class="toc-text">四、 throws-throw抛出异常</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-throws抛出异常"><span class="toc-number">3.1.</span> <span class="toc-text">4.1  throws抛出异常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-throw抛出异常"><span class="toc-number">3.2.</span> <span class="toc-text">4.2  throw抛出异常</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、-正确地使用异常"><span class="toc-number">4.</span> <span class="toc-text">五、 正确地使用异常</span></a></li></ol>
         
     </div>
-</article>
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
         }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
         }
+    </style>
 
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + 'From: Treecatee<br />'
-            + 'Author: Treecatee<br />'
-            + 'Link: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
-    </div>
-    <div class="col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
-            <div id="toc-content"></div>
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
         </div>
-    </div>
-</div>
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4,h5,h6'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-    });
-</script>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Java-异常处理(5)　| Treecatee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
     
 
-</main>
-
-
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
-
-            
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">158k</span>
-            
-
-            
-			
-                <br>
-                
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
-        <i class="fa fa-qq"></i>
-    </a>
-
-
-
-    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-mixcloud"></i>
-    </a>
+    
 </div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/post/java-language-2-2/" title="上一篇: Java运算符和数据类型转换(3.4-3.6)">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/post/java-variable-innerclass6/" title="下一篇: Java变量及其传递、内部类(4.9-4.10)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/html-css/">CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-basics/">HTML-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-filecontents/">Python-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-modules-packages/">Python-模块和包</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-generator-iterator/">Python-生成器与迭代器</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-function/">Python-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-operators/">Python-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-conditionalstatements-loops/">Python-条件语句与循环</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-list-tuple-dict-set/">Python-列表、元组、字典、集合</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-coding/">Python-字符编码&字符串&格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-variables-datatypes/">Python-变量和数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-grammar/">Python-基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-basics/">Python-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-sessionmanagement/">PHP-会话管理和控制</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-mysql/">PHP操作MySQL数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mysql-primer/">MySQL入门</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-upload/">PHP-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-filesystem/">PHP-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-function/">PHP-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-regular-expression/">PHP-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-namespace/">PHP-命名空间</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-1/">PHP基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/wireshark-1/">Wireshark简单介绍和数据包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-4/">Java数组(3.9)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-3/">Java简单语句、复合语句、控制语句(3.7-3.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-2/">Java运算符和数据类型转换(3.4-3.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-exception-handling7/">Java-异常处理(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-variable-innerclass6/">Java变量及其传递、内部类(4.9-4.10)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-interface-package5/">Java接口、包(4.7-4.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hash-message-authentication/">Hash函数和消息认证</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-inherit-4/">Java构造方法、对象创建、继承(4.5-4.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sequence-password/">对称密码-序列密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/block-cipher/">对称密码-分组密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-access-permissions-3/">Java类、成员变量、static访问权限(4.1-4.4)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-1/">Java语言基础的字符常变量等(3.1-3.3)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-user-agen-cookie/">《HTTP协议请求头部的User-Agen和Cookie》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xampp-dvwa/">XAMPP环境下配置DVWA</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-io-1/">Java的输入输出</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sqlmap-shell/">SQLMAP命令大全</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mathematical-basis/">信息安全数学基础复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/music-collection/">Music-Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/post/pvris-onlylove/">PVRIS-OnlyLove</a></li><li class="post-list-item"><a class="post-list-link" href="/post/yang-zong-wei-kong-bai-ge-zhuan-ji/">杨宗纬-《空白格》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/network-security/">网络安全复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/algorithm/">算法复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/https-password/">内网称霸之《HTTPS账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-password/">内网称霸之《HTTP账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-picture/">内网称霸之《arp欺骗获取目标主机浏览的图片》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-broken-network/">内网称霸之《ARP欺骗断网攻击》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/resourses/">资源</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-xue-ru-shui-xing-ji-ti-mian-shou-cang-ban/">叶雪如-《水星记》《体面》收藏版</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-si-wu-ji-dan-zhuan-ji/">薛之谦-《肆无忌惮》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-na-shi-ni-chi-kai-liao-bei-jing-de-sheng-huo-zhuan-ji/">薛之谦-《那是你离开了北京的生活》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-guai-ka-zhuan-ji/">薛之谦-《怪咖》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit3/">Metasploit之渗透安卓实战</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit2/">Metasploit工具Meterpreter的命令速查表</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-du-zhuan-ji/">薛之谦-《渡》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-zui-hao-zhuan-ji/">薛之谦-《最好》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/creategithubblog/">Hexo+Github博客搭建终极大法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/markdownusage/">Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit1/">msfvenom生成各类Payload命令，远程木马攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Treecatee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
-
-<div class="progress-bar"></div>
-
-
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
-        </div>
-        <div id="searchResult"></div>
     </div>
-</div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
 </script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
-</div>
 
-
-<script src="/libs/materialize/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>
