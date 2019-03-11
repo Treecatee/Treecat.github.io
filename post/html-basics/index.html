@@ -238,7 +238,7 @@ HTML 基础
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2019/03/09/5c82a81216092.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -367,14 +367,14 @@ HTML 基础
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        9.2k
+                        9.3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        38 Min
+                        39 Min
                     </div>
                     
                 
@@ -982,12 +982,6 @@ HTML 基础
 <li style="list-style: none"><input type="checkbox"> <strong><code>_top</code></strong>：在最顶级窗口来打开目标文件。常用框架网页中</li>
 </ul>
 </li>
-<li style="list-style: none"><input type="checkbox"> <strong><code>id</code></strong>或<strong><code>name</code></strong>：定义锚点链接的名称。<ul>
-<li style="list-style: none"><input type="checkbox"> name是老方法，id是在name基础上发明的，后来才有的。</li>
-<li style="list-style: none"><input type="checkbox"> 使用name属性设置锚点很方便但<font color="#FF7F00"><strong>只能针对a标签来使用</strong></font>，具有一定的局限性。而对div等其他没有name属性的标签就不能起到作用了。</li>
-<li style="list-style: none"><input type="checkbox"> id兼容性很好。</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -1061,7 +1055,7 @@ HTML 基础
 <p>(3) 普通空链接（#）如：<code>&lt;a href=&quot;#&quot;&gt;这是一个空链接&lt;/a&gt;</code></p>
 <p><br></p>
 <h5 id="三-锚点链接"><a href="#三-锚点链接" class="headerlink" title="三. 锚点链接"></a><font color="#00B2EE" face="Microsoft YaHei">三. 锚点链接</font></h5><p><strong><code>&lt;a id=&quot;锚点名称&quot;&gt;&lt;/a&gt;</code></strong> ：定义锚点，做个记号<br><strong><code>&lt;a href=&quot;[文件名]#锚点名称&quot;&gt;提示文本（必须有）&lt;/a&gt;</code></strong> ：记号，功能是跳到做记号的地方</p>
-<p>分为当前页面跳转和跨页面跳转，文件名页内跳转无，跨页跳转有。</p>
+<p>分为当前页面跳转和跨页面跳转，页内跳转时不用文件名，跨页跳转时用。</p>
 <p><br></p>
 <blockquote>
 <ol>
@@ -1093,8 +1087,14 @@ HTML 基础
 </ul>
 </li>
 <li style="list-style: none"><input type="checkbox" checked> <strong>锚点</strong>（触发），也称为记号。<ul>
-<li style="list-style: none"><input type="checkbox"> 跳到当前页面定义方法：<strong><code>&lt;a  href=&quot;文件名#锚点名称&quot;&gt;提示文本（必须有）&lt;/a&gt;</code></strong></li>
+<li style="list-style: none"><input type="checkbox"> 跳到当前页面定义方法：<strong><code>&lt;a  href=&quot;#锚点名称&quot;&gt;提示文本（必须有）&lt;/a&gt;</code></strong></li>
 <li style="list-style: none"><input type="checkbox"> 跨页面跳转定义方法：<strong><code>&lt;a  href=&quot;目标页面路径#锚点名称&quot;&gt;提示文本（必须有）&lt;/a&gt;</code></strong></li>
+</ul>
+</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong><code>id</code></strong>或<strong><code>name</code></strong>：定义锚点链接的名称。<ul>
+<li style="list-style: none"><input type="checkbox"> name是老方法，id是在name基础上发明的，后来才有的。</li>
+<li style="list-style: none"><input type="checkbox"> 使用name属性设置锚点很方便但<font color="#FF7F00"><strong>只能针对a标签来使用</strong></font>，具有一定的局限性。而对div等其他没有name属性的标签就不能起到作用了。</li>
+<li style="list-style: none"><input type="checkbox"> id兼容性很好。</li>
 </ul>
 </li>
 </ul>
@@ -1636,7 +1636,14 @@ HTML 基础
 <p><img src="https://i.loli.net/2019/03/09/5c83737340e28.png" alt="11.png"></p>
 <p><br></p>
 <p><br></p>
-<h3 id="五-HTML-表单"><a href="#五-HTML-表单" class="headerlink" title="五. HTML 表单"></a><font color="#FF6347" face="Comic sans MS">五. HTML 表单</font></h3>
+<h3 id="五-HTML-表单"><a href="#五-HTML-表单" class="headerlink" title="五. HTML 表单"></a><font color="#FF6347" face="Comic sans MS">五. HTML 表单</font></h3><p><br></p>
+<p>表单很简单，在HTML里它就是用来人与服务器的交互，或者说是HTML的输入输出交互的重要功能！</p>
+<p>表单后续有时间再详细叙述吧，或者可以看在本站博文就有开始使用了….<font color="#00B2EE">《<a href="https://directoree.top/post/PHP-MySQL" target="_blank" rel="noopener">PHP操作MySQL数据库</a>》</font></p>
+<p><br></p>
+<p><br></p>
+<h3 id="六-CSS"><a href="#六-CSS" class="headerlink" title="六. CSS"></a><font color="#FF6347" face="Comic sans MS">六. CSS</font></h3><font color="#00B2EE">《<a href="https://directoree.github.io/post/HTML-CSS" target="_blank" rel="noopener">CSS 基础</a>》</font>
+
+
             </div>
             <hr>
 
@@ -1853,54 +1860,58 @@ HTML 基础
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/post/html-basics/">
+                <a href="/post/html-css/">
                     <div class="card-image">
                         
+                        <img src="https://i.loli.net/2019/03/10/5c84eb5057598.jpg" class="responsive-img" alt="CSS 基础">
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="HTML-基础">
-                        
-                        <span class="card-title">HTML-基础</span>
+                        <span class="card-title">CSS 基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">使用HTML标记实际上也就是使用标签和其属性 ( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾
+                    <div class="summary">
 
-
-HTML 基础 
-
-
+CSS 基础 
 
 
 
 
+一. CSS 初识
+CSS是给HTML标记加的样式；JS是给HTML标记加的行为。HTML标记是最先出现的。
 
 
-一. HTML 初识当您保存 HTML 文件时，既可以使用 .htm 也可以使用 .html 扩展名。两者没有区别，完全根据您</div>
+
+
+
+CSS是什么?
+为什么要使用CSS?
+CSS和HTML是什么关系？
+CSS应该怎样使用？
+
+</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-11
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/HTML/" class="post-category" target="_blank">
-                                    HTML
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/HTML/" target="_blank">
-                        <span class="chip bg-color">HTML</span>
+                    <a href="/tags/CSS/" target="_blank">
+                        <span class="chip bg-color">CSS</span>
                     </a>
                     
                 </div>
@@ -2066,7 +2077,7 @@ HTML 基础
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">154.5k</span>
+                <span class="white-color">158k</span>
             
 
             
