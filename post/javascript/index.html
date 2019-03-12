@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Treecatee">
+
+
+
+<meta name="description" content="( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript">
+<meta property="og:url" content="Treecatee.gitgub.io/post/javascript/index.html">
+<meta property="og:site_name" content="Treecatee">
+<meta property="og:description" content="( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/03/12/5c877e7a8a039.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/12/5c8785a1aca7f.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/12/5c8785a5c3ea4.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/12/5c87808ae6e21.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/12/5c8788a01fd0b.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/12/5c87933bee96c.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/12/5c87953d930f2.png">
+<meta property="og:updated_time" content="2019-03-12T12:25:45.209Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript">
+<meta name="twitter:description" content="( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/12/5c877e7a8a039.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Treecatee" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>JavaScript | Treecatee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/favicon.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Treecatee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">得失弹指一挥间。</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/tags/">分类&amp;标签</a></li>
+                        
+                            <li><a href="/about/">关于</a></li>
+                        
+                            <li><a href="/book">资源</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/1003432683@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="https://weibo.com/2828202205/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa RSS" href="https://directoree.github.io" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" href="https://music.163.com/#/user/home?id=455041480" title="网易云音乐"></a>
+                            
+                                <a class="fa LinkedIn" href="/links" title="LinkedIn"></a>
+                            
+                                <a class="fa QQ" href="http://sighttp.qq.com/msgrd?v=1&uin=1003432683" title="QQ"></a>
+                            
+                                <a class="fa LOFTER" href="/book" title="LOFTER"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP欺骗/">ARP欺骗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA/">DVWA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash函数/">Hash函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java访问权限/">Java访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java语言/">Java语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meterpreter命令/">Meterpreter命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP语言/">PHP语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python语言/">Python语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLMAP命令/">SQLMAP命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/User-Agen/">User-Agen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wireshark/">Wireshark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msfvenom/">msfvenom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信安数学/">信安数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分组密码/">分组密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全指导/">安全指导</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全笔记/">安全笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓渗透/">安卓渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/序列密码/">序列密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法学习/">算法学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/远程木马攻击/">远程木马攻击</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Treecatee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/favicon.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Treecatee</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">得失弹指一挥间。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/tags/">分类&amp;标签</a></li>
+                
+                    <li><a href="/about/">关于</a></li>
+                
+                    <li><a href="/book">资源</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/1003432683@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="https://weibo.com/2828202205/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="https://directoree.github.io" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="https://music.163.com/#/user/home?id=455041480" title="网易云音乐"></a>
+                            
+                                <a class="fa LinkedIn" target="_blank" href="/links" title="LinkedIn"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://sighttp.qq.com/msgrd?v=1&uin=1003432683" title="QQ"></a>
+                            
+                                <a class="fa LOFTER" target="_blank" href="/book" title="LOFTER"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/javascript/" class="article-date">
+      <time datetime="2019-03-12T07:56:00.000Z" itemprop="datePublished">2019-03-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾<br><a id="more"></a></p>
+<p><br></p>
+<p><br></p>
+<center><font color="#00B2EE" face="Comic sans MS" size="5"><strong>JavaScript 基础</strong></font> </center>
+
+
+
+<p><br></p>
+<p><br></p>
+<h3 id="一-JavaScript-简介"><a href="#一-JavaScript-简介" class="headerlink" title="一. JavaScript 简介"></a><font color="#FF6347" face="Comic sans MS">一. JavaScript 简介</font></h3><p><br></p>
+<h4 id="1-1-JavaScript-由来"><a href="#1-1-JavaScript-由来" class="headerlink" title="1.1 JavaScript 由来"></a><font color="#3CB371" face="Comic sans MS">1.1 JavaScript 由来</font></h4><font face="Microsoft YaHei" color="#FF7F00"><strong>（1） 关于JavaScript</strong></font>
+
+<p>在上个世纪的1995年，当时的网景公司正凭借其Navigator浏览器成为Web时代开启时最著名的第一代互联网公司。</p>
+<p>由于网景公司希望能在静态HTML页面上添加一些动态效果，于是叫Brendan Eich这哥们在两周之内设计出了JavaScript语言。你没看错，这哥们只用了10天时间。</p>
+<p>为什么起名叫JavaScript？原因是当时Java语言非常红火，所以网景公司希望借Java的名气来推广，但事实上JavaScript除了语法上有点像Java，其他部分基本上没啥关系。</p>
+<p><br></p>
+<p><strong>ECMAScript</strong></p>
+<p>因为网景开发了JavaScript，一年后微软又模仿JavaScript开发了JScript，为了让JavaScript成为全球标准，几个公司联合ECMA（European Computer Manufacturers Association）组织定制了JavaScript语言的标准，被称为ECMAScript标准。</p>
+<p>所以简单说来就是，ECMAScript是一种语言标准，而JavaScript是网景公司对ECMAScript标准的一种实现。</p>
+<p>那为什么不直接把JavaScript定为标准呢？因为JavaScript是网景的注册商标。</p>
+<p>不过大多数时候，我们还是用JavaScript这个词。如果你遇到ECMAScript这个词，简单把它替换为JavaScript就行了。</p>
+<p><br></p>
+<p><strong>JavaScript版本</strong></p>
+<p>JavaScript语言是在10天时间内设计出来的，虽然语言的设计者水平非常NB，但谁也架不住“时间紧，任务重”，所以，JavaScript有很多设计缺陷，我们后面会慢慢讲到。</p>
+<p>此外，由于JavaScript的标准——ECMAScript在不断发展，最新版ECMAScript 6标准（简称ES6）已经在2015年6月正式发布了，所以，讲到JavaScript的版本，实际上就是说它实现了ECMAScript标准的哪个版本。</p>
+<p>由于浏览器在发布时就确定了JavaScript的版本，加上很多用户还在使用IE6这种古老的浏览器，这就导致你在写JavaScript的时候，要照顾一下老用户，不能一上来就用最新的ES6标准写，否则，老用户的浏览器是无法运行新版本的JavaScript代码的。</p>
+<p><br></p>
+<font face="Microsoft YaHei" color="#FF7F00"><strong>（2） JavaScript是什么？</strong></font>
+
+<ul>
+<li><p>JavaScript是一种小型的、轻量级的、面向对象的、跨平台的客户端脚本语言。</p>
+</li>
+<li><p>JavaScript是嵌入到浏览器软件当中的去的，只要你的电脑有浏览器就可以执行JS程序了。JavaScript是一种面向对象的程序语言。在程序中，对象是由“属性”和“方法”构成。</p>
+</li>
+<li><p><strong>跨平台：</strong>JS程序可以在多种平台下运行，如：windows、linux、mac、IOS等。</p>
+</li>
+<li><p><strong>客户端脚本程序：</strong>JS只能在客户端的浏览器来运行，不能在服务器端来运行。</p>
+</li>
+<li><p><strong>浏览器是一个翻译器</strong>，可以翻译三种代码：HTML代码、CSS代码、JavaScript代码。</p>
+</li>
+<li><p>JavaScript 是可插入 HTML 页面的编程代码。</p>
+</li>
+</ul>
+<p><strong>注：JS中的对象只要会用就可以了，不需要我们自己去开发对象。</strong></p>
+<p><br></p>
+<font face="Microsoft YaHei" color="#FF7F00"><strong>（3） JavaScript能干什么？</strong></font>
+
+<ul>
+<li><p><strong>表单验证：</strong>是JS最基本的功能。</p>
+</li>
+<li><p><strong>动态HTML：</strong>可以实现一些动态的、重复的效果。</p>
+</li>
+<li><p><strong>交互式：</strong>人机交互，通过键盘或鼠标，与网页中的元素进行交互。</p>
+</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h4 id="1-2-JavaScript-规则"><a href="#1-2-JavaScript-规则" class="headerlink" title="1.2 JavaScript 规则"></a><font color="#3CB371" face="Comic sans MS">1.2 JavaScript 规则</font></h4><font face="Microsoft YaHei" color="#FF7F00"><strong>（1） JavaScript用法</strong></font>
+
+<ul>
+<li><p>同一个网页中，可以有HTML代码、CSS代码、JavaScript代码。</p>
+</li>
+<li><p>通过<strong><code>&lt;script&gt;&lt;/script&gt;</code></strong>来引入JS程序代码。即HTML 中的脚本必须位于 <code>&lt;script&gt;</code> 与 <code>&lt;/script&gt;</code> 标签之间。<code>&lt;script&gt;</code> 和 <code>&lt;/script&gt;</code> 会告诉 JavaScript 在何处开始和结束。</p>
+</li>
+</ul>
+<p><br></p>
+<font face="Microsoft YaHei" color="#FF7F00"><strong>（2） 脚本的放置位置</strong></font>
+
+<p>脚本可被放置在：</p>
+<ol>
+<li>放在HTML页面的<code>&lt;head&gt;&lt;/head&gt;</code> 里；</li>
+<li>放在HTML页面的 <code>&lt;body&gt;&lt;/body&gt;</code> 里；或者同时放在二者中；</li>
+<li>放在外部 .js文件里，这个文件里面直接写js脚本，不用再写<code>&lt;script&gt;&lt;/script&gt;</code>这两个标签。</li>
+</ol>
+<p><br></p>
+<p><strong>a. 把 JavaScript 代码放在<code>&lt;head&gt;&lt;/head&gt;</code> 和放在 <code>&lt;body&gt;&lt;/body&gt;</code> 里的区别：</strong></p>
+<ul>
+<li>简单地说，放在 <code>&lt;head&gt;&lt;/head&gt;</code> 里的会比放在 <code>&lt;body&gt;&lt;/body&gt;</code> 先执行。head 标签里的代码会在页面还未开始绘制之前被解析，而在 body 里的代码则会在页面渲染的同时在读取到这段代码的时候才被执行。</li>
+<li>通常的做法是把函数放入 <code>&lt;head&gt;</code> 部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，不会干扰页面的内容。</li>
+</ul>
+<p><br></p>
+<p><strong>b. 外部的 JavaScript</strong></p>
+<ul>
+<li>也可以把脚本保存到外部文件中。外部文件通常包含被多个网页使用的代码。</li>
+<li>外部 JavaScript 文件的文件扩展名是 .js。</li>
+<li>如需使用外部文件，请在 <code>&lt;script&gt;</code> 标签的 “src” 属性中设置该 .js 文件：</li>
+<li>可以将脚本放置于 <code>&lt;head&gt;</code> 或者 <code>&lt;body&gt;</code>中，放在 <code>&lt;script&gt;</code> 标签中的脚本与外部引用的脚本运行效果完全一致。</li>
+</ul>
+<p>实例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script src=<span class="string">"myScript.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明：</strong>那些老旧的实例可能会在 <code>&lt;script&gt;</code> 标签中使用 <code>type=&quot;text/javascript&quot;</code>。现在已经不必这样做了。JavaScript 是所有现代浏览器以及 HTML5 中的默认脚本语言。</p>
+</blockquote>
+<p><br></p>
+<font face="Microsoft YaHei" color="#FF7F00"><strong>（3） 关于注释</strong></font>
+
+<ol>
+<li><p>C/C++/C#/Java/JavaScript：单行使用<strong><code>//</code></strong>,多行使用<strong><code>/*...*/</code></strong></p>
+</li>
+<li><p>MYSQL/Python：<strong><code>#</code></strong></p>
+</li>
+<li><p>PHP：单行使用<strong><code>//</code></strong>，多行使用三对单引号或者双引号</p>
+</li>
+<li><p>CSS：<strong><code>/*...*/</code></strong></p>
+</li>
+<li><p>HTML：<strong><code>&lt;!--注释内容--&gt;</code></strong></p>
+</li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h4 id="1-3-JavaScript-输出"><a href="#1-3-JavaScript-输出" class="headerlink" title="1.3 JavaScript 输出"></a><font color="#3CB371" face="Comic sans MS">1.3 JavaScript 输出</font></h4><blockquote>
+<p><font color="#FF7F00"><strong>JavaScript 显示数据</strong></font></p>
+<ol>
+<li>使用 window.alert() 弹出警告框。</li>
+<li>使用 document.write() 方法将内容写到 HTML 文档中。</li>
+<li>使用 innerHTML 写入到 HTML 元素。</li>
+<li>使用 console.log() 写入到浏览器的控制台。</li>
+</ol>
+</blockquote>
+<p><br></p>
+<font face="Microsoft YaHei" color="#00B2EE"><strong>（1） window.alert(str) 弹出警告框</strong></font>
+
+<blockquote>
+<p><font color="#FF7F00"><strong>描述：</strong></font>在当前窗口中弹出一个警告对话框，str为对话框中显示的内容。<br>window：代表当前浏览器窗口，window是一个窗口对象。<br>alert()：弹出一个对话框。<br>str：表示要输出的内容。</p>
+</blockquote>
+<p><br></p>
+<p>实例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">&lt;title&gt;来试一波&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body background=<span class="string">"https://i.loli.net/2019/03/12/5c877dd02cfeb.jpg"</span>&gt;</span><br><span class="line">	</span><br><span class="line">&lt;h1&gt;我的第一个页面&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;我的第一个段落。&lt;/p&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">window.alert(<span class="number">5</span> + <span class="number">6</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/03/12/5c877e7a8a039.png" alt="1.png"></p>
+<p><br></p>
+<font face="Microsoft YaHei" color="#00B2EE"><strong>（2） document.write(str) 写到 HTML 文档</strong></font>
+
+<blockquote>
+<p><font color="#FF7F00"><strong>描述：</strong></font></p>
+<ol>
+<li>document意思“文档”，就是整个网页了。</li>
+<li>document是一个文档对象，代表整个网页。</li>
+<li>write()是document对象的一个输出方法。</li>
+<li>“.”小数点：通过小数点(.)来调用对象的方法。</li>
+<li>str：表示要输出的内容。</li>
+</ol>
+</blockquote>
+<p><strong>注意事项：</strong></p>
+<ol>
+<li>请使用 document.write() 仅仅向文档输出写内容。</li>
+<li>如果在文档已完成加载后执行 document.write，整个 HTML 页面将被覆盖。</li>
+</ol>
+<p><br></p>
+<p>下面实例说明document.write()在文档加载完后执行将会覆盖之前的页面：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt; </span><br><span class="line">&lt;meta charset=<span class="string">"utf-8"</span>&gt; </span><br><span class="line">&lt;title&gt;点击“点我”前的页面&lt;/title&gt; </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	</span><br><span class="line">&lt;h1&gt;这是“点我”前的页面Web 页面&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;我的第一个段落。&lt;/p&gt;</span><br><span class="line">&lt;button onclick=<span class="string">"myFunction()"</span>&gt;点我&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    document.write(Date());</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>在没有点击“点我”前的页面：</p>
+<p><img src="https://i.loli.net/2019/03/12/5c8785a1aca7f.png" alt="3.png"></p>
+<p><br>在点击“点我”后的页面：</p>
+<p><img src="https://i.loli.net/2019/03/12/5c8785a5c3ea4.png" alt="4.png"></p>
+<p><br></p>
+<font face="Microsoft YaHei" color="#00B2EE"><strong>（3） innerHTML 操作 HTML 元素</strong></font>
+
+<blockquote>
+<p><font color="#FF7F00"><strong>描述：</strong></font></p>
+<ol>
+<li>innerHTML用于操作 HTML 元素。</li>
+<li>如需从 JavaScript 访问某个 HTML 元素，您可以使用 document.getElementById(id) 方法。</li>
+<li>请使用 “id” 属性来标识 HTML 元素，并 innerHTML 来获取或插入元素内容：</li>
+</ol>
+</blockquote>
+<p>实例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>再来试一波<span class="tag">&lt;/<span class="name">title</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">"https://i.loli.net/2019/03/12/5c8780490c44e.jpg"</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个 Web 页面<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">document.getElementById("demo").innerHTML="段落已修改。";</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/03/12/5c87808ae6e21.png" alt="2.png"></p>
+<p><strong>说明：</strong>以上 JavaScript 语句（在 <code>&lt;script&gt;</code> 标签中）可以在 web 浏览器中执行：</p>
+<ol>
+<li><strong><code>document.getElementById(&quot;demo&quot;)</code> ：</strong>是使用 <code>id</code> 属性来查找 HTML 元素的 JavaScript 代码 。</li>
+<li><strong><code>innerHTML = &quot;段落已修改。&quot;</code>：</strong> 是用于修改元素的 HTML 内容(innerHTML)的 JavaScript 代码。</li>
+</ol>
+<p><br></p>
+<font face="Microsoft YaHei" color="#00B2EE"><strong>（4） console.log() 写到控制台。</strong></font>
+
+<p>如果您的浏览器支持调试，你可以使用 console.log() 方法在浏览器中显示 JavaScript 值。</p>
+<p>浏览器中使用 F12 来启用调试模式， 在调试窗口中点击 “Console” 菜单。</p>
+<p><strong>Tip：</strong>程序中调试是测试，查找及减少bug(错误)的过程。</p>
+<p><br></p>
+<p>下面实例代码先写到一个 .html的文档里，然后在浏览器运行这个文档。运行后启用调试模式点击”Console” 菜单即可看到输出结果：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>输出到控制台<span class="tag">&lt;/<span class="name">title</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">"https://i.loli.net/2019/03/12/5c8787ce408d7.jpg"</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>注意要启动调试模式<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">浏览器中(Chrome, IE, Firefox) 使用 F12 来启用调试模式， 在调试窗口中点击 "Console" 菜单。</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">a = 5;</span></span><br><span class="line"><span class="undefined">b = 6;</span></span><br><span class="line"><span class="undefined">c = a + b;</span></span><br><span class="line"><span class="undefined">console.log(c);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/03/12/5c8788a01fd0b.png" alt="5.png"></p>
+<p><br></p>
+<p><br></p>
+<h3 id="二-JavaScript-语法"><a href="#二-JavaScript-语法" class="headerlink" title="二. JavaScript 语法"></a><font color="#FF6347" face="Comic sans MS">二. JavaScript 语法</font></h3><p><br></p>
+<h4 id="2-1-基本法则"><a href="#2-1-基本法则" class="headerlink" title="2.1 基本法则"></a><font color="#3CB371" face="Comic sans MS">2.1 基本法则</font></h4><blockquote>
+<ol>
+<li><strong>声明变量：</strong>使用关键字<strong><code>var</code></strong>，如：<code>var name; var num=12;</code></li>
+<li><strong>命名规则：</strong>变量名不能以数字开头，可以是字母或下划线开头。变量名可以包含字母、数字、下划线。</li>
+<li><strong>大小写敏感：</strong>JS中的变量名是区分大小写的。</li>
+<li><strong>驼峰式命名：</strong>第一个单词全小写，后面的每一个单词首字母大写。如：<strong><code>var  getUserName;</code></strong></li>
+<li><strong>语句块：</strong>花括号<strong><code>{...}</code></strong>，JavaScript的语法和Java语言类似</li>
+<li><strong>语句结束符：</strong>英文分号<strong><code>;</code></strong>，JavaScript的语法和Java语言类似</li>
+<li><strong>缩进：</strong>花括号{…}内的语句具有缩进，通常是4个空格，并不强制使用。缩进有助于我们理解代码的层次。</li>
+<li><strong>注释：</strong>单行<strong><code>//</code></strong>，多行<strong><code>/*...*/</code></strong>，不是所有的 JavaScript 语句都是”命令”。</li>
+<li><strong>空格：</strong>JavaScript 会忽略多余的空格。可以向脚本添加空格，来提高其可读性。</li>
+<li><strong>一行：</strong>一行代码可包含多个语句，每个语句用<strong><code>;</code></strong>表示语句结束。但 不建议一行写多个语句!（因为要层次感）</li>
+<li><strong>多行：</strong>文本字符串中使用反斜杠<strong><code>\</code></strong>对代码行进行换行。但是只能字符串使用，变量名函数名等其他不能使用。</li>
+</ol>
+</blockquote>
+<p>如：<br><code>document.write(&quot;你好 \</code><br><code>世界!&quot;);</code></p>
+<p><strong>提示：</strong>JavaScript 是脚本语言。浏览器会在读取代码时，逐行地执行脚本代码。而对于传统编程来说，会在执行前对所有代码进行编译。</p>
+<p><br></p>
+<font color="#FF7F00"><strong>Tip1：</strong></font>以下是 JavaScript 中最​​重要的保留字（按字母顺序）：<br><br><img src="https://i.loli.net/2019/03/12/5c87933bee96c.png" alt="6.png"><br><br><br><br><br><font color="#FF7F00"><strong>Tip2：</strong></font>JavaScript 有多种数据类型：数字，字符串，数组，对象等等（在编程语言中，一般固定值称为字面量，如 3.14。）：<br><br><font color="#FF7F00"></font>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> length = <span class="number">16</span>;                                  <span class="comment">// Number 通过数字字面量赋值 </span></span><br><span class="line"><span class="keyword">var</span> points = x * <span class="number">10</span>;                              <span class="comment">// Number 通过表达式字面量赋值</span></span><br><span class="line"><span class="keyword">var</span> lastName = <span class="string">"Johnson"</span>;                         <span class="comment">// String 通过字符串字面量赋值</span></span><br><span class="line"><span class="keyword">var</span> cars = [<span class="string">"Saab"</span>, <span class="string">"Volvo"</span>, <span class="string">"BMW"</span>];              <span class="comment">// Array  通过数组字面量赋值</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;<span class="attr">firstName</span>:<span class="string">"John"</span>, <span class="attr">lastName</span>:<span class="string">"Doe"</span>&#125;;  <span class="comment">// Object 通过对象字面量赋值</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<font color="#FF7F00"><strong>Tip3：</strong></font>JavaScript 语句通常以一个 语句标识符 为开始，并执行该语句。语句标识符是保留关键字不能作为变量名使用。<br><br>下表列出了 JavaScript 语句标识符 (关键字) ：<br><br><img src="https://i.loli.net/2019/03/12/5c87953d930f2.png" alt="7.png"><br><br><font color="#FF7F00"></font>
+
+<p><br></p>
+<h4 id="2-2-变量和数据类型"><a href="#2-2-变量和数据类型" class="headerlink" title="2.2 变量和数据类型"></a><font color="#3CB371" face="Comic sans MS">2.2 变量和数据类型</font></h4>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/post/javascript/">JavaScript</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Treecatee</a></p>
+        <p><span>发布时间:</span>2019-03-12, 15:56:00</p>
+        <p><span>最后更新:</span>2019-03-12, 20:25:45</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/post/javascript/" title="JavaScript">Treecatee.gitgub.io/post/javascript/</a>
+            <span class="copy-path" data-clipboard-text="原文: Treecatee.gitgub.io/post/javascript/　　作者: Treecatee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/post/html-css/">
+                    CSS 基础
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-JavaScript-简介"><span class="toc-text">一. JavaScript 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-JavaScript-由来"><span class="toc-text">1.1 JavaScript 由来</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-JavaScript-规则"><span class="toc-text">1.2 JavaScript 规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-JavaScript-输出"><span class="toc-text">1.3 JavaScript 输出</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-JavaScript-语法"><span class="toc-text">二. JavaScript 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-基本法则"><span class="toc-text">2.1 基本法则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-变量和数据类型"><span class="toc-text">2.2 变量和数据类型</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-6 i,
+        .toc-level-6 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"JavaScript　| Treecatee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/post/html-css/" title="下一篇: CSS 基础">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/javascript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-css/">CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-basics/">HTML-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-filecontents/">Python-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/markdownusage/">Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-functionalprogramming/">Python-函数式编程</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-modules-packages/">Python-模块和包</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-generator-iterator/">Python-生成器与迭代器</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-function/">Python-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-operators/">Python-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-conditionalstatements-loops/">Python-条件语句与循环</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-list-tuple-dict-set/">Python-列表、元组、字典、集合</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-coding/">Python-字符编码&字符串&格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-variables-datatypes/">Python-变量和数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-grammar/">Python-基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-basics/">Python-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-sessionmanagement/">PHP-会话管理和控制</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-mysql/">PHP操作MySQL数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mysql-primer/">MySQL入门</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-upload/">PHP-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-filesystem/">PHP-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-function/">PHP-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-regular-expression/">PHP-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-namespace/">PHP-命名空间</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-1/">PHP基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/wireshark-1/">Wireshark简单介绍和数据包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-4/">Java数组(3.9)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-3/">Java简单语句、复合语句、控制语句(3.7-3.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-2/">Java运算符和数据类型转换(3.4-3.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-exception-handling7/">Java-异常处理(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-variable-innerclass6/">Java变量及其传递、内部类(4.9-4.10)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-interface-package5/">Java接口、包(4.7-4.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hash-message-authentication/">Hash函数和消息认证</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-inherit-4/">Java构造方法、对象创建、继承(4.5-4.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sequence-password/">对称密码-序列密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/block-cipher/">对称密码-分组密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-access-permissions-3/">Java类、成员变量、static访问权限(4.1-4.4)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-1/">Java语言基础的字符常变量等(3.1-3.3)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-user-agen-cookie/">《HTTP协议请求头部的User-Agen和Cookie》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xampp-dvwa/">XAMPP环境下配置DVWA</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-io-1/">Java的输入输出</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sqlmap-shell/">SQLMAP命令大全</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mathematical-basis/">信息安全数学基础复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/music-collection/">Music-Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/post/pvris-onlylove/">PVRIS-OnlyLove</a></li><li class="post-list-item"><a class="post-list-link" href="/post/yang-zong-wei-kong-bai-ge-zhuan-ji/">杨宗纬-《空白格》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/network-security/">网络安全复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/algorithm/">算法复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/https-password/">内网称霸之《HTTPS账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-password/">内网称霸之《HTTP账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-picture/">内网称霸之《arp欺骗获取目标主机浏览的图片》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-broken-network/">内网称霸之《ARP欺骗断网攻击》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/resourses/">资源</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-xue-ru-shui-xing-ji-ti-mian-shou-cang-ban/">叶雪如-《水星记》《体面》收藏版</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-si-wu-ji-dan-zhuan-ji/">薛之谦-《肆无忌惮》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-na-shi-ni-chi-kai-liao-bei-jing-de-sheng-huo-zhuan-ji/">薛之谦-《那是你离开了北京的生活》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-guai-ka-zhuan-ji/">薛之谦-《怪咖》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit3/">Metasploit之渗透安卓实战</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit2/">Metasploit工具Meterpreter的命令速查表</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-du-zhuan-ji/">薛之谦-《渡》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-zui-hao-zhuan-ji/">薛之谦-《最好》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/creategithubblog/">Hexo+Github博客搭建终极大法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit1/">msfvenom生成各类Payload命令，远程木马攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Treecatee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+		 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+         
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
