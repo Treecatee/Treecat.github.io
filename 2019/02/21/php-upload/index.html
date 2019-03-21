@@ -1,0 +1,1482 @@
+<!DOCTYPE HTML>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="PHP-文件上传, Treecatee">
+    <meta name="description" content="(。・∀・)ノ
+&amp;ensp;&amp;ensp;
+PHP 文件上传
+
+&amp;emsp;&amp;emsp;
+一. 修改php.ini文件一般情况需要修改：[可以使用ctrl+f 搜索相关配置项。]
+
+
+
+配置项
+功能说明
+
+
+
+
+file_uploads
+on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>PHP-文件上传 | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-calendar"></i>
+            
+            <span>时间轴</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/book" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>资源</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <i class="fa fa-edit"></i>
+            
+            <span>链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-calendar"></i>
+                
+                时间轴
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/book" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                资源
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-edit"></i>
+                
+                链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        PHP-文件上传
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PHP语言/" target="_blank">
+                                <span class="chip bg-color">PHP语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/PHP/" class="post-category" target="_blank">
+                                PHP
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-02-21
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        4k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        15 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>(。・∀・)ノ<br><a id="more"></a></p>
+<p>&ensp;<br>&ensp;</p>
+<center><font color="#00B2EE" face="Comic sans MS" size="5"><strong>PHP 文件上传</strong></font></center>
+
+<p>&emsp;<br>&emsp;</p>
+<h3 id="一-修改php-ini文件"><a href="#一-修改php-ini文件" class="headerlink" title="一. 修改php.ini文件"></a><font color="#FF6347" face="Comic sans MS">一. 修改php.ini文件</font></h3><p>一般情况需要修改：[可以使用ctrl+f 搜索相关配置项。]</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">配置项</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">file_uploads</td>
+<td style="text-align:left">on为开启文件上传功能，off为关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">post_max_size</td>
+<td style="text-align:left">系统允许的POST传参的最大值</td>
+</tr>
+<tr>
+<td style="text-align:center">upload_max_filesize</td>
+<td style="text-align:left">系统允许的上传文件的最大值</td>
+</tr>
+<tr>
+<td style="text-align:center">memory_limit</td>
+<td style="text-align:left">内存使用限制</td>
+</tr>
+<tr>
+<td style="text-align:center">max_execution_time</td>
+<td style="text-align:left">(1)脚本执行时间,参数的单位为秒。<br>(2)这个参数是设定脚本的最大执行时间。<br>(3)也可以根据需求做适当的改变。通常不需要来修改，系统默认值即可。超大文件<br>上传的时候，可能会涉及到这一项参数的修改。<br>(4)上传时间太长了，会超时。如果你将此项参数设为0，则是不限制超时时间，不建<br>议使用。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><font color="#FF7F00"><strong>建议尺寸：</strong></font> file_size(文件大小) &lt; upload_max_filesize &lt; post_max_size &lt; memory_limit</p>
+</blockquote>
+<p> &emsp;<br>&emsp;</p>
+<h3 id="三-is-uploaded-file-函数、数组-FILES"><a href="#三-is-uploaded-file-函数、数组-FILES" class="headerlink" title="三. is_uploaded_file()函数、数组$_FILES"></a><font color="#FF6347" face="Comic sans MS">三. is_uploaded_file()函数、数组$_FILES</font></h3><h4 id="2-1-创建一个文件上传表单"><a href="#2-1-创建一个文件上传表单" class="headerlink" title="2.1 创建一个文件上传表单"></a><font color="#3CB371" face="Comic sans MS">2.1 创建一个文件上传表单</font></h4><p>请看下面这个供上传文件的 HTML 表单：</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>upload_file.php<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span>
+<span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Filename:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Submit<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<blockquote>
+<p><font color="#FF7F00"><strong>请留意如下有关此表单的信息：</strong></font></p>
+<ol>
+<li><strong>&lt;’\’form&gt; 标签的 enctype 属性规定了在提交表单时要使用哪种内容类型。在表单需要二进制数据时，比如文件内容，请使用 <font color="#FF7F00">“multipart/form-data”</font>。</strong></li>
+<li><strong>&lt;’\’input&gt; 标签的 <font color="#FF7F00">type=”file”</font> 属性规定了应该把输入作为文件来处理。举例来说，当在浏览器中预览时，会看到输入框旁边有一个浏览按钮。</strong></li>
+</ol>
+</blockquote>
+<p>&emsp;</p>
+<h4 id="2-2-is-uploaded-file-函数"><a href="#2-2-is-uploaded-file-函数" class="headerlink" title="2.2 is_uploaded_file() 函数"></a><font color="#3CB371" face="Comic sans MS">2.2 is_uploaded_file() 函数</font></h4><font color="#00B2EE">[<a href="http://www.runoob.com/php/func-filesystem-is-uploaded-file.html" target="_blank" rel="noopener">PHP is_uploaded_file() 函数</a>]</font>
+
+
+<blockquote>
+<p><font color="#FF7F00"><strong>功能：</strong></font>检查指定的文件是否是通过 <strong>HTTP POST</strong> 上传的。如果文件是通过 HTTP POST 上传的，该函数返回 TRUE。</p>
+</blockquote>
+<p><strong>语法： is_uploaded_file(file)</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">file</td>
+<td style="text-align:left">必需。规定要检查的文件。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong>该函数的结果会被缓存。请使用 <strong>clearstatcache()</strong> 来清除缓存。</p>
+<p>示例：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$file</span> <span class="token operator">=</span> <span class="token string">"test.txt"</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">echo</span> <span class="token punctuation">(</span><span class="token string">"$file is uploaded via HTTP POST"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">echo</span> <span class="token punctuation">(</span><span class="token string">"$file is not uploaded via HTTP POST"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+
+上面的代码将输出：
+
+test<span class="token punctuation">.</span>txt is not uploaded via <span class="token constant">HTTP</span> <span class="token constant">POST</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<h4 id="2-3-FILES-数组"><a href="#2-3-FILES-数组" class="headerlink" title="2.3  $_FILES 数组"></a><font color="#3CB371" face="Comic sans MS">2.3  $_FILES 数组</font></h4><p>当客户端上传文件后，我们在action=”xxxx.php”的xxxx.php页面就获得了一个<strong>$_FILES 数组 。</strong></p>
+<font color="#FF7F00"><strong>$_FILES 数组内容如下:</strong> </font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数组元素</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$_FILES[“File”][“name”]</td>
+<td style="text-align:left">上传文件的名称。 </td>
+</tr>
+<tr>
+<td style="text-align:center">$_FILES[“File”][“type”]</td>
+<td style="text-align:left">文件的 MIME 类型，需要浏览器提供该信息的支持，例如”image/gif”。 </td>
+</tr>
+<tr>
+<td style="text-align:center">$_FILES[“File”][“size”]</td>
+<td style="text-align:left">已上传文件的大小，单位为字节。 </td>
+</tr>
+<tr>
+<td style="text-align:center">$_FILES[“File’][“tmp_name”]</td>
+<td style="text-align:left">文件被上传后在服务端储存的临时文件名，一般是系统默认。可以在ph<br>p.ini的upload_tmp_dir 指定，但 用 putenv()函数设置是不起作用的。 </td>
+</tr>
+<tr>
+<td style="text-align:center">$_FILES[“File”][“error”]</td>
+<td style="text-align:left">和该文件上传相关的错误代码。[“error”] 是在 PHP 4.2.0 版本中增加的。<br>下面是它的说明：(它们在PHP3.0以后成了常量或0123467) </td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;</p>
+<font color="#00B2EE"><strong>$_FILES数组结构：</strong></font>
+
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token comment" spellcheck="true">//var_dump()或print_r()</span>
+<span class="token comment" spellcheck="true">//打印变量的相关信息,将变量的信息详细的展示出来</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             
+<span class="token delimiter">?></span>
+
+打印出来的结果的数组结构如下：
+<span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token string">'file'</span> <span class="token operator">=</span><span class="token operator">></span> 
+       <span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+       <span class="token comment" spellcheck="true">//文件名</span>
+      <span class="token string">'name'</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'psu.jpg'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">)</span> 
+      <span class="token comment" spellcheck="true">//文件的mime类型</span>
+      <span class="token string">'type'</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'image/jpeg'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>                    
+      <span class="token comment" spellcheck="true">//缓存文件，上传的图片即保存在这里</span>
+      <span class="token string">'tmp_name'</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'E:\wamp\tmp\phpC32A.tmp'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">23</span><span class="token punctuation">)</span>
+      <span class="token comment" spellcheck="true">//错误码，详见上面错误码介绍</span>
+      <span class="token string">'error'</span> <span class="token operator">=</span><span class="token operator">></span> int <span class="token number">0</span>                                             
+      <span class="token comment" spellcheck="true">//上传的文件大小</span>
+      <span class="token string">'size'</span> <span class="token operator">=</span><span class="token operator">></span> int <span class="token number">225824</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<h4 id="2-4-move-uploaded-file-函数"><a href="#2-4-move-uploaded-file-函数" class="headerlink" title="2.4  move_uploaded_file() 函数"></a><font color="#3CB371" face="Comic sans MS">2.4  move_uploaded_file() 函数</font></h4><font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_filesystem_move_uploaded_file.asp" target="_blank" rel="noopener">PHP move_uploaded_file() 函数</a>]</font>
+
+<blockquote>
+<p><font color="#FF7F00"><strong>功能：</strong></font>将上传的文件移动到新位置，并命名。</p>
+</blockquote>
+<p><strong>bool</strong> <font color="#00B2EE"><strong>move_uploaded_file ( file, newloc)</strong></font></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">file</td>
+<td style="text-align:left">必需。规定要移动的文件。上传后的临时文件名，由系统自动生成。</td>
+</tr>
+<tr>
+<td style="text-align:center">newloc</td>
+<td style="text-align:left">必需。规定文件的新位置。包含有路径的新的文件名。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><font color="#FF7F00"><strong>注意：</strong></font></p>
+<ol>
+<li><strong>参数file一般为$_FILES[“File’][“tmp_name”]，</strong><font color="#FF7F00"><strong>是一个文件完整的临时路径和文件名；</strong></font></li>
+<li><strong>参数newloc为新的路径，</strong><font color="#FF7F00"><strong>并且还要加上相应的重新命名文件的的格式。</strong></font></li>
+<li><strong>本函数仅用于通过 HTTP POST 上传的文件。</strong></li>
+<li>本函数检查并确保由 file 指定的文件<strong>是合法的上传文件</strong>（即通过 PHP 的 HTTP POST 上传机制所上传的）。如果文件合法，则将其移动为由 newloc 指定的文件。</li>
+<li><font color="#FF7F00"><strong>返回值：</strong></font>如果 file 不是合法的上传文件，不会出现任何操作，move_uploaded_file() 将返回 false。<br>如果 file 是合法的上传文件，但出于某些原因无法移动，不会出现任何操作，move_uploaded_file() 将返回 false，此外还会发出一条警告。<br>这种检查显得格外重要，如果上传的文件有可能会造成对用户或本系统的其他用户显示其内容的话。</li>
+<li>move_uploaded_file()基本上与函数<font color="#FF7F00">rename()</font>相同，<strong>但是它只能用于通过PHP的上传机制上传的文件</strong>。这是一项安全功能，可防止用户欺骗您的脚本，向他们显示与安全相关的数据。</li>
+</ol>
+</blockquote>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="三-文件上传的步骤"><a href="#三-文件上传的步骤" class="headerlink" title="三. 文件上传的步骤"></a><font color="#FF6347" face="Comic sans MS">三. 文件上传的步骤</font></h3><h4 id="3-1-判断是否有错误码"><a href="#3-1-判断是否有错误码" class="headerlink" title="3.1 判断是否有错误码"></a><font color="#3CB371" face="Comic sans MS">3.1 判断是否有错误码</font></h4><p>使用数组元素：<font color="red"><strong>$_FILES[‘file’][‘error’]</strong></font><br>即判断<font color="#FF7F00">$_FILES[‘file’][‘error’]返回值！！</font><br>注：错误码中没有5。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">错误码<br>对应常量</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0<br>UPLOAD_ERR_OK</td>
+<td style="text-align:left">无误，可以继续进行文件上传的后续操作。</td>
+</tr>
+<tr>
+<td style="text-align:center">1<br>UPLOAD_ERR_INI_SIZE</td>
+<td style="text-align:left">超出上传文件的最大限制，upload_max_filesize = 2M php.ini中设置，一<br>般默认为2M。可根据项目中的实际需要来修改</td>
+</tr>
+<tr>
+<td style="text-align:center">2<br>UPLOAD_ERR_FORM_SIZE</td>
+<td style="text-align:left">超出了指定的文件大小,根据项目的业务需求指定上传文件的大小限制</td>
+</tr>
+<tr>
+<td style="text-align:center">3<br>UPLOAD_ERR_PARTIAL</td>
+<td style="text-align:left">只有部分文件被上传</td>
+</tr>
+<tr>
+<td style="text-align:center">4<br>UPLOAD_ERR_NO_FILE</td>
+<td style="text-align:left">文件没有被上传</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">找不到临时文件夹，可能目录不存在或没权限</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">文件写入失败，可能磁盘满了或没有权限</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;<br>示例：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//错误码不为0，即文件上传过程中出现了错误</span>
+       <span class="token keyword">case</span> <span class="token string">'1'</span><span class="token punctuation">:</span>
+           <span class="token keyword">echo</span> <span class="token string">'文件过大'</span><span class="token punctuation">;</span>
+           <span class="token keyword">break</span><span class="token punctuation">;</span>
+       <span class="token keyword">case</span> <span class="token string">'2'</span><span class="token punctuation">:</span>
+           <span class="token keyword">echo</span> <span class="token string">'文件超出指定大小'</span><span class="token punctuation">;</span>
+           <span class="token keyword">break</span><span class="token punctuation">;</span>
+       <span class="token keyword">case</span> <span class="token string">'3'</span><span class="token punctuation">:</span>
+           <span class="token keyword">echo</span> <span class="token string">'只有部分文件被上传'</span><span class="token punctuation">;</span>
+           <span class="token keyword">break</span><span class="token punctuation">;</span>
+       <span class="token keyword">case</span> <span class="token string">'4'</span><span class="token punctuation">:</span>
+           <span class="token keyword">echo</span> <span class="token string">'文件没有被上传'</span><span class="token punctuation">;</span>
+           <span class="token keyword">break</span><span class="token punctuation">;</span>
+       <span class="token keyword">case</span> <span class="token string">'6'</span><span class="token punctuation">:</span>
+           <span class="token keyword">echo</span> <span class="token string">'找不到指定文件夹'</span><span class="token punctuation">;</span>
+           <span class="token keyword">break</span><span class="token punctuation">;</span>
+       <span class="token keyword">case</span> <span class="token string">'7'</span><span class="token punctuation">:</span>
+           <span class="token keyword">echo</span> <span class="token string">'文件写入失败'</span><span class="token punctuation">;</span>
+           <span class="token keyword">break</span><span class="token punctuation">;</span>
+       <span class="token keyword">default</span><span class="token punctuation">:</span>
+           <span class="token keyword">echo</span> <span class="token string">"上传出错&lt;br/>"</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">//错误码为0，即上传成功，可以进行后续处理，处理流程见下文</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="3-2-判断是否超出文件大小范围"><a href="#3-2-判断是否超出文件大小范围" class="headerlink" title="3.2 判断是否超出文件大小范围"></a><font color="#3CB371" face="Comic sans MS">3.2 判断是否超出文件大小范围</font></h4><p>使用数组元素：<font color="red"><strong>$_FILES[“File’][“size”]</strong></font></p>
+<p>&emsp;<br>示例：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token comment" spellcheck="true">//判断错误</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//有错误可停止执行</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//当前上传文件无误，运行本段代码</span>
+    <span class="token comment" spellcheck="true">//判断文件是否超出了指定的大小</span>
+    <span class="token comment" spellcheck="true">//单位为byte</span>
+    <span class="token variable">$MAX_FILE_SIZE</span> <span class="token operator">=</span> <span class="token number">100000</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'size'</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token variable">$MAX_FILE_SIZE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//判断，如果上传的文件，大小超出了我们给的限制范围，退上传并产生错误提示</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">"文件超出指定大小"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>将我们指定的文件大小，定义为$MAX_FILE_SIZE，该变量的计数单位为byte，对应上传文件的 $_FILES[‘file’][‘size’]大小。<br>示例代码中，限制大小约为100K及以下的文件。</p>
+</blockquote>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="3-3-判断后缀名和mime类型是否符合"><a href="#3-3-判断后缀名和mime类型是否符合" class="headerlink" title="3.3 判断后缀名和mime类型是否符合"></a><font color="#3CB371" face="Comic sans MS">3.3 判断后缀名和mime类型是否符合</font></h4><p>使用数组元素：<font color="red"><strong>$_FILES[“File”][“type”]</strong></font></p>
+<blockquote>
+<ol>
+<li><strong>MIME</strong>(Multipurpose Internet Mail Extensions)是多用途互联网邮件扩展类型。是设定某种扩展名的文件用一种应用程序来打开的方式类型，当该扩展名文件被访问的时候，浏览器会自动使用指定应用程序来打开。多用于指定一些客户端自定义的文件名，以及一些媒体文件打开方式。</li>
+<li>在判断后缀和MIME类型的时候，我们会<font color="#FF7F00">用到PHP的一个函数<strong>in_array()</strong></font>,该函数传入两个参数。<br>第一个参数是要判断的值；<br>第二个参数是范围数组。<br>我们用这个函数来判断文件的后缀名和mime类型是否在允许的范围内。</li>
+</ol>
+</blockquote>
+<p>&emsp;<br>示例：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token comment" spellcheck="true">/*判断后缀名和MIME类型是否符合指定需求
+例如:
+当前项目指定上传后缀为.jpg或.gif的图片，则$allowSuffix = array('jpg','gif');
+*/</span>
+<span class="token comment" spellcheck="true">//定义允许的后缀名数组</span>
+<span class="token variable">$myImg</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+explode() 将一个字符串用指定的字符切割，并返回一个数组，这里我们将文件名用'.''切割,结果存在$myImg
+中，文件的后缀名即为数组的最后一个值
+*/</span>
+<span class="token variable">$myImgSuffix</span> <span class="token operator">=</span> <span class="token function">array_pop</span><span class="token punctuation">(</span><span class="token variable">$myImg</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+根据上传文件名获取文件的后缀名
+使用in_array()函数，判断上传文件是否符合要求
+当文件后缀名不在我们允许的范围内时退出上传并返回错误信息
+*/</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$myImgSuffix</span><span class="token punctuation">,</span> <span class="token variable">$allowSuffix</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">"文件后缀名不符"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+mime类型和文件后缀名的对应关系，我们可以通过很多途径查询到，为了避免用户自主修改文件后缀名造成文件无
+法使用。
+mime类型也必须做出限制检查mime类型，是为了防止上传者直接修改文件后缀名
+导致文件不可用或上传的文件不符合要求。
+*/</span>
+<span class="token comment" spellcheck="true">//数组内容为允许上传的mime类型</span>
+<span class="token variable">$allowMime</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string">"image/jpg"</span><span class="token punctuation">,</span>
+    <span class="token string">"image/jpeg"</span><span class="token punctuation">,</span>
+    <span class="token string">"image/pjpeg"</span><span class="token punctuation">,</span>
+    <span class="token string">"image/gif"</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$allowMime</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                      
+    <span class="token comment" spellcheck="true">//判断上传文件的mime类型是否在允许的范围内</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">'文件格式不正确，请检查'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//如果不在允许范围内，退出上传并返回错误信息</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="3-4-生成指定的路径和文件名"><a href="#3-4-生成指定的路径和文件名" class="headerlink" title="3.4 生成指定的路径和文件名"></a><font color="#3CB371" face="Comic sans MS">3.4 生成指定的路径和文件名</font></h4><p>我们的文件上传成功了，不会让它保存原名。<br>因为，有些人在原名中有敏感关键词会违反我国的相关法律和法规。<br>我们可以采用<font color="#FF7F00">date()、mt_rand()</font>或者<font color="#FF7F00">unique()</font>生成随机的文件名。</p>
+<blockquote>
+<ol>
+<li><font color="#FF7F00"><strong>$_FILES[“file”][“tmp_name”]：</strong></font>文件被上传结束后，默认地被存储在了临时目录中，这时您必须将它从临时目录中删除或移动到其它地方，如果没有，则会被删除。也就是不管是否上传成功，脚本执行完后临时目录里的文件肯定会被删除。所以在删除之前要用PHP的 copy() 函数将它复制到其它位置，此时，才算完成了上传文件过程。</li>
+<li>按照项目的文件安排，生成文件存储路径，为了避免文件名重复而产生的错误，按照一定的格式，生成一个随机文件名。</li>
+</ol>
+</blockquote>
+<p>&emsp;<br>示例：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token comment" spellcheck="true">//指定上传文件夹</span>
+<span class="token variable">$path</span> <span class="token operator">=</span> <span class="token string">"upload/images/"</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+根据当前时间生成随机文件名，本行代码是使用当前时间 + 随机一个0-9的数字组合成文件名，后缀即为前面取到的文件后缀名
+*/</span>
+<span class="token variable">$name</span> <span class="token operator">=</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'Y'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'m'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">"d"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'H'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'s'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">'.'</span><span class="token punctuation">.</span><span class="token variable">$myImgSuffix</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="3-5-判断是否是上传文件"><a href="#3-5-判断是否是上传文件" class="headerlink" title="3.5  判断是否是上传文件"></a><font color="#3CB371" face="Comic sans MS">3.5  判断是否是上传文件</font></h4><p>使用函数：<font color="red"><strong>is_uploaded_file()</strong></font></p>
+<blockquote>
+<ol>
+<li>文件上传成功时，系统会将上传的临时文件上传到系统的临时目录中。产生一个临时文件。</li>
+<li>同时会产生临时文件名。我们需要做的事情是将临时文件移动到系统的指定目录中。</li>
+<li>而移动前不能瞎移动，或者移动错了都是不科学的。移动前我们需要使用相关函数判断上传的文件是不是临时文件。</li>
+<li><font color="#FF7F00"><strong>is_uploaded_file()</strong></font>传入一个参数($_FILES中的缓存文件名)，判断传入的名称是不是上传文件。</li>
+</ol>
+</blockquote>
+<p>&emsp;<br>is_uploaded_file()函数是专用的函数，来判断目标文件是否是上传文件。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token comment" spellcheck="true">//使用is_uploaded_file()判断是否是上传文件,函数介绍见上文</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILEs</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    
+
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="3-6-移动临时文件到指定位置"><a href="#3-6-移动临时文件到指定位置" class="headerlink" title="3.6  移动临时文件到指定位置"></a><font color="#3CB371" face="Comic sans MS">3.6  移动临时文件到指定位置</font></h4><p>使用函数：<font color="red"><strong>move_uploaded_file()</strong></font>和数组元素：<font color="red"><strong>$_FILES[“file”][“tmp_name”]</strong></font></p>
+<blockquote>
+<ol>
+<li>临时文件是真实的临时文件，我们需要将其移动到我们的网站目录下面,让我们网站目录的数据，其他人可以访问到。</li>
+<li>我们使用：<font color="#FF7F00">move_uploaded_file()</font>。<br>这个函数是<font color="#FF7F00"><strong>将上传文件移动到指定位置，并命名</strong></font>。<br>传入两个参数：<br>第一个参数是指定移动的上传文件；<br>第二个参数是指定的文件夹和名称拼接的字符串。</li>
+<li>需要注意的是，Linux系统中对目标目录是否有权限及磁盘空间是否足够，否则会导致上传操作失败。</li>
+</ol>
+</blockquote>
+<p>&emsp;<br>示例：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token comment" spellcheck="true">/*
+使用move_uploaded_file()移动上传文件至指定位置,第一个参数为上传文件，第二个参数为我们在前面指定的上传路径和名称。
+*/</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILEs</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$path</span><span class="token punctuation">.</span><span class="token variable">$name</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+           <span class="token comment" spellcheck="true">//提示文件上传成功</span>
+           <span class="token keyword">echo</span> <span class="token string">"上传成功"</span><span class="token punctuation">;</span>                                
+       <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">/*
+文件移动失败，检查磁盘是否有足够的空间，或者linux类系统中文件夹是否有足够的操作权限
+*/</span>
+           <span class="token keyword">echo</span> <span class="token string">'上传失败'</span><span class="token punctuation">;</span>                                                
+       <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+       <span class="token keyword">echo</span> <span class="token string">'不是上传文件'</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="四-多文件上传"><a href="#四-多文件上传" class="headerlink" title="四. 多文件上传"></a><font color="#FF6347" face="Comic sans MS">四. 多文件上传</font></h3><p>多文件上传原理相同，<font color="#FF7F00"><strong>不过在处理数据时，需要对上传数据进行特殊处理</strong>。</font></p>
+<p>&emsp;<br>示例：</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span> 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span> 
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span> 
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>单文件上传<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span> 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span> 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span> 
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>morefile.php<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file[]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  //name比单文件上传时多了[]
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file[]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  //name比单文件上传时多了[]
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>上传<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span> 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>这里是一个简易的上传页面，form表单同时提交了两个文件。我们 可以通过这个页面提交内容。</p>
+</blockquote>
+<font color="#FF7F00"><strong>注意：</strong></font><br>1. input type=”file” name=”file[]”与之前相比file后<font color="#FF7F00"><strong>多加了一个中括号</strong></font><br>2. 写了2个或者多个input type=”file” name=”file[]”<br>我们使用 $_FILES 来接收文件信息，打印并查看数组：<br><br><font color="#FF7F00"></font>
+
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> 
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//打印$_FILES查看数组结构 </span>
+<span class="token delimiter">?></span>
+
+输出如下：
+<span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>  
+    <span class="token string">'file'</span> <span class="token operator">=</span><span class="token operator">></span>  
+        <span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span> 
+    <span class="token string">'name'</span> <span class="token operator">=</span><span class="token operator">></span>  
+        <span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> 
+        <span class="token comment" spellcheck="true">//文件名 </span>
+        <span class="token number">0</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'psu.jpg'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">)</span> 
+        <span class="token number">1</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'qwe.jpg'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">)</span> 
+    <span class="token comment" spellcheck="true">//文件mime类型 </span>
+    <span class="token string">'type'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> 
+            <span class="token number">0</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'image/jpeg'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span> 
+            <span class="token number">1</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'image/jpeg'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span> 
+    <span class="token comment" spellcheck="true">//缓存文件 </span>
+    <span class="token string">'tmp_name'</span> <span class="token operator">=</span><span class="token operator">></span>  
+        <span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> 
+            <span class="token number">0</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'E:\wamp\tmp\phpF6D5.tmp'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">23</span><span class="token punctuation">)</span> 
+            <span class="token number">1</span> <span class="token operator">=</span><span class="token operator">></span> string <span class="token string">'E:\wamp\tmp\phpF6F5.tmp'</span> <span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">23</span><span class="token punctuation">)</span> 
+    <span class="token comment" spellcheck="true">//文件错误信息 </span>
+    <span class="token string">'error'</span> <span class="token operator">=</span><span class="token operator">></span>  
+        <span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> 
+            <span class="token number">0</span> <span class="token operator">=</span><span class="token operator">></span> int <span class="token number">0</span> 
+            <span class="token number">1</span> <span class="token operator">=</span><span class="token operator">></span> int <span class="token number">0</span> 
+    <span class="token comment" spellcheck="true">//文件大小 </span>
+    <span class="token string">'size'</span> <span class="token operator">=</span><span class="token operator">></span>  
+        <span class="token keyword">array</span> <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> 
+        <span class="token number">0</span> <span class="token operator">=</span><span class="token operator">></span> int <span class="token number">225824</span>     
+        <span class="token number">1</span> <span class="token operator">=</span><span class="token operator">></span> int <span class="token number">151651</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<ol>
+<li>我们可以看到，两个文件被存储在一个数组中，<font color="#FF7F00"><strong>键名和上传单文件是相同</strong></font>。所以，需要我们for()循环，来分别取出两个文件的需要用到的数据。</li>
+<li>在$_FILES中同时保存了两个文件的数据，我们需要使用一个简单的循环，来读取单个文件的信息，并将文件移动到我们想要放的位置。</li>
+</ol>
+</blockquote>
+<p>&emsp;</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$_FILE</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+
+<span class="token comment" spellcheck="true">/* 
+用is_uploaded_file()函数判断是上传文件 
+并且没有出现错 
+*/</span> 
+
+   <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILEs</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$_FILEs</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>     
+       <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILEs</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'upload/'</span><span class="token punctuation">.</span><span class="token variable">$_FILE</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">//用move_uploaded_file()函数移动文件到指定的位置并使用文件原名 </span>
+   <span class="token keyword">echo</span> <span class="token string">"上传成功"</span><span class="token punctuation">;</span> 
+
+       <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span> 
+
+           <span class="token keyword">echo</span> <span class="token string">'上传失败'</span><span class="token punctuation">;</span> 
+
+       <span class="token punctuation">}</span> 
+
+   <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span> 
+
+       <span class="token keyword">echo</span> <span class="token string">'上传失败'</span><span class="token punctuation">;</span> 
+
+   <span class="token punctuation">}</span> 
+
+<span class="token punctuation">}</span> 
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="五-单文件上传完整代码"><a href="#五-单文件上传完整代码" class="headerlink" title="五. 单文件上传完整代码"></a><font color="#FF6347" face="Comic sans MS">五. 单文件上传完整代码</font></h3><pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token comment" spellcheck="true">//错误码不为0，即文件上传过程中出现了错误</span>
+ <span class="token keyword">case</span> <span class="token string">'1'</span><span class="token punctuation">:</span>
+ <span class="token keyword">echo</span> <span class="token string">'文件过大'</span><span class="token punctuation">;</span>
+ <span class="token keyword">break</span><span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token string">'2'</span><span class="token punctuation">:</span>
+ <span class="token keyword">echo</span> <span class="token string">'文件超出指定大小'</span><span class="token punctuation">;</span>
+ <span class="token keyword">break</span><span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token string">'3'</span><span class="token punctuation">:</span>
+ <span class="token keyword">echo</span> <span class="token string">'只有部分文件被上传'</span><span class="token punctuation">;</span>
+ <span class="token keyword">break</span><span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token string">'4'</span><span class="token punctuation">:</span>
+ <span class="token keyword">echo</span> <span class="token string">'文件没有被上传'</span><span class="token punctuation">;</span>
+ <span class="token keyword">break</span><span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token string">'6'</span><span class="token punctuation">:</span>
+ <span class="token keyword">echo</span> <span class="token string">'找不到指定文件夹'</span><span class="token punctuation">;</span>
+ <span class="token keyword">break</span><span class="token punctuation">;</span>
+ <span class="token keyword">case</span> <span class="token string">'7'</span><span class="token punctuation">:</span>
+ <span class="token keyword">echo</span> <span class="token string">'文件写入失败'</span><span class="token punctuation">;</span>
+ <span class="token keyword">break</span><span class="token punctuation">;</span>
+ <span class="token keyword">default</span><span class="token punctuation">:</span>
+ <span class="token keyword">echo</span> <span class="token string">"上传出错&lt;br/>"</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+
+ <span class="token variable">$MAX_FILE_SIZE</span> <span class="token operator">=</span> <span class="token number">100000</span><span class="token punctuation">;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'size'</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token variable">$MAX_FILE_SIZE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">"文件超出指定大小"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token punctuation">}</span>
+
+ <span class="token variable">$allowSuffix</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+ <span class="token string">'jpg'</span><span class="token punctuation">,</span>
+ <span class="token string">'gif'</span><span class="token punctuation">,</span>
+ <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token variable">$myImg</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token variable">$myImgSuffix</span> <span class="token operator">=</span> <span class="token function">array_pop</span><span class="token punctuation">(</span><span class="token variable">$myImg</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$myImgSuffix</span><span class="token punctuation">,</span> <span class="token variable">$allowSuffix</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">"文件后缀名不符"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token variable">$allowMime</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+ <span class="token string">"image/jpg"</span><span class="token punctuation">,</span>
+ <span class="token string">"image/jpeg"</span><span class="token punctuation">,</span>
+ <span class="token string">"image/pjpeg"</span><span class="token punctuation">,</span>
+ <span class="token string">"image/gif"</span><span class="token punctuation">,</span>
+ <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$allowMime</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">'文件格式不正确，请检查'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token variable">$path</span> <span class="token operator">=</span> <span class="token string">"upload/images/"</span><span class="token punctuation">;</span>
+ <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'Y'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'m'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">"d"</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'H'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'s'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'.'</span> <span class="token punctuation">.</span> <span class="token variable">$myImgSuffix</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">is_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILEs</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILEs</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$path</span> <span class="token punctuation">.</span> <span class="token variable">$name</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">echo</span> <span class="token string">"上传成功"</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+ <span class="token keyword">echo</span> <span class="token string">'上传失败'</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+ <span class="token keyword">echo</span> <span class="token string">'不是上传文件'</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/02/21/php-upload/" class="b-link-green">PHP-文件上传</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f0e6b43ea59ab9e24a70',
+        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
+        repo: 'Directoree.github.io',
+        owner: 'Directoree',
+        admin: "Directoree",
+        id: '2019-02-21T14-10-14',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'Treecatee.gitgub.io/2019/02/21/php-upload/';
+        this.page.identifier = '/2019/02/21/php-upload/';
+        this.page.title = 'PHP-文件上传';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2019/02/23/mysql-primer/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="MySQL入门">
+                        
+                        <span class="card-title">MySQL入门</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">内容好多啊◑﹏◐[那看视频吧…..] ٩(๑❛ᴗ❛๑)۶  (๑&gt;◡&lt;๑)
+
+&ensp;&ensp;
+MySQL入门
+
+
+&emsp;&emsp;
+一. MySQL介绍1.  MySQL数据库简称MySQL，是一款由瑞典MyS</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category" target="_blank">
+                                    MySQL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PHP语言/" target="_blank">
+                        <span class="chip bg-color">PHP语言</span>
+                    </a>
+                    
+                    <a href="/tags/MySQL/" target="_blank">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/02/20/php-filesystem/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="PHP-文件系统">
+                        
+                        <span class="card-title">PHP-文件系统</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">学习文件处理本质上面就是学习文件处理的函数。 ヾ(๑╹◡╹)ﾉ”
+&ensp;&ensp;
+PHP 文件系统
+
+&emsp;&emsp;
+一. 读取文件&emsp;
+1.1 readfile读取文件读取一个文件内容的函数：int readf</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PHP/" class="post-category" target="_blank">
+                                    PHP
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PHP语言/" target="_blank">
+                        <span class="chip bg-color">PHP语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Treecatee<br />'
+            + 'Author: Treecatee<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">164.7k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-mixcloud"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
