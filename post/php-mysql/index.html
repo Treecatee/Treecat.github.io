@@ -1,37 +1,1321 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
 <meta charset="utf-8">
-<title>PHP操作MySQL数据库 - Treecatee</title>
-<base href="/">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link rel="canonical" href="Treecatee.gitgub.io/post/PHP-MySQL/">
-<link rel="icon" type="image/x-icon" href="/favicon/favicon1.ico">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Treecatee">
+
+
+
 <meta name="description" content="😁">
 <meta name="keywords" content="PHP语言,MySQL">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="PHP操作MySQL数据库">
-<meta property="og:url" content="Treecatee.gitgub.io/post/PHP-MySQL/index.html">
+<meta property="og:url" content="Treecatee.gitgub.io/post/php-mysql/index.html">
 <meta property="og:site_name" content="Treecatee">
 <meta property="og:description" content="😁">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.loli.net/2019/02/23/5c70e8131bb0c.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/02/24/5c72764c43d27.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/24/5c72789c325a2.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/24/5c7278e24b5ad.png">
 <meta property="og:updated_time" content="2019-02-27T17:13:19.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP操作MySQL数据库">
 <meta name="twitter:description" content="😁">
-<meta name="twitter:image" content="https://i.loli.net/2019/02/23/5c70e8131bb0c.jpg">
-<link rel="alternate" type="application/atom+xml" title="Treecatee" href="/atom.xml">
-<link rel="stylesheet" href="/fonts.b9b22ef890c930ac7a13.css">
-<link rel="stylesheet" href="/styles.f3ea1e219d757e5d89f5.css">
-<link rel="stylesheet" href="/theme.c91cdd15db368b9911b7.css">
-<script src="/config.6dcf524dcbbb7cd202f1.js"></script>
-<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"url":"Treecatee.gitgub.io","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg","description":"得之我幸，失之我命。","author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"}},{"@context":"http://schema.org","@type":"Article","articleSection":"PHP","url":"Treecatee.gitgub.io/post/php-mysql/","headline":"PHP操作MySQL数据库","image":"https://i.loli.net/2019/02/23/5c70e8131bb0c.jpg","datePublished":"2019-02-24T02:32:17.000Z","dateModified":"2019-02-27T17:13:19.685Z","keywords":"PHP语言,MySQL","description":"😁","publisher":{"@type":"Organization","name":"Treecatee","logo":{"@type":"ImageObject","url":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"}},"author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"},"mainEntityOfPage":{"@type":"WebPage","@id":"Treecatee.gitgub.io/post/php-mysql/"},"thumbnailUrl":"https://i.loli.net/2019/02/23/5c70e8131bb0c.jpg"}]</script><script async src="//www.googletagmanager.com/gtag/js?id=UA-00000000-0"></script>
-<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', 'UA-00000000-0');</script><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="twitter:image" content="https://i.loli.net/2019/02/24/5c72764c43d27.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Treecatee" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>PHP操作MySQL数据库 | Treecatee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head></html>
 <body>
-<is-d2a57d></is-d2a57d>
-<script src="/runtime.a5dd35324ddfd942bef1.js"></script>
-<script src="/polyfills.bd3fb034406e30e3b5dc.js"></script>
-<script src="/main.dcb2507d5003b2c77884.en.js"></script></body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/favicon.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Treecatee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">得失弹指一挥间。</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/tags/">分类&amp;标签</a></li>
+                        
+                            <li><a href="/about/">关于</a></li>
+                        
+                            <li><a href="/book">资源</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/1003432683@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="https://weibo.com/2828202205/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa RSS" href="https://directoree.github.io" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" href="https://music.163.com/#/user/home?id=455041480" title="网易云音乐"></a>
+                            
+                                <a class="fa LinkedIn" href="/links" title="LinkedIn"></a>
+                            
+                                <a class="fa QQ" href="http://sighttp.qq.com/msgrd?v=1&uin=1003432683" title="QQ"></a>
+                            
+                                <a class="fa LOFTER" href="/book" title="LOFTER"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP欺骗/">ARP欺骗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA/">DVWA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash函数/">Hash函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java访问权限/">Java访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java语言/">Java语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meterpreter命令/">Meterpreter命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP语言/">PHP语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python语言/">Python语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLMAP命令/">SQLMAP命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/User-Agen/">User-Agen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wireshark/">Wireshark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msfvenom/">msfvenom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信安数学/">信安数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分组密码/">分组密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全指导/">安全指导</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全笔记/">安全笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓渗透/">安卓渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/序列密码/">序列密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法学习/">算法学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/远程木马攻击/">远程木马攻击</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Treecatee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/favicon.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Treecatee</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">得失弹指一挥间。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/tags/">分类&amp;标签</a></li>
+                
+                    <li><a href="/about/">关于</a></li>
+                
+                    <li><a href="/book">资源</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/1003432683@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="https://weibo.com/2828202205/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="https://directoree.github.io" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="https://music.163.com/#/user/home?id=455041480" title="网易云音乐"></a>
+                            
+                                <a class="fa LinkedIn" target="_blank" href="/links" title="LinkedIn"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://sighttp.qq.com/msgrd?v=1&uin=1003432683" title="QQ"></a>
+                            
+                                <a class="fa LOFTER" target="_blank" href="/book" title="LOFTER"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-PHP-MySQL" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/php-mysql/" class="article-date">
+      <time datetime="2019-02-24T02:32:17.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP操作MySQL数据库
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/PHP/">PHP</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP语言/">PHP语言</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>😁<br><a id="more"></a><br>&ensp;<br>&ensp;</p>
+<center><font color="#00B2EE" face="Comic sans MS" size="5"><strong>PHP操作MySQL数据库</strong></font></center>
+
+
+
+<p>&emsp;<br>&emsp;</p>
+<h3 id="一-数据库连接步骤"><a href="#一-数据库连接步骤" class="headerlink" title="一. 数据库连接步骤"></a><font color="#FF6347" face="Comic sans MS">一. 数据库连接步骤</font></h3><p>将数据库连接整理成了最重要的<font color="#FF7F00"><strong>8个步骤</strong></font>，我戏称它为：“数据库连接天龙八步”。😊  (。・∀・)ノ</p>
+<p>&emsp;</p>
+<h4 id="第一步-连接数据库服务器"><a href="#第一步-连接数据库服务器" class="headerlink" title="第一步:  连接数据库服务器"></a><font color="#3CB371" face="Comic sans MS">第一步:  连接数据库服务器</font></h4><font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_mysql_connect.asp" target="_blank" rel="noopener">PHP mysql_connect() 函数</a>]</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">函数</td>
+<td style="text-align:left">mysqli_connect()</td>
+</tr>
+<tr>
+<td style="text-align:center">函数原型</td>
+<td style="text-align:left">mysql_connect(server,user,pwd,newlink,clientflag)</td>
+</tr>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:left">连接到mysql数据库服务器</td>
+</tr>
+<tr>
+<td style="text-align:center">返回值</td>
+<td style="text-align:left">如果成功，则返回一个 MySQL 连接标识，失败则返回 FALSE。</td>
+</tr>
+<tr>
+<td style="text-align:center">参数1</td>
+<td style="text-align:left">主机</td>
+</tr>
+<tr>
+<td style="text-align:center">参数2</td>
+<td style="text-align:left">数据库服务器登陆名</td>
+</tr>
+<tr>
+<td style="text-align:center">参数3</td>
+<td style="text-align:left">密码</td>
+</tr>
+<tr>
+<td style="text-align:center">参数4</td>
+<td style="text-align:left">数据库的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">参数5</td>
+<td style="text-align:left">数据库服务器端口不填默认3306</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<font color="#FF7F00"><strong>对于参数4，数据库名称在此步已填并择，不需要执行第三步。</strong></font>
+</blockquote>
+<p>&emsp;</p>
+<h4 id="第二步-判断错误"><a href="#第二步-判断错误" class="headerlink" title="第二步:  判断错误"></a><font color="#3CB371" face="Comic sans MS">第二步:  判断错误</font></h4><font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_mysql_errno.asp" target="_blank" rel="noopener">PHP mysqli_errno() 函数</a>]</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">函数</td>
+<td style="text-align:left">mysqli_errno(connection)</td>
+</tr>
+<tr>
+<td style="text-align:center">功能/返回值</td>
+<td style="text-align:left">返回连接错误号，无错误返回0</td>
+</tr>
+<tr>
+<td style="text-align:center">参数1</td>
+<td style="text-align:left">传入mysqli_connect()返回的资源可选。规定 SQL 连接标识符。如果未规定，则使用上一个<br>打开的连接。</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;</p>
+<font color="#FF7F00"><strong>如果mysqli_errno()函数返回错误号，则用mysqli_error()显示文本错误信息。</strong></font>&emsp;<font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_mysql_error.asp" target="_blank" rel="noopener">PHP mysql_error() 函数</a>]</font>
+
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">函数</td>
+<td style="text-align:left">mysqli_error(connection)</td>
+</tr>
+<tr>
+<td style="text-align:center">功能/返回值</td>
+<td style="text-align:left">返回连接错误字符串，如果没有出错则返回 ‘’（空字符串）</td>
+</tr>
+<tr>
+<td style="text-align:center">参数1</td>
+<td style="text-align:left">传入mysqli_connect返回的资源</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;</p>
+<h4 id="第三步-选择数据库"><a href="#第三步-选择数据库" class="headerlink" title="第三步:  选择数据库"></a><font color="#3CB371" face="Comic sans MS">第三步:  选择数据库</font></h4><font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_mysql_select_db.asp" target="_blank" rel="noopener">PHP mysqli_select_db() 函数</a>]</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">函数</td>
+<td style="text-align:left">mysql_selecti_db(connection,database)</td>
+</tr>
+<tr>
+<td style="text-align:center">返回值</td>
+<td style="text-align:left">如果成功，则该函数返回 true。如果失败，则返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:left">选择本连接中的<strong>数据库</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">参数1</td>
+<td style="text-align:left">传入mysqli_connect返回的资源</td>
+</tr>
+<tr>
+<td style="text-align:center">参数2</td>
+<td style="text-align:left">需要连接的数据库名</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<font color="#FF7F00"><strong>若在第一步已填数据库，不需要更换成其他数据库，则不需要执行第三步。</strong></font>
+</blockquote>
+<p>&emsp;</p>
+<h4 id="第四步-设置字符集"><a href="#第四步-设置字符集" class="headerlink" title="第四步:  设置字符集"></a><font color="#3CB371" face="Comic sans MS">第四步:  设置字符集</font></h4><font color="#00B2EE">[<a href="http://www.runoob.com/php/func-mysqli-set-charset.html" target="_blank" rel="noopener">PHP mysqli_set_charset 函数</a>]</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">函数</td>
+<td style="text-align:left">mysqli_set_charset(connection,charset)</td>
+</tr>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:left">设置与mysql服力器连接，结果，校验字符集</td>
+</tr>
+<tr>
+<td style="text-align:center">返回值</td>
+<td style="text-align:left">无返回值</td>
+</tr>
+<tr>
+<td style="text-align:center">参数1</td>
+<td style="text-align:left">传入mysqli_connect返回的资源</td>
+</tr>
+<tr>
+<td style="text-align:center">参数2</td>
+<td style="text-align:left">字符集类型</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;</p>
+<h4 id="第五步-准备SQL语句"><a href="#第五步-准备SQL语句" class="headerlink" title="第五步:  准备SQL语句"></a><font color="#3CB371" face="Comic sans MS">第五步:  准备SQL语句</font></h4><font color="#FF7F00"><strong>其实就是一个SQL语句的字符串，用于对MySQL数据库的操作。这一步很重要！</strong></font> 
+
+<p>&emsp;<br>例如：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"insert into user(username,password) values('$username','$password')"</span><span class="token punctuation">;</span>
+<span class="token variable">$con</span> <span class="token operator">=</span> <span class="token function">mysql_connect</span><span class="token punctuation">(</span><span class="token string">"localhost"</span><span class="token punctuation">,</span><span class="token string">"peter"</span><span class="token punctuation">,</span><span class="token string">"abc123"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$con</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+ <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string">'Could not connect: '</span> <span class="token punctuation">.</span> <span class="token function">mysql_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// some code</span>
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<ol>
+<li>我们通常要把变量赋值在SQL语句中使用。可是变量或者SQL语句出错了，非常不好排查。</li>
+<li>我们根据实际工作经验增加了这一步。</li>
+<li>如果在执行此步的时候报错了，我们可以把SQL语句打印出来，粘贴到phpMyAdmin或者相关工具中。</li>
+<li>排错时，如果执行成功就说明不是SQL语句的问题。如果执行失败，请仔细检查SQL语句。</li>
+</ol>
+</blockquote>
+<p>&emsp;</p>
+<h4 id="第六步-发送SQL语句"><a href="#第六步-发送SQL语句" class="headerlink" title="第六步:  发送SQL语句"></a><font color="#3CB371" face="Comic sans MS">第六步:  发送SQL语句</font></h4><font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_mysql_query.asp" target="_blank" rel="noopener">PHP mysqli_query() 函数</a>]</font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:left">发送SQL语句,执行一条 MySQL 查询。</td>
+</tr>
+<tr>
+<td style="text-align:center">返回值</td>
+<td style="text-align:left">mysqli_query() 仅对 SELECT，SHOW，EXPLAIN 或 DESCRIBE 语句<strong>返回一个资源标识符</strong>，<br>如果查询执行不正确则返回 FALSE。</td>
+</tr>
+<tr>
+<td style="text-align:center">参数1</td>
+<td style="text-align:left">传入mysqli_connect返回的资源</td>
+</tr>
+<tr>
+<td style="text-align:center">参数2</td>
+<td style="text-align:left">传入发送的SQL语句。注意：查询字符串不应以分号结束。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ol>
+<li>SQL语句准备完成，需要通过mysqli_query将SQL语句发送给MySQL服务器。</li>
+<li>MySQL服务器会执行发送过来的SQL语句进行执行。</li>
+</ol>
+</blockquote>
+<p>&emsp;</p>
+<h4 id="第七步-判断是否执行正常或者遍历数据"><a href="#第七步-判断是否执行正常或者遍历数据" class="headerlink" title="第七步:  判断是否执行正常或者遍历数据"></a><font color="#3CB371" face="Comic sans MS">第七步:  判断是否执行正常或者遍历数据</font></h4><font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_mysql_fetch_array.asp" target="_blank" rel="noopener">PHP mysqli_fetch_array() 函数</a>]</font><br>读取第6步中，发送的是select类别的语句，<font color="#FF7F00"><strong>通常需要将结果以数组形式输出显示出来</strong></font>。就需要用到遍历显示数据的函数。<br><br><font color="red"></font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">函数</td>
+<td style="text-align:left">mysqli_fetch_array(data,array_type)</td>
+</tr>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:left">得到result结果集中的数据，返回数组进行遍历</td>
+</tr>
+<tr>
+<td style="text-align:center">参数1</td>
+<td style="text-align:left">可选。规定要使用的数据指针。该数据指针是 mysqli_query() 函数产生的结果。</td>
+</tr>
+<tr>
+<td style="text-align:center">参数2</td>
+<td style="text-align:left">可选。规定返回哪种结果。可能的值：<br>MYSQL_ASSOC - 关联数组<br>MYSQL_NUM - 数字数组<br>MYSQL_BOTH - 默认。同时产生关联和数字数组</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;<br>下面举例几个常用的<strong>将mysqli_query()查询得到的字符串处理成数组的函数</strong>…….</p>
+<font color="red"></font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">mysqli_fetch_assoc(data)</td>
+<td style="text-align:left">返回根据从结果集取得的行生成的<strong>关联数组</strong>，如果没有更多行，则返回 false</td>
+</tr>
+<tr>
+<td style="text-align:center">mysqli_fetch_row(data)</td>
+<td style="text-align:left">返回根据从结果集取得的行生成的<strong>索引数组</strong>，如果没有更多行，则返回 false</td>
+</tr>
+<tr>
+<td style="text-align:center">mysqli_fetch_object(data)</td>
+<td style="text-align:left">从结果集（记录集）中取得一行作为对象。<br>若成功的话，本函数从 mysql_query() 获得一行，并返回一个对象。如果失败<br>或没有更多的行，则返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:center">mysqli_num_rows(data)</td>
+<td style="text-align:left">返回结果集中行的数目。此命令仅对 SELECT 语句有效。<br>要取得被 INSERT，UPDATE 或者 DELETE 查询所影响到的行的数目，<br>用 mysqli_affected_rows()。</td>
+</tr>
+<tr>
+<td style="text-align:center">mysqli_fetch_field</td>
+<td style="text-align:left">从结果集中取得列信息并作为对象返回。</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;</p>
+<h4 id="第八步-关闭数据库"><a href="#第八步-关闭数据库" class="headerlink" title="第八步:  关闭数据库"></a><font color="#3CB371" face="Comic sans MS">第八步:  关闭数据库</font></h4><font color="#00B2EE">[<a href="http://www.w3school.com.cn/php/func_mysql_close.asp" target="_blank" rel="noopener">PHP mysql_close() 函数</a>]</font>
+
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">函数</td>
+<td style="text-align:left">mysqli_close(link_identifier)</td>
+</tr>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:left">关闭数据库连接</td>
+</tr>
+<tr>
+<td style="text-align:center">返回值</td>
+<td style="text-align:left">如果成功则返回 true，失败则返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:center">参数1</td>
+<td style="text-align:left">传入mysqli_connect返回的资源</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;</p>
+<font color="red" face="Comic sans MS"><strong>其他：显示服务器信息函数</strong></font> 
+
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">函数</td>
+<td style="text-align:left">mysqli_get_server_info</td>
+</tr>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:left">返回服务器信息</td>
+</tr>
+<tr>
+<td style="text-align:center">参数1</td>
+<td style="text-align:left">传入mysqli_connect返回的资源</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">函数</td>
+<td style="text-align:left">mysqli_get_server_version</td>
+</tr>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:left">返回服务器版本</td>
+</tr>
+<tr>
+<td style="text-align:center">参数1</td>
+<td style="text-align:left">传入mysqli_connect返回的资源</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><font color="#FF7F00"><strong>注意：</strong></font><br>mysqli只学过程化的方法即可。在面向对象阶段实际工作中完全抛弃了mysqli的对象用法，而是使用的是PDO对象连接数据库的方式。</p>
+</blockquote>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="二-通过步骤做一个用户注册实例"><a href="#二-通过步骤做一个用户注册实例" class="headerlink" title="二. 通过步骤做一个用户注册实例"></a><font color="#FF6347" face="Comic sans MS">二. 通过步骤做一个用户注册实例</font></h3><blockquote>
+<p><font color="#FF7F00"><strong>我们做一个最简单的注册页面。注册页面中有三个参数：</strong></font></p>
+<ol>
+<li>用户名</li>
+<li>密码</li>
+<li>重复密码</li>
+</ol>
+<ul>
+<li>用户写好三个参数后，点击提交的时候向<code>connect.php</code>页面中传入POST记录。</li>
+<li>我们可以把<code>POST记录</code>处理后写入到MySQL数据库中，即完成了用户注。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><font color="#FF7F00"><strong>本例用到的两个文件：</strong></font></p>
+<ol>
+<li><code>index.php</code>：表单页面；</li>
+<li><code>connect.php</code>：处理表单的页面。</li>
+</ol>
+</blockquote>
+<p>&emsp;</p>
+<font color="#00B2EE" face="Comic sans MS"><strong>一、 判断重复密码：</strong></font>
+
+<blockquote>
+<p>1.<strong>由于有重复密码，</strong><font color="#FF7F00"><strong>如果用户两次输入的密码不一致也就是有没有进行下一步的任何意义。</strong></font><br>2.<font color="#FF7F00"><strong>在网页中很多地方还是使用到了重复密码。</strong></font><strong>因为，害怕的是用户产生手误。将密码填写出错。</strong><br>3.<font color="#FF7F00"><strong>用户在输入密码的时候可能在左右两边多打两个空格。因此，我们会使用trim将密码和重复密码的两边去掉空格。</strong></font></p>
+</blockquote>
+<p>&emsp;<br>代码如下：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'repassword'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">'两次密码不一致,请返回上一页'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<font color="#00B2EE" face="Comic sans MS"><strong>二、 准备好写入的数据：</strong></font><br>我们需要把用户的<strong>输入数据</strong>和<strong>隐藏的数据</strong>都写入到数据库。<br><br><font color="red"><strong>可见数据有：</strong></font>
+
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$_POST[‘username’]</td>
+<td style="text-align:left">用户名</td>
+</tr>
+<tr>
+<td style="text-align:center">$_POST[‘password’]</td>
+<td style="text-align:left">密码</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ol>
+<li>我们需要把用户名去掉两边的空格，这样避免输入不必要的这些信息。</li>
+<li>在mysql这一章节我们讲过，用户的密码不要让包括公司内部人员可见。保证密码是不可逆向的。在初级阶段大家学习一下MD5即可。以后我们再教大家其他的加密方式。</li>
+</ol>
+</blockquote>
+<font color="red"><strong>不可见数据有：</strong></font>
+
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$time</td>
+<td style="text-align:left">用户的注册时间</td>
+</tr>
+<tr>
+<td style="text-align:center">$_SERVER[‘REMOTE_ADDR’]</td>
+<td style="text-align:left">用户的注册IP</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ol>
+<li>time返回的unix时间戳</li>
+<li>REMOTE_ADDR返回的是IP地址，我们可以用ip2long将其转为整型存储。</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$username</span> <span class="token operator">=</span> <span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$password</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$time</span> <span class="token operator">=</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token function">ip2long</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'REMOTE_ADDR'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<font color="#00B2EE" face="Comic sans MS"><strong>三、连接数据库、判断错误、选择库和字符集：</strong></font>
+
+
+<blockquote>
+<ol>
+<li>我们使用mysqli_connect连接到数据库服务器。</li>
+<li>如果有错误，使用mysqli_errno得到错误号</li>
+<li>如何时存在错误mysqli_error打印出所有的错误，并且退出程序执行</li>
+<li>选择数据库并且设置字符集为utf8.</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//连接数据库</span>
+<span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token function">mysqli_connect</span><span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span><span class="token string">'root'</span><span class="token punctuation">,</span><span class="token string">'liwenkaihaha'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//如果有错误，存在错误号</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">mysqli_errno</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    exit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//选择数据库</span>
+<span class="token function">mysqli_select_db</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span><span class="token string">'user'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//选择字符集</span>
+<span class="token function">mysqli_set_charset</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<font color="#00B2EE" face="Comic sans MS"><strong>四、组合SQL语句：</strong></font><br>我们需要把得到的信息写入到数据库里面去，用户名、密码、创建时间、IP我们都得到了。<br><br>将对应的变量插入到SQL语句中即可。组合出来的SQL语句如下：<br><font color="#00B2EE"></font>
+
+
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"insert into user(username,password,createtime,createip) values('"</span> <span class="token punctuation">.</span> <span class="token variable">$username</span> <span class="token punctuation">.</span> "'
+<span class="token punctuation">,</span><span class="token string">'" . $password . "'</span><span class="token punctuation">,</span><span class="token string">'" . $time . "'</span><span class="token punctuation">,</span><span class="token string">'" . $ip . "'</span><span class="token punctuation">)</span>"<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>&emsp;<br>而我们的创建表的语句如下：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token constant">CREATE</span> <span class="token constant">TABLE</span> <span class="token keyword">IF</span> <span class="token constant">NOT</span> <span class="token constant">EXISTS</span> <span class="token function">user</span> <span class="token punctuation">(</span>
+id <span class="token function">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token constant">NOT</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
+username <span class="token function">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token constant">NOT</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
+password <span class="token function">char</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token constant">NOT</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
+createtime <span class="token function">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token constant">NOT</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
+createip <span class="token function">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">NULL</span>
+<span class="token punctuation">)</span> <span class="token constant">ENGINE</span><span class="token operator">=</span>InnoDB <span class="token keyword">DEFAULT</span> <span class="token constant">CHARSET</span><span class="token operator">=</span>utf8<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>表的格式（字段对应说明）：</p>
+<font color="#00B2EE"></font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">username</th>
+<th style="text-align:center">password</th>
+<th style="text-align:center">createtime</th>
+<th style="text-align:center">createip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">用户编号</td>
+<td style="text-align:center">用户名</td>
+<td style="text-align:center">密码</td>
+<td style="text-align:center">创建时间</td>
+<td style="text-align:center">创建IP</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;</p>
+<font color="#00B2EE" face="Comic sans MS"><strong>五、发送语句，判断状态：</strong></font>
+
+
+<blockquote>
+<p>mysqli_query我们在上面说过，需要传入两个参数：</p>
+<ol>
+<li>连接的资源，在这里对应的变量是$conn。</li>
+<li>发送的SQL语句。在上面已经准备好了$sql。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>SQL语句可以通过mysqli_query发送给MySQL服务器。发送成功$result则为true。否则为false。<br>成功的话，我们就可以提示用户注册成功啦。<br>有些情况下，可能还需要使用到<strong>mysqli_insert_id()</strong>。功能是获取上面通过insert插入数据的id并返回这个id。<br>mysqli_insert_id应用场景：新加的一个行的数据。我们需要得到自动增长的ID值，将这个ID值插入到另外一个表里面去时。就需要用到这个函数。</p>
+</blockquote>
+<p>&emsp;</p>
+<p><code>mysqli_insert_id()</code>使用举例：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">'注册成功'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">'注册失败'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">echo</span> <span class="token string">'当前用户插入的ID为'</span><span class="token punctuation">.</span><span class="token function">mysqli_insert_id</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<font color="#00B2EE" face="Comic sans MS"><strong>六、关闭数据库连接：</strong></font>
+
+<p>将资源变量传到到mysqli_close这个函数里面即可。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;<br>&emsp;<br>先建立test数据库、user数据表。数据表建立语句：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token constant">CREATE</span> <span class="token constant">TABLE</span> <span class="token keyword">IF</span> <span class="token constant">NOT</span> <span class="token constant">EXISTS</span> <span class="token function">user</span> <span class="token punctuation">(</span>id <span class="token function">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token constant">PRIMARY</span> <span class="token constant">KEY</span> <span class="token constant">AUTO_INCREMENT</span><span class="token punctuation">,</span>username <span class="token function">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token constant">NOT</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>password <span class="token function">char</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token constant">NOT</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>createtime <span class="token function">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token constant">NOT</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>createip <span class="token function">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span> <span class="token constant">ENGINE</span><span class="token operator">=</span>InnoDB <span class="token keyword">DEFAULT</span> <span class="token constant">CHARSET</span><span class="token operator">=</span>utf8<span class="token punctuation">;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<font color="red"><strong>1. <code>index.php</code>表单页面：</strong></font>
+
+
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>connect.php<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+    用户名：<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>
+    密码：<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>
+    重复密码：<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>repassword<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>提交<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<font color="red"><strong>2. <code>connect.php</code>页面完整代码：</strong></font>
+
+
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'repassword'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">'两次密码不一致,请返回上一页'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$username</span> <span class="token operator">=</span> <span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$password</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$time</span> <span class="token operator">=</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'REMOTE_ADDR'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token function">mysqli_connect</span><span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token string">'root'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//echo $username."/".$password."/".$time."/".$ip;</span>
+<span class="token comment" spellcheck="true">//如果有错误，存在错误号</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">mysqli_errno</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+   <span class="token keyword">echo</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   exit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">mysqli_select_db</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span> <span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">mysqli_set_charset</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"insert into user(username,password,createtime,createip) values ('$username','$password','$time','$ip')"</span><span class="token punctuation">;</span>
+
+<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span> <span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">echo</span> <span class="token string">'成功'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+   <span class="token keyword">echo</span> <span class="token string">'失败'</span><span class="token punctuation">;</span>
+   <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token string">"错误为："</span><span class="token punctuation">.</span><span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token string">"返回值："</span><span class="token punctuation">.</span><span class="token variable">$result</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">echo</span> <span class="token string">'当前用户插入的ID为'</span> <span class="token punctuation">.</span> <span class="token function">mysqli_insert_id</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="三-通过步骤做一个列表显示实例"><a href="#三-通过步骤做一个列表显示实例" class="headerlink" title="三. 通过步骤做一个列表显示实例"></a><font color="#FF6347" face="Comic sans MS">三. 通过步骤做一个列表显示实例</font></h3><font color="#00B2EE">[<a href="http://www.php.cn/code/1262.html" target="_blank" rel="noopener">教程</a>]</font><br><font color="#00B2EE">[<a href="http://www.php.cn/code/4977.html" target="_blank" rel="noopener">视频</a>]</font>
+
+
+<p>&emsp;<br>&emsp;</p>
+<h3 id="四-通过步骤操作之把用户做个分页"><a href="#四-通过步骤操作之把用户做个分页" class="headerlink" title="四. 通过步骤操作之把用户做个分页"></a><font color="#FF6347" face="Comic sans MS">四. 通过步骤操作之把用户做个分页</font></h3><font color="#00B2EE">[<a href="http://www.php.cn/code/1273.html" target="_blank" rel="noopener">教程</a>]</font><br><font color="#00B2EE">[<a href="http://www.php.cn/code/4978.html" target="_blank" rel="noopener">视频</a>]</font>
+
+
+<p>&emsp;<br>&emsp;</p>
+<h3 id="五-批量和指定删除用户"><a href="#五-批量和指定删除用户" class="headerlink" title="五.  批量和指定删除用户"></a><font color="#FF6347" face="Comic sans MS">五.  批量和指定删除用户</font></h3><p>上面已经学过了通过步骤做一个列表显示，在删除前，<font color="#FF7F00"><strong>有单行删除数据和删除多行数据</strong></font>。</p>
+<p>&emsp;</p>
+<h4 id="5-1-判断是单选还是多选删除"><a href="#5-1-判断是单选还是多选删除" class="headerlink" title="5.1 判断是单选还是多选删除"></a><font color="#3CB371" face="Comic sans MS">5.1 判断是单选还是多选删除</font></h4><blockquote>
+<ol>
+<li><font color="#FF7F00"><strong>单行是通过get传参的方式</strong></font>向delete.php文件中写上对应的ID。</li>
+<li>而<font color="#FF7F00"><strong>多个删除是通过POST的方式</strong></font>向delete.php页面中传递对应的ID。</li>
+<li>如果这两个都不符合的话，那我们可以视为数据不合法。</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">is_array</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token function">join</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">elseif</span> <span class="token punctuation">(</span><span class="token function">is_numeric</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token punctuation">(</span>int<span class="token punctuation">)</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">'数据不合法'</span><span class="token punctuation">;</span>
+    exit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<h4 id="5-2-组合SQL语句"><a href="#5-2-组合SQL语句" class="headerlink" title="5.2 组合SQL语句"></a><font color="#3CB371" face="Comic sans MS">5.2 组合SQL语句</font></h4><blockquote>
+<ol>
+<li>MySQL这一章讲解过<font color="#FF7F00"><strong>删除时可以使用到in的子语句</strong></font>。</li>
+<li>同样在这里，我们就可以用in的子语句来达到效果。</li>
+<li><font color="#FF7F00"><strong>join函数将多选删除传过来的id变为了3,4,5的格式</strong></font>，最终多选删除的SQL语句执行出来的效果就是：</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php">delete from user where id <span class="token function">in</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>&emsp;<br>而单选删除的语句效果就是：</p>
+<pre class="line-numbers language-php"><code class="language-php">delete from user where id <span class="token function">in</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>&emsp;<br>这样我们就实现了单选和多选自适应效果：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"delete from user where id in($id)"</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>&emsp;<br>最终配套而成的整体代码演示如下：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token keyword">include</span> <span class="token string">'connection.php'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">is_array</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+   <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token function">join</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">elseif</span> <span class="token punctuation">(</span><span class="token function">is_numeric</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+   <span class="token variable">$id</span> <span class="token operator">=</span> <span class="token punctuation">(</span>int<span class="token punctuation">)</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+   <span class="token keyword">echo</span> <span class="token string">'数据不合法'</span><span class="token punctuation">;</span>
+   exit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"delete from user where id in($id)"</span><span class="token punctuation">;</span>
+
+<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span> <span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">echo</span> <span class="token string">'删除成功'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+   <span class="token keyword">echo</span> <span class="token string">'删除失败'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="六-通过步骤修改用户信息"><a href="#六-通过步骤修改用户信息" class="headerlink" title="六. 通过步骤修改用户信息"></a><font color="#FF6347" face="Comic sans MS">六. 通过步骤修改用户信息</font></h3><p>内容有点多，等哪天想起来了或者心情好了再写吧…..(✿◡‿◡)</p>
+<font color="#00B2EE">[<a href="http://www.php.cn/code/1277.html" target="_blank" rel="noopener">教程</a>]</font><br><font color="#00B2EE">[<a href="http://www.php.cn/code/4980.html" target="_blank" rel="noopener">视频</a>]</font>
+
+
+<p>&emsp;<br>&emsp;</p>
+<h3 id="七-数据显示乱码终极解决办法"><a href="#七-数据显示乱码终极解决办法" class="headerlink" title="七. 数据显示乱码终极解决办法"></a><font color="#FF6347" face="Comic sans MS">七. 数据显示乱码终极解决办法</font></h3><p>解决乱码问题的核心思想，就是：<font color="#FF7F00"><strong>一定要多个不同的文件系统中一定要统一编码</strong></font>。</p>
+<p>&emsp;<br>总结成了9个要点来彻底解决连接后乱码的问题。</p>
+<blockquote>
+<ol>
+<li><font color="#00B2EE"><strong>html编码与MySQL编码一致</strong></font></li>
+<li><font color="#00B2EE"><strong>PHP编码与MySQL编码一致</strong></font></li>
+<li><font color="#00B2EE"><strong>若有header头发送字符集，请与数据库一样</strong></font></li>
+<li><font color="#00B2EE"><strong>&lt;meta http-equiv=“Content-Type”content=“text/html; charset=utf-8” /&gt;要和页面的文字编码一致</strong></font></li>
+<li><font color="#00B2EE"><strong>数据库建库的字符集要统一</strong></font></li>
+<li><font color="#00B2EE"><strong>表的字符集要统一</strong></font></li>
+<li><font color="#00B2EE"><strong>列的字符集要统一(表设了,列就默认写表的)</strong></font></li>
+<li><font color="#00B2EE"><strong>连接,校验的字符集要统一</strong></font></li>
+<li><font color="#00B2EE"><strong>结果集的字符集要统一</strong></font>
+</li>
+</ol>
+</blockquote>
+<p>&emsp;<br>&emsp;<br>&emsp;</p>
+<font color="#FF7F00"><strong>一、 文件编码</strong></font><br>html和PHP文件的编码，示例中：拿notepad++来演示。将PHP和html都要设为这种字符集。<br>一定要设置为utf-8无BOM格式。<br><br><img src="https://i.loli.net/2019/02/24/5c72764c43d27.png" alt="1"><br><br>&emsp;<br><font color="#FF7F00"><strong>二、 header头编码</strong></font><br>如果php中有header头，一定要是<strong>utf-8</strong>的<br><font color="red"></font>
+
+
+<pre class="line-numbers language-php"><code class="language-php"><span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'content-type:text/html;charset=utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>&emsp;</p>
+<font color="#FF7F00"><strong>三、网页头文件编码</strong></font><br>如果html文件编码是utf-8的也要设置为一置<br><font color="red"></font>
+
+
+<pre class="line-numbers language-php"><code class="language-php"><span class="token markup">&lt;meta http-equiv=“Content-Type”content=“text/html; charset=utf-8” /></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>&emsp;</p>
+<font color="#FF7F00"><strong>四、创建数据库的编码</strong></font>
+
+<p><img src="https://i.loli.net/2019/02/24/5c72789c325a2.png" alt="2"></p>
+<p>&emsp;</p>
+<font color="#FF7F00"><strong>五、表和列创建的时候表为utf-8</strong></font>
+
+<p><img src="https://i.loli.net/2019/02/24/5c7278e24b5ad.png" alt="3.png"></p>
+<p>&emsp;</p>
+<font color="#FF7F00"><strong>六、连接，结果、校验字符集设置</strong></font>
+
+
+<blockquote>
+<font color="#00B2EE"><strong>1.通过mysqli_set_charset(‘utf8’)来MySQL连接、结果和校验的字符集设置。<br>2.注：数据库的字符集声明和文件中的略有不同。</strong></font><font color="red"><strong>utf8为mysql数据库的，utf-8为文件中使用的。</strong></font></blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/post/php-mysql/">PHP操作MySQL数据库</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Treecatee</a></p>
+        <p><span>发布时间:</span>2019-02-24, 10:32:17</p>
+        <p><span>最后更新:</span>2019-02-28, 01:13:19</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/post/php-mysql/" title="PHP操作MySQL数据库">Treecatee.gitgub.io/post/php-mysql/</a>
+            <span class="copy-path" data-clipboard-text="原文: Treecatee.gitgub.io/post/php-mysql/　　作者: Treecatee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/post/php-sessionmanagement/">
+                    PHP-会话管理和控制
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/post/mysql-primer/">
+                    MySQL入门
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-数据库连接步骤"><span class="toc-text">一. 数据库连接步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步-连接数据库服务器"><span class="toc-text">第一步:  连接数据库服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步-判断错误"><span class="toc-text">第二步:  判断错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步-选择数据库"><span class="toc-text">第三步:  选择数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四步-设置字符集"><span class="toc-text">第四步:  设置字符集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第五步-准备SQL语句"><span class="toc-text">第五步:  准备SQL语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第六步-发送SQL语句"><span class="toc-text">第六步:  发送SQL语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第七步-判断是否执行正常或者遍历数据"><span class="toc-text">第七步:  判断是否执行正常或者遍历数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第八步-关闭数据库"><span class="toc-text">第八步:  关闭数据库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-通过步骤做一个用户注册实例"><span class="toc-text">二. 通过步骤做一个用户注册实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-通过步骤做一个列表显示实例"><span class="toc-text">三. 通过步骤做一个列表显示实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-通过步骤操作之把用户做个分页"><span class="toc-text">四. 通过步骤操作之把用户做个分页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五-批量和指定删除用户"><span class="toc-text">五.  批量和指定删除用户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-判断是单选还是多选删除"><span class="toc-text">5.1 判断是单选还是多选删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-组合SQL语句"><span class="toc-text">5.2 组合SQL语句</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六-通过步骤修改用户信息"><span class="toc-text">六. 通过步骤修改用户信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七-数据显示乱码终极解决办法"><span class="toc-text">七. 数据显示乱码终极解决办法</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-6 i,
+        .toc-level-6 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"PHP操作MySQL数据库　| Treecatee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/post/php-sessionmanagement/" title="上一篇: PHP-会话管理和控制">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/post/mysql-primer/" title="下一篇: MySQL入门">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/javascript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-css/">CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-basics/">HTML-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-filecontents/">Python-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/markdownusage/">Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-functionalprogramming/">Python-函数式编程</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-modules-packages/">Python-模块和包</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-generator-iterator/">Python-生成器与迭代器</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-function/">Python-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-operators/">Python-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-conditionalstatements-loops/">Python-条件语句与循环</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-list-tuple-dict-set/">Python-列表、元组、字典、集合</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-coding/">Python-字符编码&字符串&格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-variables-datatypes/">Python-变量和数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-grammar/">Python-基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-basics/">Python-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-sessionmanagement/">PHP-会话管理和控制</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-mysql/">PHP操作MySQL数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mysql-primer/">MySQL入门</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-upload/">PHP-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-filesystem/">PHP-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-function/">PHP-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-regular-expression/">PHP-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-namespace/">PHP-命名空间</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-1/">PHP基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/wireshark-1/">Wireshark简单介绍和数据包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-4/">Java数组(3.9)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-3/">Java简单语句、复合语句、控制语句(3.7-3.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-2/">Java运算符和数据类型转换(3.4-3.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-exception-handling7/">Java-异常处理(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-variable-innerclass6/">Java变量及其传递、内部类(4.9-4.10)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-interface-package5/">Java接口、包(4.7-4.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hash-message-authentication/">Hash函数和消息认证</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-inherit-4/">Java构造方法、对象创建、继承(4.5-4.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sequence-password/">对称密码-序列密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/block-cipher/">对称密码-分组密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-access-permissions-3/">Java类、成员变量、static访问权限(4.1-4.4)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-1/">Java语言基础的字符常变量等(3.1-3.3)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-user-agen-cookie/">《HTTP协议请求头部的User-Agen和Cookie》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xampp-dvwa/">XAMPP环境下配置DVWA</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-io-1/">Java的输入输出</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sqlmap-shell/">SQLMAP命令大全</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mathematical-basis/">信息安全数学基础复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/music-collection/">Music-Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/post/pvris-onlylove/">PVRIS-OnlyLove</a></li><li class="post-list-item"><a class="post-list-link" href="/post/yang-zong-wei-kong-bai-ge-zhuan-ji/">杨宗纬-《空白格》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/network-security/">网络安全复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/algorithm/">算法复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/https-password/">内网称霸之《HTTPS账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-password/">内网称霸之《HTTP账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-picture/">内网称霸之《arp欺骗获取目标主机浏览的图片》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-broken-network/">内网称霸之《ARP欺骗断网攻击》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/resourses/">资源</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-xue-ru-shui-xing-ji-ti-mian-shou-cang-ban/">叶雪如-《水星记》《体面》收藏版</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-si-wu-ji-dan-zhuan-ji/">薛之谦-《肆无忌惮》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-na-shi-ni-chi-kai-liao-bei-jing-de-sheng-huo-zhuan-ji/">薛之谦-《那是你离开了北京的生活》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-guai-ka-zhuan-ji/">薛之谦-《怪咖》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit3/">Metasploit之渗透安卓实战</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit2/">Metasploit工具Meterpreter的命令速查表</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-du-zhuan-ji/">薛之谦-《渡》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-zui-hao-zhuan-ji/">薛之谦-《最好》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/creategithubblog/">Hexo+Github博客搭建终极大法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit1/">msfvenom生成各类Payload命令，远程木马攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Treecatee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+		 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+         
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
 </html>

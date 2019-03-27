@@ -1,37 +1,1007 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
 <meta charset="utf-8">
-<title>Java变量及其传递、内部类(4.9-4.10) - Treecatee</title>
-<base href="/">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link rel="canonical" href="Treecatee.gitgub.io/post/Java-Variable-InnerClass6/">
-<link rel="icon" type="image/x-icon" href="/favicon/favicon1.ico">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Treecatee">
+
+
+
 <meta name="description" content="&amp;emsp;&amp;emsp; 变量及其传递 &amp;amp; 内部类  &amp;emsp; 一、 Java变量及其传递1.1  基本数据变量与引用型变量1.  📒Java变量:&amp;emsp;(1). 基本型变量(8种)&amp;emsp;&amp;emsp; char,byte,short,int,long,float,double,boolean&amp;emsp;(2). 引用型变量：对象,接口,数组               举">
 <meta name="keywords" content="Java学习">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Java变量及其传递、内部类(4.9-4.10)">
-<meta property="og:url" content="Treecatee.gitgub.io/post/Java-Variable-InnerClass6/index.html">
+<meta property="og:url" content="Treecatee.gitgub.io/post/java-variable-innerclass6/index.html">
 <meta property="og:site_name" content="Treecatee">
 <meta property="og:description" content="&amp;emsp;&amp;emsp; 变量及其传递 &amp;amp; 内部类  &amp;emsp; 一、 Java变量及其传递1.1  基本数据变量与引用型变量1.  📒Java变量:&amp;emsp;(1). 基本型变量(8种)&amp;emsp;&amp;emsp; char,byte,short,int,long,float,double,boolean&amp;emsp;(2). 引用型变量：对象,接口,数组               举">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.loli.net/2018/12/27/5c24f015bda37.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/27/5c24f23dc321f.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/27/5c24f4379eed2.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/28/5c2500f374fbd.png">
 <meta property="og:updated_time" content="2019-01-08T13:26:59.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java变量及其传递、内部类(4.9-4.10)">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp; 变量及其传递 &amp;amp; 内部类  &amp;emsp; 一、 Java变量及其传递1.1  基本数据变量与引用型变量1.  📒Java变量:&amp;emsp;(1). 基本型变量(8种)&amp;emsp;&amp;emsp; char,byte,short,int,long,float,double,boolean&amp;emsp;(2). 引用型变量：对象,接口,数组               举">
-<meta name="twitter:image" content="https://i.loli.net/2018/12/27/5c24f015bda37.jpg">
-<link rel="alternate" type="application/atom+xml" title="Treecatee" href="/atom.xml">
-<link rel="stylesheet" href="/fonts.b9b22ef890c930ac7a13.css">
-<link rel="stylesheet" href="/styles.f3ea1e219d757e5d89f5.css">
-<link rel="stylesheet" href="/theme.c91cdd15db368b9911b7.css">
-<script src="/config.6dcf524dcbbb7cd202f1.js"></script>
-<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"url":"Treecatee.gitgub.io","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg","description":"得之我幸，失之我命。","author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"}},{"@context":"http://schema.org","@type":"Article","articleSection":"Java","url":"Treecatee.gitgub.io/post/java-variable-innerclass6/","headline":"Java变量及其传递、内部类(4.9-4.10)","image":"https://i.loli.net/2018/12/27/5c24f015bda37.jpg","datePublished":"2018-12-27T15:27:04.000Z","dateModified":"2019-01-08T13:26:59.985Z","keywords":"Java学习","description":"得之我幸，失之我命。","publisher":{"@type":"Organization","name":"Treecatee","logo":{"@type":"ImageObject","url":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"}},"author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"},"mainEntityOfPage":{"@type":"WebPage","@id":"Treecatee.gitgub.io/post/java-variable-innerclass6/"},"thumbnailUrl":"https://i.loli.net/2018/12/27/5c24f015bda37.jpg"}]</script><script async src="//www.googletagmanager.com/gtag/js?id=UA-00000000-0"></script>
-<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', 'UA-00000000-0');</script><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="twitter:image" content="https://i.loli.net/2018/12/27/5c24f23dc321f.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Treecatee" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Java变量及其传递、内部类(4.9-4.10) | Treecatee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head></html>
 <body>
-<is-d2a57d></is-d2a57d>
-<script src="/runtime.a5dd35324ddfd942bef1.js"></script>
-<script src="/polyfills.bd3fb034406e30e3b5dc.js"></script>
-<script src="/main.dcb2507d5003b2c77884.en.js"></script></body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/favicon.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Treecatee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">得失弹指一挥间。</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/tags/">分类&amp;标签</a></li>
+                        
+                            <li><a href="/about/">关于</a></li>
+                        
+                            <li><a href="/book">资源</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/1003432683@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="https://weibo.com/2828202205/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa RSS" href="https://directoree.github.io" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" href="https://music.163.com/#/user/home?id=455041480" title="网易云音乐"></a>
+                            
+                                <a class="fa LinkedIn" href="/links" title="LinkedIn"></a>
+                            
+                                <a class="fa QQ" href="http://sighttp.qq.com/msgrd?v=1&uin=1003432683" title="QQ"></a>
+                            
+                                <a class="fa LOFTER" href="/book" title="LOFTER"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP欺骗/">ARP欺骗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DVWA/">DVWA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash函数/">Hash函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java访问权限/">Java访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java语言/">Java语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meterpreter命令/">Meterpreter命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP语言/">PHP语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python语言/">Python语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLMAP命令/">SQLMAP命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/User-Agen/">User-Agen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wireshark/">Wireshark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msfvenom/">msfvenom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信安数学/">信安数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分组密码/">分组密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全指导/">安全指导</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全笔记/">安全笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓渗透/">安卓渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/序列密码/">序列密码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法学习/">算法学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/远程木马攻击/">远程木马攻击</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Treecatee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/favicon.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Treecatee</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">得失弹指一挥间。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/tags/">分类&amp;标签</a></li>
+                
+                    <li><a href="/about/">关于</a></li>
+                
+                    <li><a href="/book">资源</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/1003432683@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="https://weibo.com/2828202205/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="https://directoree.github.io" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="https://music.163.com/#/user/home?id=455041480" title="网易云音乐"></a>
+                            
+                                <a class="fa LinkedIn" target="_blank" href="/links" title="LinkedIn"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://sighttp.qq.com/msgrd?v=1&uin=1003432683" title="QQ"></a>
+                            
+                                <a class="fa LOFTER" target="_blank" href="/book" title="LOFTER"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-Java-Variable-InnerClass6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/post/java-variable-innerclass6/" class="article-date">
+      <time datetime="2018-12-27T15:27:04.000Z" itemprop="datePublished">2018-12-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java变量及其传递、内部类(4.9-4.10)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java学习/">Java学习</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&emsp;<br>&emsp;</p>
+<center><font color="#3CB371" face="Comic sans MS" size="5"><strong>变量及其传递 &amp; 内部类</strong></font></center>
+
+<p>&emsp;</p>
+<h3 id="一、-Java变量及其传递"><a href="#一、-Java变量及其传递" class="headerlink" title="一、 Java变量及其传递"></a><font color="#FF6347" face="Comic sans MS">一、 Java变量及其传递</font></h3><h4 id="1-1-基本数据变量与引用型变量"><a href="#1-1-基本数据变量与引用型变量" class="headerlink" title="1.1  基本数据变量与引用型变量"></a><font color="#20B2AA" face="Comic sans MS">1.1  基本数据变量与引用型变量</font></h4><font face="Comic sans MS"><strong>1.  📒Java变量:</strong><br>&emsp;<font color="red"><strong>(1). 基本型变量(8种)</strong></font><br>&emsp;&emsp; <strong>char,byte,short,int,long,float,double,boolean</strong><br>&emsp;<font color="red"><strong>(2). 引用型变量：</strong></font><strong>对象,接口,数组</strong></font>            
+
+<p><img src="https://i.loli.net/2018/12/27/5c24f23dc321f.png" alt="T2.png"><br><img src="https://i.loli.net/2018/12/27/5c24f4379eed2.png" alt="N.png"></p>
+<pre class="line-numbers language-bash"><code class="language-bash">举例：
+    public class MyDate<span class="token punctuation">{</span>
+    private int day<span class="token operator">=</span>12<span class="token punctuation">;</span>
+    private int month<span class="token operator">=</span>6<span class="token punctuation">;</span>
+    private int year<span class="token operator">=</span>1900<span class="token punctuation">;</span>
+    public MyDate<span class="token punctuation">(</span>int y,int m,int d<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        year<span class="token operator">=</span>y<span class="token punctuation">;</span>
+        month<span class="token operator">=</span>m<span class="token punctuation">;</span>
+        day<span class="token operator">=</span>d<span class="token punctuation">;</span><span class="token punctuation">}</span>
+          void addYear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>   year++<span class="token punctuation">;</span><span class="token punctuation">}</span>
+         public void display<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System.out.println<span class="token punctuation">(</span>year+<span class="token string">"-"</span>+month
+             +<span class="token string">"-"</span>+day<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    public static void main<span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+       MyDate m,n<span class="token punctuation">;</span>
+       m<span class="token operator">=</span>new MyDate<span class="token punctuation">(</span>2003,9,22<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       n<span class="token operator">=</span>m<span class="token punctuation">;</span>     <span class="token string">"//n和m指向同一个地址"</span>
+       n.addYear<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       m.display<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       n.display<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       System.out.println<span class="token punctuation">(</span>m.toString<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">;</span>
+       System.out.println<span class="token punctuation">(</span>n.toString<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">;</span>    
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+      /*运行结果
+       2004-9-22
+       2004-9-22
+       MyDate@11a698a
+       MyDate@11a698a
+      */
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-2-成员变量与局部变量"><a href="#1-2-成员变量与局部变量" class="headerlink" title="1.2  成员变量与局部变量"></a><font color="#20B2AA" face="Comic sans MS">1.2  成员变量与局部变量</font></h4><table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><font color="red"><strong>成员变量与局部变量有没有区别?</strong></font><br>  成员变量若为static的称为类变量，否则称为成员变量，而局部变量是在方法体内的变量。<br> (1) 📒从语法形式上看，成员变量是属于类或接口的，而局部变量是在方法中定义的变量或方法的参变量；<br> 成员变量可以被public，private，static等修饰，而局部变量则不能被访问控制符及static修饰；成员<br> 变量及局部变量都可以被final修饰。<br>(2) 📒从变量在内存中的存储方式看，成员变量是对象的一部分，而对象是存在于堆中的，而局部变量是<br>     存在于栈中的。<br>(3) 📒从变量在内存中的存在时间上看，成员变量是对象的一部分，它随着对象的创建而存在，而局部变<br>     量随着方法的调用而产生，随着方法调用结束而自动消失。<br>(4) 📒成员变量如果没有赋初值，则会自动以该类型的默认值（0,false,null等）赋值；而局部变量则不会<br>     自动赋值，必须显示地赋值后才能使用。<br></font></td></tr></table>
+
+<pre class="line-numbers language-bash"><code class="language-bash">class A<span class="token punctuation">{</span>
+         int a<span class="token punctuation">;</span>
+         void m<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            int b<span class="token punctuation">;</span>
+            System.out.println<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>  //合法的，a的值为0
+            System.out.println<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>  //不合法，编译不通过
+           <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-3-变量的传递"><a href="#1-3-变量的传递" class="headerlink" title="1.3  变量的传递"></a><font color="#20B2AA" face="Comic sans MS">1.3  变量的传递</font></h4><font face="Comic sans MS"><font color="red"><strong>1. 📒按值传递:</strong></font>当将一个参数传递给一个函数时，函数接收的是原始值的一个副本。因此，如果函数修改了该参数，仅改变副本，而原始值保持不变。(传递8种基本型变量)<br><font color="red"><strong>2. 📒按引用传递:</strong></font>当将一个参数传递给一个函数时，函数接收的原始值的内存地址，而不是值的副本，因此，如果修改了该参数，调用代码中的原始值也随之改变。(传递对象,接口,数组)<br><font color="#00B2EE"><em>Java中的参数传递比C++简单,按值传递所有参数,制作所有参数的副本,而不管它们的类型。</em></font><br></font>
+
+<pre class="line-numbers language-bash"><code class="language-bash">例1：
+class TestTransOfValue
+<span class="token punctuation">{</span>
+  public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    int val<span class="token punctuation">;</span>
+    StringBuffer sb1, sb2<span class="token punctuation">;</span>
+    val <span class="token operator">=</span> 10<span class="token punctuation">;</span>
+    sb1 <span class="token operator">=</span> new StringBuffer<span class="token punctuation">(</span><span class="token string">"apples"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    sb2 <span class="token operator">=</span> new StringBuffer<span class="token punctuation">(</span><span class="token string">"pears"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"val is "</span> + val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"sb1 is "</span> + sb1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"sb2 is "</span> + sb2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+System.out.println<span class="token punctuation">(</span><span class="token string">"calling modify"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    //按值传递所有参数
+    modify<span class="token punctuation">(</span>val, sb1, sb2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"returned from modify"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"val is "</span> + val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"sb1 is "</span> + sb1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"sb2 is "</span> + sb2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+public static void modify<span class="token punctuation">(</span>int a, StringBuffer r1,
+                         StringBuffer r2<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"in modify..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    //在方法中修改基本类型变量的值
+    a <span class="token operator">=</span> 0<span class="token punctuation">;</span>  
+    //在方法中修改对象引用值的副本
+    r1 <span class="token operator">=</span> null<span class="token punctuation">;</span>  //1
+    //在方法中修改副本的对象实体值
+    r2.append<span class="token punctuation">(</span><span class="token string">" taste good"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"a is "</span> + a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"r1 is "</span> + r1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"r2 is "</span> + r2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+运行后输出：
+val is 10
+sb1 is apples
+sb2 is pears
+calling modify <span class="token keyword">in</span> modify<span class="token punctuation">..</span>.
+a is 0
+r1 is null
+r2 is pears taste good 
+returned from modify
+val is 10
+sb1 is apples
+sb2 is pears taste good 
+/*关于这里的sb1和r1：
+当参数传到modify后，r1和sb1指向同一个地址，若改变了r1指向的地址，并不会更改sb1指向的地址。这个时候就
+相当于看作两个指针了。
+关于sb2和r2：
+sb2和r2指向同一个地址，这个地址指向的值<span class="token punctuation">(</span>实体值<span class="token punctuation">)</span>被改变了，则结束后sb2和r2的实体值也就相应的改变了。
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://i.loli.net/2018/12/28/5c2500f374fbd.png" alt="FX.png"></p>
+<pre class="line-numbers language-bash"><code class="language-bash">例2：
+class Swap
+<span class="token punctuation">{</span> 
+ public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    Integer a, b<span class="token punctuation">;</span>
+    a <span class="token operator">=</span> new Integer<span class="token punctuation">(</span>10<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    b <span class="token operator">=</span> new Integer<span class="token punctuation">(</span>50<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"before swap..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"a is "</span> + a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"b is "</span> + b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    swap<span class="token punctuation">(</span>a, b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"after swap..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"a is "</span> + a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"b is "</span> + b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+ public static void swap<span class="token punctuation">(</span>Integer a, Integer b<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    Integer temp <span class="token operator">=</span> a<span class="token punctuation">;</span>
+    a <span class="token operator">=</span> b<span class="token punctuation">;</span>
+    b <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"in swap..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"a is "</span> + a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System.out.println<span class="token punctuation">(</span><span class="token string">"b is "</span> + b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+/*
+运行后输出：
+before swap<span class="token punctuation">..</span>.
+a is 10
+b is 50
+<span class="token keyword">in</span> swap…
+a is 50
+b is 10
+after swap<span class="token punctuation">..</span>.
+a is 10
+b is 50 
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><font color="red"><strong>参数传递总结：</strong></font><br> (1) Java按值传递所有参数,制作所有参数的副本,而不管它们的类型<br> (2) 对于基本类型的变量形参修改了并不能反映到函数外面的实参<br> (3) 对于引用类型的变量，在形参中修改了对象实体值可以反映到实参，在形参中修改了对象引用值，<br>     不能反映到实参<br></font></td></tr></table>
+
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-4-引用型变量的实体值、引用值比较"><a href="#1-4-引用型变量的实体值、引用值比较" class="headerlink" title="1.4  引用型变量的实体值、引用值比较"></a><font color="#20B2AA" face="Comic sans MS">1.4  引用型变量的实体值、引用值比较</font></h4><font face="Comic sans MS"><font color="red"><strong>1. 📒参数传递总结：</strong></font><br> (1) 比较基本类型的数据: ==和!=<br> (2) 如果要比较引用型变量是否相同,可以直接用==和!=吗?<font color="red">  <strong>答：不能</strong><br><br><strong>==和!=用来比较引用型变量时（只能比较引用值（地址）是不是相等）,只能判断运算符两边引用的是不是同一个对象,即对象的地址值（或对象引用值）！！！！！</strong></font><br><font color="#00B2EE"><strong>如何比较两个对象的内容(对象实体值)是否相同?<br>用equls()方法：</strong></font><br></font>
+
+<table><tr><td bgcolor="#ADD8E6"><font face="Comic sans MS"><font color="red"><strong>2. 📒引用型变量比较总结：</strong></font><br> (1) 比较两个变量是否同一个对象（即对象引用值是否相同），用==和!=<br> (2) 比较两个变量的内容是否相同用equals方法<br> (3) <strong>自己定义的类如果要支持equals方法必须重写从Object类继承来的equals方法(比如前面的String类<br> 是java自己的类就不需要重写equals，但是Employee类就是自己定义的类则需要重写equals)</strong><br><br><strong>Object类中的equals方法：</strong><br> <em>public boolean equals(Object obj){<br>   return (this==obj);<br> }</em><br></font></td></tr></table>
+
+<pre class="line-numbers language-bash"><code class="language-bash">equals示例1:
+class EqualsTest<span class="token punctuation">{</span>
+  public static void main<span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> arguments<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+     String str1,str2<span class="token punctuation">;</span>
+     str1<span class="token operator">=</span><span class="token string">"Free the bound periodicals."</span><span class="token punctuation">;</span>
+     str2<span class="token operator">=</span>str1<span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"String1: "</span>+str1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"String2: "</span>+str2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"Same object? "</span>+<span class="token punctuation">(</span>str1<span class="token operator">==</span>str2<span class="token punctuation">))</span><span class="token punctuation">;</span>      //true
+     str2<span class="token operator">=</span>new String<span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"String1: "</span>+str1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"String2: "</span>+str2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"Same object? "</span>+<span class="token punctuation">(</span>str1<span class="token operator">==</span>str2<span class="token punctuation">))</span><span class="token punctuation">;</span>      //false
+     System.out.println<span class="token punctuation">(</span><span class="token string">"Same value? "</span>+str1.equals<span class="token punctuation">(</span>str2<span class="token punctuation">))</span><span class="token punctuation">;</span>  //true
+     String str3,str4<span class="token punctuation">;</span>
+     str3<span class="token operator">=</span><span class="token string">"busy"</span><span class="token punctuation">;</span>
+     str4<span class="token operator">=</span><span class="token string">"busy"</span><span class="token punctuation">;</span> //str4<span class="token operator">=</span>new String<span class="token punctuation">(</span><span class="token string">"busy"</span><span class="token punctuation">)</span>或str4<span class="token operator">=</span>new String<span class="token punctuation">(</span>str3<span class="token punctuation">)</span> 
+     System.out.println<span class="token punctuation">(</span><span class="token string">"String3: "</span>+str3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"String4: "</span>+str4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"Same object? "</span>+<span class="token punctuation">(</span>str3<span class="token operator">==</span>str4<span class="token punctuation">))</span><span class="token punctuation">;</span>       //true
+     System.out.println<span class="token punctuation">(</span><span class="token string">"Same value? "</span>+str3.equals<span class="token punctuation">(</span>str4<span class="token punctuation">))</span><span class="token punctuation">;</span>   //true 
+     String str5,str6<span class="token punctuation">;</span>
+     str5<span class="token operator">=</span><span class="token string">"str5busy"</span><span class="token punctuation">;</span>
+     str6<span class="token operator">=</span><span class="token string">"str6busy"</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"String5: "</span>+str5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"String6: "</span>+str6<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"Same object? "</span>+<span class="token punctuation">(</span>str5<span class="token operator">==</span>str6<span class="token punctuation">))</span><span class="token punctuation">;</span>      //false
+     System.out.println<span class="token punctuation">(</span><span class="token string">"Same value? "</span>+str5.equals<span class="token punctuation">(</span>str6<span class="token punctuation">))</span><span class="token punctuation">;</span>  //false     
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">equals示例2：
+<span class="token function">import</span> java.util.*<span class="token punctuation">;</span>
+public class EqualsTest <span class="token punctuation">{</span>
+     public EqualsTest<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token punctuation">}</span>    
+     public static void main<span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     Employee alice1<span class="token operator">=</span>new Employee<span class="token punctuation">(</span><span class="token string">"Alice"</span>,75000,1987,12,15<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     Employee alice2<span class="token operator">=</span>alice1<span class="token punctuation">;</span>
+     Employee alice3<span class="token operator">=</span>new Employee<span class="token punctuation">(</span><span class="token string">"Alice"</span>,75000,1987,12,15<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     Employee bob<span class="token operator">=</span>new Employee<span class="token punctuation">(</span><span class="token string">"Bob"</span>,50000,1989,10,1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System.out.println<span class="token punctuation">(</span><span class="token string">"alice1==alice2: "</span>+<span class="token punctuation">(</span>alice1<span class="token operator">==</span>alice2<span class="token punctuation">))</span><span class="token punctuation">;</span>    //true
+     System.out.println<span class="token punctuation">(</span><span class="token string">"alice1==alice3: "</span>+<span class="token punctuation">(</span>alice1<span class="token operator">==</span>alice3<span class="token punctuation">))</span><span class="token punctuation">;</span>    //false 
+     System.out.println<span class="token punctuation">(</span><span class="token string">"alice1.equals(alice3): "</span>+alice1.equals<span class="token punctuation">(</span>alice3<span class="token punctuation">))</span><span class="token punctuation">;</span>  //true
+     System.out.println<span class="token punctuation">(</span><span class="token string">"alice1.equals(bob): "</span>+alice1.equals<span class="token punctuation">(</span>bob<span class="token punctuation">))</span><span class="token punctuation">;</span>   //false 
+     System.out.println<span class="token punctuation">(</span><span class="token string">"bob.toString(): "</span>+bob<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+class Employee<span class="token punctuation">{</span>
+    private String name<span class="token punctuation">;</span>
+    private double salary<span class="token punctuation">;</span>
+    private Date hireDay<span class="token punctuation">;</span> 
+    public Employee<span class="token punctuation">(</span>String n,double s,int year,int month,int day<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            name<span class="token operator">=</span>n<span class="token punctuation">;</span>
+            salary<span class="token operator">=</span>s
+        hireDay<span class="token operator">=</span>new Date<span class="token punctuation">(</span>year,month,day<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    public String getName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>     <span class="token keyword">return</span> name<span class="token punctuation">;</span>     <span class="token punctuation">}</span>
+    public double getSalary<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>   <span class="token keyword">return</span> salary<span class="token punctuation">;</span>    <span class="token punctuation">}</span>
+    public Date getHireDay<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>   <span class="token keyword">return</span> hireDay<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    public void raiseSalary<span class="token punctuation">(</span>double byPercent<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            double raise<span class="token operator">=</span>salary*byPercent/100<span class="token punctuation">;</span>
+            salary+<span class="token operator">=</span>raise<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+public boolean equals<span class="token punctuation">(</span>Object otherObject<span class="token punctuation">)</span><span class="token punctuation">{</span>     //子类覆盖了Object的equals方法
+  if<span class="token punctuation">(</span>this<span class="token operator">==</span>otherObject<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  if<span class="token punctuation">(</span>otherObject<span class="token operator">==</span>null<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  if<span class="token punctuation">(</span>getClass<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span>otherObject.getClass<span class="token punctuation">(</span><span class="token punctuation">))</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  Employee other<span class="token operator">=</span><span class="token punctuation">(</span>Employee<span class="token punctuation">)</span>otherObject<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> name.equals<span class="token punctuation">(</span>other.name<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>
+              salary<span class="token operator">==</span>other.salary<span class="token operator">&amp;&amp;</span>hireDay.equals<span class="token punctuation">(</span>other.hireDay<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                        //子类覆盖了Object的toString方法
+ <span class="token punctuation">}</span>
+ public String toString<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> getClass<span class="token punctuation">(</span><span class="token punctuation">)</span>.getName<span class="token punctuation">(</span><span class="token punctuation">)</span>+
+           <span class="token string">"[name="</span>+name+<span class="token string">",salary="</span>+salary+<span class="token string">",hireDay="</span>+hireDay+<span class="token string">"]"</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ private String name<span class="token punctuation">;</span>
+ private double salary<span class="token punctuation">;</span>
+ private Date hireDay<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="二、-内部类"><a href="#二、-内部类" class="headerlink" title="二、 内部类"></a><font color="#FF6347" face="Comic sans MS">二、 内部类</font></h3><h4 id="2-1-内部类的定义与使用"><a href="#2-1-内部类的定义与使用" class="headerlink" title="2.1  内部类的定义与使用"></a><font color="#20B2AA" face="Comic sans MS">2.1  内部类的定义与使用</font></h4><font face="Comic sans MS"><font color="red"><strong>1. 📒内部类的定义：</strong></font>将类的定义置入一个用于封装它的类（外部类）里。<br>    <font color="#00B2EE"><strong>注意：</strong></font><br>    内部类不能与外部类同名（否则，编译器无法区分内部类与外部类），如果内部类还有内部类，内部类的内部类不能与它的任何一层外部类同名。<br>    <font color="#00B2EE"><strong>作用：</strong></font><br>    逻辑分组, 隐藏细节<br></font>
+
+<pre class="line-numbers language-bash"><code class="language-bash">/*内部类结合多态可以很方便的隐藏类的细节<span class="token punctuation">(</span>包括类名<span class="token punctuation">)</span>
+*/
+interface Contents<span class="token punctuation">{</span>
+  int value<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+interface Destination <span class="token punctuation">{</span>
+  String readLabel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+class Goods<span class="token punctuation">{</span>
+    private class Content implements Contents<span class="token punctuation">{</span>  //<span class="token string">"private class Contentimplements Contents"</span> 
+        private int i<span class="token operator">=</span>11<span class="token punctuation">;</span>
+        public int value<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+    protected class GDestination    //<span class="token string">"protected class GDestination implements Destination"</span>
+    implements Destination<span class="token punctuation">{</span>
+      private String label<span class="token punctuation">;</span>
+  private GDestination<span class="token punctuation">(</span>String whereTo<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    label<span class="token operator">=</span>whereTo<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+public String readLabel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> label<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+public Contents cont<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> new Content<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+public Destination dest<span class="token punctuation">(</span>String s<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> new GDestination<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+public class TestGoods <span class="token punctuation">{</span>   //<span class="token string">"public class TestGoods"</span>
+    public static void main<span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         Goods g<span class="token operator">=</span>new Goods<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         Contents c<span class="token operator">=</span>g.cont<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         Destination d<span class="token operator">=</span>g.dest<span class="token punctuation">(</span><span class="token string">"Beijing"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<font face="Comic sans MS"><font color="red"><strong>2. 📒内部类对象的创建：</strong></font>创建非静态内部类的对象时一定要确保已经有一个外部类对象。<br>(1) 利用外部类的方法创建并返回，因为方法是由外部类对象调用的，那创建该内部类对象时，一定已经拥有了所属的外部类对象了<br>public Contents cont(){  &emsp;&emsp;&emsp;&emsp;       Goods g=new Goods();<br>  return new Content();  &emsp;&emsp;&emsp;&emsp;&ensp;        Contents c=g.cont();<br>}<br><br>(2) 创建内部类还可以在除外部类中的其它类中，但是要确保该类具有访问内部类的权限，并且已经创建了一个外部类对象。格式如下：<br></font>
+
+<pre class="line-numbers language-bash"><code class="language-bash">outerObject<span class="token operator">=</span>new outerClass<span class="token punctuation">(</span>Constructor Parameters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+outerClass.innerClass innerObject <span class="token operator">=</span> outerObject.new InnerClass<span class="token punctuation">(</span>Constructor Parameters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ Goods g1<span class="token operator">=</span>new Goods<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ Goods.Content c1<span class="token operator">=</span>g.new Content<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+OR
+ Goods g1<span class="token operator">=</span>new Goods<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ Goods.GDestination d1<span class="token operator">=</span>g1.new GDestionation<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<font face="Comic sans MS"><font color="red"><strong>3. 📒内部类的修饰符：</strong></font><br>（1）<font color="red"><strong>public、protected、private和缺省：</strong></font>访问权限修饰符，用来限定内部类的访问权限，<br>  &emsp;&emsp;一般的外部类是不能用protected和private修饰的。访问权限修饰符的限定和成员变量的限定一样。<br>（2）<font color="red"><strong>final:</strong></font>表明内部类不能继承。<br>（3）<font color="red"><strong>abstract：</strong></font>抽象内部类，不能被实例化。<br>（4）<font color="red"><strong>static：</strong></font>表明一个静态内部类。<br><br><font face="Comic sans MS"><font color="red"><strong>4. 📒静态内部类：</strong></font><br><strong>和普通的非静态内部类有较大的不同，使用时要遵循如下原则：</strong><br>（1）实例化static内部类时，在new前面不需要用对象变量；<br><font color="red"><strong>（2）static内部类中不能访问其外部类的非static属性及方法，即只能访问static成员；<br>（3）static方法中不能访问非static的属性及方法，也不能不带前缀地new一个非static的内部类。</strong></font><br></font>
+
+<pre class="line-numbers language-bash"><code class="language-bash">class A
+<span class="token punctuation">{</span>
+      private int x<span class="token punctuation">;</span>
+      void m<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  new B<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     static void sm<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      //在外部类的静态方法中
+     //不能直接创建内部类对象
+     //new B<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>//<span class="token operator">!</span><span class="token operator">!</span>error
+    <span class="token punctuation">}</span>
+class B
+<span class="token punctuation">{</span>
+      B<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>x<span class="token operator">=</span>5<span class="token punctuation">;</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>//B类结束
+<span class="token punctuation">}</span>//A类结束
+class Outer
+<span class="token punctuation">{</span>
+  static class Inner
+  <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+class TestInnerStatic
+<span class="token punctuation">{</span>
+  public static void main<span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>  
+  <span class="token punctuation">{</span>
+    //创建非静态内部类B的对象a_b和ab
+    A.B a_b<span class="token operator">=</span>new A<span class="token punctuation">(</span><span class="token punctuation">)</span>.new B<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    A a<span class="token operator">=</span>new A<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    A.B ab<span class="token operator">=</span>a.new B<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    //创建静态内部类Inner的对象oi，不需要外部类Outer的对象
+    Outer.Inner oi<span class="token operator">=</span>new Outer.Inner<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    //Outer.Inner oi2<span class="token operator">=</span>Outer.new Inner<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>//<span class="token operator">!</span><span class="token operator">!</span>error
+    //Outer.Inner oi3<span class="token operator">=</span>new Outer<span class="token punctuation">(</span><span class="token punctuation">)</span>.new Inner<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>//<span class="token operator">!</span><span class="token operator">!</span>error
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<font face="Comic sans MS"><font color="red"><strong>5. 📒内部类中访问外部类的成员：</strong></font><br>(1) 内部类中是可以直接访问外部类的其他属性与方法的，即使它们是private的。<br>(2) 如果内部类中有与外部类同名的属性与方法，可以使用下面的格式来表达外部类的引用，从而区分外部类和内部类的同名的属性与方法：<br>                       outerClass.this<br></font> 
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="2-2-方法和作用域中的内部类"><a href="#2-2-方法和作用域中的内部类" class="headerlink" title="2.2  方法和作用域中的内部类"></a><font color="#20B2AA" face="Comic sans MS">2.2  方法和作用域中的内部类</font></h4><font face="Comic sans MS"><font color="red"><strong>内部类也可以是局部的，它可以定义在一个方法甚至一个代码块之内。</strong></font><br>(1) 内部类中是可以直接访问外部类的其他属性与方法的，即使它们是private的。<br>(2) 如果内部类中有与外部类同名的属性与方法，可以使用下面的格式来表达外部类的引用，从而区分外部类和内部类的同名的属性与方法：<br>                       outerClass.this<br></font> 
+
+<pre class="line-numbers language-bash"><code class="language-bash">例1: 方法中的内部类:
+interface Destination <span class="token punctuation">{</span>
+  String readLabel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+public class Goods2 <span class="token punctuation">{</span>
+  String a<span class="token operator">=</span><span class="token string">"Goods2"</span><span class="token punctuation">;</span>
+     public Destination dest<span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          class GDestination implements Destination <span class="token punctuation">{</span>
+            private String label<span class="token punctuation">;</span>
+            private GDestination<span class="token punctuation">(</span>String whereTo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             label <span class="token operator">=</span> whereTo<span class="token punctuation">;</span>
+             System.out.println<span class="token punctuation">(</span><span class="token string">"access outer class:"</span>+a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token punctuation">}</span>
+               public String readLabel<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> label<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+          <span class="token keyword">return</span> new GDestination<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+public static void main<span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          Goods2 g<span class="token operator">=</span> new Goods2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          Destination d <span class="token operator">=</span> g.dest<span class="token punctuation">(</span><span class="token string">"Beijing"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+/*在方法dest（）中定义了一个内部类，最后由这个方法返回这个内部类的对象。如果在用一个内部类的时候仅需要创建它的一个对象并传给外部，就可以这样做。
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<font face="Comic sans MS"><font color="#00B2EE"><strong>方法中定义内部类的注意点:</strong></font><br> (1) 方法中定义的类，在其它地方使用时，没有类的名字，一般用其父类来引用这样的变量。<br> (2) 同局部变量一样，方法中的内部类前面不能用public，private，protected修饰，也不能用static修饰，但可以被final或abstract修饰。<br> (3) 方法中的内部类，可以访问其外部类的成员;若是static方法中的内部类，可以访问外部类的static成员。<br> (4) 方法中的内部类中，不能访问该方法的局部变量，除非是final的局部变量。<br></font>
+
+<p>&emsp;</p>
+<pre class="line-numbers language-bash"><code class="language-bash">例2: 作用域中的内部类:
+public class Goods3<span class="token punctuation">{</span>
+     private void internalTracking<span class="token punctuation">(</span>boolean b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          if<span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               class TrackingSlip <span class="token punctuation">{</span>
+                    private String <span class="token function">id</span><span class="token punctuation">;</span>
+                    TrackingSlip<span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                         <span class="token function">id</span> <span class="token operator">=</span> s<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    String getSlip<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token function">id</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+               <span class="token punctuation">}</span>
+              TrackingSlip ts <span class="token operator">=</span> new TrackingSlip<span class="token punctuation">(</span><span class="token string">"slip"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               String s <span class="token operator">=</span> ts.getSlip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span> 
+     <span class="token punctuation">}</span>
+ public void track<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> internalTracking<span class="token punctuation">(</span>true<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+     public static void main<span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          Goods3 g<span class="token operator">=</span> new Goods3<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          g.track<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="2-3-匿名内部类"><a href="#2-3-匿名内部类" class="headerlink" title="2.3  匿名内部类 "></a><font color="#20B2AA" face="Comic sans MS">2.3  匿名内部类 </font></h4><font face="Comic sans MS"><font color="red"><strong>匿名类：</strong></font> 类或方法中定义的一种没有类名的特殊内部类。<br><font color="red"><strong>作用：</strong></font>当需要创建一个类的对象而且用不上它的名字时，使用内部类可以使代码看上去简洁清楚。<br><font color="red"><strong>语法规则如下：</strong></font><br>       new interfacename(){……};<br>      或new superclassname(){……};<br><br><font color="red"><strong>注意：</strong></font><br> (1) 这种类不取名字，而直接用其父类的名字或者它所实现的接口的名字；<br> (2) 类的定义与创建该类的一个对象同时进行，即类的定义前面有一个new，没有类的首部，对象的创建和类体共同构成一个匿名类表达式，后面以“;”结束；<br> (3) 类中不能定义构造方法，因为它没有名字。<br></font>
+
+<pre class="line-numbers language-bash"><code class="language-bash">interface Contents<span class="token punctuation">{</span>
+  int value<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+public class Goods4 <span class="token punctuation">{</span>
+     public Contents cont<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          //返回匿名类对象，该匿名类继承了Contents接口
+          <span class="token keyword">return</span> new Contents<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+               private int i <span class="token operator">=</span> 11<span class="token punctuation">;</span>
+               public int value<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+                    <span class="token keyword">return</span> i<span class="token punctuation">;</span> 
+               <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+ public static void main<span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+     <span class="token punctuation">{</span>
+      Goods4 g<span class="token operator">=</span>new Goods4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Contents c<span class="token operator">=</span>g.cont<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<hr>
+<p>&emsp;<br>&emsp;<br>&emsp;<br>&emsp;</p>
+</font>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/post/java-variable-innerclass6/">Java变量及其传递、内部类(4.9-4.10)</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Treecatee</a></p>
+        <p><span>发布时间:</span>2018-12-27, 23:27:04</p>
+        <p><span>最后更新:</span>2019-01-08, 21:26:59</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/post/java-variable-innerclass6/" title="Java变量及其传递、内部类(4.9-4.10)">Treecatee.gitgub.io/post/java-variable-innerclass6/</a>
+            <span class="copy-path" data-clipboard-text="原文: Treecatee.gitgub.io/post/java-variable-innerclass6/　　作者: Treecatee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/post/java-exception-handling7/">
+                    Java-异常处理(5)
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/post/java-interface-package5/">
+                    Java接口、包(4.7-4.8)
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、-Java变量及其传递"><span class="toc-text">一、 Java变量及其传递</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-基本数据变量与引用型变量"><span class="toc-text">1.1  基本数据变量与引用型变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-成员变量与局部变量"><span class="toc-text">1.2  成员变量与局部变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-变量的传递"><span class="toc-text">1.3  变量的传递</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-引用型变量的实体值、引用值比较"><span class="toc-text">1.4  引用型变量的实体值、引用值比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、-内部类"><span class="toc-text">二、 内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-内部类的定义与使用"><span class="toc-text">2.1  内部类的定义与使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-方法和作用域中的内部类"><span class="toc-text">2.2  方法和作用域中的内部类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-匿名内部类"><span class="toc-text">2.3  匿名内部类 </span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-6 i,
+        .toc-level-6 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Java变量及其传递、内部类(4.9-4.10)　| Treecatee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/post/java-exception-handling7/" title="上一篇: Java-异常处理(5)">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/post/java-interface-package5/" title="下一篇: Java接口、包(4.7-4.8)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/post/javascript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-css/">CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/html-basics/">HTML-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-filecontents/">Python-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/markdownusage/">Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-functionalprogramming/">Python-函数式编程</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-modules-packages/">Python-模块和包</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-generator-iterator/">Python-生成器与迭代器</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-function/">Python-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-operators/">Python-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-conditionalstatements-loops/">Python-条件语句与循环</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-list-tuple-dict-set/">Python-列表、元组、字典、集合</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-coding/">Python-字符编码&字符串&格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-variables-datatypes/">Python-变量和数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-grammar/">Python-基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/python-basics/">Python-基础</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-sessionmanagement/">PHP-会话管理和控制</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-mysql/">PHP操作MySQL数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mysql-primer/">MySQL入门</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-upload/">PHP-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-filesystem/">PHP-文件系统</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-function/">PHP-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-regular-expression/">PHP-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-namespace/">PHP-命名空间</a></li><li class="post-list-item"><a class="post-list-link" href="/post/php-1/">PHP基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/wireshark-1/">Wireshark简单介绍和数据包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-4/">Java数组(3.9)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-3/">Java简单语句、复合语句、控制语句(3.7-3.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-2/">Java运算符和数据类型转换(3.4-3.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-exception-handling7/">Java-异常处理(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-variable-innerclass6/">Java变量及其传递、内部类(4.9-4.10)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-interface-package5/">Java接口、包(4.7-4.8)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hash-message-authentication/">Hash函数和消息认证</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-inherit-4/">Java构造方法、对象创建、继承(4.5-4.6)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sequence-password/">对称密码-序列密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/block-cipher/">对称密码-分组密码</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-access-permissions-3/">Java类、成员变量、static访问权限(4.1-4.4)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-language-2-1/">Java语言基础的字符常变量等(3.1-3.3)</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-user-agen-cookie/">《HTTP协议请求头部的User-Agen和Cookie》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xampp-dvwa/">XAMPP环境下配置DVWA</a></li><li class="post-list-item"><a class="post-list-link" href="/post/java-io-1/">Java的输入输出</a></li><li class="post-list-item"><a class="post-list-link" href="/post/sqlmap-shell/">SQLMAP命令大全</a></li><li class="post-list-item"><a class="post-list-link" href="/post/mathematical-basis/">信息安全数学基础复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/music-collection/">Music-Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/post/pvris-onlylove/">PVRIS-OnlyLove</a></li><li class="post-list-item"><a class="post-list-link" href="/post/yang-zong-wei-kong-bai-ge-zhuan-ji/">杨宗纬-《空白格》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/network-security/">网络安全复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/algorithm/">算法复习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/post/https-password/">内网称霸之《HTTPS账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/http-password/">内网称霸之《HTTP账号密码获取》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-picture/">内网称霸之《arp欺骗获取目标主机浏览的图片》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/arp-broken-network/">内网称霸之《ARP欺骗断网攻击》</a></li><li class="post-list-item"><a class="post-list-link" href="/post/resourses/">资源</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-xue-ru-shui-xing-ji-ti-mian-shou-cang-ban/">叶雪如-《水星记》《体面》收藏版</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-si-wu-ji-dan-zhuan-ji/">薛之谦-《肆无忌惮》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-na-shi-ni-chi-kai-liao-bei-jing-de-sheng-huo-zhuan-ji/">薛之谦-《那是你离开了北京的生活》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-guai-ka-zhuan-ji/">薛之谦-《怪咖》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit3/">Metasploit之渗透安卓实战</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit2/">Metasploit工具Meterpreter的命令速查表</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-du-zhuan-ji/">薛之谦-《渡》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/xie-zhi-qian-zui-hao-zhuan-ji/">薛之谦-《最好》专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/post/creategithubblog/">Hexo+Github博客搭建终极大法</a></li><li class="post-list-item"><a class="post-list-link" href="/post/metasploit1/">msfvenom生成各类Payload命令，远程木马攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/post/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Treecatee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+		 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+         
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
 </html>
