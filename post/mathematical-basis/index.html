@@ -1,41 +1,907 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="">
+
+
 <head><meta name="generator" content="Hexo 3.8.0">
-<meta charset="utf-8">
-<title>信息安全数学基础复习笔记 - Treecatee</title>
-<base href="/">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link rel="canonical" href="Treecatee.gitgub.io/post/Mathematical-basis/">
-<link rel="icon" type="image/x-icon" href="/favicon/favicon1.ico">
-<meta name="description" content="&amp;nbsp;12.3复习笔记 第一章、整数的可除性1.1 整数的概念、欧几里得除法&amp;nbsp; 1.2 最大公因数与广义欧几里得除法&amp;nbsp; 1.3 整除的进一步性质及最小公倍数1.4 整数分解&amp;nbsp; 1.5 素数的算术基本定理 &amp;nbsp;&amp;nbsp; 第二章、同余2.1 同余的概念及基本性质&amp;nbsp; 2.2 剩余类及完全剩余系&amp;nbsp; 2.3 简化剩余系与欧拉函数&amp;nbsp;">
-<meta name="keywords" content="信安数学">
-<meta property="og:type" content="website">
-<meta property="og:title" content="信息安全数学基础复习笔记">
-<meta property="og:url" content="Treecatee.gitgub.io/post/Mathematical-basis/index.html">
-<meta property="og:site_name" content="Treecatee">
-<meta property="og:description" content="&amp;nbsp;12.3复习笔记 第一章、整数的可除性1.1 整数的概念、欧几里得除法&amp;nbsp; 1.2 最大公因数与广义欧几里得除法&amp;nbsp; 1.3 整除的进一步性质及最小公倍数1.4 整数分解&amp;nbsp; 1.5 素数的算术基本定理 &amp;nbsp;&amp;nbsp; 第二章、同余2.1 同余的概念及基本性质&amp;nbsp; 2.2 剩余类及完全剩余系&amp;nbsp; 2.3 简化剩余系与欧拉函数&amp;nbsp;">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.loli.net/2018/12/24/5c20d0fc97981.jpg">
-<meta property="og:updated_time" content="2018-12-27T06:57:04.913Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="信息安全数学基础复习笔记">
-<meta name="twitter:description" content="&amp;nbsp;12.3复习笔记 第一章、整数的可除性1.1 整数的概念、欧几里得除法&amp;nbsp; 1.2 最大公因数与广义欧几里得除法&amp;nbsp; 1.3 整除的进一步性质及最小公倍数1.4 整数分解&amp;nbsp; 1.5 素数的算术基本定理 &amp;nbsp;&amp;nbsp; 第二章、同余2.1 同余的概念及基本性质&amp;nbsp; 2.2 剩余类及完全剩余系&amp;nbsp; 2.3 简化剩余系与欧拉函数&amp;nbsp;">
-<meta name="twitter:image" content="https://i.loli.net/2018/12/24/5c20d0fc97981.jpg">
-<link rel="alternate" type="application/atom+xml" title="Treecatee" href="/atom.xml">
-<link rel="stylesheet" href="/fonts.b9b22ef890c930ac7a13.css">
-<link rel="stylesheet" href="/styles.f3ea1e219d757e5d89f5.css">
-<link rel="stylesheet" href="/theme.c91cdd15db368b9911b7.css">
-<script src="/config.2b306c25302103b359da.js"></script>
-<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"url":"Treecatee.gitgub.io","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg","description":"得之我幸，失之我命。","author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"}},{"@context":"http://schema.org","@type":"Article","articleSection":"密码学","url":"Treecatee.gitgub.io/post/mathematical-basis/","headline":"信息安全数学基础复习笔记","image":"https://i.loli.net/2018/12/24/5c20d0fc97981.jpg","datePublished":"2018-12-08T17:00:45.000Z","dateModified":"2018-12-27T06:57:04.913Z","keywords":"信安数学","description":"得之我幸，失之我命。","publisher":{"@type":"Organization","name":"Treecatee","logo":{"@type":"ImageObject","url":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"}},"author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"},"mainEntityOfPage":{"@type":"WebPage","@id":"Treecatee.gitgub.io/post/mathematical-basis/"},"thumbnailUrl":"https://i.loli.net/2018/12/24/5c20d0fc97981.jpg"}]</script><script async src="//www.googletagmanager.com/gtag/js?id=UA-00000000-0"></script>
-<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', 'UA-00000000-0');</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/lib/crypto-js.js"></script>
-<script src="/lib/blog-encrypt.js"></script>
-<link rel="stylesheet" href="/css/blog-encrypt.css">
+    <meta charset="utf-8">
+    <meta name="keywords" content="信息安全数学基础复习笔记, Treecatee">
+    <meta name="description" content="&amp;nbsp;12.3复习笔记
+第一章、整数的可除性1.1 整数的概念、欧几里得除法&amp;nbsp;
+1.2 最大公因数与广义欧几里得除法&amp;nbsp;
+1.3 整除的进一步性质及最小公倍数1.4 整数分解&amp;nbsp;
+1.5 素数的算术基本定理
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>信息安全数学基础复习笔记 | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
 <body>
-<is-d2a57d></is-d2a57d>
-<script src="/runtime.a5dd35324ddfd942bef1.js"></script>
-<script src="/polyfills.bd3fb034406e30e3b5dc.js"></script>
-<script src="/main.dcb2507d5003b2c77884.en.js"></script></body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-calendar"></i>
+            
+            <span>时间轴</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/book" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>资源</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <i class="fa fa-edit"></i>
+            
+            <span>链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-calendar"></i>
+                
+                时间轴
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/book" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                资源
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-edit"></i>
+                
+                链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        信息安全数学基础复习笔记
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/信安数学/" target="_blank">
+                                <span class="chip bg-color">信安数学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/密码学/" class="post-category" target="_blank">
+                                密码学
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-12-09
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        312
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        1 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>&nbsp;<font face="楷体">12.3复习笔记</font></p>
+<h4 id="第一章、整数的可除性"><a href="#第一章、整数的可除性" class="headerlink" title="第一章、整数的可除性"></a><font face="楷体">第一章、整数的可除性</font></h4><h5 id="1-1-整数的概念、欧几里得除法"><a href="#1-1-整数的概念、欧几里得除法" class="headerlink" title="1.1 整数的概念、欧几里得除法"></a><font face="楷体">1.1 整数的概念、欧几里得除法</font></h5><p><a href="https://s1.ax1x.com/2018/12/03/FM6Bwj.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FM6Bwj.jpg" alt="1"></a><br><a href="https://s1.ax1x.com/2018/12/03/FM6hm4.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FM6hm4.jpg" alt="2"></a><br>&nbsp;</p>
+<h5 id="1-2-最大公因数与广义欧几里得除法"><a href="#1-2-最大公因数与广义欧几里得除法" class="headerlink" title="1.2 最大公因数与广义欧几里得除法"></a><font face="楷体">1.2 最大公因数与广义欧几里得除法</font></h5><p><a href="https://s1.ax1x.com/2018/12/03/FM6v0H.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FM6v0H.jpg" alt="3"></a><br><a href="https://s1.ax1x.com/2018/12/03/FMcSAA.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FMcSAA.jpg" alt="4"></a><br>&nbsp;</p>
+<h5 id="1-3-整除的进一步性质及最小公倍数"><a href="#1-3-整除的进一步性质及最小公倍数" class="headerlink" title="1.3 整除的进一步性质及最小公倍数"></a><font face="楷体">1.3 整除的进一步性质及最小公倍数</font></h5><h5 id="1-4-整数分解"><a href="#1-4-整数分解" class="headerlink" title="1.4 整数分解"></a><font face="楷体">1.4 整数分解</font></h5><p><a href="https://s1.ax1x.com/2018/12/03/FMcFc8.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FMcFc8.jpg" alt="5"></a><br>&nbsp;</p>
+<h5 id="1-5-素数的算术基本定理"><a href="#1-5-素数的算术基本定理" class="headerlink" title="1.5 素数的算术基本定理"></a><font face="楷体">1.5 素数的算术基本定理</font></h5><p><a href="https://s1.ax1x.com/2018/12/03/FMc8uF.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FMc8uF.jpg" alt="6"></a></p>
+<p>&nbsp;<br>&nbsp;</p>
+<h4 id="第二章、同余"><a href="#第二章、同余" class="headerlink" title="第二章、同余"></a><font face="楷体">第二章、同余</font></h4><h5 id="2-1-同余的概念及基本性质"><a href="#2-1-同余的概念及基本性质" class="headerlink" title="2.1 同余的概念及基本性质"></a><font face="楷体">2.1 同余的概念及基本性质</font></h5><p><a href="https://s1.ax1x.com/2018/12/03/FMcIKS.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FMcIKS.jpg" alt="7"></a><br><a href="https://s1.ax1x.com/2018/12/03/FMcTbQ.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/03/FMcTbQ.jpg" alt="8"></a><br>&nbsp;</p>
+<h5 id="2-2-剩余类及完全剩余系"><a href="#2-2-剩余类及完全剩余系" class="headerlink" title="2.2 剩余类及完全剩余系"></a><font face="楷体">2.2 剩余类及完全剩余系</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8N4wn.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8N4wn.jpg" alt="9"></a><br>&nbsp;</p>
+<h5 id="2-3-简化剩余系与欧拉函数"><a href="#2-3-简化剩余系与欧拉函数" class="headerlink" title="2.3 简化剩余系与欧拉函数"></a><font face="楷体">2.3 简化剩余系与欧拉函数</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8N7WT.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8N7WT.jpg" alt="10"></a><br>&nbsp;</p>
+<h5 id="2-4-欧拉定理、费马小定理、Wilson定理"><a href="#2-4-欧拉定理、费马小定理、Wilson定理" class="headerlink" title="2.4 欧拉定理、费马小定理、Wilson定理"></a><font face="楷体">2.4 欧拉定理、费马小定理、Wilson定理</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8Njm9.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8Njm9.jpg" alt="11"></a><br>&nbsp;</p>
+<h5 id="2-5-模重复平方算法"><a href="#2-5-模重复平方算法" class="headerlink" title="2.5 模重复平方算法"></a><font face="楷体">2.5 模重复平方算法</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8NxT1.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8NxT1.jpg" alt="12"></a></p>
+<p>&nbsp;<br>&nbsp;</p>
+<p><font face="楷体">12.5复习笔记</font></p>
+<h4 id="第三章、同余式"><a href="#第三章、同余式" class="headerlink" title="第三章、同余式"></a><font face="楷体">第三章、同余式</font></h4><h5 id="3-1-基本概念及一次同余式"><a href="#3-1-基本概念及一次同余式" class="headerlink" title="3.1 基本概念及一次同余式"></a><font face="楷体">3.1 基本概念及一次同余式</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UpY6.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UpY6.jpg" alt="13"></a><br>&nbsp;</p>
+<h5 id="3-2-中国剩余定理"><a href="#3-2-中国剩余定理" class="headerlink" title="3.2 中国剩余定理"></a><font face="楷体">3.2 中国剩余定理</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UF6e.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UF6e.jpg" alt="14"></a><br>&nbsp;</p>
+<h5 id="3-3-高次同余式的解法及解数"><a href="#3-3-高次同余式的解法及解数" class="headerlink" title="3.3 高次同余式的解法及解数"></a><font face="楷体">3.3 高次同余式的解法及解数</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UV0A.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UV0A.jpg" alt="15"></a><br>&nbsp;</p>
+<h5 id="3-4-素数模的同余式"><a href="#3-4-素数模的同余式" class="headerlink" title="3.4 素数模的同余式"></a><font face="楷体">3.4 素数模的同余式</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8Utkq.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8Utkq.jpg" alt="16"></a></p>
+<p>&nbsp;<br>&nbsp;</p>
+<h4 id="第四章、二次同余式与平方剩余"><a href="#第四章、二次同余式与平方剩余" class="headerlink" title="第四章、二次同余式与平方剩余"></a><font face="楷体">第四章、二次同余式与平方剩余</font></h4><h5 id="4-1-一般二次同余式"><a href="#4-1-一般二次同余式" class="headerlink" title="4.1 一般二次同余式"></a><font face="楷体">4.1 一般二次同余式</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UBX4.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UBX4.jpg" alt="17"></a><br>&nbsp;</p>
+<h5 id="4-2-模为奇素数的平方剩余与平方剩余"><a href="#4-2-模为奇素数的平方剩余与平方剩余" class="headerlink" title="4.2 模为奇素数的平方剩余与平方剩余"></a><font face="楷体">4.2 模为奇素数的平方剩余与平方剩余</font></h5><h5 id="4-3-勒让得符号"><a href="#4-3-勒让得符号" class="headerlink" title="4.3 勒让得符号"></a><font face="楷体">4.3 勒让得符号</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8Uy7R.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8Uy7R.jpg" alt="18"></a><br>&nbsp;</p>
+<h5 id="4-4-二次互反律"><a href="#4-4-二次互反律" class="headerlink" title="4.4 二次互反律"></a><font face="楷体">4.4 二次互反律</font></h5><h5 id="4-5-雅可比符号"><a href="#4-5-雅可比符号" class="headerlink" title="4.5 雅可比符号"></a><font face="楷体">4.5 雅可比符号</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UjgS.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UjgS.jpg" alt="19"></a></p>
+<p>&nbsp;<br>&nbsp;</p>
+<h4 id="第五章、原根与指标"><a href="#第五章、原根与指标" class="headerlink" title="第五章、原根与指标"></a><font face="楷体">第五章、原根与指标</font></h4><h5 id="5-1-指数及基本性质"><a href="#5-1-指数及基本性质" class="headerlink" title="5.1 指数及基本性质"></a><font face="楷体">5.1 指数及基本性质</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8UzuQ.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8UzuQ.jpg" alt="20"></a><br><a href="https://s1.ax1x.com/2018/12/09/F8apHs.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8apHs.jpg" alt="21"></a><br>&nbsp;</p>
+<h5 id="5-2-原根"><a href="#5-2-原根" class="headerlink" title="5.2 原根"></a><font face="楷体">5.2 原根</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8anb9.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8anb9.jpg" alt="22"></a><br>&nbsp;</p>
+<h5 id="5-3-指标及n次同余式"><a href="#5-3-指标及n次同余式" class="headerlink" title="5.3 指标及n次同余式"></a><font face="楷体">5.3 指标及n次同余式</font></h5><p><a href="https://s1.ax1x.com/2018/12/09/F8a38K.jpg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/12/09/F8a38K.jpg" alt="23"></a><br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/post/mathematical-basis/" class="b-link-green">信息安全数学基础复习笔记</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f0e6b43ea59ab9e24a70',
+        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
+        repo: 'Directoree.github.io',
+        owner: 'Directoree',
+        admin: "Directoree",
+        id: '2018-12-09T01-00-45',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'Treecatee.gitgub.io/post/mathematical-basis/';
+        this.page.identifier = '/post/mathematical-basis/';
+        this.page.title = '信息安全数学基础复习笔记';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/post/sqlmap-shell/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="SQLMAP命令大全">
+                        
+                        <span class="card-title">SQLMAP命令大全</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一、sqlmap简介&emsp;sqlmap支持MySQL, Oracle,PostgreSQL, Microsoft SQL Server, Microsoft Access, IBM DB2, SQLite, Firebird,Syba</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Kali-SQLMAP/" class="post-category" target="_blank">
+                                    Kali-SQLMAP
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SQLMAP命令/" target="_blank">
+                        <span class="chip bg-color">SQLMAP命令</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/music-collection/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Music-Collection">
+                        
+                        <span class="card-title">Music-Collection</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">&nbsp;
+
+
+
+
+
+
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/音乐/" class="post-category" target="_blank">
+                                    音乐
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Treecatee<br />'
+            + 'Author: Treecatee<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">165.4k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-mixcloud"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
 </html>

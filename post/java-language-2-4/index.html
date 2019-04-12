@@ -1,41 +1,1097 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="">
+
+
 <head><meta name="generator" content="Hexo 3.8.0">
-<meta charset="utf-8">
-<title>Java数组(3.9) - Treecatee</title>
-<base href="/">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link rel="canonical" href="Treecatee.gitgub.io/post/Java-Language-2-4/">
-<link rel="icon" type="image/x-icon" href="/favicon/favicon1.ico">
-<meta name="description" content="&amp;ensp;&amp;ensp; 数组  &amp;emsp;&amp;emsp; 一、 一维数组  数组： 相同类型的数据元素按顺序组成的一种线性表，元素在数组中的相对位置由下标来指定。数组中的每个元素通过数组名加下标进行引用。 数组有什么用处？ 例：定义100个int型变量，求这100个变量的和。int x1,x2,x3…x100;int sum;sum=x1+x2+…+x100;这样程序很复杂。例：定义100个in">
-<meta name="keywords" content="Java学习,Java语言">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Java数组(3.9)">
-<meta property="og:url" content="Treecatee.gitgub.io/post/Java-Language-2-4/index.html">
-<meta property="og:site_name" content="Treecatee">
-<meta property="og:description" content="&amp;ensp;&amp;ensp; 数组  &amp;emsp;&amp;emsp; 一、 一维数组  数组： 相同类型的数据元素按顺序组成的一种线性表，元素在数组中的相对位置由下标来指定。数组中的每个元素通过数组名加下标进行引用。 数组有什么用处？ 例：定义100个int型变量，求这100个变量的和。int x1,x2,x3…x100;int sum;sum=x1+x2+…+x100;这样程序很复杂。例：定义100个in">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.loli.net/2019/01/13/5c3ab12a2922b.png">
-<meta property="og:updated_time" content="2019-01-19T08:37:34.750Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java数组(3.9)">
-<meta name="twitter:description" content="&amp;ensp;&amp;ensp; 数组  &amp;emsp;&amp;emsp; 一、 一维数组  数组： 相同类型的数据元素按顺序组成的一种线性表，元素在数组中的相对位置由下标来指定。数组中的每个元素通过数组名加下标进行引用。 数组有什么用处？ 例：定义100个int型变量，求这100个变量的和。int x1,x2,x3…x100;int sum;sum=x1+x2+…+x100;这样程序很复杂。例：定义100个in">
-<meta name="twitter:image" content="https://i.loli.net/2019/01/13/5c3ab12a2922b.png">
-<link rel="alternate" type="application/atom+xml" title="Treecatee" href="/atom.xml">
-<link rel="stylesheet" href="/fonts.b9b22ef890c930ac7a13.css">
-<link rel="stylesheet" href="/styles.f3ea1e219d757e5d89f5.css">
-<link rel="stylesheet" href="/theme.c91cdd15db368b9911b7.css">
-<script src="/config.2b306c25302103b359da.js"></script>
-<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"url":"Treecatee.gitgub.io","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg","description":"得之我幸，失之我命。","author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"}},{"@context":"http://schema.org","@type":"Article","articleSection":"Java","url":"Treecatee.gitgub.io/post/java-language-2-4/","headline":"Java数组(3.9)","image":"https://i.loli.net/2019/01/13/5c3ab12a2922b.png","datePublished":"2019-01-13T03:30:23.000Z","dateModified":"2019-01-19T08:37:34.750Z","keywords":"Java学习,Java语言","description":"得之我幸，失之我命。","publisher":{"@type":"Organization","name":"Treecatee","logo":{"@type":"ImageObject","url":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"}},"author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"},"mainEntityOfPage":{"@type":"WebPage","@id":"Treecatee.gitgub.io/post/java-language-2-4/"},"thumbnailUrl":"https://i.loli.net/2019/01/13/5c3ab12a2922b.png"}]</script><script async src="//www.googletagmanager.com/gtag/js?id=UA-00000000-0"></script>
-<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', 'UA-00000000-0');</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/lib/crypto-js.js"></script>
-<script src="/lib/blog-encrypt.js"></script>
-<link rel="stylesheet" href="/css/blog-encrypt.css">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java数组(3.9), Treecatee">
+    <meta name="description" content="&amp;ensp;&amp;ensp;
+数组
+
+&amp;emsp;&amp;emsp;
+一、 一维数组  数组： 相同类型的数据元素按顺序组成的一种线性表，元素在数组中的相对位置由下标来指定。数组中的每个元素通过数组名加下标进行引用。 数组有什么用处？ 例：定义100">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Java数组(3.9) | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
 <body>
-<is-d2a57d></is-d2a57d>
-<script src="/runtime.a5dd35324ddfd942bef1.js"></script>
-<script src="/polyfills.bd3fb034406e30e3b5dc.js"></script>
-<script src="/main.dcb2507d5003b2c77884.en.js"></script></body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-calendar"></i>
+            
+            <span>时间轴</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/book" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>资源</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <i class="fa fa-edit"></i>
+            
+            <span>链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-calendar"></i>
+                
+                时间轴
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/book" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                资源
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-edit"></i>
+                
+                链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Java数组(3.9)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java学习/" target="_blank">
+                                <span class="chip bg-color">Java学习</span>
+                            </a>
+                        
+                            <a href="/tags/Java语言/" target="_blank">
+                                <span class="chip bg-color">Java语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-01-13
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        1.9k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        8 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>&ensp;<br>&ensp;</p>
+<center><font color="#3CB371" face="Comic sans MS" size="5"><strong>数组</strong></font></center>
+
+<p>&emsp;<br>&emsp;</p>
+<h3 id="一、-一维数组"><a href="#一、-一维数组" class="headerlink" title="一、 一维数组 "></a><font color="#FF6347" face="Comic sans MS">一、 一维数组 </font></h3><font face="Comic sans MS"><font color="red"> <strong>数组：</strong> </font><font color="#00B2EE"><strong>相同类型的数据元素按顺序组成的一种线性表</strong></font>，元素在数组中的相对位置由下标来指定。数组中的每个元素通过数组名加下标进行引用。<br><br><font color="red"> <strong>数组有什么用处？</strong> </font><br><font color="#009ACD"><em>例：定义100个int型变量，求这100个变量的和。</em></font><br>int x1,x2,x3…x100;<br>int sum;<br>sum=x1+x2+…+x100;<br>这样程序很复杂。<br><font color="#009ACD"><em>例：定义100个int型变量，求这100个变量的和。</em></font><br>有了数组后，可以这样编程：<br>int [] x=new int[100];<br>int sum=0;<br>for(int i=0;i&lt;100;i++)<br>{<br>     sum=sum+x[i];<br>}<br>这样使得程序编写方便很多。<br><br><font color="red"> <strong>注意：</strong> </font><br>Java中，数组是独立的<font color="#00B2EE"><strong>类</strong></font>，有自身的方法，<font color="#00B2EE"><strong>不只是变量的集合</strong></font>。在Java里创建一个数组，需要做如下的工作：<br>   （1）说明一个变量来存放该数组。<br>   （2）<font color="#00B2EE"><strong>建立一个新的数组对象</strong></font>（即创建数组空间）并把它赋给这个数组变量。<br>   （3）在该数组中存储信息。<br></font>
+
+<p>&emsp;&emsp;<font color="red"> <strong>↓↓</strong> </font></p>
+<blockquote>
+<p>例如：String list[ ]=new String[3];<br>             list[0]=“one”;<br>             list[1]=“two”;</p>
+</blockquote>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-1-一维数组的说明"><a href="#1-1-一维数组的说明" class="headerlink" title="1.1  一维数组的说明"></a><font color="#3CB371" face="Comic sans MS">1.1  一维数组的说明</font></h4><font face="Comic sans MS">同其他类变量一样，在使用数组前必须先说明它，一维数组说明的格式如下：<br><font color="red">&emsp;       类型    数组名[ ]；<br>    或 类型[ ]    数组名；<br></font></font>
+
+<blockquote>
+<p>例如：int list[ ];<br>            int[] list;<br>            String[] args;<br>            String args[];</p>
+</blockquote>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-2-创建数组空间"><a href="#1-2-创建数组空间" class="headerlink" title="1.2  创建数组空间"></a><font color="#3CB371" face="Comic sans MS">1.2  创建数组空间</font></h4><font face="Comic sans MS">创建数组空间必须声明数组的长度，以确定所开辟的内存空间的大小，在Java中实际上就是通过new创建一个新的数组对象并把它赋给这个数组变量。其语法格式如下：<br><font color="red">&emsp;&emsp;&emsp;数组名=new 数组元素类型[数组元素个数]</font><br>例如：int[] list;   list=new int[3];<br><br>数组的说明和构造合并在一起，其语法格式如下：<br><font color="red">&emsp;&emsp;&emsp;          类型 数组名[ ]=new 数组元素类型[数组元素个数]；]</font><br>例如：int list[ ]=new int[3];<br></font>
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-3-数组的初始化"><a href="#1-3-数组的初始化" class="headerlink" title="1.3  数组的初始化"></a><font color="#3CB371" face="Comic sans MS">1.3  数组的初始化</font></h4><font face="Comic sans MS"><font color="red"><strong>1. 数组的初始化方式有两种：</strong></font><br>(1) 像初始化简单类型一样自动初始化数组，即在说明数组的同时进行初始化；<br>&emsp;&emsp;<font color="red">     int a[]={1,2,3,4}</font><br>(2) 先定义数组，然后为每个元素赋值。例如：<br>&emsp;&emsp;<font color="red">     int b[]=new int[3];</font><br>&emsp;&emsp;<font color="red">     b[0]=8;b[1]=9;</font><br>&emsp;<br><font color="red"><strong>2. 这样初始化也可以!</strong></font><br>另一种形式1：<br><font color="red">int[] a=new int[]{1,2,3,4};</font>&emsp;&emsp; 等价于: int[] a={1,2,3,4}<br>{}中的元素个数决定了[]中的元素个数。{}中的元素取值决定了数组a各个元素的取值。<br><br>另一种形式2：<br><font color="red">int[] a;<br>a=new int[]{1,2,3,4};</font><br>等价于：int[] a=new int[3];<br>&emsp;&emsp;&emsp;&emsp; a[0]=1;a[1]=2;a[2]=3;<br>&emsp;&emsp;&emsp;&emsp; a[3]=4<br></font>
+
+<blockquote>
+<p>但是这样定义是错误的：<br>int[] a;<br>a={1,2,3,4};</p>
+</blockquote>
+<font face="Comic sans MS"><font color="red"><strong>定义数组要注意：</strong></font><br>(1) 不能这样定义数组：<br>&emsp;&emsp;&emsp;&emsp;          int a[5];<br>(2)不能这样初始化数组：<br>&emsp;&emsp;&emsp;&emsp;          int[] a;   a={1,2,3,4};<br>(3)使用new 创建数组之后，数组中的每个元素被自动初始化为0。<br>&emsp;&emsp;&emsp;&emsp;         int [] a=new int[10];<br>&emsp;&emsp;&emsp;&emsp;         for(int i=0;i&lt;10;i++)<br>&emsp;&emsp;&emsp;&emsp;           { System.out.println(“a[“+i+”]=”+a[i]);<br>&emsp;&emsp;&emsp;&emsp;           }<br></font>
+
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-4-数组元素的使用"><a href="#1-4-数组元素的使用" class="headerlink" title="1.4  数组元素的使用"></a><font color="#3CB371" face="Comic sans MS">1.4  数组元素的使用</font></h4><font face="Comic sans MS">数组元素的表示方式为：<br>&emsp;&emsp;&emsp;&emsp; <font color="red">数组名[下标]</font><br>&emsp;<br><font color="red"><strong>使用数组时要注意：</strong></font><br>（1）数组越界异常:<font color="#00B2EE"><strong>Java在对数组元素操作时会对数组下标进行越界检查，以保证安全性。</strong></font>若在Java程序中超出了对数组下标的使用范围则在运行此程序时将出现如下错误信息：<br>&emsp;&emsp;    <em>Exception in thread “main”             Java.lang.ArrayIndexOutOfBoundsException</em><br>如下的错误即数组越界：int x[]={1,2,3,4};System.out.println(x[4]);<br><br>（2）每个数组都有一个属性length来指明其长度，字符串String用length()。<br>&emsp;&emsp;<font color="red">         <strong>list.length;</strong></font>
+
+<p>（3）空指针异常<br></p></font><p></p>
+<pre class="line-numbers language-java"><code class="language-java">数组长度lengh的使用
+<span class="token keyword">int</span> x<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">;</span>                  <span class="token keyword">int</span> x<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">100</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>              <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>x<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>    
+<span class="token punctuation">{</span>  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">{</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>                                   <span class="token punctuation">}</span>
+
+空指针如下使用会导致错误
+<span class="token keyword">int</span> x<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+x<span class="token operator">=</span>null<span class="token punctuation">;</span>
+x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;<br>&emsp;</p>
+<h4 id="1-5-一维数组使用举例"><a href="#1-5-一维数组使用举例" class="headerlink" title="1.5  一维数组使用举例"></a><font color="#3CB371" face="Comic sans MS">1.5  一维数组使用举例</font></h4><pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>例3-12<span class="token punctuation">]</span> 练习数组的创建和使用
+<span class="token punctuation">[</span>例3-13<span class="token punctuation">]</span> 练习数组越界
+<span class="token punctuation">[</span>例3-14<span class="token punctuation">]</span> 数组作为函数的参数
+
+<span class="token punctuation">[</span>例3-12<span class="token punctuation">]</span> HalfDollars.java 练习数组的创建与使用
+class HalfDollars<span class="token punctuation">{</span>
+    public static void main<span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        int<span class="token punctuation">[</span><span class="token punctuation">]</span> denver<span class="token operator">=</span><span class="token punctuation">{</span>15000006,18810000,20752110<span class="token punctuation">}</span><span class="token punctuation">;</span>
+        int<span class="token punctuation">[</span><span class="token punctuation">]</span> philadelphia<span class="token operator">=</span>new int<span class="token punctuation">[</span>denver.length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        int<span class="token punctuation">[</span><span class="token punctuation">]</span> total<span class="token operator">=</span>new int<span class="token punctuation">[</span>denver.length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        int average<span class="token punctuation">;</span>
+
+        philadelphia<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span>15020000<span class="token punctuation">;</span>
+        philadelphia<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span>18709000<span class="token punctuation">;</span>
+        philadelphia<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token operator">=</span>21348000<span class="token punctuation">;</span>
+
+        total<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span>denver<span class="token punctuation">[</span>0<span class="token punctuation">]</span>+philadelphia<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        total<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span>denver<span class="token punctuation">[</span>1<span class="token punctuation">]</span>+philadelphia<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        total<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token operator">=</span>denver<span class="token punctuation">[</span>2<span class="token punctuation">]</span>+philadelphia<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        average<span class="token operator">=</span><span class="token punctuation">(</span>total<span class="token punctuation">[</span>0<span class="token punctuation">]</span>+total<span class="token punctuation">[</span>1<span class="token punctuation">]</span>+total<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token punctuation">)</span>/3<span class="token punctuation">;</span>
+        System.out.println<span class="token punctuation">(</span><span class="token string">"1993 production:"</span>+total<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System.out.println<span class="token punctuation">(</span><span class="token string">"1994 production:"</span>+total<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System.out.println<span class="token punctuation">(</span><span class="token string">"1995 production:"</span>+total<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System.out.println<span class="token punctuation">(</span><span class="token string">"Average production:"</span>+average<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+运行结果：
+1993 production:30020006
+1994 production:37519000
+1995 production:42100110
+Average production:36546372
+
+
+<span class="token punctuation">[</span>例3-13<span class="token punctuation">]</span> ChoiceSort.java 数组的越界
+public class ChoiceSort
+<span class="token punctuation">{</span>
+    public static void main<span class="token punctuation">(</span>String arg<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+     <span class="token punctuation">{</span>   int i,min<span class="token punctuation">;</span>
+          int str<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span>2,13,41,58,32<span class="token punctuation">}</span><span class="token punctuation">;</span>
+          for<span class="token punctuation">(</span>i<span class="token operator">=</span>0<span class="token punctuation">;</span>i<span class="token operator">&lt;</span>5<span class="token punctuation">;</span>i++<span class="token punctuation">)</span>
+          <span class="token punctuation">{</span>
+             min<span class="token operator">=</span>i<span class="token punctuation">;</span>
+            for<span class="token punctuation">(</span>int j<span class="token operator">=</span>i+1<span class="token punctuation">;</span>j<span class="token operator">&lt;</span>6<span class="token punctuation">;</span>j++<span class="token punctuation">)</span>
+             <span class="token punctuation">{</span>      
+               if<span class="token punctuation">(</span>str<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token operator">></span>str<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                  <span class="token punctuation">{</span>
+                  int at<span class="token operator">=</span>str<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                  str<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>str<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                  str<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token operator">=</span>at<span class="token punctuation">;</span>
+                 <span class="token punctuation">}</span>
+             <span class="token punctuation">}</span>  
+          <span class="token punctuation">}</span>
+        for<span class="token punctuation">(</span>i<span class="token operator">=</span>0<span class="token punctuation">;</span>i<span class="token operator">&lt;</span>5<span class="token punctuation">;</span>i++<span class="token punctuation">)</span>
+        System.out.println<span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span>+<span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+运行结果：
+程序没能正常运行，抛出了“java.lang.ArrayIndexOutOfBoundsException”异常。 
+
+
+例<span class="token punctuation">[</span>3-14<span class="token punctuation">]</span> test.java 数组作为函数的参数
+class <span class="token function">test</span>  
+<span class="token punctuation">{</span>   static void change<span class="token punctuation">(</span>int <span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">)</span>  //输出a<span class="token punctuation">[</span>0<span class="token punctuation">]</span>和a<span class="token punctuation">[</span>1<span class="token punctuation">]</span>中大的那个数
+    <span class="token punctuation">{</span>    int t<span class="token punctuation">;</span>
+         if<span class="token punctuation">(</span>a<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">&lt;</span>a<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token punctuation">)</span>
+         <span class="token punctuation">{</span>        t<span class="token operator">=</span>a<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                  a<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                  a<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span>t<span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         System.out.println<span class="token punctuation">(</span>a<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    public static void main<span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+   <span class="token punctuation">{</span>    int x<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span>5,12<span class="token punctuation">}</span><span class="token punctuation">;</span>
+        change<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>     //调用过后，数组x可能发生变化
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<hr>
+<p>&emsp;<br>&emsp;</p>
+<h3 id="二、-二维数组"><a href="#二、-二维数组" class="headerlink" title="二、 二维数组 "></a><font color="#FF6347" face="Comic sans MS">二、 二维数组 </font></h3><font face="Comic sans MS">Java中的多维数组实际上是数组的数组。不一定是规则的矩阵数组。<br><font color="red">多维数组：数组的数组，例如，二维数组为一个特殊的一维数组，其每个元素又是一个一维数组<br></font></font>
+
+<p><img src="https://i.loli.net/2019/01/13/5c3ad27f549bb.png" alt="1.png"><img src="https://i.loli.net/2019/01/13/5c3ad282ed579.png" alt="2.png"></p>
+<p>&emsp;<br>&emsp;</p>
+<font face="Comic sans MS"><font color="#00B2EE"><strong>二维数组说明的格式为：</strong></font><br><font color="red">&emsp;  类型    数组名[ ][ ]；<br>      或                  类型[ ][ ]     数组名；<br></font><br>例如，说明一个整型的二维数组如下：<br><font color="red">&emsp;    int intArray[ ][ ];或 int[ ][ ] intArray;<br></font>
+
+<p>&emsp;</p>
+<font color="#00B2EE"><strong>二维数组的创建：</strong></font><br>直接为每一维分配空间，如：<br><font color="red">&emsp;       int a[ ][ ]=new int[2][3];</font><br></font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a[0][0]</td>
+<td style="text-align:center">a[0][1]</td>
+<td style="text-align:center">a[0][2]</td>
+</tr>
+<tr>
+<td style="text-align:center">a[1][0]</td>
+<td style="text-align:center">a[1][1]</td>
+<td style="text-align:center">a[1][2]</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;</p>
+<font face="Comic sans MS"><font color="#00B2EE"><strong>从最高维开始，分别为每一维分配空间，如：</strong></font><br>int b[ ][ ]=new int[2][ ];<br>b[0]=new int[3];<br>b[1]=new int[5];<br></font>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">b[0][0]</td>
+<td style="text-align:center">b[0][1]</td>
+<td style="text-align:center">b[0][2]</td>
+</tr>
+<tr>
+<td style="text-align:center">b[1][0]</td>
+<td style="text-align:center">b[1][1]</td>
+<td style="text-align:center">b[1][2]</td>
+<td>b[1][3]</td>
+<td>b[1][4]</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;</p>
+<font face="Comic sans MS"><font color="#00B2EE"><strong>元素的初始化：</strong></font><br>（1）直接对每个元素进行赋值。<br>（2）在说明数组的同时进行初始化。<br></font>
+
+<pre class="line-numbers language-bash"><code class="language-bash">例如：  int<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token operator">=</span>new int<span class="token punctuation">[</span>3<span class="token punctuation">]</span><span class="token punctuation">[</span>2<span class="token punctuation">]</span>：
+              a<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span>2； a<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span>3
+              a<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span>1； a<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span>5
+              a<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span>3； a<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span>4  
+等价于：int a<span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>2,3<span class="token punctuation">}</span>,<span class="token punctuation">{</span>1,5<span class="token punctuation">}</span>,<span class="token punctuation">{</span>3,4<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;</p>
+<font face="Comic sans MS"><font color="red"><strong>总结：与数组操作相关的系统函数</strong></font><br><font color="#00B2EE"><strong>（1）使用Arrays.sort来对数组排序</strong></font><br>int x[]=new int[]{3,2,1,4};<br>java.util.Arrays.sort(x);  //对数组x内的元素进行排序（升序）<br>for(int i=0;i &lt; x.length;i++)<br>{<br>      System.out.println(x[i]);<br>}<br><br><font color="#00B2EE"><strong>（2）使用Arrays.binarySearch函数对数组进行二分查找</strong></font><br>int [] x=new int[]{2,5,1,6,8,3};<br>java.util.Arrays.sort(x);<br>System.out.println(java.util.Arrays.binarySearch(x,1));   //二分查找，在数组x中查找1，输出0 ;如果没找到，则会输出一个&lt;0的数<br><br><font color="#00B2EE"><strong>（3）使用System.arraycopy函数拷贝数组</strong></font><br>int [] x;<br>x=new int[]{3,1,2,4};<br>int [] y;<br>y=new int[4];<br>System.arraycopy(x,0,y,0,4);<br>//将数组x内的 4个元素拷贝给数组y<br><br><font color="#00B2EE"><strong>（4）使用Ayyars.fill函数填充数组</strong></font><br>int [] x;<br>x=new int[]{3,1,2,4};<br>java.util.Arrays.fill(x,7);    //数组x中的4个元素都改为7<br></font>
+
+<hr>
+<hr>
+<p>&emsp;<br>&emsp;<br>&emsp;<br>&emsp;</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/post/java-language-2-4/" class="b-link-green">Java数组(3.9)</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f0e6b43ea59ab9e24a70',
+        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
+        repo: 'Directoree.github.io',
+        owner: 'Directoree',
+        admin: "Directoree",
+        id: '2019-01-13T11-30-23',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'Treecatee.gitgub.io/post/java-language-2-4/';
+        this.page.identifier = '/post/java-language-2-4/';
+        this.page.title = 'Java数组(3.9)';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/post/wireshark-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Wireshark简单介绍和数据包分析">
+                        
+                        <span class="card-title">Wireshark简单介绍和数据包分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">&ensp;&ensp;
+Wireshark-Acquaintance
+
+&emsp;&emsp;
+前言Wireshark是一款世界范围最广、最好用的网络封包分析软件，功能强大，界面友好直观，操作起来非常方便。它的创始人是Gerald Co</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Web-Tools/" class="post-category" target="_blank">
+                                    Web-Tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Web/" target="_blank">
+                        <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="/tags/Wireshark/" target="_blank">
+                        <span class="chip bg-color">Wireshark</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/java-language-2-3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Java简单语句、复合语句、控制语句(3.7-3.8)">
+                        
+                        <span class="card-title">Java简单语句、复合语句、控制语句(3.7-3.8)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">&ensp;&ensp;
+简单语句和复合语句 &amp; 控制语句
+
+&emsp;&emsp;
+一、 简单语句和复合语句 1.1  变量定义语句 变量定义语句用来定义一个变量，基本格式为：&emsp;&emsp;            类型</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java学习/" target="_blank">
+                        <span class="chip bg-color">Java学习</span>
+                    </a>
+                    
+                    <a href="/tags/Java语言/" target="_blank">
+                        <span class="chip bg-color">Java语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Treecatee<br />'
+            + 'Author: Treecatee<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">165.4k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-mixcloud"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
 </html>

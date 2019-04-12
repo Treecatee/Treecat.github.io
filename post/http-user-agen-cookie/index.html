@@ -1,41 +1,963 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="">
+
+
 <head><meta name="generator" content="Hexo 3.8.0">
-<meta charset="utf-8">
-<title>《HTTP协议请求头部的User-Agen和Cookie》 - Treecatee</title>
-<base href="/">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link rel="canonical" href="Treecatee.gitgub.io/post/HTTP-User-Agen-Cookie/">
-<link rel="icon" type="image/x-icon" href="/favicon/favicon1.ico">
-<meta name="description" content="&amp;ensp; 一、User-Agen注意在HTTP头部参数的首字母大写格式！ 🌸1.1 什么是User-Agen1.1.1、 Http Header之User-Agen的User-Agen中文名为用户代理，是Http协议中的一部分，属于头域的组成部分，User Agent也简称UA。它是一个特殊字符串头，是一种向访问网站提供你所使用的浏览器类型及版本、操作系统及版本、浏览器内核、等信息的标识。通">
-<meta name="keywords" content="User-Agen,Cookie">
-<meta property="og:type" content="website">
-<meta property="og:title" content="《HTTP协议请求头部的User-Agen和Cookie》">
-<meta property="og:url" content="Treecatee.gitgub.io/post/HTTP-User-Agen-Cookie/index.html">
-<meta property="og:site_name" content="Treecatee">
-<meta property="og:description" content="&amp;ensp; 一、User-Agen注意在HTTP头部参数的首字母大写格式！ 🌸1.1 什么是User-Agen1.1.1、 Http Header之User-Agen的User-Agen中文名为用户代理，是Http协议中的一部分，属于头域的组成部分，User Agent也简称UA。它是一个特殊字符串头，是一种向访问网站提供你所使用的浏览器类型及版本、操作系统及版本、浏览器内核、等信息的标识。通">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.loli.net/2018/12/24/5c20d05c80016.jpg">
-<meta property="og:updated_time" content="2018-12-24T12:26:08.763Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《HTTP协议请求头部的User-Agen和Cookie》">
-<meta name="twitter:description" content="&amp;ensp; 一、User-Agen注意在HTTP头部参数的首字母大写格式！ 🌸1.1 什么是User-Agen1.1.1、 Http Header之User-Agen的User-Agen中文名为用户代理，是Http协议中的一部分，属于头域的组成部分，User Agent也简称UA。它是一个特殊字符串头，是一种向访问网站提供你所使用的浏览器类型及版本、操作系统及版本、浏览器内核、等信息的标识。通">
-<meta name="twitter:image" content="https://i.loli.net/2018/12/24/5c20d05c80016.jpg">
-<link rel="alternate" type="application/atom+xml" title="Treecatee" href="/atom.xml">
-<link rel="stylesheet" href="/fonts.b9b22ef890c930ac7a13.css">
-<link rel="stylesheet" href="/styles.f3ea1e219d757e5d89f5.css">
-<link rel="stylesheet" href="/theme.c91cdd15db368b9911b7.css">
-<script src="/config.2b306c25302103b359da.js"></script>
-<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"url":"Treecatee.gitgub.io","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg","description":"得之我幸，失之我命。","author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"}},{"@context":"http://schema.org","@type":"Article","articleSection":"HTTP协议","url":"Treecatee.gitgub.io/post/http-user-agen-cookie/","headline":"《HTTP协议请求头部的User-Agen和Cookie》","image":"https://i.loli.net/2018/12/24/5c20d05c80016.jpg","datePublished":"2018-12-18T07:07:00.000Z","dateModified":"2018-12-24T12:26:08.763Z","keywords":"User-Agen,Cookie","description":"得之我幸，失之我命。","publisher":{"@type":"Organization","name":"Treecatee","logo":{"@type":"ImageObject","url":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"}},"author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"},"mainEntityOfPage":{"@type":"WebPage","@id":"Treecatee.gitgub.io/post/http-user-agen-cookie/"},"thumbnailUrl":"https://i.loli.net/2018/12/24/5c20d05c80016.jpg"}]</script><script async src="//www.googletagmanager.com/gtag/js?id=UA-00000000-0"></script>
-<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', 'UA-00000000-0');</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/lib/crypto-js.js"></script>
-<script src="/lib/blog-encrypt.js"></script>
-<link rel="stylesheet" href="/css/blog-encrypt.css">
+    <meta charset="utf-8">
+    <meta name="keywords" content="《HTTP协议请求头部的User-Agen和Cookie》, Treecatee">
+    <meta name="description" content="&amp;ensp;
+一、User-Agen注意在HTTP头部参数的首字母大写格式！
+🌸1.1 什么是User-Agen1.1.1、 Http Header之User-Agen的User-Agen中文名为用户代理，是Http协议中的一部分，属于头">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>《HTTP协议请求头部的User-Agen和Cookie》 | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
 <body>
-<is-d2a57d></is-d2a57d>
-<script src="/runtime.a5dd35324ddfd942bef1.js"></script>
-<script src="/polyfills.bd3fb034406e30e3b5dc.js"></script>
-<script src="/main.dcb2507d5003b2c77884.en.js"></script></body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-calendar"></i>
+            
+            <span>时间轴</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/book" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>资源</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <i class="fa fa-edit"></i>
+            
+            <span>链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-calendar"></i>
+                
+                时间轴
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/book" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                资源
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-edit"></i>
+                
+                链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        《HTTP协议请求头部的User-Agen和Cookie》
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/User-Agen/" target="_blank">
+                                <span class="chip bg-color">User-Agen</span>
+                            </a>
+                        
+                            <a href="/tags/Cookie/" target="_blank">
+                                <span class="chip bg-color">Cookie</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/HTTP协议/" class="post-category" target="_blank">
+                                HTTP协议
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-12-18
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        2.7k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        9 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>&ensp;</p>
+<h4 id="一、User-Agen"><a href="#一、User-Agen" class="headerlink" title="一、User-Agen"></a><font color="red">一、User-Agen</font></h4><p><strong>注意在HTTP头部参数的首字母大写格式！</strong></p>
+<h5 id="🌸1-1-什么是User-Agen"><a href="#🌸1-1-什么是User-Agen" class="headerlink" title="🌸1.1 什么是User-Agen"></a>🌸<font color="red" face="楷体">1.1 什么是User-Agen</font></h5><table><tr><td bgcolor="#EDEDED"><font face="楷体"><font color="#008B45"><strong>1.1.1</strong>、</font> Http Header之User-Agen的User-Agen中文名为用户代理，是Http协议中的一部分，属于头域的组成部分，User Agent也简称UA。它是一个特殊字符串头，是一种向访问网站提供你所使用的浏览器类型及版本、操作系统及版本、浏览器内核、等信息的标识。通过这个标识，用户所访问的网站可以显示不同的排版从而为用户提供更好的体验或者进行信息统计；例如用手机访问谷歌和电脑访问是不一样的，这些是谷歌根据访问者的UA来判断的。UA可以进行伪装。<font color="red">浏览器的UA字串的标准格式：浏览器标识 (操作系统标识; 加密等级标识; 浏览器语言)渲染引擎标识版本信息</font>。但各个浏览器有所不同。</font></td></tr></table><table><tr><td bgcolor="#EDEDED"><font face="楷体"><font color="#008B45"><strong>1.1.2</strong>、</font>用较为普通的一点来说，是一种向访问网站提供你所使用的浏览器类型、操作系统及版本、CPU 类型、浏览器渲染引擎、浏览器语言、浏览器插件等信息的标识。UA字符串在每次浏览器 HTTP 请求时发送到服务器！User-Agen也是用户识别的重要部分，通过分析，能知道用户使用的是什么设备、什么浏览器、什么应用等，进而可以分析其购买力、属性、职业等。</font></td></tr></table>
+
+
+<p>&ensp;</p>
+<h5 id="🌸1-2-对UA字串的说明"><a href="#🌸1-2-对UA字串的说明" class="headerlink" title="🌸1.2 对UA字串的说明"></a><font color="red" face="楷体">🌸1.2 对UA字串的说明</font></h5><font face="楷体"><font color="#008B45"><strong>1.2.1</strong> </font><br><font face="仿体">&emsp;出于兼容及推广等目的，很多浏览器的标识相同，因此浏览器标识并不能说明浏览器的真实版本，真实版本信息在 UA 字串尾部可以找到。</font></font>
+
+<hr>
+<hr>
+<font face="仿体"><font color="#008B45"><strong>1.2.2</strong> <strong>操作系统标识</strong></font><br><img src="https://s1.ax1x.com/2018/12/18/FBlnde.jpg" alt="FBlnde.jpg"></font>
+
+<hr>
+<hr>
+<font face="仿体"><font color="#008B45"><strong>1.2.3</strong> <strong>加密等级标识</strong></font><br>&emsp;N: 表示无安全加密<br>&emsp;I: 表示弱安全加密<br>&emsp;U: 表示强安全加密</font>
+
+<hr>
+<hr>
+<font face="仿体"><font color="#008B45"><strong>1.2.4</strong> <strong>浏览器语言</strong></font><br>&emsp;在首选项 &gt; 常规 &gt; 语言中指定的语言</font>
+
+<hr>
+<hr>
+<font face="仿体"><font color="#008B45"><strong>1.2.5</strong> <strong>渲染引擎</strong></font><br>&emsp;显示浏览器使用的主流渲染引擎有：Gecko、WebKit、KHTML、Presto、Trident、Tasman等，格式为：渲染引擎/版本信息</font>
+
+<hr>
+<hr>
+<font face="仿体"><font color="#008B45"><strong>1.2.6</strong> <strong>版本信息</strong></font><br>&emsp;显示浏览器的真实版本信息，格式为：浏览器/版本信息<br>注：<br>1、在广告定向设定中，浏览器定向和操作系统定向均是针对User-Agent中的信息进行定向。<br>2、欲了解更多的User-Agent信息，请参考User-Agen 字串史</font>
+
+<hr>
+<hr>
+<p>&ensp;</p>
+<h5 id="🌸1-3-User-Agen的作用"><a href="#🌸1-3-User-Agen的作用" class="headerlink" title="🌸1.3 User-Agen的作用"></a><font color="red">🌸1.3 User-Agen的作用</font></h5><table><tr><td bgcolor="#EDEDED"><font face="楷体">通过user-agent不能完全准确的判断是属于那款浏览器。由于UA字符串在每次浏览器HTTP 请求时发送到服务器，所以服务器就可以根据它来做好多事。<br>比如：<br>1、统计用户浏览器使用情况。有些浏览器说被多少人使用了，实际上就可以通过判断每个IP的UA来确定这个IP是用什么浏览器访问的，以得到使用量的数据。<br>2、根据用户使用浏览器的不同，显示不同的排版从而为用户提供更好的体验。有些网站会根据这个来调整打开网站的类型,如是手机的就打开wap，显示非手机的就打开pc常规页面。用手机访问谷歌和电脑访问是不一样的，这些是谷歌根据访问者的UA来判断的。<br>既然知道了UA的作用，那么其实客户端也可以使用UA来做一些神奇的事。<br>比如：伪装 User-Agen 来回避某些侦测特定浏览器才能读取的网站。<br>如果使用Firefox浏览器插件User-Agen switcher，用户就可以轻松地在不同UA之间切换，把自己伪装成其他浏览器。这样就可以在PC上预览WAP或移动格式的网页，比如专门为iPhone设计的页面。</font></td></tr></table>
+
+<p>&ensp;</p>
+<h4 id="二、Cookie——用户追踪之基础技术"><a href="#二、Cookie——用户追踪之基础技术" class="headerlink" title="二、Cookie——用户追踪之基础技术"></a><font color="red">二、Cookie——用户追踪之基础技术</font></h4><h5 id="2-1-关于Cookie"><a href="#2-1-关于Cookie" class="headerlink" title="2.1 关于Cookie"></a><font color="red" face="楷体">2.1 关于Cookie</font></h5><h6 id="2-1-1-前言"><a href="#2-1-1-前言" class="headerlink" title="2.1.1 前言 "></a><font color="#008B45" face="楷体"><strong>2.1.1 前言</strong> </font></h6><font face="仿体">&emsp;Cookie是如此的重要，以至于我们后面要讲到的回头客定向、访客频次定向、用户定向等等都需要基于此技术才可以实现，并且我们日常工作中所能见到的第三方监测工具如doubleclick、99click、秒针等也都要利用cookie技术，网站分析工具如GA、百度统计、CNZZ等也需要利用Cookie。如果没有Cookie，互联网广告市场将受到巨大打击，尤其对于目前我们谈论的精准广告而言。如果没有Cookie，网站分析也不从做起，遑论优化了。<br></font>
+
+<hr>
+<hr>
+<h6 id="2-1-2-Cookie是什么"><a href="#2-1-2-Cookie是什么" class="headerlink" title="2.1.2 Cookie是什么 "></a><font color="#008B45" face="楷体"><strong>2.1.2 Cookie是什么</strong> </font></h6><font face="仿体">&emsp;Cookie在英文中是小甜品的意思，但在计算机语言中，Cookie指的是当你浏览某网站时，网站存储在你电脑上的一个小文本文件，伴随着用户请求和页面在 Web 服务器和浏览器之间传递。它记录了你的用户ID，密码、浏览过的网页、停留的时间等信息，用于用户身份的辨别。Cookie通常是以user@domain格式命名的，user是你的本地用户名，domain是所访问的网站的域名。</font>
+
+<hr>
+<hr>
+<h6 id="2-1-3-为什么要Cookie"><a href="#2-1-3-为什么要Cookie" class="headerlink" title="2.1.3 为什么要Cookie "></a><font color="#008B45" face="楷体"><strong>2.1.3 为什么要Cookie</strong> </font></h6><font face="仿体">&emsp;因为HTTP协议是无状态的，对于一个浏览器发出的请求，服务器无法区分是不是同一个来源，无法知道上一次用户做了什么。所以，需要额外的数据用于维护会话。 Cookie 正是这样的一段随HTTP请求一起被传递的额外数据，用于维护浏览器和服务器的会话。我们可以想象一个场景，你没有登录京东时在京东上购物，选择了3件商品放入购物车，在结算时，京东为什么还能知道这三件商品是什么？没错，是Cookie！</font>
+
+<hr>
+<hr>
+<h6 id="2-1-4-Cookie的工作原理"><a href="#2-1-4-Cookie的工作原理" class="headerlink" title="2.1.4 Cookie的工作原理 "></a><font color="#008B45" face="楷体"><strong>2.1.4 Cookie的工作原理</strong> </font></h6><font face="仿体">&emsp;Cookie利用网页代码中的HTTP头信息，伴随着用户请求和页面在 Web 服务器和浏览器之间传递。例如：当你在浏览器地址栏中键入了Amazon的URL，浏览器会向Amazon发送一个读取网页的请求，并将结果在显示器上显示。在发送之前，该网页在你的电脑上寻找Amazon网站设置的Cookie文件，如果找到，浏览器会把Cookie文件中的数据连同前面输入的URL一同发送到Amazon服务器。服务器收到Cookie数据，就会在他的数据库中检索你的ID，你的购物记录、个人喜好等信息，并记录下新的内容，增加到数据库和Cookie文件中去。如果没有检测到Cookie或者你的Cookie信息与数据库中的信息不符合，则说明你是第一次浏览该网站，服务器的CGI程序将为你创建新的ID信息，并保存到数据库中。（此例子来源于百度百科——Cookie）</font>
+
+<hr>
+<hr>
+<h6 id="2-1-5-关于Cookie的一些知识点"><a href="#2-1-5-关于Cookie的一些知识点" class="headerlink" title="2.1.5 关于Cookie的一些知识点 "></a><font color="#008B45" face="楷体"><strong>2.1.5 关于Cookie的一些知识点</strong> </font></h6><font face="仿体">&emsp;1、Cookie是基于浏览器的，因此当电脑上安装多个浏览器时，服务器会生成多个Cookie。虽然是同一个人，但服务器是识别为多个用户。<br>&emsp;2、Cookie是基于浏览器的，因此当同一台电脑有多个人使用时，服务器也只会生成一个Cookie。虽然是多个人，但服务器会认为是一个用户。<br>&emsp;3、Cookie是无法跨设备进行设置的。比如我们在单位和家里分别使用两台电脑，即使我们使用同一种同一版本的浏览器，我们还是生成了两个Cookie，服务器会认为是两个用户。（PS：现在有些浏览器可以同步数据，比如Chrome、Friefox，可以避免这种问题）<br><font color="red">请注意：以上所说的Cooke指的全部是Http Cookie。有一种Cookie——Flash Cookie，可以解决多浏览器的问题</font></font>
+
+<hr>
+<hr>
+<h6 id="2-1-6-关于Flash-Cookie"><a href="#2-1-6-关于Flash-Cookie" class="headerlink" title="2.1.6 关于Flash Cookie "></a><font color="#008B45" face="楷体"><strong>2.1.6 关于Flash Cookie</strong> </font></h6><font face="仿体">&emsp;FlashCookie是由FlashPlayer控制的客户端共享存储技术，鉴于目前Flash技术的普遍性，几乎所有的网站都采用，所以具有同Http Cookie一样的作用。在技术上，通过使用JavaScript与ActionScript可以将Http Cookie和Flash Cookie进行互通。<br>Flash cookie的优势在于：<br>1、跨浏览器<br>不管用户的计算机上安装了多少个浏览器或者浏览器的不同版本，使用Flash Cookie能够使所有的浏览器共用一个Cookie。<br>2、不易删除<br>所有的浏览器均提供了清除Http Cookie的快捷方式，但Flash Cookie并没有此种方式，并且其保存位置非常隐蔽，网民难以删除。<br>3、容量更大<br>Flash Cookie可以容纳最多100千字节的数据，而一个标准的HTTP Cookie只有4千字节。</font>
+
+<hr>
+<hr>
+<h6 id="2-1-7-Cookie的数量"><a href="#2-1-7-Cookie的数量" class="headerlink" title="2.1.7 Cookie的数量 "></a><font color="#008B45" face="楷体"><strong>2.1.7 Cookie的数量</strong> </font></h6><font face="仿体">&emsp;1、大多数浏览器支持最大为 4096 字节的 Cookie。因此最好用 Cookie 来存储用户 ID 之类的标识符，用户的详细信息则通过用户 ID从数据库或其他数据源中读取。<br>&emsp;2、浏览器还限制站点可以在用户计算机上存储的 Cookie 的数量。大多数浏览器只允许每个站点存储 20 个 Cookie；当存储更多 Cookie时，最旧的 Cookie 便会被丢弃。有些浏览器还会对它们将接受的来自所有站点的 Cookie 总数作出绝对限制，通常为 300 个。 </font>
+
+<hr>
+<hr>
+<h6 id="2-1-8-Cookie的失效时间"><a href="#2-1-8-Cookie的失效时间" class="headerlink" title="2.1.8 Cookie的失效时间 "></a><font color="#008B45" face="楷体"><strong>2.1.8 Cookie的失效时间</strong> </font></h6><font face="仿体">&emsp;1、浏览器的Cookie设置会决定是否保存Cookie数据。如果浏览器不允许Cookie保存，则关掉浏览器后，这些数据就消失。<br>&emsp;2、如果浏览器允许保存Cookie，那么Cookie的时间由服务器的设置决定。Cookie有一个Expires（有效期）属性，这个属性决定了Cookie的保存时间，服务器可以通过设定Expires字段的数值，来改变Cookie的保存时间。如果不设置该属性，那么Cookie只在浏览网页期间有效，关闭浏览器，这些Cookie自动消失，绝大多数网站属于这种情况。通常情况下，Cookie包含Server、Expires、Name、value这几个字段，其中对服务器有用的只是Name和value字段，Expires等字段的内容仅仅是为了告诉浏览器如何处理这些Cookies。 </font>
+
+<hr>
+<hr>
+<p>参考：<a href="https://blog.csdn.net/u012195214/article/details/78889602" target="_blank" rel="noopener">《【总结】浏览器 User-Agent 大全》</a>、<a href="https://blog.csdn.net/xinyuan_java/article/details/66092335" target="_blank" rel="noopener">《User-Agent详解》</a>.<br>&ensp;<br>&ensp;<br>&ensp;<br>&ensp;</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/post/http-user-agen-cookie/" class="b-link-green">《HTTP协议请求头部的User-Agen和Cookie》</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f0e6b43ea59ab9e24a70',
+        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
+        repo: 'Directoree.github.io',
+        owner: 'Directoree',
+        admin: "Directoree",
+        id: '2018-12-18T15-07-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'Treecatee.gitgub.io/post/http-user-agen-cookie/';
+        this.page.identifier = '/post/http-user-agen-cookie/';
+        this.page.title = '《HTTP协议请求头部的User-Agen和Cookie》';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/post/java-language-2-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Java语言基础的字符常变量等(3.1-3.3)">
+                        
+                        <span class="card-title">Java语言基础的字符常变量等(3.1-3.3)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">&ensp;&ensp;
+标识符,注释和分隔符、变量和常量、基本类型&ensp;&ensp;
+一、 标识符、注释和分隔符📒标识符：是程序员用来标记语言中元素（变量、常量、类、对象等）名称的命名记号。
+Java中的标识符遵守先定义后使用的原</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java学习/" target="_blank">
+                        <span class="chip bg-color">Java学习</span>
+                    </a>
+                    
+                    <a href="/tags/Java语言/" target="_blank">
+                        <span class="chip bg-color">Java语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/xampp-dvwa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="XAMPP环境下配置DVWA">
+                        
+                        <span class="card-title">XAMPP环境下配置DVWA</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一、下载1. 下载XAMPP    2. 下载DVWA  
+
+&nbsp;
+二、给文件执行权限并安装XAMPP1. 在“下载”目录下，以“客户端运行” 
+
+sudo chmod a+x xampp-linux-x64-5.6.12-0-in</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/XAMPP-DVWA/" class="post-category" target="_blank">
+                                    XAMPP-DVWA
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DVWA/" target="_blank">
+                        <span class="chip bg-color">DVWA</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Treecatee<br />'
+            + 'Author: Treecatee<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">165.4k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-mixcloud"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
 </html>

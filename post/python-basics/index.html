@@ -1,41 +1,971 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="">
+
+
 <head><meta name="generator" content="Hexo 3.8.0">
-<meta charset="utf-8">
-<title>Python-基础 - Treecatee</title>
-<base href="/">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link rel="canonical" href="Treecatee.gitgub.io/post/Python-Basics/">
-<link rel="icon" type="image/x-icon" href="/favicon/favicon1.ico">
-<meta name="description" content="从今天开始Python的学习吧……ヾ(๑╹◡╹)ﾉ”">
-<meta name="keywords" content="Python语言">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Python-基础">
-<meta property="og:url" content="Treecatee.gitgub.io/post/Python-Basics/index.html">
-<meta property="og:site_name" content="Treecatee">
-<meta property="og:description" content="从今天开始Python的学习吧……ヾ(๑╹◡╹)ﾉ”">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.loli.net/2019/02/27/5c75f47d51065.jpg">
-<meta property="og:updated_time" content="2019-03-21T17:40:52.983Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python-基础">
-<meta name="twitter:description" content="从今天开始Python的学习吧……ヾ(๑╹◡╹)ﾉ”">
-<meta name="twitter:image" content="https://i.loli.net/2019/02/27/5c75f47d51065.jpg">
-<link rel="alternate" type="application/atom+xml" title="Treecatee" href="/atom.xml">
-<link rel="stylesheet" href="/fonts.b9b22ef890c930ac7a13.css">
-<link rel="stylesheet" href="/styles.f3ea1e219d757e5d89f5.css">
-<link rel="stylesheet" href="/theme.c91cdd15db368b9911b7.css">
-<script src="/config.2b306c25302103b359da.js"></script>
-<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"url":"Treecatee.gitgub.io","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg","description":"得之我幸，失之我命。","author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"}},{"@context":"http://schema.org","@type":"Article","articleSection":"Python","url":"Treecatee.gitgub.io/post/python-basics/","headline":"Python-基础","image":"https://i.loli.net/2019/02/27/5c75f47d51065.jpg","datePublished":"2019-02-27T02:18:37.000Z","dateModified":"2019-03-21T17:40:52.983Z","keywords":"Python语言","description":"从今天开始Python的学习吧……ヾ(๑╹◡╹)ﾉ”","publisher":{"@type":"Organization","name":"Treecatee","logo":{"@type":"ImageObject","url":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"}},"author":{"@type":"Person","name":"Treecatee","description":"得之我幸，失之我命。","image":"https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg"},"inLanguage":{"@type":"Language","alternateName":"en"},"mainEntityOfPage":{"@type":"WebPage","@id":"Treecatee.gitgub.io/post/python-basics/"},"thumbnailUrl":"https://i.loli.net/2019/02/27/5c75f47d51065.jpg"}]</script><script async src="//www.googletagmanager.com/gtag/js?id=UA-00000000-0"></script>
-<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', 'UA-00000000-0');</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/lib/crypto-js.js"></script>
-<script src="/lib/blog-encrypt.js"></script>
-<link rel="stylesheet" href="/css/blog-encrypt.css">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python-基础, Treecatee">
+    <meta name="description" content="从今天开始Python的学习吧……ヾ(๑╹◡╹)ﾉ”本文参考：
+[Python3 教程][廖雪峰的官方网站Python教程][Python编程：从入门到实践][Python 中文学习大本营-Python 3.6.X 官方教程]
+
+
+
+
+
+&amp;">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Python-基础 | Treecatee</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
 <body>
-<is-d2a57d></is-d2a57d>
-<script src="/runtime.a5dd35324ddfd942bef1.js"></script>
-<script src="/polyfills.bd3fb034406e30e3b5dc.js"></script>
-<script src="/main.dcb2507d5003b2c77884.en.js"></script></body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Treecatee</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-calendar"></i>
+            
+            <span>时间轴</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/book" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>资源</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/links" class="waves-effect waves-light">
+            
+            <i class="fa fa-edit"></i>
+            
+            <span>链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://i.loli.net/2019/02/21/5c6e41bfcc0d9.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Treecatee</div>
+        <div class="logo-desc">
+            
+            得之我幸，失之我命。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-calendar"></i>
+                
+                时间轴
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/book" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                资源
+            </a>
+        </li>
+        
+        <li>
+            <a href="/links" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-edit"></i>
+                
+                链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Python-基础
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Python语言/" target="_blank">
+                                <span class="chip bg-color">Python语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-02-27
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        273
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        1 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>从今天开始Python的学习吧……ヾ(๑╹◡╹)ﾉ”<br><a id="more"></a><br>本文参考：</p>
+<font color="#00B2EE">[<a href="http://www.runoob.com/python3/python3-tutorial.html" target="_blank" rel="noopener">Python3 教程</a>]</font><br><font color="#00B2EE">[<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431658624177ea4f8fcb06bc4d0e8aab2fd7aa65dd95000" target="_blank" rel="noopener">廖雪峰的官方网站Python教程</a>]</font><br><font color="#00B2EE">[<a href="http://www.ituring.com.cn/book/tupubarticle/10626" target="_blank" rel="noopener">Python编程：从入门到实践</a>]</font><br><font color="#00B2EE">[<a href="http://www.pythondoc.com/" target="_blank" rel="noopener">Python 中文学习大本营-Python 3.6.X 官方教程</a>]</font>
+
+
+
+
+
+<p>&ensp;<br>&ensp;</p>
+<center><font color="#00B2EE" face="Comic sans MS" size="5"><strong>Python 基础</strong></font> </center>
+
+
+
+<p>&emsp;<br>&emsp;</p>
+<h3 id="一-基础语法"><a href="#一-基础语法" class="headerlink" title="一. 基础语法"></a><font color="#FF6347" face="Comic sans MS">一. 基础语法</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/python-grammar" target="_blank" rel="noopener">Python-基础语法</a>]</strong></font><br></font>
+
+
+<p><br></p>
+<p><br></p>
+<h3 id="二-变量和数据类型"><a href="#二-变量和数据类型" class="headerlink" title="二. 变量和数据类型"></a><font color="#FF6347" face="Comic sans MS">二. 变量和数据类型</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/Python-variables-datatypes" target="_blank" rel="noopener">Python-变量和数据类型</a>]</strong></font><br></font>
+
+
+<p><br></p>
+<p><br></p>
+<h3 id="三-运算符"><a href="#三-运算符" class="headerlink" title="三. 运算符"></a><font color="#FF6347" face="Comic sans MS">三. 运算符</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/python-operators" target="_blank" rel="noopener">Python-运算符</a>]</strong></font><br></font>
+
+
+
+<p><br></p>
+<p><br></p>
+<h3 id="四-条件语句与循环"><a href="#四-条件语句与循环" class="headerlink" title="四. 条件语句与循环"></a><font color="#FF6347" face="Comic sans MS">四. 条件语句与循环</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/Python-conditionalstatements-loops" target="_blank" rel="noopener">Python-条件语句与循环</a>]</strong></font><br></font>
+
+
+
+<p><br></p>
+<p><br></p>
+<h3 id="五-字符编码、字符串、格式化"><a href="#五-字符编码、字符串、格式化" class="headerlink" title="五. 字符编码、字符串、格式化"></a><font color="#FF6347" face="Comic sans MS">五. 字符编码、字符串、格式化</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/python-coding" target="_blank" rel="noopener">Python-字符编码&amp;字符串&amp;格式化</a>]</strong></font><br></font>
+
+
+
+<p><br></p>
+<p><br></p>
+<h3 id="六-列表、元组、字典、集合"><a href="#六-列表、元组、字典、集合" class="headerlink" title="六. 列表、元组、字典、集合"></a><font color="#FF6347" face="Comic sans MS">六. 列表、元组、字典、集合</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/python-list-tuple-dict-set" target="_blank" rel="noopener">Python-列表、元组、字典、集合</a>]</strong></font><br></font>
+
+<p><br></p>
+<p><br></p>
+<h3 id="七-函数"><a href="#七-函数" class="headerlink" title="七. 函数"></a><font color="#FF6347" face="Comic sans MS">七. 函数</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/python-function" target="_blank" rel="noopener">Python-函数</a>]</strong></font><br></font>
+
+
+<p><br></p>
+<p><br></p>
+<h3 id="八-生成器与迭代器"><a href="#八-生成器与迭代器" class="headerlink" title="八. 生成器与迭代器"></a><font color="#FF6347" face="Comic sans MS">八. 生成器与迭代器</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/python-generator-iterator" target="_blank" rel="noopener">Python-生成器与迭代器</a>]</strong></font><br></font>
+
+<p><br></p>
+<p><br></p>
+<h3 id="九-模块和包"><a href="#九-模块和包" class="headerlink" title="九. 模块和包"></a><font color="#FF6347" face="Comic sans MS">九. 模块和包</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/python-modules-packages" target="_blank" rel="noopener">Python-模块和包</a>]</strong></font><br></font>
+
+
+
+<p><br></p>
+<p><br></p>
+<h3 id="十-函数式编程"><a href="#十-函数式编程" class="headerlink" title="十. 函数式编程"></a><font color="#FF6347" face="Comic sans MS">十. 函数式编程</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/Python-functionalprogramming" target="_blank" rel="noopener">Python-函数式编程</a>]</strong></font><br></font>
+
+
+
+
+<p><br></p>
+<p><br></p>
+<h3 id="十一-文件系统"><a href="#十一-文件系统" class="headerlink" title="十一. 文件系统"></a><font color="#FF6347" face="Comic sans MS">十一. 文件系统</font></h3><font face="Comic sans MS"><font color="#00B2EE"><strong>参见本站博客：[<a href="https://treecatee.github.io/post/python-filecontents" target="_blank" rel="noopener">Python-文件系统</a>]</strong></font><br></font>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">Buy me a cup of coffee ☕.</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="Treecatee.gitgub.io" class="b-link-green">Treecatee</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/post/python-basics/" class="b-link-green">Python-基础</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f0e6b43ea59ab9e24a70',
+        clientSecret: '054e8ba8fc711a575e0997af9417f550710b57a5',
+        repo: 'Directoree.github.io',
+        owner: 'Directoree',
+        admin: "Directoree",
+        id: '2019-02-27T10-18-37',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'Treecatee.gitgub.io/post/python-basics/';
+        this.page.identifier = '/post/python-basics/';
+        this.page.title = 'Python-基础';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/post/python-grammar/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Python-基础语法">
+                        
+                        <span class="card-title">Python-基础语法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">请务必注意，Python程序是大小写敏感的，如果写错了大小写，程序会报错。
+&ensp;&ensp;
+Python 基础语法 
+
+&emsp;&emsp;
+一. 标识符一、标识符定义规则
+
+
+在 Python 里，标识符由字母、数字、下划线</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python语言/" target="_blank">
+                        <span class="chip bg-color">Python语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/php-sessionmanagement/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="PHP-会话管理和控制">
+                        
+                        <span class="card-title">PHP-会话管理和控制</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">(。・∀・)ノ
+&ensp;&ensp;
+PHP 会话管理和控制
+
+&emsp;&emsp;
+一. 前言标准的http协议是无状态的，无连接的。？？？什么意思？⊙﹏⊙∥
+
+【无状态】
+
+协议对于事务处理没有记忆能力【事物处理】【记忆能力】
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PHP/" class="post-category" target="_blank">
+                                    PHP
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PHP语言/" target="_blank">
+                        <span class="chip bg-color">PHP语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Treecatee<br />'
+            + 'Author: Treecatee<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4,h5,h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5,h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">165.4k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://directoree.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1003432683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1003432683" class="tooltipped" data-tooltip="QQ联系我: 1003432683" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://music.163.com/#/user/home?id=455041480" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-mixcloud"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
 </html>
